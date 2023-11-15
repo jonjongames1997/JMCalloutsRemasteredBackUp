@@ -30,8 +30,7 @@ namespace JMCalloutsRemastered.Callouts
         {
             Spawnpoint = new Vector3(-535.76f, -849.20f, 29.44f); // Near Lucky Plucker in Little Seoul // 
             heading = 28.60f;
-            ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 2000f);
-            AddMaximumDistanceCheck(100f, Spawnpoint);
+            ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 1000f);
             CalloutMessage = "Citizens reporting a young female possibly selling her body for money.";
             CalloutPosition = Spawnpoint;
 

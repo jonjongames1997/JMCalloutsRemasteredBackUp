@@ -40,7 +40,6 @@ namespace JMCalloutsRemastered.Callouts
             scenario = new Random().Next(0, 100);
             Spawnpoint = World.GetNextPositionOnStreet(Game.LocalPlayer.Character.Position.Around(1000f));
             ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 1000f);
-            AddMinimumDistanceCheck(100f, Spawnpoint);
             CalloutMessage = "Citizen's reporting a person carrying a deadly weapon";
             CalloutPosition = Spawnpoint;
 
