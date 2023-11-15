@@ -12,14 +12,15 @@ namespace JMCalloutsRemastered
         internal static bool PersonWithAKnife = true;
         internal static bool _911HangUp = true;
         internal static bool PossibleProstitution = true;
-        internal static bool PublicDisturbance = false; // Disabled until a fix is made //
-        internal static bool RefuseToPay = true; // Must be in Sandy Shores to take this call //
+        internal static bool PublicDisturbance = true;
+        internal static bool RefuseToPay = true;
         internal static bool RefuseToLeave = true;
         internal static bool Soliciting = true;
         internal static bool TrespassingOnPrivateProperty = true;
         internal static bool TrespassingOnRailRoadProperty = true;
         internal static bool CodeKaren = true;
         internal static bool TrespassingOnConstructionProperty = true;
+        internal static bool LostIndividual = true;
         internal static bool HelpMessages = true;
         internal static Keys EndCall = Keys.End;
         internal static Keys Dialog = Keys.Y;
@@ -44,6 +45,7 @@ namespace JMCalloutsRemastered
             Settings.TrespassingOnRailRoadProperty = ini.ReadBoolean("Callouts", "TrespassingOnRailRoadProperty", true);
             Settings._911HangUp = ini.ReadBoolean("Callouts", "_911HangUp", true);
             Settings.TrespassingOnConstructionProperty = ini.ReadBoolean("Callouts", "TrespassingOnConstructionProperty", true);
+            Settings.LostIndividual = ini.ReadBoolean("Callouts", "LostIndividual", true);
             Settings.HelpMessages = ini.ReadBoolean("HelpMessages", "Help Messages", true);
             EndCall = ini.ReadEnum("Keys", "EndCall", Keys.End);
             Dialog = ini.ReadEnum("Keys", "Dialog", Keys.Y);

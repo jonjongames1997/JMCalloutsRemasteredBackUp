@@ -46,7 +46,7 @@ namespace JMCalloutsRemastered.Callouts
             victim.IsPersistent = true;
             victim.BlockPermanentEvents = true;
 
-            suspect = new Ped(spawnPoint, heading);
+            suspect = new Ped("PLAYER_ZERO", spawnPoint, heading);
             suspect.IsPersistent = true;
             suspect.BlockPermanentEvents = true;
 
@@ -107,7 +107,8 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if(counter == 6)
                     {
-                        Game.DisplaySubtitle("~r~Suspect: ~w~Die, you motherfucker, you! DIE!!!!!");
+                        Game.DisplaySubtitle("~r~Suspect: ~w~You motherfucker, you! DIE!!!!!");
+                        LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("YOUMOTHERFUCKERYOU");
                         suspect.Tasks.FightAgainst(Game.LocalPlayer.Character);
                         suspect.Inventory.GiveNewWeapon("WEAPON_GUSENBERG", 500, true);
                     }
@@ -125,10 +126,18 @@ namespace JMCalloutsRemastered.Callouts
 
         public override void End()
         {
-
-
+            if (victim.Exists())
+            {
+                victim.Dismiss();
+            }
+            if (vicBlip.Exists())
+            {
+                vicBlip.Delete();
+            }
 
             base.End();
+
+            Game.LogTrivial("[JM Callouts Remastered]: Lost Individual is CODE 4!");
         }
 
     }
