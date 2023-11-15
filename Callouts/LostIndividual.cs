@@ -4,130 +4,131 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Rage;
+using CalloutInterfaceAPI;
 using LSPD_First_Response.Mod.API;
 using LSPD_First_Response.Mod.Callouts;
 using System.Drawing;
-using CalloutInterfaceAPI;
 using System.Windows.Forms;
+
 
 namespace JMCalloutsRemastered.Callouts
 {
 
-
-    [CalloutInterface("Lost Individual", CalloutProbability.Medium, "An individual lost needs assistance", "Code 2", "LSPD")]
-
+    [CalloutInterface("Lost Individual", CalloutProbability.Medium, "A citizen's report of a lost person", "Code 2", "LSPD")]
 
     public class LostIndividual : Callout
     {
 
-
         // General Variables //
-        private Ped Suspect;
-        private Blip SuspectBlip;
-        private Vector3 Spawnpoint;
+        private Ped victim;
+        private Ped suspect;
+        private Blip vicBlip;
+        private Vector3 spawnPoint;
         private float heading;
-        private int Counter;
+        private int counter;
         private string malefemale;
 
 
         public override bool OnBeforeCalloutDisplayed()
         {
-            Spawnpoint = new Vector3(-673.41f, -227.52f, 37.09f); // Near Vangelico //
-            heading = 91.05f;
-            ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 2500f);
-            AddMinimumDistanceCheck(100f, Spawnpoint);
-            CalloutPosition = Spawnpoint;
+            spawnPoint = new Vector3();
+            heading = 125.69f;
+            ShowCalloutAreaBlipBeforeAccepting(spawnPoint, 1000f);
+            CalloutMessage = "Reports of a missing person";
+            CalloutPosition = spawnPoint;
 
             return base.OnBeforeCalloutDisplayed();
         }
 
         public override bool OnCalloutAccepted()
         {
-            Suspect = new Ped("IG_AMANDATOWNLEY", Spawnpoint, heading);
-            Suspect.IsPersistent = true;
-            Suspect.BlockPermanentEvents = true;
-            CalloutInterfaceAPI.Functions.SendMessage(this, "A citizens report of a lost individual. Description: Female, possibly in her late 40's or 50's, Wife of a Deranged male. Needs assistance.");
+            victim = new Ped("IG_AMANDATOWNLEY", spawnPoint, heading);
+            victim.IsPersistent = true;
+            victim.BlockPermanentEvents = true;
 
-            SuspectBlip = Suspect.AttachBlip();
-            SuspectBlip.Color = System.Drawing.Color.Purple;
-            SuspectBlip.IsRouteEnabled = true;
+            suspect = new Ped(spawnPoint, heading);
+            suspect.IsPersistent = true;
+            suspect.BlockPermanentEvents = true;
 
-            if (Suspect.IsMale)
+            CalloutInterfaceAPI.Functions.SendMessage(this, "Michael DeSanta reported his wife missing. Locate and help her get home safely, Officer.");
+
+            vicBlip = victim.AttachBlip();
+            vicBlip.Color = System.Drawing.Color.Pink;
+            vicBlip.IsRouteEnabled = true;
+
+            if (victim.IsMale)
                 malefemale = "Sir";
             else
                 malefemale = "Ma'am";
 
-            Counter = 0;
+            counter = 0;
 
             return base.OnCalloutAccepted();
         }
 
+        public override void OnCalloutNotAccepted()
+        {
+            if (victim) victim.Delete();
+            if (vicBlip) vicBlip.Delete();
+
+            base.OnCalloutNotAccepted();
+        }
+
         public override void Process()
         {
-            base.Process();
-
-            if(Game.LocalPlayer.Character.DistanceTo(Suspect) <= 10f)
+            if(Game.LocalPlayer.Character.DistanceTo(victim) <= 10f)
             {
 
-                Game.DisplayHelp("Press ~y~E ~w~to talk to Suspect. ~y~Approach with caution.", false);
+                Game.DisplayHelp("Press ~y~E~w~ to interact with the ~r~victim~w~.");
 
                 if (Game.IsKeyDown(System.Windows.Forms.Keys.E))
                 {
-                    Counter++;
+                    counter++;
 
-                    if(Counter == 1)
+                    if(counter == 1)
                     {
-                        Game.DisplaySubtitle("Player: Excuse me, " + malefemale + ". Are you ok? Do you need any assistance?");
+                        Game.DisplaySubtitle("~b~Player~w~: Excuse me, " + malefemale + ". Can you tell me what happened?");
                     }
-                    if(Counter == 2)
+                    if(counter == 2)
                     {
-                        Game.DisplaySubtitle("~r~Suspect: ~w~Yes, I do Officer. My husband Michael, dropped me off to go shopping then I hit my head on something, then next thing I know is I don't know where I am.");
+                        Game.DisplaySubtitle("~y~Victim~w~: Well, I was doing my grocery shopping for my family, somehow I managed to hit my head on a pole. I was knocked out for a few minutes. I don't remember the rest");
                     }
-                    if(Counter == 3)
+                    if(counter == 3)
                     {
-                        Game.DisplaySubtitle("Player: Are you sure you don't need medical attention? It sounds like you have Amnesia.");
+                        Game.DisplaySubtitle("~b~Player~w~: Okay, " + malefemale + ". Do you need any medical attention?");
                     }
-                    if(Counter == 4)
+                    if(counter == 4)
                     {
-                        Game.DisplaySubtitle("~r~Suspect: ~w~Yes. I'm pretty sure I can sleep this off.");
+                        Game.DisplaySubtitle("~y~Victim~w~: No, I'll be fine. I'll just take some Tylenol and get some rest. I'll be okay.");
                     }
-                    if(Counter == 5)
+                    if(counter == 5)
                     {
-                        Game.DisplaySubtitle("Player: Ok, I'll call you an Uber to take you home.");
+                        Game.DisplaySubtitle("Conversation Ended! Call her an Uber.");
                     }
-                    if(Counter == 6)
+                    if(counter == 6)
                     {
-                        Game.DisplayNotification("Call an Uber to give the suspect a ride home, Officer.");
+                        Game.DisplaySubtitle("~r~Suspect: ~w~Die, you motherfucker, you! DIE!!!!!");
+                        suspect.Tasks.FightAgainst(Game.LocalPlayer.Character);
+                        suspect.Inventory.GiveNewWeapon("WEAPON_GUSENBERG", 500, true);
                     }
-                    if(Counter == 7)
-                    {
-                        Game.DisplaySubtitle("Conversation has ended!");
-                        Suspect.Tasks.StandStill(300);
-                    }
+
                 }
 
-                if (Suspect.IsCuffed || Suspect.IsDead || Game.LocalPlayer.Character.IsDead || !Suspect.Exists())
-                {
-                    End();
-                }
             }
+            if (victim.IsCuffed || victim.IsDead || Game.LocalPlayer.Character.IsDead || !victim.Exists() && suspect.IsCuffed || suspect.IsDead || Game.LocalPlayer.Character.IsDead || !suspect.Exists())
+            {
+                End();
+            }
+
+            base.Process();
         }
 
         public override void End()
         {
+
+
+
             base.End();
-
-            if (Suspect.Exists())
-            {
-                Suspect.Dismiss();
-            }
-            if (SuspectBlip.Exists())
-            {
-                SuspectBlip.Delete();
-            }
-
-
-            Game.LogTrivial("JM Callouts Remastered - Lost Individual is Code 4!");
         }
 
     }

@@ -32,8 +32,7 @@ namespace JMCalloutsRemastered.Callouts
         {
             Spawnpoint = new Vector3(-624.7086f, -231.8441f, 38.05705f); // Vangelico Jewellery Store // 
             heading = 315.2649f;
-            ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 2500f);
-            AddMinimumDistanceCheck(100f, Spawnpoint);
+            ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 1000f);
             CalloutMessage = "A business employee requesting an officer to escort a individual causing a scene";
             CalloutPosition = Spawnpoint;
 

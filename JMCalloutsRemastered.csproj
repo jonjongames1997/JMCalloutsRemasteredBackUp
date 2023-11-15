@@ -59,11 +59,9 @@
   <ItemGroup>
     <Compile Include="Callouts\911HangUp.cs" />
     <Compile Include="Callouts\CodeKaren.cs" />
-    <Compile Include="Callouts\HighSpeedChase.cs" />
     <Compile Include="Callouts\IllegalCampfireOnPublicBeach.cs" />
     <Compile Include="Callouts\IllegalProstitution.cs" />
     <Compile Include="Callouts\IntoxicatedIndividual.cs" />
-    <Compile Include="Callouts\IntoxicatedIndividualLocation2.cs" />
     <Compile Include="Callouts\PersonWithAKnife.cs" />
     <Compile Include="Callouts\PossibleProstitution.cs" />
     <Compile Include="Callouts\PublicDisturbance.cs" />
@@ -73,11 +71,12 @@
     <Compile Include="Callouts\TrespassingOnConstructionProperty.cs" />
     <Compile Include="Callouts\TrespassingOnPrivateProperty.cs" />
     <Compile Include="Callouts\TrespassingOnRailRoadProperty.cs" />
-    <Compile Include="EntryPoint.cs" />
     <Compile Include="IniFile.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings.cs" />
+    <Compile Include="Stuff\LocationChooser.cs" />
+    <Compile Include="Stuff\Vector3Extension.cs" />
     <Compile Include="Utilities\VehicleColor.cs" />
     <Compile Include="Utilities\VehicleExtensions.cs" />
     <Compile Include="VersionCheck\VersionChecker.cs" />
