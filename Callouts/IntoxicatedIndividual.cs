@@ -31,7 +31,7 @@ namespace JMCalloutsRemastered.Callouts
         {
             Spawnnpoint = new Vector3(94.63f, -217.37f, 54.49f); // Shopping Center in Vinewood //
             heading = 53.08f;
-            ShowCalloutAreaBlipBeforeAccepting(Spawnnpoint, 2500f);
+            ShowCalloutAreaBlipBeforeAccepting(Spawnnpoint, 1000f);
             CalloutPosition = Spawnnpoint;
 
             return base.OnBeforeCalloutDisplayed();
