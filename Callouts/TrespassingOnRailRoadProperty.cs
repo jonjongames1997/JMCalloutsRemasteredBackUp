@@ -32,7 +32,6 @@ namespace JMCalloutsRemastered.Callouts
             Spawnpoint = new Vector3(452.94f, -1648.89f, 29.97f);
             heading = 225.98f;
             ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 500f);
-            AddMaximumDistanceCheck(100f, Spawnpoint);
             CalloutMessage = "A citizen is reporting a suspicious person on railroad tracks.";
             CalloutPosition = Spawnpoint;
 

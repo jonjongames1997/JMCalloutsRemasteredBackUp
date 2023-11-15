@@ -19,8 +19,6 @@ namespace JMCalloutsRemastered
         internal static bool TrespassingOnPrivateProperty = true;
         internal static bool TrespassingOnRailRoadProperty = true;
         internal static bool CodeKaren = true;
-        internal static bool HighSpeedChase = false; // Disabled until further notice //
-        internal static bool IntoxicatedIndividualLocation2 = false; // Disabled until a fix is made //
         internal static bool TrespassingOnConstructionProperty = true;
         internal static bool HelpMessages = true;
         internal static Keys EndCall = Keys.End;
@@ -45,8 +43,6 @@ namespace JMCalloutsRemastered
             Settings.TrespassingOnPrivateProperty = ini.ReadBoolean("Callouts", "TrespassingOnPrivateProperty", true);
             Settings.TrespassingOnRailRoadProperty = ini.ReadBoolean("Callouts", "TrespassingOnRailRoadProperty", true);
             Settings._911HangUp = ini.ReadBoolean("Callouts", "_911HangUp", true);
-            Settings.HighSpeedChase = ini.ReadBoolean("Callouts", "HighSpeedChase", false);
-            Settings.IntoxicatedIndividualLocation2 = ini.ReadBoolean("Callouts", "IntoxicatedIndividualLocation2", false);
             Settings.TrespassingOnConstructionProperty = ini.ReadBoolean("Callouts", "TrespassingOnConstructionProperty", true);
             Settings.HelpMessages = ini.ReadBoolean("HelpMessages", "Help Messages", true);
             EndCall = ini.ReadEnum("Keys", "EndCall", Keys.End);

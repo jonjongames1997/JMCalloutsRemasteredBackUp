@@ -57,8 +57,6 @@ namespace JMCalloutsRemastered
             if (Settings.Soliciting) { Functions.RegisterCallout(typeof(Soliciting)); }
             if (Settings.TrespassingOnPrivateProperty) { Functions.RegisterCallout(typeof(TrespassingOnPrivateProperty)); }
             if (Settings.TrespassingOnRailRoadProperty) { Functions.RegisterCallout(typeof(TrespassingOnRailRoadProperty)); }
-            if (Settings.HighSpeedChase) { Functions.RegisterCallout(typeof(HighSpeedChase)); }
-            if (Settings.IntoxicatedIndividualLocation2) { Functions.RegisterCallout(typeof(IntoxicatedIndividualLocation2)); }
             if (Settings.TrespassingOnConstructionProperty) { Functions.RegisterCallout(typeof(TrespassingOnConstructionProperty)); }
             Game.Console.Print("[LOG]: All callouts of the JMCalloutsRemastered.ini were loaded successfully.");
             Game.Console.Print();
