@@ -117,7 +117,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                 }
                 if (Game.LocalPlayer.Character.IsDead) End();
-                if (Game.IsKeyDown(Settings.EndCalloutKey)) End();
+                if (Game.IsKeyDown(Settings.EndCall)) End();
                 if (Suspect && Suspect.IsDead) End();
                 if (Suspect && Suspect.IsCuffed) End();
 
