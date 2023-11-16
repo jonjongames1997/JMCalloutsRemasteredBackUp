@@ -58,10 +58,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Callouts\911HangUp.cs" />
+    <Compile Include="Callouts\ClownWithADeadlyWeapon.cs" />
     <Compile Include="Callouts\CodeKaren.cs" />
     <Compile Include="Callouts\IllegalCampfireOnPublicBeach.cs" />
     <Compile Include="Callouts\IllegalProstitution.cs" />
     <Compile Include="Callouts\IntoxicatedIndividual.cs" />
+    <Compile Include="Callouts\LostIndividual.cs" />
     <Compile Include="Callouts\PersonWithAKnife.cs" />
     <Compile Include="Callouts\PossibleProstitution.cs" />
     <Compile Include="Callouts\PublicDisturbance.cs" />
