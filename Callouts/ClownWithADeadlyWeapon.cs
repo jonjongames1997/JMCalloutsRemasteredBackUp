@@ -79,7 +79,10 @@ namespace JMCalloutsRemastered.Callouts
                     isArmed = true;
                 }
 
+                if(suspect && suspect.DistanceTo(Game.LocalPlayer.Character.GetOffsetPosition(Vector3.RelativeFront)) < 25f && !hasBegunAttacking)
+                {
 
+                }
             });
 
             base.Process();
