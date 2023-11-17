@@ -13,7 +13,7 @@ using System.Windows.Forms;
 namespace JMCalloutsRemastered.Callouts
 {
 
-    [CalloutInterface("9-1-1 Hang Up", CalloutProbability.High, "An individual hung up on 911.", "Code 1", "LSPD")]
+    [CalloutInterface("9-1-1 Hang Up - Mirror Park", CalloutProbability.High, "An individual hung up on 911.", "Code 1", "LSPD")]
 
     public class _911HangUp : Callout
     {
