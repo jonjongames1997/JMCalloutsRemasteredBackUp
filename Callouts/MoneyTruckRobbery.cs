@@ -41,7 +41,7 @@ namespace JMCalloutsRemastered.Callouts
             vehicleSpawnpoint = World.GetNextPositionOnStreet(Game.LocalPlayer.Character.Position.Around(1000f));
             LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_ALL_UNITS_01 WE_HAVE_01 CRIME_SHOTS_FIRED_AT_AN_OFFICER_03 IN_OR_ON_POSITION UNITS_RESPOND_CODE_03_01");
             CalloutMessage = "Reports of an armed money truck robbery";
-            CalloutPosition = spawnpoint;
+            CalloutPosition = vehicleSpawnpoint;
 
             return base.OnBeforeCalloutDisplayed();
         }
