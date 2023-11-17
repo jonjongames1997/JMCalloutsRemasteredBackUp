@@ -30,8 +30,7 @@ namespace JMCalloutsRemastered.Callouts
         {
             Spawnpoint = new Vector3(131.11f, -1301.31f, 29.23f); // Vanilla Unicorn //
             heading = 25.62f;
-            ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 2000f);
-            AddMaximumDistanceCheck(100f, Spawnpoint);
+            ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 500f);
             CalloutPosition = Spawnpoint;
 
             return base.OnBeforeCalloutDisplayed();
@@ -42,7 +41,7 @@ namespace JMCalloutsRemastered.Callouts
             Suspect = new Ped(Spawnpoint, heading);
             Suspect.IsPersistent = true;
             Suspect.BlockPermanentEvents = true;
-            CalloutInterfaceAPI.Functions.SendMessage(this, "A homeowner reported an individual trespassing on their property. Issue them a citation or arrest them and charge them with criminal mischief. Your Choice.");
+            CalloutInterfaceAPI.Functions.SendMessage(this, "A business owner reported an individual trespassing on their property. Issue them a citation or arrest them and charge them with criminal mischief. Your Choice.");
 
             SuspectBlip = Suspect.AttachBlip();
             SuspectBlip.Color = System.Drawing.Color.Black;
@@ -107,7 +106,8 @@ namespace JMCalloutsRemastered.Callouts
                     if(counter == 9)
                     {
                         Game.DisplayNotification("Conversation has ended.");
-                        Suspect.Tasks.Wander();
+                        Suspect.Tasks.FightAgainstClosestHatedTarget(1000);
+                        Suspect.Inventory.GiveNewWeapon("WEAPON_MG", 500, true);
                     }
                 }
             }
