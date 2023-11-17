@@ -142,10 +142,15 @@ namespace JMCalloutsRemastered.Callouts
                     hasBegunAttacking = true;
                     GameFiber.Sleep(5000);
                 }
-
-            });
+                if (Game.LocalPlayer.Character.IsDead) End();
+                if (Game.IsKeyDown(Settings.EndCall)) End();
+                if (Aggressor1 && Aggressor1.IsDead && Aggressor2 && Aggressor2.IsDead && Aggressor3 && Aggressor3.IsDead && Aggressor4 && Aggressor4.IsDead && Aggressor5 && Aggressor5.IsDead && Aggressor6 && Aggressor6.IsDead) End();
+                if (Aggressor1 && LSPD_First_Response.Mod.API.Functions.IsPedArrested(Aggressor1) && Aggressor2 && LSPD_First_Response.Mod.API.Functions.IsPedArrested(Aggressor2) && Aggressor3 && LSPD_First_Response.Mod.API.Functions.IsPedArrested(Aggressor3) && Aggressor4 && LSPD_First_Response.Mod.API.Functions.IsPedArrested(Aggressor4) && Aggressor5 && LSPD_First_Response.Mod.API.Functions.IsPedArrested(Aggressor5) && Aggressor6 && LSPD_First_Response.Mod.API.Functions.IsPedArrested(Aggressor6)) End();
+            }, "JM Callouts Remastered: Gang Shootout");
 
             base.Process();
         }
+
+
     }
 }
