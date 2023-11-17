@@ -26,6 +26,7 @@ namespace JMCalloutsRemastered
         internal static bool DerangedLover = true;
         internal static bool DeadBody = true;
         internal static bool SuspiciousPerson = true;
+        internal static bool PersonWithAWeapon = true;
         internal static bool ActiveAIBackup = true;
         internal static bool HelpMessages = true;
         internal static Keys EndCall = Keys.End;
@@ -57,6 +58,7 @@ namespace JMCalloutsRemastered
             Settings.DerangedLover = ini.ReadBoolean("Callouts", "DerangedLover", true);
             Settings.DeadBody = ini.ReadBoolean("Callouts", "Dead Body", true);
             Settings.SuspiciousPerson = ini.ReadBoolean("Callouts", "Suspicious Person", true);
+            Settings.PersonWithAWeapon = ini.ReadBoolean("Callouts", "Person With A Weapon", true);
             Settings.ActiveAIBackup = ini.ReadBoolean("General", "ActiveAIBackup", true);
             Settings.HelpMessages = ini.ReadBoolean("HelpMessages", "Help Messages", true);
             EndCall = ini.ReadEnum("Keys", "EndCall", Keys.End);
