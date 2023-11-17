@@ -121,6 +121,27 @@ namespace JMCalloutsRemastered.Callouts
         {
             GameFiber.StartNew(delegate
             {
+                if(Game.LocalPlayer.Character.DistanceTo(spawnPoint) < 100f && !hasBegunAttacking)
+                {
+                    new RelationshipGroup("LOST MC");
+                    new RelationshipGroup("HIPSTERS");
+                    Aggressor1.RelationshipGroup = "LOST MC";
+                    Aggressor2.RelationshipGroup = "LOST MC";
+                    Aggressor3.RelationshipGroup = "LOST MC";
+                    Aggressor4.RelationshipGroup = "HIPSTERS";
+                    Aggressor5.RelationshipGroup = "HIPSTERS";
+                    Aggressor6.RelationshipGroup = "HIPSTERS";
+                    Game.SetRelationshipBetweenRelationshipGroups("LOST MC", "HIPSTERS", Relationship.Hate);
+                    Game.SetRelationshipBetweenRelationshipGroups("HIPSTERS", "LOST MC", Relationship.Hate);
+                    Aggressor1.Tasks.FightAgainstClosestHatedTarget(1000f);
+                    Aggressor2.Tasks.FightAgainstClosestHatedTarget(1000f);
+                    Aggressor3.Tasks.FightAgainstClosestHatedTarget(1000f);
+                    Aggressor4.Tasks.FightAgainstClosestHatedTarget(1000f);
+                    Aggressor5.Tasks.FightAgainstClosestHatedTarget(1000f);
+                    Aggressor6.Tasks.FightAgainstClosestHatedTarget(1000f);
+                    hasBegunAttacking = true;
+                    GameFiber.Sleep(5000);
+                }
 
             });
 
