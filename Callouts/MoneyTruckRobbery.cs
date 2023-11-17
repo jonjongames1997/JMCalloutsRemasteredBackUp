@@ -78,6 +78,9 @@ namespace JMCalloutsRemastered.Callouts
             LSPD_First_Response.Mod.API.Functions.AddPedToPursuit(pursuit, Aggressor3);
             LSPD_First_Response.Mod.API.Functions.AddPedToPursuit(pursuit, Aggressor4);
             LSPD_First_Response.Mod.API.Functions.SetPursuitIsActiveForPlayer(pursuit, true);
+            isPursuitCreated = true;
+
+
 
             return base.OnCalloutAccepted();
         }
