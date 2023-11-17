@@ -62,6 +62,7 @@
     <Compile Include="Callouts\CodeKaren.cs" />
     <Compile Include="Callouts\DeadBody.cs" />
     <Compile Include="Callouts\DerangedLover.cs" />
+    <Compile Include="Callouts\GangRivalryShootout.cs" />
     <Compile Include="Callouts\IllegalCampfireOnPublicBeach.cs" />
     <Compile Include="Callouts\IllegalProstitution.cs" />
     <Compile Include="Callouts\IntoxicatedIndividual.cs" />
