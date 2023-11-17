@@ -74,6 +74,15 @@ namespace JMCalloutsRemastered.Callouts
             Aggressor5.Inventory.GiveNewWeapon("WEAPON_MG", 5000, true);
             Aggressor6.Inventory.GiveNewWeapon("WEAPON_COMBATMG", 5000, true);
 
+            blip1 = Aggressor1.AttachBlip();
+            blip2 = Aggressor2.AttachBlip();
+            blip3 = Aggressor3.AttachBlip();
+            blip4 = Aggressor4.AttachBlip();
+            blip5 = Aggressor5.AttachBlip();
+            blip6 = Aggressor6.AttachBlip();
+
+
+
             return base.OnCalloutAccepted();
         }
     }
