@@ -32,7 +32,6 @@ namespace JMCalloutsRemastered.Callouts
             Spawnpoint = new Vector3(1082.087f, -346.2961f, 67.1872f); // Mirror Park near Horny's //
             heading = 146.671f; // heading must match or it will glitch //
             ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 500f);
-            AddMinimumDistanceCheck(100f, Spawnpoint);
             CalloutMessage = "A citizen called 911 then hung up on dispatch"; // Brief description of callout //
             CalloutPosition = Spawnpoint;
 
@@ -104,7 +103,8 @@ namespace JMCalloutsRemastered.Callouts
                     if(counter == 8)
                     {
                         Game.DisplaySubtitle("~r~Suspect: Snitch! I'm gonna give you the ass whooping of your life, Officer.");
-                        Suspect.Tasks.FightAgainstClosestHatedTarget(10f);
+                        Suspect.Tasks.FightAgainst(Game.LocalPlayer.Character);
+                        Suspect.Inventory.GiveNewWeapon("WEAPON_KNIFE", 500, true);
                     }
                 }
             }
