@@ -27,6 +27,15 @@ namespace JMCalloutsRemastered.Callouts
         private string malefemale;
         private int counter;
 
+        public override bool OnBeforeCalloutDisplayed()
+        {
+            spawnpoint = new Vector3(-1651.26f, -1007.90f, 13.02f);
+            heading = 214.98f;
+            ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_ALL_UNITS_02 WE_HAVE_01 CRIME_DISTURBING_THE_PEACE_01 IN_OR_ON_POSITION UNITS_RESPOND_CODE_02_02");
 
+
+            return base.OnBeforeCalloutDisplayed();
+        }
     }
 }
