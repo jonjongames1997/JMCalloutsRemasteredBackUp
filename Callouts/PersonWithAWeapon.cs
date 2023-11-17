@@ -83,7 +83,17 @@ namespace JMCalloutsRemastered.Callouts
                 }
                 if(suspect && suspect.DistanceTo(Game.LocalPlayer.Character.GetOffsetPosition(Vector3.RelativeFront)) < 25f && !hasBegunAttacking)
                 {
+                    if(scenario > 40)
+                    {
+                        suspect.KeepTasks = true;
+                        suspect.Tasks.FightAgainst(Game.LocalPlayer.Character);
+                        hasBegunAttacking = true;
+                        GameFiber.Wait(2000);
+                    }
+                    else
+                    {
 
+                    }
                 }
             });
 
