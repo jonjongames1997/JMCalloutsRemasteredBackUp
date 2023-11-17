@@ -30,6 +30,7 @@ namespace JMCalloutsRemastered
         internal static bool GangRivalryShootout = true;
         internal static bool RocketMan = true;
         internal static bool SolicitingDelPerroPier = true;
+        internal static bool MoneyTruckRobbery = true;
         internal static bool ActiveAIBackup = true;
         internal static bool HelpMessages = true;
         internal static Keys EndCall = Keys.End;
@@ -65,11 +66,12 @@ namespace JMCalloutsRemastered
             Settings.GangRivalryShootout = ini.ReadBoolean("Callouts", "Gang Rivalry Shootout", true);
             Settings.RocketMan = ini.ReadBoolean("Callots", "RocketMan", true);
             Settings.SolicitingDelPerroPier = ini.ReadBoolean("Callouts", "SolicitingDelPerro", true);
+            Settings.MoneyTruckRobbery = ini.ReadBoolean("Callouts", "MoneyTruckRobbery", true);
             Settings.ActiveAIBackup = ini.ReadBoolean("General", "ActiveAIBackup", true);
             Settings.HelpMessages = ini.ReadBoolean("HelpMessages", "Help Messages", true);
             EndCall = ini.ReadEnum("Keys", "EndCall", Keys.End);
             Dialog = ini.ReadEnum("Keys", "Dialog", Keys.Y);
         }
-        public static readonly string PluginVersion = "3.5.6";
+        public static readonly string PluginVersion = "3.7.9.3";
     }
 }
