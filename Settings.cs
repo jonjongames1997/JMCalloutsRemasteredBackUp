@@ -22,6 +22,7 @@ namespace JMCalloutsRemastered
         internal static bool TrespassingOnConstructionProperty = true;
         internal static bool LostIndividual = true;
         internal static bool ClownWithADeadlyWeapon = true;
+        internal static bool UnauthorizedAccessMovieStudio = true;
         internal static bool ActiveAIBackup = true;
         internal static bool HelpMessages = true;
         internal static Keys EndCall = Keys.End;
@@ -49,6 +50,7 @@ namespace JMCalloutsRemastered
             Settings.TrespassingOnConstructionProperty = ini.ReadBoolean("Callouts", "TrespassingOnConstructionProperty", true);
             Settings.LostIndividual = ini.ReadBoolean("Callouts", "LostIndividual", true);
             Settings.ClownWithADeadlyWeapon = ini.ReadBoolean("Callouts", "ClownWithADeadlyWeapon", true);
+            Settings.UnauthorizedAccessMovieStudio = ini.ReadBoolean("Callouts", "UnauthorizedAccessMovieStudio", true);
             Settings.ActiveAIBackup = ini.ReadBoolean("General", "ActiveAIBackup", true);
             Settings.HelpMessages = ini.ReadBoolean("HelpMessages", "Help Messages", true);
             EndCall = ini.ReadEnum("Keys", "EndCall", Keys.End);
