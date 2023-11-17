@@ -131,7 +131,7 @@ namespace JMCalloutsRemastered.Callouts
 
             if (Suspect) Suspect.Dismiss();
             if (suspectBlip) suspectBlip.Delete();
-            Game.DisplayNotification("web_lossantospolicedept", "web_lossantospolicedept", "~w~JM Callouts Remastered", "~y~Person With a Knife", "~b~You: ~w~Dispatch we're code 4. Show me back ~g~10-8.");
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~y~Person With a Knife", "~b~You: ~w~Dispatch we're code 4. Show me back ~g~10-8.");
             Game.DisplayNotification("Good Job, Officer! You are getting a promotion.");
 
             base.End();

@@ -43,6 +43,9 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnCalloutAccepted()
         {
+            Game.LogTrivial("JM Callouts Remastered Log: Reports of an armed clown accepted!");
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~y~Reports of an Armed Clown", "~b~Dispatch: The clown has been spotted with a firearm! ~r~Respond Code 3");
+
 
 
             return base.OnCalloutAccepted();
