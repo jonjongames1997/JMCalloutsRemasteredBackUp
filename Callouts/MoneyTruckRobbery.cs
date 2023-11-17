@@ -121,10 +121,43 @@ namespace JMCalloutsRemastered.Callouts
         {
             GameFiber.StartNew(delegate
             {
-
-            });
+                if(Game.LocalPlayer.Character.DistanceTo(stockade) < 15f)
+                {
+                    Aggressor1.Tasks.FightAgainst(Game.LocalPlayer.Character);
+                    Aggressor2.Tasks.FightAgainst(Game.LocalPlayer.Character);
+                    Aggressor3.Tasks.FightAgainst(Game.LocalPlayer.Character);
+                    Aggressor4.Tasks.FightAgainst(Game.LocalPlayer.Character);
+                }
+                if(Aggressor1.IsDead || LSPD_First_Response.Mod.API.Functions.IsPedArrested(Aggressor1))
+                {
+                    if (blip1) blip1.Delete();
+                }
+                if(Aggressor2.IsDead || LSPD_First_Response.Mod.API.Functions.IsPedArrested(Aggressor2))
+                {
+                    if (blip2) blip2.Delete();
+                }
+                if(Aggressor3.IsDead || LSPD_First_Response.Mod.API.Functions.IsPedArrested(Aggressor3))
+                {
+                    if (blip3) blip3.Delete();
+                }
+                if(Aggressor4.IsDead || LSPD_First_Response.Mod.API.Functions.IsPedArrested(Aggressor4))
+                {
+                    if (blip4) blip4.Delete();
+                }
+                if (Game.LocalPlayer.Character.IsDead) End();
+                if (Game.IsKeyDown(Settings.EndCall)) End();
+                if (Aggressor1 && Aggressor1.IsDead && Aggressor2 && Aggressor2.IsDead && Aggressor3 && Aggressor3.IsDead && Aggressor4 && Aggressor4.IsDead) End();
+                if (Aggressor1 && LSPD_First_Response.Mod.API.Functions.IsPedArrested(Aggressor1) && Aggressor2 && LSPD_First_Response.Mod.API.Functions.IsPedArrested(Aggressor2) && Aggressor3 && LSPD_First_Response.Mod.API.Functions.IsPedArrested(Aggressor3) && Aggressor4 && LSPD_First_Response.Mod.API.Functions.IsPedArrested(Aggressor4)) End();
+            }, "Money Truck Robbery [JM Callouts Remastered]");
 
             base.Process();
+        }
+
+        public override void End()
+        {
+
+
+            base.End();
         }
     }
 }
