@@ -72,7 +72,12 @@ namespace JMCalloutsRemastered.Callouts
             Aggressor3.Armor = 200;
             Aggressor4.Armor = 200;
 
-
+            pursuit = LSPD_First_Response.Mod.API.Functions.CreatePursuit();
+            LSPD_First_Response.Mod.API.Functions.AddPedToPursuit(pursuit, Aggressor1);
+            LSPD_First_Response.Mod.API.Functions.AddPedToPursuit(pursuit, Aggressor2);
+            LSPD_First_Response.Mod.API.Functions.AddPedToPursuit(pursuit, Aggressor3);
+            LSPD_First_Response.Mod.API.Functions.AddPedToPursuit(pursuit, Aggressor4);
+            LSPD_First_Response.Mod.API.Functions.SetPursuitIsActiveForPlayer(pursuit, true);
 
             return base.OnCalloutAccepted();
         }
