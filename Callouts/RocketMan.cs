@@ -55,9 +55,20 @@ namespace JMCalloutsRemastered.Callouts
             suspect.IsPersistent = true;
             suspect.Tasks.Wander();
 
-
+            searchArea = spawnpoint.Around2D(1f, 2f);
+            blip = new Blip(searchArea, 80f);
+            blip.Color = Color.Pink;
+            blip.EnableRoute(Color.Pink);
+            blip.Alpha = 0.5f;
 
             return base.OnCalloutAccepted();
+        }
+
+        public override void OnCalloutNotAccepted()
+        {
+
+
+            base.OnCalloutNotAccepted();
         }
     }
 }
