@@ -95,12 +95,31 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     else
                     {
-
+                        if (!hasPursuitBegun)
+                        {
+                            if (blip) blip.Delete();
+                            pursuit = LSPD_First_Response.Mod.API.Functions.CreatePursuit();
+                            LSPD_First_Response.Mod.API.Functions.AddPedToPursuit(pursuit, suspect);
+                            LSPD_First_Response.Mod.API.Functions.SetPursuitIsActiveForPlayer(pursuit, true);
+                            hasPursuitBegun = true;
+                        }
                     }
                 }
-            });
+
+                if (Game.LocalPlayer.Character.IsDead) End();
+                if (Game.IsKeyDown(Settings.EndCall)) End();
+                if (suspect && suspect.IsDead) End();
+                if (suspect && LSPD_First_Response.Mod.API.Functions.IsPedArrested(suspect)) End();
+            }, "Reports of an armed individual with an explosive weapon [JM Callouts Remastered]");
 
             base.Process();
+        }
+
+        public override void End()
+        {
+
+
+            base.End();
         }
     }
 }
