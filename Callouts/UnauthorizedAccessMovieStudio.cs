@@ -38,9 +38,41 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnCalloutAccepted()
         {
+            Game.LogTrivial("JM Callouts Remastered Log: Unauthorized Acces Movie Studio callout accepted!");
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~y~Reports of a Individual Trespassing", "~b~Dispatch: The suspect has been spotted! Respond ~r~Code 2");
 
+            suspect = new Ped(spawnpoint, heading);
+            suspect.IsPersistent = true;
+            suspect.BlockPermanentEvents = true;
+            CalloutInterfaceAPI.Functions.SendMessage(this, "A security officer reporting an individual trespassing on private property without proper access.");
+
+            susBlip = suspect.AttachBlip();
+            susBlip.Color = System.Drawing.Color.Yellow;
+            susBlip.IsRouteEnabled = true;
+
+            if (suspect.IsMale)
+                malefemale = "Sir";
+            else
+                malefemale = "Ma'am";
+
+            counter = 0;
 
             return base.OnCalloutAccepted();
+        }
+
+        public override void OnCalloutNotAccepted()
+        {
+            if (suspect) suspect.Delete();
+            if (susBlip) susBlip.Delete();
+
+            base.OnCalloutNotAccepted();
+        }
+
+        public override void Process()
+        {
+
+
+            base.Process();
         }
     }
 }
