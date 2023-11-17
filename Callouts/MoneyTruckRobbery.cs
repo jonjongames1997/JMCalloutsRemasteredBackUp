@@ -80,6 +80,16 @@ namespace JMCalloutsRemastered.Callouts
             LSPD_First_Response.Mod.API.Functions.SetPursuitIsActiveForPlayer(pursuit, true);
             isPursuitCreated = true;
 
+            blip1 = Aggressor1.AttachBlip();
+            blip1 = Aggressor2.AttachBlip();
+            blip1 = Aggressor3.AttachBlip();
+            blip1 = Aggressor4.AttachBlip();
+
+            NativeFunction.CallByName<uint>("TASK_COMBAT_PED", Aggressor1, Game.LocalPlayer.Character, 0, 1);
+            NativeFunction.CallByName<uint>("TASK_COMBAT_PED", Aggressor2, Game.LocalPlayer.Character, 0, 1);
+            NativeFunction.CallByName<uint>("TASK_COMBAT_PED", Aggressor3, Game.LocalPlayer.Character, 0, 1);
+            NativeFunction.CallByName<uint>("TASK_COMBAT_PED", Aggressor4, Game.LocalPlayer.Character, 0, 1);
+
 
 
             return base.OnCalloutAccepted();
