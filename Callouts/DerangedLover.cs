@@ -32,6 +32,23 @@ namespace JMCalloutsRemastered.Callouts
         private bool isArmed = false;
         private bool hasPursuitBegun = false;
 
+        public override bool OnBeforeCalloutDisplayed()
+        {
+            scenario = new Random().Next(0, 100);
+            spawnPoint = World.GetNextPositionOnStreet(Game.LocalPlayer.Character.Position.Around(1000));
+            ShowCalloutAreaBlipBeforeAccepting(spawnPoint, 100f);
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_ALL_UNITS_02 WE_HAVE_01 CITIZENS_REPORT_04 CRIME_DISTURBING_THE_PEACE_02 IN_OR_ON_POSITION UNITS_RESPOND_CODE_03_01");
+            CalloutMessage = "Reports of a deranged lover";
+            CalloutPosition = spawnPoint;
 
+            return base.OnBeforeCalloutDisplayed();
+        }
+
+        public override bool OnCalloutAccepted()
+        {
+
+
+            return base.OnCalloutAccepted();
+        }
     }
 }
