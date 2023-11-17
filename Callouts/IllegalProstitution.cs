@@ -31,7 +31,6 @@ namespace JMCalloutsRemastered.Callouts
             Spawnpoint = new Vector3(-622.29f, -761.78f, 26.21f);
             heading = 85.83f;
             ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 2000f);
-            AddMaximumDistanceCheck(100f, Spawnpoint);
             CalloutMessage = "Citizens reporting a young female selling her body for money.";
             CalloutPosition = Spawnpoint;
 
