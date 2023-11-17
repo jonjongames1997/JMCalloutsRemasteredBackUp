@@ -98,5 +98,30 @@ namespace JMCalloutsRemastered.Callouts
 
             return base.OnCalloutAccepted();
         }
+
+        public override void OnCalloutNotAccepted()
+        {
+            if (Aggressor1) Aggressor1.Delete();
+            if (Aggressor2) Aggressor2.Delete();
+            if (Aggressor3) Aggressor3.Delete();
+            if (Aggressor4) Aggressor4.Delete();
+            if (Aggressor5) Aggressor5.Delete();
+            if (Aggressor6) Aggressor6.Delete();
+            if (blip1) blip1.Delete();
+            if (blip2) blip2.Delete();
+            if (blip3) blip3.Delete();
+            if (blip4) blip4.Delete();
+            if (blip5) blip5.Delete();
+            if (blip6) blip6.Delete();
+
+            base.OnCalloutNotAccepted();
+        }
+
+        public override void Process()
+        {
+
+
+            base.Process();
+        }
     }
 }
