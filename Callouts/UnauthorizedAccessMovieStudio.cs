@@ -26,9 +26,21 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnBeforeCalloutDisplayed()
         {
-
+            spawnpoint = new Vector3(-1050.09f, -512.47f, 36.04f); // Richard's Majestic Movie Studio
+            heading = 341.35f;
+            ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 500f);
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_ALL_UNITS_02 WE_HAVE_01 CRIME_OFFICER_IN_NEED_OF_ASSISTANCE_01 IN_OR_ON_POSITION UNITS_RESPOND_CODE_02_02");
+            CalloutMessage = "An individual refusing to leave";
+            CalloutPosition = spawnpoint;
 
             return base.OnBeforeCalloutDisplayed();
+        }
+
+        public override bool OnCalloutAccepted()
+        {
+
+
+            return base.OnCalloutAccepted();
         }
     }
 }
