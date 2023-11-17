@@ -30,8 +30,7 @@ namespace JMCalloutsRemastered.Callouts
         {
             Spawnpoint = new Vector3(-707.51f, -912.68f, 19.22f); // LTD Gas Station Near Weazel News //
             heading = 267.11f;
-            ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 2000f);
-            AddMaximumDistanceCheck(100f, Spawnpoint);
+            ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 1000f);
             CalloutMessage = "Individual Refusing to pay";
 
             return base.OnBeforeCalloutDisplayed();
@@ -151,7 +150,7 @@ namespace JMCalloutsRemastered.Callouts
             }
 
 
-            Game.LogTrivial("JM Callouts Remastered BETA - Refuse to pay is Code 4!");
+            Game.LogTrivial("JM Callouts Remastered - Refuse to pay is Code 4!");
         }
     }
 }
