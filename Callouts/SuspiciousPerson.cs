@@ -20,6 +20,16 @@ namespace JMCalloutsRemastered.Callouts
 
     public class SuspiciousPerson : Callout
     {
+        private Ped suspect;
+        private Vector3 spawnPoint;
+        private Blip susBlip;
+        private LHandle pursuit;
 
+        public override bool OnBeforeCalloutDisplayed()
+        {
+
+
+            return base.OnBeforeCalloutDisplayed();
+        }
     }
 }
