@@ -81,7 +81,20 @@ namespace JMCalloutsRemastered.Callouts
             blip5 = Aggressor5.AttachBlip();
             blip6 = Aggressor6.AttachBlip();
 
+            Aggressor1.Armor = 200;
+            Aggressor2.Armor = 200;
+            Aggressor3.Armor = 200;
+            Aggressor4.Armor = 200;
+            Aggressor5.Armor = 200;
+            Aggressor6.Armor = 200;
 
+            if (Settings.ActiveAIBackup)
+            {
+                LSPD_First_Response.Mod.API.Functions.RequestBackup(spawnPoint, LSPD_First_Response.EBackupResponseType.Code3, LSPD_First_Response.EBackupUnitType.SwatTeam);
+                LSPD_First_Response.Mod.API.Functions.RequestBackup(spawnPoint, LSPD_First_Response.EBackupResponseType.Code3, LSPD_First_Response.EBackupUnitType.LocalUnit);
+                LSPD_First_Response.Mod.API.Functions.RequestBackup(spawnPoint, LSPD_First_Response.EBackupResponseType.Code3, LSPD_First_Response.EBackupUnitType.NooseTeam);
+            }
+            else { Settings.ActiveAIBackup = false; }
 
             return base.OnCalloutAccepted();
         }
