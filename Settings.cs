@@ -48,6 +48,7 @@ namespace JMCalloutsRemastered
             Settings._911HangUp = ini.ReadBoolean("Callouts", "_911HangUp", true);
             Settings.TrespassingOnConstructionProperty = ini.ReadBoolean("Callouts", "TrespassingOnConstructionProperty", true);
             Settings.LostIndividual = ini.ReadBoolean("Callouts", "LostIndividual", true);
+            Settings.ClownWithADeadlyWeapon = ini.ReadBoolean("Callouts", "ClownWithADeadlyWeapon", true);
             Settings.ActiveAIBackup = ini.ReadBoolean("General", "ActiveAIBackup", true);
             Settings.HelpMessages = ini.ReadBoolean("HelpMessages", "Help Messages", true);
             EndCall = ini.ReadEnum("Keys", "EndCall", Keys.End);
