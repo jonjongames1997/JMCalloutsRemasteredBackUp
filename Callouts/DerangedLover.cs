@@ -46,6 +46,9 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnCalloutAccepted()
         {
+            Game.LogTrivial("JM Callouts Remastered Log: Deranged Lover callout accepted!");
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~y~Reports of a Deranged Lover", "~b~Dispatch: The suspect has been spotted! Respond ~r~Code 3");
+
 
 
             return base.OnCalloutAccepted();
