@@ -146,16 +146,30 @@ namespace JMCalloutsRemastered.Callouts
                 if (Game.IsKeyDown(Settings.EndCall)) End();
                 if (Aggressor1 && Aggressor1.IsDead && Aggressor2 && Aggressor2.IsDead && Aggressor3 && Aggressor3.IsDead && Aggressor4 && Aggressor4.IsDead && Aggressor5 && Aggressor5.IsDead && Aggressor6 && Aggressor6.IsDead) End();
                 if (Aggressor1 && LSPD_First_Response.Mod.API.Functions.IsPedArrested(Aggressor1) && Aggressor2 && LSPD_First_Response.Mod.API.Functions.IsPedArrested(Aggressor2) && Aggressor3 && LSPD_First_Response.Mod.API.Functions.IsPedArrested(Aggressor3) && Aggressor4 && LSPD_First_Response.Mod.API.Functions.IsPedArrested(Aggressor4) && Aggressor5 && LSPD_First_Response.Mod.API.Functions.IsPedArrested(Aggressor5) && Aggressor6 && LSPD_First_Response.Mod.API.Functions.IsPedArrested(Aggressor6)) End();
-            }, "JM Callouts Remastered: Gang Shootout");
+            }, "JM Callouts Remastered: Gang Rivalry Shootout");
 
             base.Process();
         }
 
         public override void End()
         {
-
-
+            if (Aggressor1) Aggressor1.Dismiss();
+            if (Aggressor2) Aggressor2.Dismiss();
+            if (Aggressor3) Aggressor3.Dismiss();
+            if (Aggressor4) Aggressor4.Delete();
+            if (Aggressor5) Aggressor5.Dismiss();
+            if (Aggressor6) Aggressor6.Dismiss();
+            if (blip1) blip1.Delete();
+            if (blip2) blip2.Delete();
+            if (blip3) blip3.Delete();
+            if (blip4) blip4.Delete();
+            if (blip5) blip5.Delete();
+            if (blip6) blip6.Delete();
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~y~Reports of a Gang Shootout", "~b~You: Dispatch, We are ~g~CODE 4~w~! Show me back 10-8!");
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_THIS_IS_DISPATCH_HIGH ALL_UNITS_CODE4 NO_FURTHER_UNITS_REQUIRED");
             base.End();
+
+            Game.LogTrivial("[JM Callouts Remastered]: Gang Rivalry Shootout is code 4!");
         }
     }
 }
