@@ -61,6 +61,7 @@ namespace JMCalloutsRemastered
             if (Settings.LostIndividual) { Functions.RegisterCallout(typeof(LostIndividual)); }
             if (Settings.ClownWithADeadlyWeapon) { Functions.RegisterCallout(typeof(ClownWithADeadlyWeapon)); }
             if (Settings.UnauthorizedAccessMovieStudio) { Functions.RegisterCallout(typeof(UnauthorizedAccessMovieStudio)); }
+            if (Settings.DerangedLover) { Functions.RegisterCallout(typeof(DerangedLover)); }
             Game.Console.Print("[LOG]: All callouts of the JMCalloutsRemastered.ini were loaded successfully.");
             Game.Console.Print();
             Game.Console.Print("================================================== JM Callouts Remastered ===================================================");
