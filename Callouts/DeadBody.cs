@@ -43,9 +43,22 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnCalloutAccepted()
         {
-
+            deadBlip = new Blip(deadBody)
+            {
+                Color = Color.Red,
+                IsRouteEnabled = true,
+                Scale = 0.8f,
+                Name = "Dead Person",
+            };
 
             return base.OnCalloutAccepted();
+        }
+
+        public override void OnCalloutNotAccepted()
+        {
+
+
+            base.OnCalloutNotAccepted();
         }
     }
 }
