@@ -115,7 +115,7 @@ namespace JMCalloutsRemastered.Callouts
                     if(counter == 11)
                     {
                         Game.DisplaySubtitle("Conversation ended.");
-                        Suspect.Tasks.ReactAndFlee(Suspect); // What the suspect will do after the conversation ends //
+                        Suspect.Tasks.ReactAndFlee(Suspect);
                     }
                 }
             }
