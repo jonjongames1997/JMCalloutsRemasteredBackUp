@@ -47,7 +47,7 @@ namespace JMCalloutsRemastered.Callouts
             };
             spawnPoint = LocationChooser.chooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(spawnPoint, 70f);
-            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_ALL_UNITS_01 CRIME_GUNFIRE_02 IN_OR_ON_POSITION ");
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_ALL_UNITS_01 CRIME_GUNFIRE_02 IN_OR_ON_POSITION UNITS_RESPOND_CODE_99_03");
 
             return base.OnBeforeCalloutDisplayed();
         }
