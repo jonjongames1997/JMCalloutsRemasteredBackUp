@@ -31,8 +31,7 @@ namespace JMCalloutsRemastered.Callouts
         {
             Spawnpoint = new Vector3(-821.94f, -1073.82f, 11.33f); // Near Floyd's Apartment //
             heading = 45.67f;
-            ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 2000f);
-            AddMaximumDistanceCheck(100f, Spawnpoint);
+            ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 1000f);
             CalloutMessage = "Individual refusing to leave property by business owner/employee.";
             CalloutPosition = Spawnpoint;
 
@@ -41,7 +40,7 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnCalloutAccepted()
         {
-            Suspect = new Ped("g_f_y_families_01", Spawnpoint, heading); // For Testing purposes //
+            Suspect = new Ped(Spawnpoint, heading);
             Suspect.IsPersistent = true;
             Suspect.BlockPermanentEvents = true;
             CalloutInterfaceAPI.Functions.SendMessage(this, "Business employee told the individual to leave the property but refuses to. Employee suspects the individual to be under the influence.");
