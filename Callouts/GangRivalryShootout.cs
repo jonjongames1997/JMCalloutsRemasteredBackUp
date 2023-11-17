@@ -36,6 +36,14 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnBeforeCalloutDisplayed()
         {
+            Random random = new Random();
+            List<Vector3> list = new List<Vector3>
+            {
+                new Vector3(-24.46961f, -1457.463f, 30.6445f), // Franklin's Hood
+                new Vector3(39.15001f, -1739.961f, 29.30341f), // Mega Mall
+                new Vector3(361.2437f, -1967.548f, 24.47634f), // Vagos Territory
+                new Vector3(126.7119f, -1472.859f, 29.14161f), // Lucky Plucker in Strawberry
+            };
 
 
             return base.OnBeforeCalloutDisplayed();
