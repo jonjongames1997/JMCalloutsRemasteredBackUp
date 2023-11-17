@@ -62,6 +62,11 @@ namespace JMCalloutsRemastered.Callouts
             Aggressor3.WarpIntoVehicle(stockade, 1);
             Aggressor4.WarpIntoVehicle(stockade, 2);
 
+            Aggressor1.Inventory.GiveNewWeapon("weapon_gusenberg", 5000, true);
+            Aggressor2.Inventory.GiveNewWeapon("weapon_tacticalrifle", 5000, true);
+            Aggressor3.Inventory.GiveNewWeapon("weapon_mg", 5000, true);
+            Aggressor4.Inventory.GiveNewWeapon("weapon_specialcarbine", 5000, true);
+
 
 
             return base.OnCalloutAccepted();
