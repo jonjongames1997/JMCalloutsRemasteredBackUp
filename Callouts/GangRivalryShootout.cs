@@ -20,6 +20,25 @@ namespace JMCalloutsRemastered.Callouts
 
     public class GangRivalryShootout : Callout
     {
+        private Ped Aggressor1;
+        private Ped Aggressor2;
+        private Ped Aggressor3;
+        private Ped Aggressor4;
+        private Ped Aggressor5;
+        private Ped Aggressor6;
+        private Blip blip1;
+        private Blip blip2;
+        private Blip blip3;
+        private Blip blip4;
+        private Blip blip5;
+        private Blip blip6;
+        private bool hasBegunAttacking = false;
 
+        public override bool OnBeforeCalloutDisplayed()
+        {
+
+
+            return base.OnBeforeCalloutDisplayed();
+        }
     }
 }
