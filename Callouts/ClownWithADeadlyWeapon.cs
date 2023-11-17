@@ -81,11 +81,35 @@ namespace JMCalloutsRemastered.Callouts
 
                 if(suspect && suspect.DistanceTo(Game.LocalPlayer.Character.GetOffsetPosition(Vector3.RelativeFront)) < 25f && !hasBegunAttacking)
                 {
-
+                    if(scenario > 40)
+                    {
+                        suspect.KeepTasks = true;
+                        suspect.Tasks.FightAgainst(Game.LocalPlayer.Character);
+                        hasBegunAttacking = true;
+                        GameFiber.Wait(2000);
+                    }
+                    else
+                    {
+                        if (!hasPursuitBegun)
+                        {
+                            if (blip) blip.Delete();
+                            Pursuit = LSPD_First_Response.Mod.API.Functions.CreatePursuit();
+                            LSPD_First_Response.Mod.API.Functions.AddPedToPursuit(Pursuit, suspect);
+                            LSPD_First_Response.Mod.API.Functions.SetPursuitIsActiveForPlayer(Pursuit, true);
+                            hasPursuitBegun = true;
+                        }
+                    }
                 }
-            });
+
+                if (Game.LocalPlayer.Character.IsDead) End();
+                if (Game.IsKeyDown(Settings.EndCall)) End();
+                if (suspect && suspect.IsDead) End();
+                if (suspect && LSPD_First_Response.Mod.API.Functions.IsPedArrested(suspect)) End();
+            }, "Reports of an armed clown [JM Callouts Remastered]");
 
             base.Process();
         }
+
+
     }
 }
