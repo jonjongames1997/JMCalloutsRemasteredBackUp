@@ -27,9 +27,22 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnBeforeCalloutDisplayed()
         {
-
+            spawnPoint = World.GetNextPositionOnStreet(Game.LocalPlayer.Character.Position.Around(1000f));
+            ShowCalloutAreaBlipBeforeAccepting(spawnPoint, 100f);
+            CalloutMessage = "Reports of a suspicious person";
+            CalloutPosition = spawnPoint;
 
             return base.OnBeforeCalloutDisplayed();
+        }
+
+        public override bool OnCalloutAccepted()
+        {
+            Game.LogTrivial("JM Callouts Remastered Log: Deranged Lover callout accepted!");
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~y~Reports of a Suspicious Person", "~b~Dispatch: The suspect has been spotted! Respond ~r~Code 3");
+
+
+
+            return base.OnCalloutAccepted();
         }
     }
 }
