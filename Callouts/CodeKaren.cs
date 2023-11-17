@@ -41,7 +41,6 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnCalloutAccepted()
         {
-            Game.DisplayNotification("This Callout requires ~y~Open All Interiors~w~ mod. ~g~Make sure to have it installed.~w~ If you do have it installed, you're good!");
             Suspect = new Ped(Spawnpoint, heading);
             Suspect.IsPersistent = true;
             Suspect.BlockPermanentEvents = true;
