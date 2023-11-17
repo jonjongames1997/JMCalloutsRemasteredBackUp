@@ -46,9 +46,21 @@ namespace JMCalloutsRemastered.Callouts
             Game.LogTrivial("JM Callouts Remastered Log: Reports of an armed clown accepted!");
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~y~Reports of an Armed Clown", "~b~Dispatch: The clown has been spotted with a firearm! ~r~Respond Code 3");
 
+            suspect = new Ped(pedList[new Random().Next((int)pedList.Length)], spawnPoint, 0f);
+            suspect.Inventory.GiveNewWeapon("WEAPON_UNARMED", 500, true);
+            suspect.BlockPermanentEvents = true;
+            suspect.IsPersistent = true;
+            suspect.Tasks.Wander();
 
+            searchArea = spawnPoint.Around2D(1f, 2f);
+            blip = new Blip(searchArea, 80f);
+            blip.Color = Color.DarkOrange;
+            blip.EnableRoute(Color.DarkOrange);
+            blip.Alpha = 0.5f;
 
             return base.OnCalloutAccepted();
         }
+
+
     }
 }
