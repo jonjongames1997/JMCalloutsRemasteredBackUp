@@ -69,6 +69,14 @@ namespace JMCalloutsRemastered.Callouts
             base.OnCalloutNotAccepted();
         }
 
+        public override void Process()
+        {
+            GameFiber.StartNew(delegate
+            {
 
+            });
+
+            base.Process();
+        }
     }
 }
