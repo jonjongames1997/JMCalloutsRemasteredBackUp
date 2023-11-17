@@ -43,5 +43,21 @@ namespace JMCalloutsRemastered.Callouts
 
             return base.OnBeforeCalloutDisplayed();
         }
+
+        public override bool OnCalloutAccepted()
+        {
+            Game.LogTrivial("JM Callouts Remastered Log: Reports of an armed individual with an explosive weapon accepted!");
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~y~Reports of an Armed Clown", "~b~Dispatch: The suspect has been spotted with a explosive weapon! Respond ~r~Code 3");
+
+            suspect = new Ped(pedList[new Random().Next((int)pedList.Length)], spawnpoint, 0f);
+            suspect.Inventory.GiveNewWeapon("WEAPON_UNARMED", 500, true);
+            suspect.BlockPermanentEvents = true;
+            suspect.IsPersistent = true;
+            suspect.Tasks.Wander();
+
+
+
+            return base.OnCalloutAccepted();
+        }
     }
 }
