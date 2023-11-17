@@ -53,5 +53,16 @@ namespace JMCalloutsRemastered.Callouts
 
             return base.OnBeforeCalloutDisplayed();
         }
+
+        public override bool OnCalloutAccepted()
+        {
+            Game.LogTrivial("JM Callouts Remastered Log: Gang Rivalry Shootout callout accepted!");
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~y~Reports of an Gang Shootout", "~b~Dispatch: The Gangs has been spotted! Respond ~r~Code 99");
+            Game.DisplayNotification("Chief: LETHAL FORCE IS AUTHORIZED! SHOOT TO KILL!");
+
+
+
+            return base.OnCalloutAccepted();
+        }
     }
 }
