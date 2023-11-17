@@ -40,10 +40,30 @@ namespace JMCalloutsRemastered.Callouts
         {
             Game.LogTrivial("JM Callouts Remastered Log: Deranged Lover callout accepted!");
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~y~Reports of a Suspicious Person", "~b~Dispatch: The suspect has been spotted! Respond ~r~Code 3");
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("DONTBESUSPICIOUS");
 
+            Game.DisplayHelp("Search the are for any suspicious citizens");
 
+            suspect = new Ped(spawnPoint);
+            suspect.IsPersistent = true;
+            suspect.BlockPermanentEvents = true;
+            suspect.Tasks.Wander();
+            Persona persona = LSPD_First_Response.Mod.API.Functions.GetPersonaForPed(suspect);
+            persona.Wanted = true;
+            LSPD_First_Response.Mod.API.Functions.SetPersonaForPed(suspect, persona);
+
+            susBlip = suspect.AttachBlip();
+            susBlip.Color = Color.Orange;
+            susBlip.IsRouteEnabled = true;
 
             return base.OnCalloutAccepted();
+        }
+
+        public override void OnCalloutNotAccepted()
+        {
+
+
+            base.OnCalloutNotAccepted();
         }
     }
 }
