@@ -69,9 +69,40 @@ namespace JMCalloutsRemastered.Callouts
 
         public override void Process()
         {
+            if(Game.LocalPlayer.Character.DistanceTo(suspect) < 20f && pursuit == null)
+            {
+                suspect.Tasks.Flee(Game.LocalPlayer.Character, 9999f, -1);
+                suspect.KeepTasks = true;
+                pursuit = LSPD_First_Response.Mod.API.Functions.CreatePursuit();
+                LSPD_First_Response.Mod.API.Functions.AddPedToPursuit(pursuit, suspect);
+                LSPD_First_Response.Mod.API.Functions.SetPursuitIsActiveForPlayer(pursuit, true);
+                if (susBlip) susBlip.Delete();
+            }
 
+            if(pursuit != null)
+            {
+                if (LSPD_First_Response.Mod.API.Functions.IsPursuitStillRunning(pursuit))
+                {
+                    Game.DisplaySubtitle("Catch the ~r~wanted~w~ suspect.");
+                }else if (!IsEnding)
+                {
+                    End();
+                }
+            }
+
+            if(suspect.IsDead || suspect.IsCuffed)
+            {
+                End();
+            }
 
             base.Process();
+        }
+
+        public override void End()
+        {
+
+
+            base.End();
         }
     }
 }
