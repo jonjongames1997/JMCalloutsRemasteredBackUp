@@ -56,9 +56,17 @@ namespace JMCalloutsRemastered.Callouts
 
         public override void OnCalloutNotAccepted()
         {
-
+            if (deadBody) deadBody.Delete();
+            if (deadBlip) deadBlip.Delete();
 
             base.OnCalloutNotAccepted();
+        }
+
+        public override void Process()
+        {
+
+
+            base.Process();
         }
     }
 }
