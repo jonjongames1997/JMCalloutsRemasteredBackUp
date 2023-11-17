@@ -17,6 +17,18 @@ namespace JMCalloutsRemastered.Callouts
 
     public class UnauthorizedAccessMovieStudio : Callout
     {
+        private Ped suspect;
+        private Blip susBlip;
+        private Vector3 spawnpoint;
+        private float heading;
+        private string malefemale;
+        private int counter;
 
+        public override bool OnBeforeCalloutDisplayed()
+        {
+
+
+            return base.OnBeforeCalloutDisplayed();
+        }
     }
 }
