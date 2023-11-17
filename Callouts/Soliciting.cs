@@ -30,7 +30,7 @@ namespace JMCalloutsRemastered.Callouts
         {
             Spawnpoint = new Vector3(154.39f, -987.48f, 30.09f); // Legion Square in Mission Row //
             heading = 165.04f;
-            ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 2000f);
+            ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 1000f);
             CalloutMessage = "An Individual asking people for money.";
 
             return base.OnBeforeCalloutDisplayed();
