@@ -20,6 +20,18 @@ namespace JMCalloutsRemastered.Callouts
 
     public class SpecialThankYouFromDeveloper : Callout
     {
+        private string[] pedList = new string[] { "a_f_m_bevhills_01", "a_m_m_beach01" };
+        private Ped citizen;
+        private Vector3 spawnpoint;
+        private string malefemale;
+        private int counter;
+
+        public override bool OnBeforeCalloutDisplayed()
+        {
+
+
+            return base.OnBeforeCalloutDisplayed();
+        }
 
     }
 }
