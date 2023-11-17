@@ -67,10 +67,10 @@ namespace JMCalloutsRemastered.Callouts
             Aggressor3.Inventory.GiveNewWeapon("weapon_mg", 5000, true);
             Aggressor4.Inventory.GiveNewWeapon("weapon_specialcarbine", 5000, true);
 
-            Aggressor1.Armor = 200;
-            Aggressor2.Armor = 200;
-            Aggressor3.Armor = 200;
-            Aggressor4.Armor = 200;
+            Aggressor1.Armor = 500;
+            Aggressor2.Armor = 500;
+            Aggressor3.Armor = 500;
+            Aggressor4.Armor = 500;
 
             pursuit = LSPD_First_Response.Mod.API.Functions.CreatePursuit();
             LSPD_First_Response.Mod.API.Functions.AddPedToPursuit(pursuit, Aggressor1);
