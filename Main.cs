@@ -33,7 +33,7 @@ namespace JMCalloutsRemastered
                     Game.Console.Print();
 
 
-                    Game.DisplayNotification("web_lossantospolicedept", "web_lossantospolicedept", "JM Callouts Remastered", "~g~v" + Assembly.GetExecutingAssembly().GetName().Version.ToString() + " ~r~by OfficerMorrison", "~b~successfully loaded!");
+                    Game.DisplayNotification("web_jonjongames", "web_jonjongames", "JM Callouts Remastered", "~g~v" + Assembly.GetExecutingAssembly().GetName().Version.ToString() + " ~r~by OfficerMorrison", "~b~successfully loaded!");
 
                     VersionChecker.VersionChecker.isUpdateAvailable();
                     GameFiber.Wait(300);
@@ -59,6 +59,7 @@ namespace JMCalloutsRemastered
             if (Settings.TrespassingOnRailRoadProperty) { Functions.RegisterCallout(typeof(TrespassingOnRailRoadProperty)); }
             if (Settings.TrespassingOnConstructionProperty) { Functions.RegisterCallout(typeof(TrespassingOnConstructionProperty)); }
             if (Settings.LostIndividual) { Functions.RegisterCallout(typeof(LostIndividual)); }
+            if (Settings.ClownWithADeadlyWeapon) { Functions.RegisterCallout(typeof(ClownWithADeadlyWeapon)); }
             Game.Console.Print("[LOG]: All callouts of the JMCalloutsRemastered.ini were loaded successfully.");
             Game.Console.Print();
             Game.Console.Print("================================================== JM Callouts Remastered ===================================================");
