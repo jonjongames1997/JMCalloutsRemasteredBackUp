@@ -46,6 +46,8 @@ namespace JMCalloutsRemastered.Callouts
                 new Vector3(126.7119f, -1472.859f, 29.14161f), // Lucky Plucker in Strawberry
             };
             spawnPoint = LocationChooser.chooseNearestLocation(list);
+            ShowCalloutAreaBlipBeforeAccepting(spawnPoint, 70f);
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_ALL_UNITS_01 CRIME_GUNFIRE_02 IN_OR_ON_POSITION ");
 
             return base.OnBeforeCalloutDisplayed();
         }
