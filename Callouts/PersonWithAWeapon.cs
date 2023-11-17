@@ -56,7 +56,10 @@ namespace JMCalloutsRemastered.Callouts
             suspect.Tasks.Wander();
 
             searchArea = spawnPoint.Around2D(1f, 2f);
-
+            blip = new Blip(searchArea, 80f);
+            blip.Color = Color.DarkOrange;
+            blip.EnableRoute(Color.DarkOrange);
+            blip.Alpha = 0.5f;
 
             return base.OnCalloutAccepted();
         }
