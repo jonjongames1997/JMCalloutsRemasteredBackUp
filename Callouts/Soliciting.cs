@@ -31,7 +31,6 @@ namespace JMCalloutsRemastered.Callouts
             Spawnpoint = new Vector3(154.39f, -987.48f, 30.09f); // Legion Square in Mission Row //
             heading = 165.04f;
             ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 2000f);
-            AddMaximumDistanceCheck(100f, Spawnpoint);
             CalloutMessage = "An Individual asking people for money.";
 
             return base.OnBeforeCalloutDisplayed();
@@ -39,7 +38,7 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnCalloutAccepted()
         {
-            Suspect = new Ped("IG_LAMARDAVIS", Spawnpoint, heading);
+            Suspect = new Ped(Spawnpoint, heading);
             Suspect.IsPersistent = true;
             Suspect.BlockPermanentEvents = true;
             CalloutInterfaceAPI.Functions.SendMessage(this, "An individual is asking people for money and harassing them. Deal with this, Officer.");
