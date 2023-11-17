@@ -67,6 +67,11 @@ namespace JMCalloutsRemastered.Callouts
             Aggressor3.Inventory.GiveNewWeapon("weapon_mg", 5000, true);
             Aggressor4.Inventory.GiveNewWeapon("weapon_specialcarbine", 5000, true);
 
+            Aggressor1.Armor = 200;
+            Aggressor2.Armor = 200;
+            Aggressor3.Armor = 200;
+            Aggressor4.Armor = 200;
+
 
 
             return base.OnCalloutAccepted();
