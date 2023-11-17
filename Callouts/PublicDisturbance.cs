@@ -42,7 +42,7 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnCalloutAccepted()
         {
-            suspect = new Ped("A_M_Y_BREAKDANCE_01", spawnPoint, heading);
+            suspect = new Ped(spawnPoint, heading);
             suspect.IsPersistent = true;
             suspect.BlockPermanentEvents = true;
             CalloutInterfaceAPI.Functions.SendMessage(this, "A citizen's reporting a disturbance with a white male with no shirt. Threatening the victim's life with a deadly weapon. Respond code 3.");
@@ -59,6 +59,14 @@ namespace JMCalloutsRemastered.Callouts
             counter = 0;
 
             return base.OnCalloutAccepted();
+        }
+
+        public override void OnCalloutNotAccepted()
+        {
+            if (suspect) suspect.Delete();
+            if (SuspectBlip) SuspectBlip.Delete();
+
+            base.OnCalloutNotAccepted();
         }
 
         public override void Process()
