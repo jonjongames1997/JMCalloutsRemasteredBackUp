@@ -79,12 +79,43 @@ namespace JMCalloutsRemastered.Callouts
                 {
                     counter++;
 
-
+                    if(counter == 1)
+                    {
+                        Game.DisplaySubtitle("~b~You: Excuse me, " + malefemale + ". Can you come talk to me real quick?");
+                    }
+                    if(counter == 2)
+                    {
+                        Game.DisplaySubtitle("~r~Suspect:~w~ What now, you motherfucker you, cops?");
+                    }
+                    if(counter == 3)
+                    {
+                        Game.DisplaySubtitle("~b~You: Why are you asking people for money? Panhandling is ~r~ILLEGAL~w~ in the state.");
+                    }
+                    if(counter == 4)
+                    {
+                        Game.DisplaySubtitle("~r~Suspect:~w~ Fuck this, I'm outta here.");
+                    }
+                    if(counter == 5)
+                    {
+                        Game.DisplaySubtitle("Conversation Ended!");
+                    }
+                    if(counter == 6)
+                    {
+                        Game.DisplaySubtitle("~r~Suspect:~w~ Die, you motherfucka!");
+                        suspect.Tasks.FightAgainst(Game.LocalPlayer.Character);
+                        suspect.Inventory.GiveNewWeapon("WEAPON_PISTOL", 500, true);
+                    }
                 }
 
+            }
+            if (suspect.IsCuffed || suspect.IsDead || Game.LocalPlayer.Character.IsDead || !suspect.Exists())
+            {
+                End();
             }
 
             base.Process();
         }
+
+
     }
 }
