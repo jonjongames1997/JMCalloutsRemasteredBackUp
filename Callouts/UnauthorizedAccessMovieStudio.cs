@@ -70,9 +70,19 @@ namespace JMCalloutsRemastered.Callouts
 
         public override void Process()
         {
-
-
             base.Process();
+
+            if(Game.LocalPlayer.Character.DistanceTo(suspect) <= 10f)
+            {
+                Game.DisplayHelp("Press ~y~E~w~ to interact with suspect.", false);
+
+                if (Game.IsKeyDown(System.Windows.Forms.Keys.E))
+                {
+                    counter++;
+
+
+                }
+            }
         }
     }
 }
