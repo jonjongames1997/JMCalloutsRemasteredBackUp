@@ -29,7 +29,7 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnBeforeCalloutDisplayed()
         {
-            spawnpoint = new Vector3(-1651.26f, -1007.90f, 13.02f);
+            spawnpoint = new Vector3(-1651.26f, -1007.90f, 13.02f); // Del Perro Pier
             heading = 214.98f;
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
             LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_ALL_UNITS_02 WE_HAVE_01 CRIME_DISTURBING_THE_PEACE_01 IN_OR_ON_POSITION UNITS_RESPOND_CODE_02_02");
@@ -41,9 +41,30 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnCalloutAccepted()
         {
+            suspect = new Ped(spawnpoint, heading);
+            suspect.IsPersistent = true;
+            suspect.BlockPermanentEvents = true;
+            CalloutInterfaceAPI.Functions.SendMessage(this, "Reports of an individual asking people for money");
 
+            blip = suspect.AttachBlip();
+            blip.Color = System.Drawing.Color.Aqua;
+            blip.IsRouteEnabled = true;
+
+            if (suspect.IsMale)
+                malefemale = "Sir";
+            else
+                malefemale = "Ma'am";
+
+            counter = 0;
 
             return base.OnCalloutAccepted();
+        }
+
+        public override void OnCalloutNotAccepted()
+        {
+
+
+            base.OnCalloutNotAccepted();
         }
     }
 }
