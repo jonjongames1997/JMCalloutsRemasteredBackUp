@@ -33,9 +33,17 @@ namespace JMCalloutsRemastered.Callouts
             heading = 214.98f;
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
             LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_ALL_UNITS_02 WE_HAVE_01 CRIME_DISTURBING_THE_PEACE_01 IN_OR_ON_POSITION UNITS_RESPOND_CODE_02_02");
-
+            CalloutMessage = "Reports of an individual asking people for money";
+            CalloutPosition = spawnpoint;
 
             return base.OnBeforeCalloutDisplayed();
+        }
+
+        public override bool OnCalloutAccepted()
+        {
+
+
+            return base.OnCalloutAccepted();
         }
     }
 }
