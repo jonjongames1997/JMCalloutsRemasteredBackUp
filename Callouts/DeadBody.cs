@@ -64,9 +64,20 @@ namespace JMCalloutsRemastered.Callouts
 
         public override void Process()
         {
-
+            if(deadBody.DistanceTo(Game.LocalPlayer.Character) < 2f)
+            {
+                End();
+                Game.DisplayNotification("Call EMS to attempt CPR or Call a Coroner to pick up the deceased body.")
+            }
 
             base.Process();
+        }
+
+        public override void End()
+        {
+
+
+            base.End();
         }
     }
 }
