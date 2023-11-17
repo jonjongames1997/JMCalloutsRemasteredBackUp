@@ -119,7 +119,10 @@ namespace JMCalloutsRemastered.Callouts
 
         public override void Process()
         {
+            GameFiber.StartNew(delegate
+            {
 
+            });
 
             base.Process();
         }
