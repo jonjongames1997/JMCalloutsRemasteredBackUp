@@ -49,9 +49,37 @@ namespace JMCalloutsRemastered.Callouts
             Game.LogTrivial("JM Callouts Remastered Log: Deranged Lover callout accepted!");
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~y~Reports of a Deranged Lover", "~b~Dispatch: The suspect has been spotted! Respond ~r~Code 3");
 
+            suspect = new Ped(pedList[new Random().Next((int)pedList.Length)], spawnPoint, 0f);
+            suspect.Inventory.GiveNewWeapon("WEAPON_UNARMED", 500, true);
+            suspect.BlockPermanentEvents = true;
+            suspect.IsPersistent = true;
+            suspect.Tasks.Wander();
 
+            searchArea = spawnPoint.Around2D(1f, 2f);
+            blip = new Blip(searchArea, 80f);
+            blip.Color = Color.Orange;
+            blip.EnableRoute(Color.Orange);
+            blip.Alpha = 0.5f;
 
             return base.OnCalloutAccepted();
+        }
+
+        public override void OnCalloutNotAccepted()
+        {
+            if (suspect) suspect.Delete();
+            if (blip) blip.Delete();
+
+            base.OnCalloutNotAccepted();
+        }
+
+        public override void Process()
+        {
+            GameFiber.StartNew(delegate
+            {
+
+            });
+
+            base.Process();
         }
     }
 }
