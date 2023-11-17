@@ -67,6 +67,7 @@
     <Compile Include="Callouts\IntoxicatedIndividual.cs" />
     <Compile Include="Callouts\LostIndividual.cs" />
     <Compile Include="Callouts\PersonWithAKnife.cs" />
+    <Compile Include="Callouts\PersonWithAWeapon.cs" />
     <Compile Include="Callouts\PossibleProstitution.cs" />
     <Compile Include="Callouts\PublicDisturbance.cs" />
     <Compile Include="Callouts\RefuseToLeave.cs" />
