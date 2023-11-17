@@ -119,7 +119,7 @@ namespace JMCalloutsRemastered.Callouts
             LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_THIS_IS_DISPATCH_HIGH ALL_UNITS_CODE4 NO_FURTHER_UNITS_REQUIRED");
             base.End();
 
-            Game.LogTrivial("[JM Callouts Remastered]: Clown With A Deadly Weapon is code 4!");
+            Game.LogTrivial("[JM Callouts Remastered]: Person With A Deadly Weapon is code 4!");
         }
 
     }
