@@ -41,6 +41,9 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnCalloutAccepted()
         {
+            Game.LogTrivial("JM Callouts Remastered Log: Reports of an individual soliciting callout accepted!");
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~y~Reports of an Individual Soliciting", "~b~Dispatch: The suspect has been spotted! Respond ~r~Code 2");
+
             suspect = new Ped(spawnpoint, heading);
             suspect.IsPersistent = true;
             suspect.BlockPermanentEvents = true;
@@ -116,6 +119,13 @@ namespace JMCalloutsRemastered.Callouts
             base.Process();
         }
 
-
+        public override void End()
+        {
+            if (suspect) suspect.Dismiss();
+            if (blip) blip.Delete();
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~y~Reports of an Individual Soliciting", "~b~You: Dispatch, We are ~g~CODE 4~w~! Show me back 10-8!");
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_THIS_IS_DISPATCH_HIGH ALL_UNITS_CODE4 NO_FURTHER_UNITS_REQUIRED");
+            base.End();
+        }
     }
 }
