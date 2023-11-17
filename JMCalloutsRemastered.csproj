@@ -60,6 +60,8 @@
     <Compile Include="Callouts\911HangUp.cs" />
     <Compile Include="Callouts\ClownWithADeadlyWeapon.cs" />
     <Compile Include="Callouts\CodeKaren.cs" />
+    <Compile Include="Callouts\DeadBody.cs" />
+    <Compile Include="Callouts\DerangedLover.cs" />
     <Compile Include="Callouts\IllegalCampfireOnPublicBeach.cs" />
     <Compile Include="Callouts\IllegalProstitution.cs" />
     <Compile Include="Callouts\IntoxicatedIndividual.cs" />
@@ -70,9 +72,11 @@
     <Compile Include="Callouts\RefuseToLeave.cs" />
     <Compile Include="Callouts\RefuseToPay.cs" />
     <Compile Include="Callouts\Soliciting.cs" />
+    <Compile Include="Callouts\SuspiciousPerson.cs" />
     <Compile Include="Callouts\TrespassingOnConstructionProperty.cs" />
     <Compile Include="Callouts\TrespassingOnPrivateProperty.cs" />
     <Compile Include="Callouts\TrespassingOnRailRoadProperty.cs" />
+    <Compile Include="Callouts\UnauthorizedAccessMovieStudio.cs" />
     <Compile Include="IniFile.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

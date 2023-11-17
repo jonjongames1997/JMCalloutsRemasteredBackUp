@@ -29,6 +29,7 @@ namespace JMCalloutsRemastered.Callouts
         {
             spawnPoint = World.GetNextPositionOnStreet(Game.LocalPlayer.Character.Position.Around(1000f));
             ShowCalloutAreaBlipBeforeAccepting(spawnPoint, 100f);
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_ALL_UNITS_02 WE_HAVE_01 CITIZENS_REPORT_04 CRIME_DISTURBING_THE_PEACE_02 IN_OR_ON_POSITION UNITS_RESPOND_CODE_02_02");
             CalloutMessage = "Reports of a suspicious person";
             CalloutPosition = spawnPoint;
 
