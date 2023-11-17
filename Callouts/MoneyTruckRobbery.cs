@@ -90,9 +90,18 @@ namespace JMCalloutsRemastered.Callouts
             NativeFunction.CallByName<uint>("TASK_COMBAT_PED", Aggressor3, Game.LocalPlayer.Character, 0, 1);
             NativeFunction.CallByName<uint>("TASK_COMBAT_PED", Aggressor4, Game.LocalPlayer.Character, 0, 1);
 
-
+            if (Settings.ActiveAIBackup)
+            {
+                LSPD_First_Response.Mod.API.Functions.RequestBackup(vehicleSpawnpoint, LSPD_First_Response.EBackupResponseType.Pursuit, LSPD_First_Response.EBackupUnitType.LocalUnit);
+                LSPD_First_Response.Mod.API.Functions.RequestBackup(vehicleSpawnpoint, LSPD_First_Response.EBackupResponseType.Pursuit, LSPD_First_Response.EBackupUnitType.AirUnit);
+                LSPD_First_Response.Mod.API.Functions.RequestBackup(vehicleSpawnpoint, LSPD_First_Response.EBackupResponseType.Pursuit, LSPD_First_Response.EBackupUnitType.StateUnit);
+                LSPD_First_Response.Mod.API.Functions.RequestBackup(vehicleSpawnpoint, LSPD_First_Response.EBackupResponseType.Pursuit, LSPD_First_Response.EBackupUnitType.StateUnit);
+            }
+            else { Settings.ActiveAIBackup = false; }
 
             return base.OnCalloutAccepted();
         }
+
+
     }
 }
