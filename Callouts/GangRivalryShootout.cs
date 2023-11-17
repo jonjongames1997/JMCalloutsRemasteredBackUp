@@ -60,7 +60,19 @@ namespace JMCalloutsRemastered.Callouts
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~y~Reports of an Gang Shootout", "~b~Dispatch: The Gangs has been spotted! Respond ~r~Code 99");
             Game.DisplayNotification("Chief: LETHAL FORCE IS AUTHORIZED! SHOOT TO KILL!");
 
+            Aggressor1 = new Ped("ig_ashley", Stuff.Vector3Extension.ExtensionAround(spawnPoint, 20f), 0f);
+            Aggressor2 = new Ped("cs_johnnyklebitz", Stuff.Vector3Extension.ExtensionAround(spawnPoint, 30f), 0f);
+            Aggressor3 = new Ped("g_f_y_lost_01", Stuff.Vector3Extension.ExtensionAround(spawnPoint, 22f), 0f);
+            Aggressor4 = new Ped("a_f_y_hippie_01", Stuff.Vector3Extension.ExtensionAround(spawnPoint, 24f), 0f);
+            Aggressor5 = new Ped("a_m_y_hippy_01", Stuff.Vector3Extension.ExtensionAround(spawnPoint, 26f), 0f);
+            Aggressor6 = new Ped("a_f_y_hipster_01", Stuff.Vector3Extension.ExtensionAround(spawnPoint, 28f), 0f);
 
+            Aggressor1.Inventory.GiveNewWeapon("WEAPON_MICROSMG", 5000, true);
+            Aggressor2.Inventory.GiveNewWeapon("WEAPON_ASSAULTRIFLE", 5000, true);
+            Aggressor3.Inventory.GiveNewWeapon("WEAPON_CARBINERIFLE", 5000, true);
+            Aggressor4.Inventory.GiveNewWeapon("WEAPON_TACTICALRIFLE", 5000, true);
+            Aggressor5.Inventory.GiveNewWeapon("WEAPON_MG", 5000, true);
+            Aggressor6.Inventory.GiveNewWeapon("WEAPON_COMBATMG", 5000, true);
 
             return base.OnCalloutAccepted();
         }
