@@ -51,6 +51,17 @@ namespace JMCalloutsRemastered.Callouts
             Game.LogTrivial("JM Callouts Remastered Log: Money Truck Robbery callout accepted");
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~y~Reports of an Armed Money Truck Robbery", "~b~Dispatch: The suspects has been spotted with firearms! Respond ~r~Code 3");
 
+            stockade = new Vehicle("STOCKADE", vehicleSpawnpoint);
+            Aggressor1 = new Ped("g_m_m_chicold_01", spawnpoint, 0f);
+            Aggressor2 = new Ped("a_c_chimp", spawnpoint, 0f);
+            Aggressor3 = new Ped("ig_claypain", spawnpoint, 0f);
+            Aggressor4 = new Ped("g_f_y_vagos_01", spawnpoint, 0f);
+
+            Aggressor1.WarpIntoVehicle(stockade, -1);
+            Aggressor2.WarpIntoVehicle(stockade, -2);
+            Aggressor3.WarpIntoVehicle(stockade, 1);
+            Aggressor4.WarpIntoVehicle(stockade, 2);
+
 
 
             return base.OnCalloutAccepted();
