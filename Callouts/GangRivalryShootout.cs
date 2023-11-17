@@ -26,6 +26,7 @@ namespace JMCalloutsRemastered.Callouts
         private Ped Aggressor4;
         private Ped Aggressor5;
         private Ped Aggressor6;
+        private Vector3 spawnPoint;
         private Blip blip1;
         private Blip blip2;
         private Blip blip3;
@@ -44,7 +45,7 @@ namespace JMCalloutsRemastered.Callouts
                 new Vector3(361.2437f, -1967.548f, 24.47634f), // Vagos Territory
                 new Vector3(126.7119f, -1472.859f, 29.14161f), // Lucky Plucker in Strawberry
             };
-
+            spawnPoint = LocationChooser.chooseNearestLocation(list);
 
             return base.OnBeforeCalloutDisplayed();
         }
