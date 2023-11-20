@@ -37,7 +37,7 @@ namespace JMCalloutsRemastered.Callouts
             scenario = new Random().Next(0, 100);
             spawnpoint = World.GetNextPositionOnStreet(Game.LocalPlayer.Character.Position.Around(1000f));
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
-            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_ALL_UNITS_02 WE_HAVE_01 CITIZENS_REPORT_04 CRIME_BRANDISHING_WEAPON_02 IN_OR_ON_POSITION UNITS_RESPOND_CODE_03_01");
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ROCKETMAN");
             CalloutMessage = "Reports of an armed individual with an explosive weapon";
             CalloutPosition = spawnpoint;
 

@@ -42,12 +42,10 @@ namespace JMCalloutsRemastered.Callouts
             {
                 new Vector3(-24.46961f, -1457.463f, 30.6445f), // Franklin's Hood
                 new Vector3(39.15001f, -1739.961f, 29.30341f), // Mega Mall
-                new Vector3(361.2437f, -1967.548f, 24.47634f), // Vagos Territory
                 new Vector3(126.7119f, -1472.859f, 29.14161f), // Lucky Plucker in Strawberry
             };
             spawnPoint = LocationChooser.chooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(spawnPoint, 70f);
-            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_ALL_UNITS_01 CRIME_GUNFIRE_02 IN_OR_ON_POSITION UNITS_RESPOND_CODE_99_03");
             CalloutMessage = "Reports of a gang shootout";
             CalloutPosition = spawnPoint;
 

@@ -31,8 +31,8 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnBeforeCalloutDisplayed()
         {
-            spawnPoint = new Vector3();
-            heading = 125.69f;
+            spawnPoint = new Vector3(-663.64f, -227.5f, 37.39f);
+            heading = 70.58f;
             ShowCalloutAreaBlipBeforeAccepting(spawnPoint, 1000f);
             CalloutMessage = "Reports of a missing person";
             CalloutPosition = spawnPoint;

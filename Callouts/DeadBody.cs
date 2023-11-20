@@ -15,7 +15,7 @@ using Rage.Native;
 namespace JMCalloutsRemastered.Callouts
 {
 
-    [CalloutInterface("Dead Bpdy", CalloutProbability.High, "Reports of a dead body", "Code 3", "LSPD")]
+    [CalloutInterface("Dead Body", CalloutProbability.High, "Reports of a dead body", "Code 3", "LSPD")]
 
     public class DeadBody : Callout
     {
@@ -34,8 +34,6 @@ namespace JMCalloutsRemastered.Callouts
 
             CalloutMessage = "Reports of a dead body";
             CalloutPosition = spawnPoint;
-
-            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_ALL_UNITS_02 WE_HAVE_01 CITIZENS_REPORT_04 CRIME_HIT_AND_RUN_03 IN_OR_ON_POSITION");
             ShowCalloutAreaBlipBeforeAccepting(spawnPoint, 50);
 
             return base.OnBeforeCalloutDisplayed();

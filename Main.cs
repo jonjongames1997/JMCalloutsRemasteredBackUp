@@ -59,7 +59,6 @@ namespace JMCalloutsRemastered
             if (Settings.TrespassingOnRailRoadProperty) { Functions.RegisterCallout(typeof(TrespassingOnRailRoadProperty)); }
             if (Settings.TrespassingOnConstructionProperty) { Functions.RegisterCallout(typeof(TrespassingOnConstructionProperty)); }
             if (Settings.LostIndividual) { Functions.RegisterCallout(typeof(LostIndividual)); }
-            if (Settings.ClownWithADeadlyWeapon) { Functions.RegisterCallout(typeof(ClownWithADeadlyWeapon)); }
             if (Settings.UnauthorizedAccessMovieStudio) { Functions.RegisterCallout(typeof(UnauthorizedAccessMovieStudio)); }
             if (Settings.DerangedLover) { Functions.RegisterCallout(typeof(DerangedLover)); }
             if (Settings.DeadBody) { Functions.RegisterCallout(typeof(DeadBody)); }
