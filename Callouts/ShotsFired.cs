@@ -20,6 +20,23 @@ namespace JMCalloutsRemastered.Callouts
 
     public class ShotsFired : Callout
     {
+        private string[] wepList = new string[] { "WEAPON_PISTOL", "WEAPON_PISTOL_MK2", "WEAPON_DOUBLEACTION", "WEAPON_CARBINERIFLE" };
+        private Ped suspect1;
+        private Ped suspect2;
+        private Ped suspect3;
+        private Ped suspect4;
+        private Vector3 spawnPoint;
+        private Vector3 searchArea;
+        private Blip blip;
+        private int scenario = 0;
+        private bool hasBegunAttacking = false;
+        private bool isArmed = false;
+        private bool hasPursuitBegun = false;
 
+        public override bool OnBeforeCalloutDisplayed()
+        {
+
+            return base.OnBeforeCalloutDisplayed();
+        }
     }
 }
