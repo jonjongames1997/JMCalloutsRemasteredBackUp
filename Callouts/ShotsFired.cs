@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Rage;
+using Rage.Native;
 using CalloutInterfaceAPI;
 using LSPD_First_Response.Mod.API;
 using LSPD_First_Response.Mod.Callouts;
@@ -22,6 +23,7 @@ namespace JMCalloutsRemastered.Callouts
     {
         private string[] wepList = new string[] { "WEAPON_PISTOL", "WEAPON_PISTOL_MK2", "WEAPON_DOUBLEACTION", "WEAPON_CARBINERIFLE" };
         private Ped suspect1;
+        private Ped cop;
         private Ped suspect2;
         private Ped suspect3;
         private Ped suspect4;
@@ -54,9 +56,52 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnCalloutAccepted()
         {
+            Game.LogTrivial("JM Callouts Remastered Log: Shots Fired reported callout accepted");
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~y~Reports of Shots Fired", "~b~Dispatch: The suspects has been spotted! Respond ~r~Code 3");
 
+            suspect1 = new Ped(spawnPoint);
+            suspect1.Inventory.GiveNewWeapon("WEAPON_UNARMED", 500, true);
+            suspect1.BlockPermanentEvents = true;
+            suspect1.IsPersistent = true;
+            suspect1.Tasks.Wander();
+
+            cop = new Ped("S_F_Y_COP_01", spawnPoint, scenario);
+            cop.BlockPermanentEvents = true;
+            cop.IsPersistent = true;
+            cop.Kill();
+            NativeFunction.Natives.APPLY_PED_DAMAGE_PACK(cop, "ShotByFireArm", 1f, 1f);
+
+            suspect2 = new Ped(spawnPoint);
+            suspect3 = new Ped(spawnPoint);
+            suspect4 = new Ped(spawnPoint);
+            suspect2.IsPersistent = true;
+            suspect3.IsPersistent = true;
+            suspect4.IsPersistent = true;
+            suspect2.Tasks.Wander();
+            suspect3.Tasks.Wander();
+            suspect4.Tasks.Wander();
+
+            searchArea = spawnPoint.Around2D(1f, 2f);
+            blip = new Blip(searchArea, 80f);
+            blip.Color = Color.Orange;
+            blip.EnableRoute(Color.Orange);
+            blip.Alpha = 0.5f;
+
+            if (Settings.ActiveAIBackup)
+            {
+                LSPD_First_Response.Mod.API.Functions.RequestBackup(spawnPoint, LSPD_First_Response.EBackupResponseType.Code3, LSPD_First_Response.EBackupUnitType.LocalUnit);
+                LSPD_First_Response.Mod.API.Functions.RequestBackup(spawnPoint, LSPD_First_Response.EBackupResponseType.Code3, LSPD_First_Response.EBackupUnitType.StateUnit);
+            }
+            else { return false; }
 
             return base.OnCalloutAccepted();
+        }
+
+        public override void OnCalloutNotAccepted()
+        {
+
+
+            base.OnCalloutNotAccepted();
         }
     }
 }
