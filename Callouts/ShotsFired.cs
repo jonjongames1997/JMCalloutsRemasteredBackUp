@@ -35,6 +35,19 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnBeforeCalloutDisplayed()
         {
+            Random random = new Random();
+            List<Vector3> list = new List<Vector3>
+            {
+                new Vector3(60.597f, 18.319f, 68.829f), // Alta Parking Lot near FIB Building //
+                new Vector3(226.897f, -35.595f, 69.286f), // Near GoPostal and Vinewood Ammunation
+            };
+            spawnPoint = LocationChooser.chooseNearestLocation(list);
+            scenario = new Random().Next(0, 100);
+            ShowCalloutAreaBlipBeforeAccepting(spawnPoint, 100f);
+            CalloutInterfaceAPI.Functions.SendMessage(this, "A report of shots fired by civilian");
+            CalloutMessage = "Shots fired reported";
+            CalloutPosition = spawnPoint;
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_ALL_UNITS_01 WE_HAVE_01 CRIME_SHOTS_FIRED_AT_AN_OFFICER_03");
 
             return base.OnBeforeCalloutDisplayed();
         }
