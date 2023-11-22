@@ -99,9 +99,21 @@ namespace JMCalloutsRemastered.Callouts
 
         public override void OnCalloutNotAccepted()
         {
-
+            if (suspect1) suspect1.Delete();
+            if (cop) cop.Delete();
+            if (suspect2) suspect2.Delete();
+            if (suspect3) suspect3.Delete();
+            if (suspect4) suspect4.Delete();
+            if (blip) blip.Delete();
 
             base.OnCalloutNotAccepted();
+        }
+
+        public override void Process()
+        {
+
+
+            base.Process();
         }
     }
 }
