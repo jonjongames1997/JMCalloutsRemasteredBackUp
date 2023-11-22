@@ -111,9 +111,60 @@ namespace JMCalloutsRemastered.Callouts
 
         public override void Process()
         {
-
+            GameFiber.StartNew(delegate
+            {
+                if (suspect1.DistanceTo(Game.LocalPlayer.Character.GetOffsetPosition(Vector3.RelativeFront)) < 40F)
+                {
+                    if (blip) blip.Delete();
+                }
+                if (suspect1.DistanceTo(Game.LocalPlayer.Character.GetOffsetPosition(Vector3.RelativeFront)) < 70f && !isArmed)
+                {
+                    suspect1.Inventory.GiveNewWeapon(wepList[new Random().Next((int)wepList.Length)], 500, true);
+                    isArmed = true;
+                }
+                if (suspect1 && suspect1.DistanceTo(Game.LocalPlayer.Character.GetOffsetPosition(Vector3.RelativeFront)) < 40f && hasBegunAttacking)
+                {
+                    if(scenario > 40f)
+                    {
+                        new RelationshipGroup("VICTIM");
+                        new RelationshipGroup("AGGRESSOR");
+                        suspect1.RelationshipGroup = "VICTIM";
+                        suspect2.RelationshipGroup = "AGGRESSOR";
+                        suspect3.RelationshipGroup = "AGGRESSOR";
+                        suspect4.RelationshipGroup = "AGGRESSOR";
+                        suspect1.KeepTasks = true;
+                        Game.SetRelationshipBetweenRelationshipGroups("VICTIM", "AGGRESSOR", Relationship.Hate);
+                        suspect1.Tasks.FightAgainstClosestHatedTarget(1000f);
+                        GameFiber.Wait(2000);
+                        suspect1.Tasks.FightAgainst(Game.LocalPlayer.Character);
+                        hasBegunAttacking = true;
+                        GameFiber.Wait(600);
+                    }
+                    else
+                    {
+                        if (!hasPursuitBegun)
+                        {
+                            suspect1.Face(Game.LocalPlayer.Character);
+                            suspect1.Tasks.PutHandsUp(-1, Game.LocalPlayer.Character);
+                            Game.DisplayNotification("~b~Dispatch~w~: The Suspect is surrendering. Take the suspect into custody.");
+                            hasPursuitBegun = true;
+                        }
+                    }
+                }
+                if (Game.LocalPlayer.Character.IsDead) End();
+                if (Game.IsKeyDown(Settings.EndCall)) End();
+                if (suspect1 && suspect1.IsDead) End();
+                if (suspect1 && LSPD_First_Response.Mod.API.Functions.IsPedArrested(suspect1)) End();
+            }, "Reports of shots fired [JM Callouts Remastered]");
 
             base.Process();
+        }
+
+        public override void End()
+        {
+
+
+            base.End();
         }
     }
 }
