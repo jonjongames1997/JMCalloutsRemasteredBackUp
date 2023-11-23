@@ -29,7 +29,6 @@ namespace JMCalloutsRemastered
         internal static bool GangRivalryShootout = true;
         internal static bool RocketMan = true;
         internal static bool SolicitingDelPerroPier = true;
-        internal static bool MoneyTruckRobbery = true;
         internal static bool ShotsFired = true;
         internal static bool ActiveAIBackup = true;
         internal static bool HelpMessages = true;
@@ -65,7 +64,6 @@ namespace JMCalloutsRemastered
             Settings.GangRivalryShootout = ini.ReadBoolean("Callouts", "Gang Rivalry Shootout", true);
             Settings.RocketMan = ini.ReadBoolean("Callots", "RocketMan", true);
             Settings.SolicitingDelPerroPier = ini.ReadBoolean("Callouts", "SolicitingDelPerro", true);
-            Settings.MoneyTruckRobbery = ini.ReadBoolean("Callouts", "MoneyTruckRobbery", true);
             Settings.ShotsFired = ini.ReadBoolean("Callouts", "ShotsFired", true);
             Settings.ActiveAIBackup = ini.ReadBoolean("General", "ActiveAIBackup", true);
             Settings.HelpMessages = ini.ReadBoolean("HelpMessages", "Help Messages", true);

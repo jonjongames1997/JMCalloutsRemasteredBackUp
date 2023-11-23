@@ -67,7 +67,6 @@ namespace JMCalloutsRemastered
             if (Settings.GangRivalryShootout) { Functions.RegisterCallout(typeof(GangRivalryShootout)); }
             if (Settings.RocketMan) { Functions.RegisterCallout(typeof(RocketMan)); }
             if (Settings.SolicitingDelPerroPier) { Functions.RegisterCallout(typeof(SolicitingDelPerroPier)); }
-            if (Settings.MoneyTruckRobbery) { Functions.RegisterCallout(typeof(MoneyTruckRobbery)); }
             if (Settings.ShotsFired) { Functions.RegisterCallout(typeof(ShotsFired)); }
             Game.Console.Print("[LOG]: All callouts of the JMCalloutsRemastered.ini were loaded successfully.");
             Game.Console.Print();
