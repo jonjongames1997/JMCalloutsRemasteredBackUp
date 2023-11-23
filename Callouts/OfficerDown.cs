@@ -37,7 +37,18 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnBeforeCalloutDisplayed()
         {
-
+            Random random = new Random();
+            List<Vector3> list = new List<Vector3>
+            {
+                new Vector3(94.63f, -217.37f, 54.49f), // Shopping Center in Vinewood
+            };
+            spawnPoint = LocationChooser.chooseNearestLocation(list);
+            scenario = new Random().Next(0, 100);
+            ShowCalloutAreaBlipBeforeAccepting(spawnPoint, 100f);
+            CalloutInterfaceAPI.Functions.SendMessage(this, "Reports of an officer down by a fellow officer");
+            CalloutMessage = "Multiple reports of an officer down. Respond Code 3";
+            CalloutPosition = spawnPoint;
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_ALL_UNITS_01 WE_HAVE_01 CRIME_SHOTS_FIRED_AT_AN_OFFICER_03");
 
             return base.OnBeforeCalloutDisplayed();
         }
