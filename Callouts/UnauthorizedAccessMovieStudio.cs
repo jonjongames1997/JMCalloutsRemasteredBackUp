@@ -78,6 +78,7 @@ namespace JMCalloutsRemastered.Callouts
                 if (Game.IsKeyDown(System.Windows.Forms.Keys.E))
                 {
                     counter++;
+                    suspect.Face(Game.LocalPlayer.Character);
 
                     if(counter == 1)
                     {

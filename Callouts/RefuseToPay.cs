@@ -72,6 +72,7 @@ namespace JMCalloutsRemastered.Callouts
 
                     if (counter == 1)
                     {
+                        Suspect.Face(Game.LocalPlayer.Character);
                         Game.DisplaySubtitle("Player: Hello there " + malefemale + ", can you come talk to me for a minute?");
                     }
                     if (counter == 2)
@@ -125,7 +126,8 @@ namespace JMCalloutsRemastered.Callouts
                     if (counter == 14)
                     {
                         Game.DisplaySubtitle("Conversation ended!");
-                        Suspect.Tasks.ReactAndFlee(Suspect);
+                        Suspect.Tasks.FightAgainst(Game.LocalPlayer.Character);
+                        Suspect.Inventory.GiveNewWeapon("WEAPON_AUTOSHOTGUN", 500, true);
                     }
                 }
             }

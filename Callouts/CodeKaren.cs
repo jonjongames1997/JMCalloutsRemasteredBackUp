@@ -32,7 +32,7 @@ namespace JMCalloutsRemastered.Callouts
         {
             Spawnpoint = new Vector3(-624.7086f, -231.8441f, 38.05705f); // Vangelico Jewellery Store // 
             heading = 315.2649f;
-            ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 1000f);
+            ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 100f);
             CalloutMessage = "A business employee requesting an officer to escort a individual causing a scene";
             CalloutPosition = Spawnpoint;
 
@@ -75,6 +75,7 @@ namespace JMCalloutsRemastered.Callouts
 
                     if(counter == 1)
                     {
+                        Suspect.Face(Game.LocalPlayer.Character);
                         Game.DisplaySubtitle("Player: Excuse me, " + malefemale + ". I'm gonna have to ask you to leave the premises cause the employee doesn't want you here.");
                     }
                     if(counter == 2)

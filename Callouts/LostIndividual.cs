@@ -33,7 +33,7 @@ namespace JMCalloutsRemastered.Callouts
         {
             spawnPoint = new Vector3(-663.64f, -227.5f, 37.39f);
             heading = 70.58f;
-            ShowCalloutAreaBlipBeforeAccepting(spawnPoint, 1000f);
+            ShowCalloutAreaBlipBeforeAccepting(spawnPoint, 100f);
             CalloutMessage = "Reports of a missing person";
             CalloutPosition = spawnPoint;
 
@@ -70,6 +70,7 @@ namespace JMCalloutsRemastered.Callouts
         {
             if (victim) victim.Delete();
             if (vicBlip) vicBlip.Delete();
+            if (suspect) suspect.Delete();
 
             base.OnCalloutNotAccepted();
         }
@@ -133,6 +134,11 @@ namespace JMCalloutsRemastered.Callouts
             if (vicBlip.Exists())
             {
                 vicBlip.Delete();
+            }
+
+            if (suspect.Exists())
+            {
+                suspect.Dismiss();
             }
 
             base.End();

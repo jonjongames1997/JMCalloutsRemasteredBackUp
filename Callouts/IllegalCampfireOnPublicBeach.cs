@@ -107,7 +107,8 @@ namespace JMCalloutsRemastered.Callouts
                     {
                         Game.DisplaySubtitle("Conversation has ended!");
                         Game.DisplayNotification("Arrest the suspect, Officer.");
-                        Suspect.Tasks.FightAgainstClosestHatedTarget(10f);
+                        Suspect.Tasks.FightAgainst(Game.LocalPlayer.Character);
+                        Suspect.Inventory.GiveNewWeapon("WEAPON_MACHETE", 500, true);
                     }
                 }
             }

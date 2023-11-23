@@ -74,6 +74,7 @@ namespace JMCalloutsRemastered.Callouts
 
                     if(counter == 1)
                     {
+                        Suspect.Face(Game.LocalPlayer.Character);
                         Game.DisplaySubtitle("Player: Hello there " + malefemale + ", Can I talk to you for a second?");
                     }
                     if(counter == 2)

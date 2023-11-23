@@ -33,7 +33,7 @@ namespace JMCalloutsRemastered.Callouts
         {
             spawnPoint = new Vector3(-174.17f, -1427.77f, 31.25f);
             heading = 178.40f;
-            ShowCalloutAreaBlipBeforeAccepting(spawnPoint, 1000f);
+            ShowCalloutAreaBlipBeforeAccepting(spawnPoint, 100f);
             CalloutMessage = "An citizen's reporting a public disturbance.";
             CalloutPosition = spawnPoint;
 

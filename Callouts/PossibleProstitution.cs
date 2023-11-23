@@ -19,6 +19,7 @@ namespace JMCalloutsRemastered.Callouts
     {
 
         // General Variables //
+        private string[] pedList = new string[] { "S_F_Y_HOOKER_01", "S_F_Y_HOOKER_02", "S_F_Y_HOOKER_03" };
         private Ped Suspect;
         private Blip SuspectBlip;
         private Vector3 Spawnpoint;
@@ -30,7 +31,7 @@ namespace JMCalloutsRemastered.Callouts
         {
             Spawnpoint = new Vector3(-535.76f, -849.20f, 29.44f); // Near Lucky Plucker in Little Seoul // 
             heading = 28.60f;
-            ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 1000f);
+            ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 100f);
             CalloutMessage = "Citizens reporting a young female possibly selling her body for money.";
             CalloutPosition = Spawnpoint;
 
@@ -39,7 +40,7 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnCalloutAccepted()
         {
-            Suspect = new Ped("S_F_Y_HOOKER_02", Spawnpoint, heading);
+            Suspect = new Ped(pedList[new Random().Next((int)pedList.Length)], Spawnpoint, 0f);
             Suspect.IsPersistent = true;
             Suspect.BlockPermanentEvents = true;
             CalloutInterfaceAPI.Functions.SendMessage(this, "A citizen reported a young female selling her body for money. Talk to her and see if the claim is true. Approach with caution.");
@@ -74,6 +75,7 @@ namespace JMCalloutsRemastered.Callouts
 
                     if(counter == 1)
                     {
+                        Suspect.Face(Game.LocalPlayer.Character);
                         Game.DisplaySubtitle("Player: Good evening " + malefemale + ", Can I ask you some questions?");
                     }
                     if(counter == 2)
@@ -120,6 +122,7 @@ namespace JMCalloutsRemastered.Callouts
                     {
                         Game.DisplaySubtitle("Conversation ended.");
                         Suspect.Tasks.ReactAndFlee(Suspect);
+                        Suspect.Inventory.GiveNewWeapon("WEAPON_KNIFE", 500, true);
                     }
                 }
             }

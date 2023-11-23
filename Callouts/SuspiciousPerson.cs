@@ -41,7 +41,7 @@ namespace JMCalloutsRemastered.Callouts
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~y~Reports of a Suspicious Person", "~b~Dispatch: The suspect has been spotted! Respond ~r~Code 3");
             LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("DONTBESUSPICIOUS");
 
-            Game.DisplayHelp("Search the are for any suspicious citizens");
+            Game.DisplayHelp("Search the area for any suspicious citizens");
 
             suspect = new Ped(spawnPoint);
             suspect.IsPersistent = true;

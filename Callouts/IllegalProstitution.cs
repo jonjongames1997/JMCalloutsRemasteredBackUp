@@ -9,6 +9,9 @@ using LSPD_First_Response.Mod.API;
 using LSPD_First_Response.Mod.Callouts;
 using System.Drawing;
 using System.Windows.Forms;
+using JMCalloutsRemastered.Stuff;
+using LSPD_First_Response.Engine.Scripting.Entities;
+using LSPD_First_Response.Engine.Scripting;
 
 namespace JMCalloutsRemastered.Callouts
 {
@@ -19,18 +22,17 @@ namespace JMCalloutsRemastered.Callouts
     {
 
         // General Variables //
+        private string[] pedList = new string[] {"IG_AMANDATOWNLEY", "CSB_ANITA", "S_F_Y_BARTENDER_01", "S_F_Y_BAYWATCH_01", "A_F_M_BEACH_01", "A_F_Y_BEACH01", "U_F_Y_BIKERCHIC", "S_F_Y_HOOKER_01", "S_F_Y_HOOKER_02", "S_F_Y_HOOKER_03", "IG_MOLLY", "A_F_Y_TOPLESS_01", "IG_TRACEYDISANTO", "MP+F_COCAINE_01"};
         private Ped Suspect;
         private Blip SuspectBlip;
         private Vector3 Spawnpoint;
         private int counter;
-        private float heading;
         private string malefemale;
 
         public override bool OnBeforeCalloutDisplayed()
         {
-            Spawnpoint = new Vector3(-622.29f, -761.78f, 26.21f);
-            heading = 85.83f;
-            ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 2000f);
+            Spawnpoint = World.GetNextPositionOnStreet(Game.LocalPlayer.Character.Position.Around(1000f));
+            ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 100f);
             CalloutMessage = "Citizens reporting a young female selling her body for money.";
             CalloutPosition = Spawnpoint;
 
@@ -39,7 +41,10 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnCalloutAccepted()
         {
-            Suspect = new Ped("IG_MOLLY", Spawnpoint, heading);
+            Game.LogTrivial("JM Callouts Remastered Log: Illegal Prostitution callout accepted!");
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~y~Reports of Illegal Prostitution", "~b~Dispatch: The suspect has been spotted! Respond ~r~Code 2");
+
+            Suspect = new Ped(pedList[new Random().Next((int)pedList.Length)], Spawnpoint, 0f);
             Suspect.IsPersistent = true;
             Suspect.BlockPermanentEvents = true;
             CalloutInterfaceAPI.Functions.SendMessage(this, "A citizen is reporting a young female, possibly in her 20s or 30s, selling her body for money. Handle it your way, officer.");
@@ -74,6 +79,7 @@ namespace JMCalloutsRemastered.Callouts
 
                     if(counter == 1)
                     {
+                        Suspect.Face(Game.LocalPlayer.Character);
                         Game.DisplaySubtitle("Player: Excuse me, " + malefemale + ". Can you talk to me for a minute?");
                     }
                     if(counter == 2)
@@ -124,6 +130,7 @@ namespace JMCalloutsRemastered.Callouts
                     {
                         Game.DisplaySubtitle("Conversation ended. Arrest the suspect.");
                         Suspect.Tasks.FightAgainst(Game.LocalPlayer.Character); // What the suspect will do after the conversation ends //
+                        Suspect.Inventory.GiveNewWeapon("WEAPON_STUNGUN_MP", 500, true);
                     }
                 }
             }
@@ -145,6 +152,9 @@ namespace JMCalloutsRemastered.Callouts
             {
                 SuspectBlip.Delete();
             }
+
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~y~Reports of Illegal Prostitution", "~b~You: Dispatch, We are ~g~CODE 4~w~! Show me back 10-8!");
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_THIS_IS_DISPATCH_HIGH ALL_UNITS_CODE4 NO_FURTHER_UNITS_REQUIRED");
 
 
             Game.LogTrivial("JM Callouts Remastered - Illegal Prostitution is Code 4!");
