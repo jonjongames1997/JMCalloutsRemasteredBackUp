@@ -77,9 +77,9 @@ namespace JMCalloutsRemastered.Callouts
             suspect2.IsPersistent = true;
             suspect3.IsPersistent = true;
             suspect4.IsPersistent = true;
-            suspect2.Tasks.Wander();
-            suspect3.Tasks.Wander();
-            suspect4.Tasks.Wander();
+            suspect2.Tasks.FightAgainst(Game.LocalPlayer.Character);
+            suspect3.Tasks.FightAgainst(Game.LocalPlayer.Character);
+            suspect4.Tasks.FightAgainst(Game.LocalPlayer.Character);
 
             searchArea = spawnPoint.Around2D(1f, 2f);
             blip = new Blip(searchArea, 80f);
