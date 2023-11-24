@@ -115,7 +115,7 @@ namespace JMCalloutsRemastered.Callouts
         {
             GameFiber.StartNew(delegate
             {
-                if (suspect1.DistanceTo(Game.LocalPlayer.Character.GetOffsetPosition(Vector3.RelativeFront)) < 40F)
+                if (suspect1.DistanceTo(Game.LocalPlayer.Character.GetOffsetPosition(Vector3.RelativeFront)) < 40f)
                 {
                     if (blip) blip.Delete();
                 }
