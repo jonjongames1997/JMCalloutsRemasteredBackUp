@@ -122,7 +122,19 @@ namespace JMCalloutsRemastered.Callouts
 
         public override void Process()
         {
+            GameFiber.StartNew(delegate
+            {
+                if(suspect1.DistanceTo(Game.LocalPlayer.Character.GetOffsetPosition(Vector3.RelativeFront)) < 40f)
+                {
+                    if (blip) blip.Delete();
+                }
+                if(suspect1.DistanceTo(Game.LocalPlayer.Character.GetOffsetPosition(Vector3.RelativeFront)) < 70f && !isArmed)
+                {
+                    suspect1.Inventory.GiveNewWeapon(wepList[new Random().Next((int)wepList.Length)], 500, true);
+                    isArmed = true;
+                }
 
+            });
 
             base.Process();
         }
