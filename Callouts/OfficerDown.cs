@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Rage;
+using Rage.Native;
 using CalloutInterfaceAPI;
 using LSPD_First_Response.Mod.API;
 using LSPD_First_Response.Mod.Callouts;
@@ -24,12 +25,14 @@ namespace JMCalloutsRemastered.Callouts
         private string[] wepList = new string[] { "WEAPON_PISTOL", "WEAPON_PISTOL_MK2", "WEAPON_DOUBLEACTION", "WEAPON_CARBINERIFLE" };
         private Ped suspect1;
         private Ped cop;
+        private Ped cop2;
         private Ped suspect2;
         private Ped suspect3;
         private Ped suspect4;
         private Vector3 spawnPoint;
         private Vector3 searchArea;
         private Blip blip;
+        private Blip susBlip;
         private int scenario = 0;
         private bool hasBegunAttacking = false;
         private bool isArmed = false;
@@ -63,9 +66,21 @@ namespace JMCalloutsRemastered.Callouts
             suspect1.BlockPermanentEvents = true;
             suspect1.IsPersistent = true;
             suspect1.Tasks.Wander();
-            suspect1.AttachBlip();
+            susBlip = suspect1.AttachBlip();
 
+            cop = new Ped("S_M_Y_HWAYCOP_01", spawnPoint, scenario);
+            cop.BlockPermanentEvents = true;
+            cop.IsPersistent = true;
+            cop.Kill();
+            NativeFunction.Natives.APPLY_PED_DAMAGE_PACK(cop, "ShotByFireArm", 1f, 1f);
 
+            cop2 = new Ped("S_M_Y_COP_01", spawnPoint, scenario);
+            cop2.BlockPermanentEvents = true;
+            cop2.IsPersistent = true;
+            cop2.Tasks.StandStill(500);
+
+            searchArea = spawnPoint.Around2D(1f, 2f);
+            blip.
 
             return base.OnCalloutAccepted();
         }

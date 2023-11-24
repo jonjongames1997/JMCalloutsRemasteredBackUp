@@ -30,6 +30,7 @@ namespace JMCalloutsRemastered.Callouts
         private Vector3 spawnPoint;
         private Vector3 searchArea;
         private Blip blip;
+        private Blip susBlip;
         private int scenario = 0;
         private bool hasBegunAttacking = false;
         private bool isArmed = false;
@@ -64,7 +65,7 @@ namespace JMCalloutsRemastered.Callouts
             suspect1.BlockPermanentEvents = true;
             suspect1.IsPersistent = true;
             suspect1.Tasks.Wander();
-            suspect1.AttachBlip();
+            susBlip = suspect1.AttachBlip();
 
             cop = new Ped("S_F_Y_COP_01", spawnPoint, scenario);
             cop.BlockPermanentEvents = true;
