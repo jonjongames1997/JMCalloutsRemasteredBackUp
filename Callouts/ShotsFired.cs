@@ -64,6 +64,7 @@ namespace JMCalloutsRemastered.Callouts
             suspect1.BlockPermanentEvents = true;
             suspect1.IsPersistent = true;
             suspect1.Tasks.Wander();
+            suspect1.AttachBlip();
 
             cop = new Ped("S_F_Y_COP_01", spawnPoint, scenario);
             cop.BlockPermanentEvents = true;

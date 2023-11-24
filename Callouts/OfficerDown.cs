@@ -52,5 +52,22 @@ namespace JMCalloutsRemastered.Callouts
 
             return base.OnBeforeCalloutDisplayed();
         }
+
+        public override bool OnCalloutAccepted()
+        {
+            Game.LogTrivial("JM Callouts Remastered Log: Officer Down callout accepted");
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~y~Reports of a Officer Down", "~b~Dispatch: The suspects has been spotted! Respond ~r~Code 3");
+
+            suspect1 = new Ped(spawnPoint);
+            suspect1.Inventory.GiveNewWeapon("WEAPON_UNARMED", 500, true);
+            suspect1.BlockPermanentEvents = true;
+            suspect1.IsPersistent = true;
+            suspect1.Tasks.Wander();
+            suspect1.AttachBlip();
+
+
+
+            return base.OnCalloutAccepted();
+        }
     }
 }
