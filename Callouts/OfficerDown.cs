@@ -79,8 +79,21 @@ namespace JMCalloutsRemastered.Callouts
             cop2.IsPersistent = true;
             cop2.Tasks.StandStill(500);
 
+            suspect2 = new Ped(spawnPoint);
+            suspect3 = new Ped(spawnPoint);
+            suspect4 = new Ped(spawnPoint);
+            suspect2.IsPersistent = true;
+            suspect3.IsPersistent = true;
+            suspect4.IsPersistent = true;
+            suspect2.Tasks.FightAgainst(Game.LocalPlayer.Character);
+            suspect3.Tasks.FightAgainst(Game.LocalPlayer.Character);
+            suspect4.Tasks.FightAgainst(Game.LocalPlayer.Character);
+
             searchArea = spawnPoint.Around2D(1f, 2f);
-            blip.
+            blip = new Blip(searchArea, 80f);
+            blip.Color = Color.OrangeRed;
+            blip.EnableRoute(Color.OrangeRed);
+            blip.Alpha = 0.5f;
 
             return base.OnCalloutAccepted();
         }
