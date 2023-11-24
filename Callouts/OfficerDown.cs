@@ -175,9 +175,20 @@ namespace JMCalloutsRemastered.Callouts
 
         public override void End()
         {
-
+            if (suspect1) suspect1.Dismiss();
+            if (suspect2) suspect2.Dismiss();
+            if (suspect3) suspect3.Dismiss();
+            if (suspect4) suspect4.Dismiss();
+            if (cop) cop.Dismiss();
+            if (cop2) cop2.Dismiss();
+            if (blip) blip.Delete();
+            if (susBlip) susBlip.Delete();
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~y~Reports of a Officer Down", "~b~You: Dispatch, We are ~g~CODE 4~w~! Show me back 10-8!");
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_THIS_IS_DISPATCH_HIGH ALL_UNITS_CODE4 NO_FURTHER_UNITS_REQUIRED");
 
             base.End();
+
+            Game.LogTrivial("[JM Callouts Remastered]: Officer Down is code 4!");
         }
     }
 }
