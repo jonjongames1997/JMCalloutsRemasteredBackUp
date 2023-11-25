@@ -20,6 +20,23 @@ namespace JMCalloutsRemastered.Callouts
 
     public class MonkeyWithAWeapon : Callout
     {
+        private string[] pedList = new string[] { "A_C_CHIMP" };
+        private string[] wepList = new string[] { "WEAPON_PISTOL", "WEAPON_ASSAULTRIFLE", "WEAPON_SPECIALCARBINE", "WEAPON_CARBINERIFLE" };
+        private Ped suspect;
+        private Vector3 spawnpoint;
+        private Vector3 searcharea;
+        private Blip blip;
+        private LHandle pursuit;
+        private int scenario = 0;
+        private bool hasBegunAttacking = false;
+        private bool isArmed = false;
+        private bool hasPursuitBegun = false;
 
+        public override bool OnBeforeCalloutDisplayed()
+        {
+
+
+            return base.OnBeforeCalloutDisplayed();
+        }
     }
 }

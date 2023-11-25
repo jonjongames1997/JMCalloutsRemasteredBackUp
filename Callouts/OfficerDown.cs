@@ -44,6 +44,11 @@ namespace JMCalloutsRemastered.Callouts
             List<Vector3> list = new List<Vector3>
             {
                 new Vector3(94.63f, -217.37f, 54.49f), // Shopping Center in Vinewood
+                new Vector3(-55.11012f, -1110.357f, 26.0027f), // Sandy Shores
+                new Vector3(1378.079f, 3599.861f, 34.43561f), // Trevor's Meth Lab/Office
+                new Vector3(371.4488f, 2637.318f, 44.49557f), // Motel on Route 68 //
+                new Vector3(30.33209f, 2793.319f, 57.52761f), // Gas Station Near Church on 68
+                new Vector3(1625.555f, 3567.901f, 35.1463f), // Sandy Hotel
             };
             spawnPoint = LocationChooser.chooseNearestLocation(list);
             scenario = new Random().Next(0, 100);
