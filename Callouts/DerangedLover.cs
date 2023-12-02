@@ -37,6 +37,7 @@ namespace JMCalloutsRemastered.Callouts
             scenario = new Random().Next(0, 100);
             spawnPoint = World.GetNextPositionOnStreet(Game.LocalPlayer.Character.Position.Around(1000));
             ShowCalloutAreaBlipBeforeAccepting(spawnPoint, 100f);
+            CalloutInterfaceAPI.Functions.SendMessage(this, "A citizen's report of an deranged lover");
             CalloutMessage = "Reports of a deranged lover";
             CalloutPosition = spawnPoint;
 

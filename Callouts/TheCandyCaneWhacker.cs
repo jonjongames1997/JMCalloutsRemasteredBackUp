@@ -26,6 +26,7 @@ namespace JMCalloutsRemastered.Callouts
         private Vector3 spawnpoint;
         private Vector3 searcharea;
         private Blip blip;
+        private Blip suspectBlip;
         private LHandle pursuit;
         private int scenario = 0;
         private bool hasBegunAttacking = false;
@@ -46,7 +47,21 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnCalloutAccepted()
         {
+            Game.LogTrivial("JM Callouts Remastered Log: The Candy Cane Whacker Callout accepted!");
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~y~Reports of a Candy Cane Whacker", "~b~Dispatch~w~: The suspect has been spotted with a Candy Cane! ~r~Respond Code 2~w~!");
 
+            suspect = new Ped(pedList[new Random().Next((int)pedList.Length)], spawnpoint, 0f);
+            suspect.Inventory.GiveNewWeapon("WEAPON_UNARMED", 500, true);
+            suspect.IsPersistent = true;
+            suspect.BlockPermanentEvents = true;
+            suspect.Tasks.Wander();
+            suspect.AttachBlip();
+
+            searcharea = spawnpoint.Around2D(1f, 2f);
+            blip = new Blip(searcharea, 80f);
+            blip.Color = Color.OrangeRed;
+            blip.EnableRoute(Color.OrangeRed);
+            blip.Alpha = 0.5f;
 
             return base.OnCalloutAccepted();
         }
