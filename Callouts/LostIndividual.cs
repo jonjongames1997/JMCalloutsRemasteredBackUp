@@ -24,6 +24,8 @@ namespace JMCalloutsRemastered.Callouts
         private Ped suspect;
         private Blip vicBlip;
         private Vector3 spawnPoint;
+        private Vector3 suspectSpawnpoint;
+        private float suspectHeading;
         private float heading;
         private int counter;
         private string malefemale;
@@ -33,6 +35,8 @@ namespace JMCalloutsRemastered.Callouts
         {
             spawnPoint = new Vector3(-663.64f, -227.5f, 37.39f);
             heading = 70.58f;
+            suspectSpawnpoint = new Vector3(-623.54f, -230.25f, 38.06f); // Second Suspect will spawn at this location 
+            suspectHeading = 131.09f;
             ShowCalloutAreaBlipBeforeAccepting(spawnPoint, 100f);
             CalloutInterfaceAPI.Functions.SendMessage(this, "Michael DeSanta reported his wife missing. Locate and help her get home safely, Officer.");
             CalloutMessage = "Reports of a missing person";
@@ -47,7 +51,7 @@ namespace JMCalloutsRemastered.Callouts
             victim.IsPersistent = true;
             victim.BlockPermanentEvents = true;
 
-            suspect = new Ped("PLAYER_ZERO", spawnPoint, heading);
+            suspect = new Ped("PLAYER_ZERO", suspectSpawnpoint, suspectHeading);
             suspect.IsPersistent = true;
             suspect.BlockPermanentEvents = true;
             suspect.KeepTasks = true;
