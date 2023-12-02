@@ -50,6 +50,8 @@ namespace JMCalloutsRemastered.Callouts
             suspect = new Ped("PLAYER_ZERO", spawnPoint, heading);
             suspect.IsPersistent = true;
             suspect.BlockPermanentEvents = true;
+            suspect.KeepTasks = true;
+            suspect.Tasks.StandStill(500);
 
             vicBlip = victim.AttachBlip();
             vicBlip.Color = System.Drawing.Color.Pink;
