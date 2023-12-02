@@ -34,9 +34,21 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnBeforeCalloutDisplayed()
         {
-
+            scenario = new Random().Next(0, 100);
+            spawnpoint = World.GetNextPositionOnStreet(Game.LocalPlayer.Character.Position.Around(1000f));
+            ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
+            CalloutInterfaceAPI.Functions.SendMessage(this, "Citizen's reporting an individual with a candy cane");
+            CalloutMessage = "An individual threating to whack another person with a candy cane";
+            CalloutPosition = spawnpoint;
 
             return base.OnBeforeCalloutDisplayed();
+        }
+
+        public override bool OnCalloutAccepted()
+        {
+
+
+            return base.OnCalloutAccepted();
         }
     }
 }
