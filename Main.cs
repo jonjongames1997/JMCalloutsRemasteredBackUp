@@ -71,6 +71,7 @@ namespace JMCalloutsRemastered
             if (Settings.SolicitingDelPerroPier) { Functions.RegisterCallout(typeof(SolicitingDelPerroPier)); }
             if (Settings.OfficerDown) { Functions.RegisterCallout(typeof(OfficerDown)); }
             if (Settings.MonkeyWithAWeapon) { Functions.RegisterCallout(typeof(MonkeyWithAWeapon)); }
+            if (Settings.TheCandyCaneWhacker) { Functions.RegisterCallout(typeof(TheCandyCaneWhacker)); }
             Game.Console.Print("[LOG]: All callouts of the JMCalloutsRemastered.ini were loaded successfully.");
             Game.Console.Print();
             Game.Console.Print("================================================== JM Callouts Remastered ===================================================");
