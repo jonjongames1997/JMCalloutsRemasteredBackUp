@@ -35,7 +35,7 @@ namespace JMCalloutsRemastered.Callouts
         public override bool OnBeforeCalloutDisplayed()
         {
             scenario = new Random().Next(0, 100);
-            spawnPoint = World.GetNextPositionOnStreet(Game.LocalPlayer.Character.Position.Around(1000));
+            spawnPoint = World.GetNextPositionOnStreet(Game.LocalPlayer.Character.Position.Around(1000f));
             ShowCalloutAreaBlipBeforeAccepting(spawnPoint, 100f);
             CalloutInterfaceAPI.Functions.SendMessage(this, "A citizen's report of an armed individual.");
             LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_ALL_UNITS_02 WE_HAVE_01 CITIZENS_REPORT_04 CRIME_BRANDISHING_WEAPON_02 UNITS_RESPOND_CODE_03_01");

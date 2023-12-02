@@ -35,7 +35,7 @@ namespace JMCalloutsRemastered
         internal static bool ActiveAIBackup = true;
         internal static bool HelpMessages = true;
         internal static Keys EndCall = Keys.End;
-        internal static Keys Dialog = Keys.Y;
+        internal static Keys Dialog = Keys.E;
 
         internal static void LoadSettings()
         {
@@ -72,7 +72,7 @@ namespace JMCalloutsRemastered
             Settings.ActiveAIBackup = ini.ReadBoolean("General", "ActiveAIBackup", true);
             Settings.HelpMessages = ini.ReadBoolean("HelpMessages", "Help Messages", true);
             EndCall = ini.ReadEnum("Keys", "EndCall", Keys.End);
-            Dialog = ini.ReadEnum("Keys", "Dialog", Keys.Y);
+            Dialog = ini.ReadEnum("Keys", "Dialog", Keys.E);
         }
         public static readonly string PluginVersion = "3.8.1.5";
     }
