@@ -31,6 +31,7 @@ namespace JMCalloutsRemastered.Callouts
             Spawnpoint = new Vector3(-1537.564f, -1214.748f, 1.887064f); // Campfire Spawns at night //
             heading = 133.8988f;
             ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 1000f); // Blips the area of the callout //
+            CalloutInterfaceAPI.Functions.SendMessage(this, "Vespucci Beach Security reporting an individual starting a campfire on the beach. Suspect refused to put out the fire as requested by security.");
             CalloutMessage = "Individual started an illegal campfire on the beach!"; // Brief description of the call //
             CalloutPosition = Spawnpoint; // Gives the position of where the callout is located at //
 
@@ -42,7 +43,6 @@ namespace JMCalloutsRemastered.Callouts
             Suspect = new Ped(Spawnpoint, heading);
             Suspect.IsPersistent = true;
             Suspect.BlockPermanentEvents = true;
-            CalloutInterfaceAPI.Functions.SendMessage(this, "Vespucci Beach Security reporting an individual starting a campfire on the beach. Suspect refused to put out the fire as requested by security. Suspect also refused to leave the beach. Approach with caution. Suspect may be armed.");
 
             SuspectBlip = Suspect.AttachBlip();
             SuspectBlip.Color = System.Drawing.Color.Chocolate;
@@ -112,6 +112,13 @@ namespace JMCalloutsRemastered.Callouts
                     }
                 }
             }
+
+            if (Settings.ActiveAIBackup)
+            {
+                LSPD_First_Response.Mod.API.Functions.RequestBackup(Spawnpoint, LSPD_First_Response.EBackupResponseType.Code2, LSPD_First_Response.EBackupUnitType.LocalUnit);
+                LSPD_First_Response.Mod.API.Functions.RequestBackup(Spawnpoint, LSPD_First_Response.EBackupResponseType.Code2, LSPD_First_Response.EBackupUnitType.PrisonerTransport);
+            }
+            else { Settings.ActiveAIBackup = false; }
 
             if (Suspect.IsCuffed || Suspect.IsDead || Game.LocalPlayer.Character.IsDead || !Suspect.Exists())
             {

@@ -33,6 +33,7 @@ namespace JMCalloutsRemastered.Callouts
             Spawnpoint = new Vector3(-624.7086f, -231.8441f, 38.05705f); // Vangelico Jewellery Store // 
             heading = 315.2649f;
             ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 100f);
+            CalloutInterfaceAPI.Functions.SendMessage(this, "A business employee reporting an individual causing a scene. Respond Code 2. Possibly a Karen.");
             CalloutMessage = "A business employee requesting an officer to escort a individual causing a scene";
             CalloutPosition = Spawnpoint;
 
@@ -44,7 +45,6 @@ namespace JMCalloutsRemastered.Callouts
             Suspect = new Ped(Spawnpoint, heading);
             Suspect.IsPersistent = true;
             Suspect.BlockPermanentEvents = true;
-            CalloutInterfaceAPI.Functions.SendMessage(this, "A business employee reporting an individual causing a scene. Respond Code 2. Possibly a Karen.");
 
             SuspectBlip = Suspect.AttachBlip();
             SuspectBlip.Color = System.Drawing.Color.Coral;
@@ -106,6 +106,14 @@ namespace JMCalloutsRemastered.Callouts
                     }
                 }
             }
+
+            if (Settings.ActiveAIBackup)
+            {
+                LSPD_First_Response.Mod.API.Functions.RequestBackup(Spawnpoint, LSPD_First_Response.EBackupResponseType.Code2, LSPD_First_Response.EBackupUnitType.LocalUnit);
+                LSPD_First_Response.Mod.API.Functions.RequestBackup(Spawnpoint, LSPD_First_Response.EBackupResponseType.Code2, LSPD_First_Response.EBackupUnitType.PrisonerTransport);
+            }
+            else { Settings.ActiveAIBackup = false; }
+
             if (Suspect.IsCuffed || Suspect.IsDead || Game.LocalPlayer.Character.IsDead || !Suspect.Exists())
             {
                 End();

@@ -28,7 +28,8 @@ namespace JMCalloutsRemastered.Callouts
         {
             spawnpoint = new Vector3(-1050.09f, -512.47f, 36.04f); // Richard's Majestic Movie Studio
             heading = 341.35f;
-            ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 500f);
+            ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
+            CalloutInterfaceAPI.Functions.SendMessage(this, "A security officer reporting an individual trespassing on private property without proper access.");
             CalloutMessage = "An individual refusing to leave";
             CalloutPosition = spawnpoint;
 
@@ -43,7 +44,6 @@ namespace JMCalloutsRemastered.Callouts
             suspect = new Ped(spawnpoint, heading);
             suspect.IsPersistent = true;
             suspect.BlockPermanentEvents = true;
-            CalloutInterfaceAPI.Functions.SendMessage(this, "A security officer reporting an individual trespassing on private property without proper access.");
 
             susBlip = suspect.AttachBlip();
             susBlip.Color = System.Drawing.Color.Yellow;
@@ -115,6 +115,14 @@ namespace JMCalloutsRemastered.Callouts
                     }
                 }
             }
+
+            if (Settings.ActiveAIBackup)
+            {
+                LSPD_First_Response.Mod.API.Functions.RequestBackup(spawnpoint, LSPD_First_Response.EBackupResponseType.Code2, LSPD_First_Response.EBackupUnitType.LocalUnit);
+                LSPD_First_Response.Mod.API.Functions.RequestBackup(spawnpoint, LSPD_First_Response.EBackupResponseType.Code2, LSPD_First_Response.EBackupUnitType.PrisonerTransport);
+            }
+            else { Settings.ActiveAIBackup = false; }
+
             if (suspect.IsCuffed || suspect.IsDead || Game.LocalPlayer.Character.IsDead || !suspect.Exists())
             {
                 End();

@@ -32,6 +32,7 @@ namespace JMCalloutsRemastered.Callouts
             Spawnpoint = new Vector3(-535.76f, -849.20f, 29.44f); // Near Lucky Plucker in Little Seoul // 
             heading = 28.60f;
             ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 100f);
+            CalloutInterfaceAPI.Functions.SendMessage(this, "A citizen reported a young female selling her body for money. Talk to her and see if the claim is true. Approach with caution.");
             CalloutMessage = "Citizens reporting a young female possibly selling her body for money.";
             CalloutPosition = Spawnpoint;
 
@@ -43,7 +44,7 @@ namespace JMCalloutsRemastered.Callouts
             Suspect = new Ped(pedList[new Random().Next((int)pedList.Length)], Spawnpoint, 0f);
             Suspect.IsPersistent = true;
             Suspect.BlockPermanentEvents = true;
-            CalloutInterfaceAPI.Functions.SendMessage(this, "A citizen reported a young female selling her body for money. Talk to her and see if the claim is true. Approach with caution.");
+
             Game.DisplayNotification("Tip: This callout works better at night time when other prostitutes are on the streets.");
 
             SuspectBlip = Suspect.AttachBlip();
@@ -126,6 +127,14 @@ namespace JMCalloutsRemastered.Callouts
                     }
                 }
             }
+
+            if (Settings.ActiveAIBackup)
+            {
+                LSPD_First_Response.Mod.API.Functions.RequestBackup(Spawnpoint, LSPD_First_Response.EBackupResponseType.Code2, LSPD_First_Response.EBackupUnitType.LocalUnit);
+                LSPD_First_Response.Mod.API.Functions.RequestBackup(Spawnpoint, LSPD_First_Response.EBackupResponseType.Code2, LSPD_First_Response.EBackupUnitType.PrisonerTransport);
+            }
+            else { Settings.ActiveAIBackup = false; }
+
             if (Suspect.IsCuffed || Suspect.IsDead || Game.LocalPlayer.Character.IsDead || !Suspect.Exists())
             {
                 End();

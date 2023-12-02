@@ -34,7 +34,8 @@ namespace JMCalloutsRemastered.Callouts
             spawnPoint = new Vector3(-174.17f, -1427.77f, 31.25f);
             heading = 178.40f;
             ShowCalloutAreaBlipBeforeAccepting(spawnPoint, 100f);
-            CalloutMessage = "An citizen's reporting a public disturbance.";
+            CalloutInterfaceAPI.Functions.SendMessage(this, "A citizen's reporting a public disturbance.");
+            CalloutMessage = "A citizen's reporting a disturbance with a white male with no shirt. Threatening the victim's life with a deadly weapon.";
             CalloutPosition = spawnPoint;
 
             return base.OnBeforeCalloutDisplayed();
@@ -45,7 +46,6 @@ namespace JMCalloutsRemastered.Callouts
             suspect = new Ped(spawnPoint, heading);
             suspect.IsPersistent = true;
             suspect.BlockPermanentEvents = true;
-            CalloutInterfaceAPI.Functions.SendMessage(this, "A citizen's reporting a disturbance with a white male with no shirt. Threatening the victim's life with a deadly weapon. Respond code 3.");
 
             SuspectBlip = suspect.AttachBlip();
             SuspectBlip.Color = System.Drawing.Color.BurlyWood;
@@ -76,7 +76,7 @@ namespace JMCalloutsRemastered.Callouts
             if(Game.LocalPlayer.Character.DistanceTo(suspect) <= 10f)
             {
 
-                Game.DisplayHelp("Press ~y~'E'~w~ to talk to suspect. ~y~Approach with caution.");
+                Game.DisplayHelp("Press ~y~E~w~ to talk to suspect. ~y~Approach with caution.");
 
                 if (Game.IsKeyDown(System.Windows.Forms.Keys.E))
                 {
@@ -128,6 +128,14 @@ namespace JMCalloutsRemastered.Callouts
                         suspect.Tasks.StandStill(500);
                     }
                 }
+
+                if (Settings.ActiveAIBackup)
+                {
+                    LSPD_First_Response.Mod.API.Functions.RequestBackup(spawnPoint, LSPD_First_Response.EBackupResponseType.Code2, LSPD_First_Response.EBackupUnitType.LocalUnit);
+                    LSPD_First_Response.Mod.API.Functions.RequestBackup(spawnPoint, LSPD_First_Response.EBackupResponseType.Code2, LSPD_First_Response.EBackupUnitType.PrisonerTransport);
+                }
+                else { Settings.ActiveAIBackup = false; }
+
                 if (suspect.IsCuffed || suspect.IsDead || Game.LocalPlayer.Character.IsDead || !suspect.Exists())
                 {
                     End();

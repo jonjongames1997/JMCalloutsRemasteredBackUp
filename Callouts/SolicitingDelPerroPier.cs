@@ -32,6 +32,7 @@ namespace JMCalloutsRemastered.Callouts
             spawnpoint = new Vector3(-1651.26f, -1007.90f, 13.02f); // Del Perro Pier
             heading = 214.98f;
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
+            CalloutInterfaceAPI.Functions.SendMessage(this, "Reports of an individual asking people for money");
             CalloutMessage = "Reports of an individual asking people for money";
             CalloutPosition = spawnpoint;
 
@@ -46,7 +47,6 @@ namespace JMCalloutsRemastered.Callouts
             suspect = new Ped(spawnpoint, heading);
             suspect.IsPersistent = true;
             suspect.BlockPermanentEvents = true;
-            CalloutInterfaceAPI.Functions.SendMessage(this, "Reports of an individual asking people for money");
 
             blip = suspect.AttachBlip();
             blip.Color = System.Drawing.Color.Aqua;
@@ -83,6 +83,7 @@ namespace JMCalloutsRemastered.Callouts
 
                     if(counter == 1)
                     {
+                        suspect.Face(Game.LocalPlayer.Character);
                         Game.DisplaySubtitle("~b~You: Excuse me, " + malefemale + ". Can you come talk to me real quick?");
                     }
                     if(counter == 2)

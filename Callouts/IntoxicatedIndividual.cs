@@ -32,6 +32,8 @@ namespace JMCalloutsRemastered.Callouts
             Spawnnpoint = new Vector3(94.63f, -217.37f, 54.49f); // Shopping Center in Vinewood //
             heading = 53.08f;
             ShowCalloutAreaBlipBeforeAccepting(Spawnnpoint, 1000f);
+            CalloutInterfaceAPI.Functions.SendMessage(this, "A business owner reported an individual being drunk on business property.");
+            CalloutMessage = "Suspect refused to leave property. Owner said that suspect is possibly be drunk or under the influence of narcotics. Approach with caustion.";
             CalloutPosition = Spawnnpoint;
 
             return base.OnBeforeCalloutDisplayed();
@@ -42,7 +44,6 @@ namespace JMCalloutsRemastered.Callouts
             Suspect = new Ped(Spawnnpoint, heading);
             Suspect.IsPersistent = true;
             Suspect.BlockPermanentEvents = true;
-            CalloutInterfaceAPI.Functions.SendMessage(this, "A business owner reported an individual being drunk on business property. Suspect refused to leave property. Owner said that suspect is possibly be drunk or under the influence of narcotics. Approach with caustion.");
 
             SuspectBlip = Suspect.AttachBlip();
             SuspectBlip.Color = System.Drawing.Color.CadetBlue;

@@ -34,6 +34,7 @@ namespace JMCalloutsRemastered.Callouts
             spawnPoint = new Vector3(-663.64f, -227.5f, 37.39f);
             heading = 70.58f;
             ShowCalloutAreaBlipBeforeAccepting(spawnPoint, 100f);
+            CalloutInterfaceAPI.Functions.SendMessage(this, "Michael DeSanta reported his wife missing. Locate and help her get home safely, Officer.");
             CalloutMessage = "Reports of a missing person";
             CalloutPosition = spawnPoint;
 
@@ -49,8 +50,6 @@ namespace JMCalloutsRemastered.Callouts
             suspect = new Ped("PLAYER_ZERO", spawnPoint, heading);
             suspect.IsPersistent = true;
             suspect.BlockPermanentEvents = true;
-
-            CalloutInterfaceAPI.Functions.SendMessage(this, "Michael DeSanta reported his wife missing. Locate and help her get home safely, Officer.");
 
             vicBlip = victim.AttachBlip();
             vicBlip.Color = System.Drawing.Color.Pink;
@@ -88,6 +87,7 @@ namespace JMCalloutsRemastered.Callouts
 
                     if(counter == 1)
                     {
+                        suspect.Face(Game.LocalPlayer.Character);
                         Game.DisplaySubtitle("~b~Player~w~: Excuse me, " + malefemale + ". Can you tell me what happened?");
                     }
                     if(counter == 2)
@@ -117,6 +117,14 @@ namespace JMCalloutsRemastered.Callouts
                 }
 
             }
+
+            if (Settings.ActiveAIBackup)
+            {
+                LSPD_First_Response.Mod.API.Functions.RequestBackup(spawnPoint, LSPD_First_Response.EBackupResponseType.Code2, LSPD_First_Response.EBackupUnitType.LocalUnit);
+                LSPD_First_Response.Mod.API.Functions.RequestBackup(spawnPoint, LSPD_First_Response.EBackupResponseType.Code2, LSPD_First_Response.EBackupUnitType.PrisonerTransport);
+            }
+            else { Settings.ActiveAIBackup = false; }
+
             if (victim.IsCuffed || victim.IsDead || Game.LocalPlayer.Character.IsDead || !victim.Exists() && suspect.IsCuffed || suspect.IsDead || Game.LocalPlayer.Character.IsDead || !suspect.Exists())
             {
                 End();

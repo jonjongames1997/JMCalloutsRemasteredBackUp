@@ -34,6 +34,8 @@ namespace JMCalloutsRemastered
 
 
                     Game.DisplayNotification("web_jonjongames", "web_jonjongames", "JM Callouts Remastered", "~g~v" + Assembly.GetExecutingAssembly().GetName().Version.ToString() + " ~r~by OfficerMorrison", "~b~successfully loaded!");
+                    Game.DisplayNotification("JM Callouts Remastered is looking for Playtesters to test out future versions. If interested, join ~y~OfficerMorrison's~w~ ~o~Official Discrd~w~.");
+                    Game.DisplayNotification("~y~JM Callouts (BETA) 0.5.4~w~ is ~r~Discontinued~y~ and ~r~Outdated~y~! If you have it in your Plugins/LSPDFR directory, Remove it! That pack is ~r~NOT ~w~being supported. Thank You, OfficerMorrison");
 
                     VersionChecker.VersionChecker.isUpdateAvailable();
                     GameFiber.Wait(300);
@@ -67,8 +69,8 @@ namespace JMCalloutsRemastered
             if (Settings.GangRivalryShootout) { Functions.RegisterCallout(typeof(GangRivalryShootout)); }
             if (Settings.RocketMan) { Functions.RegisterCallout(typeof(RocketMan)); }
             if (Settings.SolicitingDelPerroPier) { Functions.RegisterCallout(typeof(SolicitingDelPerroPier)); }
-            if (Settings.ShotsFired) { Functions.RegisterCallout(typeof(ShotsFired)); }
             if (Settings.OfficerDown) { Functions.RegisterCallout(typeof(OfficerDown)); }
+            if (Settings.MonkeyWithAWeapon) { Functions.RegisterCallout(typeof(MonkeyWithAWeapon)); }
             Game.Console.Print("[LOG]: All callouts of the JMCalloutsRemastered.ini were loaded successfully.");
             Game.Console.Print();
             Game.Console.Print("================================================== JM Callouts Remastered ===================================================");

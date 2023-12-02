@@ -30,8 +30,10 @@ namespace JMCalloutsRemastered.Callouts
         {
             Spawnpoint = new Vector3(-707.51f, -912.68f, 19.22f); // LTD Gas Station Near Weazel News //
             heading = 267.11f;
-            ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 1000f);
+            ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 100f);
+            CalloutInterfaceAPI.Functions.SendMessage(this, "An Individual is refusing to pay for their gas. The individual is being little aggressive. Approach with caution");
             CalloutMessage = "Individual Refusing to pay";
+            CalloutPosition = Spawnpoint;
 
             return base.OnBeforeCalloutDisplayed();
         }
@@ -41,7 +43,6 @@ namespace JMCalloutsRemastered.Callouts
             Suspect = new Ped(Spawnpoint, heading);
             Suspect.IsPersistent = true;
             Suspect.BlockPermanentEvents = true;
-            CalloutInterfaceAPI.Functions.SendMessage(this, "An Individual is refusing to pay for their gas. The individual is being little aggressive. Approach with caution");
 
             SuspectBlip = Suspect.AttachBlip();
             SuspectBlip.Color = System.Drawing.Color.HotPink;
@@ -131,6 +132,13 @@ namespace JMCalloutsRemastered.Callouts
                     }
                 }
             }
+
+            if (Settings.ActiveAIBackup)
+            {
+                LSPD_First_Response.Mod.API.Functions.RequestBackup(Spawnpoint, LSPD_First_Response.EBackupResponseType.Code2, LSPD_First_Response.EBackupUnitType.LocalUnit);
+                LSPD_First_Response.Mod.API.Functions.RequestBackup(Spawnpoint, LSPD_First_Response.EBackupResponseType.Code2, LSPD_First_Response.EBackupUnitType.PrisonerTransport);
+            }
+            else { Settings.ActiveAIBackup = false; }
 
             if (Suspect.IsCuffed || Suspect.IsDead || Game.LocalPlayer.Character.IsDead || !Suspect.Exists())
             {

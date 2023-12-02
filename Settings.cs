@@ -29,8 +29,8 @@ namespace JMCalloutsRemastered
         internal static bool GangRivalryShootout = true;
         internal static bool RocketMan = true;
         internal static bool SolicitingDelPerroPier = true;
-        internal static bool ShotsFired = true;
         internal static bool OfficerDown = true;
+        internal static bool MonkeyWithAWeapon = true;
         internal static bool ActiveAIBackup = true;
         internal static bool HelpMessages = true;
         internal static Keys EndCall = Keys.End;
@@ -49,7 +49,7 @@ namespace JMCalloutsRemastered
             Settings.IntoxicatedIndividual = ini.ReadBoolean("Callouts", "IntoxicatedIndividual", true);
             Settings.PersonWithAKnife = ini.ReadBoolean("Callouts", "PersonWithAKnife", true);
             Settings.PossibleProstitution = ini.ReadBoolean("Callouts", "PossibleProstitution", true);
-            Settings.PublicDisturbance = ini.ReadBoolean("Callouts", "PublicDisturbance", false);
+            Settings.PublicDisturbance = ini.ReadBoolean("Callouts", "PublicDisturbance", true);
             Settings.RefuseToLeave = ini.ReadBoolean("Callouts", "RefuseToLeave", true);
             Settings.Soliciting = ini.ReadBoolean("Callouts", "Soliciting", true);
             Settings.TrespassingOnPrivateProperty = ini.ReadBoolean("Callouts", "TrespassingOnPrivateProperty", true);
@@ -65,13 +65,13 @@ namespace JMCalloutsRemastered
             Settings.GangRivalryShootout = ini.ReadBoolean("Callouts", "Gang Rivalry Shootout", true);
             Settings.RocketMan = ini.ReadBoolean("Callots", "RocketMan", true);
             Settings.SolicitingDelPerroPier = ini.ReadBoolean("Callouts", "SolicitingDelPerro", true);
-            Settings.ShotsFired = ini.ReadBoolean("Callouts", "ShotsFired", true);
             Settings.OfficerDown = ini.ReadBoolean("Callouts", "OfficerDown", true);
+            Settings.MonkeyWithAWeapon = ini.ReadBoolean("Callouts", "MonkeyWithAWeapon", true);
             Settings.ActiveAIBackup = ini.ReadBoolean("General", "ActiveAIBackup", true);
             Settings.HelpMessages = ini.ReadBoolean("HelpMessages", "Help Messages", true);
             EndCall = ini.ReadEnum("Keys", "EndCall", Keys.End);
             Dialog = ini.ReadEnum("Keys", "Dialog", Keys.Y);
         }
-        public static readonly string PluginVersion = "3.8.0.4";
+        public static readonly string PluginVersion = "3.8.1.5";
     }
 }

@@ -37,6 +37,7 @@ namespace JMCalloutsRemastered.Callouts
             scenario = new Random().Next(0, 100);
             spawnpoint = World.GetNextPositionOnStreet(Game.LocalPlayer.Character.Position.Around(1000f));
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
+            CalloutInterfaceAPI.Functions.SendMessage(this, "A citizen's report of an individual with an explosive weapon.");
             LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ROCKETMAN");
             CalloutMessage = "Reports of an armed individual with an explosive weapon";
             CalloutPosition = spawnpoint;
@@ -105,6 +106,15 @@ namespace JMCalloutsRemastered.Callouts
                         }
                     }
                 }
+
+                if (Settings.ActiveAIBackup)
+                {
+                    LSPD_First_Response.Mod.API.Functions.RequestBackup(spawnpoint, LSPD_First_Response.EBackupResponseType.Code3, LSPD_First_Response.EBackupUnitType.LocalUnit);
+                    LSPD_First_Response.Mod.API.Functions.RequestBackup(spawnpoint, LSPD_First_Response.EBackupResponseType.Code3, LSPD_First_Response.EBackupUnitType.SwatTeam);
+                    LSPD_First_Response.Mod.API.Functions.RequestBackup(spawnpoint, LSPD_First_Response.EBackupResponseType.Code3, LSPD_First_Response.EBackupUnitType.NooseTeam);
+                    LSPD_First_Response.Mod.API.Functions.RequestBackup(spawnpoint, LSPD_First_Response.EBackupResponseType.Code3, LSPD_First_Response.EBackupUnitType.StateUnit);
+                }
+                else { Settings.ActiveAIBackup = false; }
 
                 if (Game.LocalPlayer.Character.IsDead) End();
                 if (Game.IsKeyDown(Settings.EndCall)) End();

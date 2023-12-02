@@ -33,6 +33,7 @@ namespace JMCalloutsRemastered.Callouts
         {
             Spawnpoint = World.GetNextPositionOnStreet(Game.LocalPlayer.Character.Position.Around(1000f));
             ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 100f);
+            CalloutInterfaceAPI.Functions.SendMessage(this, "A female civillian is selling her body for money");
             CalloutMessage = "Citizens reporting a young female selling her body for money.";
             CalloutPosition = Spawnpoint;
 
@@ -47,7 +48,7 @@ namespace JMCalloutsRemastered.Callouts
             Suspect = new Ped(pedList[new Random().Next((int)pedList.Length)], Spawnpoint, 0f);
             Suspect.IsPersistent = true;
             Suspect.BlockPermanentEvents = true;
-            CalloutInterfaceAPI.Functions.SendMessage(this, "A citizen is reporting a young female, possibly in her 20s or 30s, selling her body for money. Handle it your way, officer.");
+
             Game.DisplayNotification("Tip: This callout works best at night time.");
 
             SuspectBlip = Suspect.AttachBlip();
@@ -134,6 +135,14 @@ namespace JMCalloutsRemastered.Callouts
                     }
                 }
             }
+
+            if (Settings.ActiveAIBackup)
+            {
+                LSPD_First_Response.Mod.API.Functions.RequestBackup(Spawnpoint, LSPD_First_Response.EBackupResponseType.Code2, LSPD_First_Response.EBackupUnitType.LocalUnit);
+                LSPD_First_Response.Mod.API.Functions.RequestBackup(Spawnpoint, LSPD_First_Response.EBackupResponseType.Code2, LSPD_First_Response.EBackupUnitType.PrisonerTransport);
+            }
+            else { Settings.ActiveAIBackup = false; }
+
             if (Suspect.IsCuffed || Suspect.IsDead || Game.LocalPlayer.Character.IsDead || !Suspect.Exists())
             {
                 End();

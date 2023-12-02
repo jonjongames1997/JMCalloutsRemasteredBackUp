@@ -37,6 +37,7 @@ namespace JMCalloutsRemastered.Callouts
             scenario = new Random().Next(0, 100);
             spawnPoint = World.GetNextPositionOnStreet(Game.LocalPlayer.Character.Position.Around(1000));
             ShowCalloutAreaBlipBeforeAccepting(spawnPoint, 100f);
+            CalloutInterfaceAPI.Functions.SendMessage(this, "A citizen's report of an armed individual.");
             LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_ALL_UNITS_02 WE_HAVE_01 CITIZENS_REPORT_04 CRIME_BRANDISHING_WEAPON_02 UNITS_RESPOND_CODE_03_01");
             CalloutMessage = "Reports of an armed individual";
             CalloutPosition = spawnPoint;
@@ -102,6 +103,15 @@ namespace JMCalloutsRemastered.Callouts
                         }
                     }
                 }
+
+                if (Settings.ActiveAIBackup)
+                {
+                    LSPD_First_Response.Mod.API.Functions.RequestBackup(spawnPoint, LSPD_First_Response.EBackupResponseType.Code3, LSPD_First_Response.EBackupUnitType.LocalUnit);
+                    LSPD_First_Response.Mod.API.Functions.RequestBackup(spawnPoint, LSPD_First_Response.EBackupResponseType.Code3, LSPD_First_Response.EBackupUnitType.StateUnit);
+                    LSPD_First_Response.Mod.API.Functions.RequestBackup(spawnPoint, LSPD_First_Response.EBackupResponseType.Code3, LSPD_First_Response.EBackupUnitType.PrisonerTransport);
+                }
+                else { Settings.ActiveAIBackup = false; }
+
                 if (Game.LocalPlayer.Character.IsDead) End();
                 if (Game.IsKeyDown(Settings.EndCall)) End();
                 if (suspect && suspect.IsDead) End();

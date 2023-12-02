@@ -30,8 +30,9 @@ namespace JMCalloutsRemastered.Callouts
         {
             Spawnpoint = new Vector3(7.788585f, -394.9392f, 39.41744f);
             heading = 218.558f;
-            ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 500f);
-            AddMinimumDistanceCheck(100f, Spawnpoint);
+            ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 100f);
+            CalloutInterfaceAPI.Functions.SendMessage(this, "A citizen reporting a trespasser on construction property.");
+            CalloutMessage = "Reports of an individual trespassing on constrcution property";
             CalloutPosition = Spawnpoint;
 
             return base.OnBeforeCalloutDisplayed();
@@ -42,7 +43,6 @@ namespace JMCalloutsRemastered.Callouts
             Suspect = new Ped(Spawnpoint, heading);
             Suspect.IsPersistent = true;
             Suspect.BlockPermanentEvents = true;
-            CalloutInterfaceAPI.Functions.SendMessage(this, "A citizen reporting a trespasser on construction property.");
 
             SuspectBlip = Suspect.AttachBlip();
             SuspectBlip.Color = System.Drawing.Color.Beige;
@@ -74,35 +74,38 @@ namespace JMCalloutsRemastered.Callouts
                     if (counter == 1)
                     {
                         Suspect.Face(Game.LocalPlayer.Character);
-                        Game.DisplaySubtitle("Player: Excuse me, " + malefemale + ". Can you come talk to me for a minute?");
+                        Game.DisplaySubtitle("~b~Player~w~: Excuse me, " + malefemale + ". Can you come talk to me for a minute?");
                     }
                     if (counter == 2)
                     {
-                        Game.DisplaySubtitle("~r~Suspect:~w~ What do you want? I'm filming here.");
+                        Game.DisplaySubtitle("~r~Suspect~w~: What do you want? I'm filming here.");
                     }
                     if (counter == 3)
                     {
-                        Game.DisplaySubtitle("Player: You can't be on constrcution property. It's against the law. Are you an employee of the construction company?");
+                        Game.DisplaySubtitle("~b~Player~w~: You can't be on constrcution property. It's against the law. Are you an employee of the construction company?");
                     }
                     if (counter == 4)
                     {
-                        Game.DisplaySubtitle("~r~Suspect:~w~ Yes. I'm surveying the site to write down important information for the mayor. Is that a problem?");
+                        Game.DisplaySubtitle("~r~Suspect~w~: Yes. I'm surveying the site to write down important information for the mayor. Is that a problem?");
                     }
                     if (counter == 5)
                     {
-                        Game.DisplaySubtitle("Player: No. Just need to verify. Do you mind if I run your information real quick? It's a procedure I have to follow.");
+                        Game.DisplaySubtitle("~b~Player~w~: No. Just need to verify. Do you mind if I run your information real quick? It's a procedure I have to follow.");
                     }
                     if (counter == 6)
                     {
-                        Game.DisplaySubtitle("~r~Suspect:~w~ Oh, shit! They know!");
+                        Game.DisplaySubtitle("~r~Suspect~w~: Oh, shit! They know!");
                         Suspect.Tasks.ReactAndFlee(Suspect);
-                    }
-                    if (counter == 7)
-                    {
-                        Game.DisplaySubtitle("Conversation Ended!");
                     }
                 }
             }
+
+            if (Settings.ActiveAIBackup)
+            {
+                LSPD_First_Response.Mod.API.Functions.RequestBackup(Spawnpoint, LSPD_First_Response.EBackupResponseType.Code2, LSPD_First_Response.EBackupUnitType.LocalUnit);
+                LSPD_First_Response.Mod.API.Functions.RequestBackup(Spawnpoint, LSPD_First_Response.EBackupResponseType.Code2, LSPD_First_Response.EBackupUnitType.PrisonerTransport);
+            }
+            else { Settings.ActiveAIBackup = false; }
 
             if (Suspect.IsCuffed || Suspect.IsDead || Game.LocalPlayer.Character.IsDead || !Suspect.Exists())
             {

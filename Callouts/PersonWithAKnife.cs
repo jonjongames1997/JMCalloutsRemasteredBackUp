@@ -40,6 +40,7 @@ namespace JMCalloutsRemastered.Callouts
             scenario = new Random().Next(0, 100);
             Spawnpoint = World.GetNextPositionOnStreet(Game.LocalPlayer.Character.Position.Around(1000f));
             ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 1000f);
+            CalloutInterfaceAPI.Functions.SendMessage(this, "Reports of an individual with a deadly weapon.");
             CalloutMessage = "Citizen's reporting a person carrying a deadly weapon";
             CalloutPosition = Spawnpoint;
 
@@ -116,6 +117,15 @@ namespace JMCalloutsRemastered.Callouts
                         }
                     }
                 }
+
+                if (Settings.ActiveAIBackup)
+                {
+                    LSPD_First_Response.Mod.API.Functions.RequestBackup(Spawnpoint, LSPD_First_Response.EBackupResponseType.Code3, LSPD_First_Response.EBackupUnitType.LocalUnit);
+                    LSPD_First_Response.Mod.API.Functions.RequestBackup(Spawnpoint, LSPD_First_Response.EBackupResponseType.Code3, LSPD_First_Response.EBackupUnitType.PrisonerTransport);
+                    LSPD_First_Response.Mod.API.Functions.RequestBackup(Spawnpoint, LSPD_First_Response.EBackupResponseType.Code3, LSPD_First_Response.EBackupUnitType.StateUnit);
+                }
+                else { Settings.ActiveAIBackup = false; }
+
                 if (Game.LocalPlayer.Character.IsDead) End();
                 if (Game.IsKeyDown(Settings.EndCall)) End();
                 if (Suspect && Suspect.IsDead) End();

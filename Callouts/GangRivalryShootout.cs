@@ -46,6 +46,7 @@ namespace JMCalloutsRemastered.Callouts
             };
             spawnPoint = LocationChooser.chooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(spawnPoint, 70f);
+            CalloutInterfaceAPI.Functions.SendMessage(this, "Rival Gang Shootout in public. Respond Code 99!");
             CalloutMessage = "Reports of a gang shootout";
             CalloutPosition = spawnPoint;
 
@@ -131,6 +132,12 @@ namespace JMCalloutsRemastered.Callouts
                     Aggressor6.RelationshipGroup = "HIPSTERS";
                     Game.SetRelationshipBetweenRelationshipGroups("LOST MC", "HIPSTERS", Relationship.Hate);
                     Game.SetRelationshipBetweenRelationshipGroups("HIPSTERS", "LOST MC", Relationship.Hate);
+                    Aggressor1.Armor = 500;
+                    Aggressor2.Armor = 500;
+                    Aggressor3.Armor = 500;
+                    Aggressor4.Armor = 500;
+                    Aggressor5.Armor = 500;
+                    Aggressor6.Armor = 500;
                     Aggressor1.Tasks.FightAgainstClosestHatedTarget(1000f);
                     Aggressor2.Tasks.FightAgainstClosestHatedTarget(1000f);
                     Aggressor3.Tasks.FightAgainstClosestHatedTarget(1000f);

@@ -31,7 +31,8 @@ namespace JMCalloutsRemastered.Callouts
         {
             Spawnpoint = new Vector3(1082.087f, -346.2961f, 67.1872f); // Mirror Park near Horny's //
             heading = 146.671f; // heading must match or it will glitch //
-            ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 500f);
+            ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 100f);
+            CalloutInterfaceAPI.Functions.SendMessage(this, "A civilian called 9-1-1 then immediately hung up. Deal with this, Officer.");
             CalloutMessage = "A citizen called 911 then hung up on dispatch"; // Brief description of callout //
             CalloutPosition = Spawnpoint;
 
@@ -43,7 +44,6 @@ namespace JMCalloutsRemastered.Callouts
             Suspect = new Ped(Spawnpoint, heading);
             Suspect.IsPersistent = true;
             Suspect.BlockPermanentEvents = true;
-            CalloutInterfaceAPI.Functions.SendMessage(this, "A civilian called 9-1-1 then immediately hung up. Deal with this, Officer.");
 
             SuspectBlip = Suspect.AttachBlip();
             SuspectBlip.Color = System.Drawing.Color.BlueViolet;
@@ -74,40 +74,49 @@ namespace JMCalloutsRemastered.Callouts
 
                     if(counter == 1)
                     {
-                        Game.DisplaySubtitle("Player: Excuse me " + malefemale + ", Can I speak to you for a moment?");
+                        Suspect.Face(Game.LocalPlayer.Character);
+                        Game.DisplaySubtitle("~b~Player~w~: Excuse me " + malefemale + ", Can I speak to you for a moment?");
                     }
                     if(counter == 2)
                     {
-                        Game.DisplaySubtitle("~r~Suspect: Sure, Officer. What seems to be the problem?");
+                        Game.DisplaySubtitle("~r~Suspect~w~: Sure, Officer. What seems to be the problem?");
                     }
                     if(counter == 3)
                     {
-                        Game.DisplaySubtitle("Player: We received a call from your cell phone ping. Did you call 9-1-1?");
+                        Game.DisplaySubtitle("~b~Player~w~: We received a call from your cell phone ping. Did you call 9-1-1?");
                     }
                     if(counter == 4)
                     {
-                        Game.DisplaySubtitle("~r~Suspect: Oh, shit. I think Siri misheard what I've said. Oh, my lord, I do apologize about thi... Am I getting arrested?");
+                        Game.DisplaySubtitle("~r~Suspect~w~: Oh, shit. I think Siri misheard what I've said. Oh, my lord, I do apologize about thi... Am I getting arrested?");
                     }
                     if(counter == 5)
                     {
-                        Game.DisplaySubtitle("Player: Ok, let me see some identification from you and we'll go from there. Do you have any warrants that I should know about?");
+                        Game.DisplaySubtitle("~b~Player~w~: Ok, let me see some identification from you and we'll go from there. Do you have any warrants that I should know about?");
                     }
                     if(counter == 6)
                     {
-                        Game.DisplaySubtitle("~r~Suspect: Sure, here's my ID and no, officer, no warrants. I never been arrested before.");
+                        Game.DisplaySubtitle("~r~Suspect~w~: Sure, here's my ID and no, officer, no warrants. I never been arrested before.");
                     }
                     if(counter == 7)
                     {
-                        Game.DisplaySubtitle("Player: Ok, let me run your information real quick and we'll go from there.");
+                        Game.DisplaySubtitle("~b~Player~w~: Ok, let me run your information real quick and we'll go from there.");
                     }
                     if(counter == 8)
                     {
-                        Game.DisplaySubtitle("~r~Suspect: Snitch! I'm gonna give you the ass whooping of your life, Officer.");
+                        Game.DisplaySubtitle("~r~Suspect~w~: Snitch! I'm gonna give you the ass whooping of your life, Officer, that your parents couldn't give you as a child.");
                         Suspect.Tasks.FightAgainst(Game.LocalPlayer.Character);
-                        Suspect.Inventory.GiveNewWeapon("WEAPON_KNIFE", 500, true);
+                        Suspect.Inventory.GiveNewWeapon("WEAPON_SWITCHBLADE", 500, true);
                     }
                 }
             }
+
+            if (Settings.ActiveAIBackup)
+            {
+                LSPD_First_Response.Mod.API.Functions.RequestBackup(Spawnpoint, LSPD_First_Response.EBackupResponseType.Code2, LSPD_First_Response.EBackupUnitType.LocalUnit);
+                LSPD_First_Response.Mod.API.Functions.RequestBackup(Spawnpoint, LSPD_First_Response.EBackupResponseType.Code2, LSPD_First_Response.EBackupUnitType.PrisonerTransport);
+            }
+            else { Settings.ActiveAIBackup = false; }
+
             if (Suspect.IsCuffed || Suspect.IsDead || Game.LocalPlayer.Character.IsDead || !Suspect.Exists())
             {
                 End();

@@ -106,7 +106,7 @@ namespace JMCalloutsRemastered.Callouts
                 LSPD_First_Response.Mod.API.Functions.RequestBackup(spawnPoint, LSPD_First_Response.EBackupResponseType.Code3, LSPD_First_Response.EBackupUnitType.LocalUnit);
                 LSPD_First_Response.Mod.API.Functions.RequestBackup(spawnPoint, LSPD_First_Response.EBackupResponseType.Code3, LSPD_First_Response.EBackupUnitType.Ambulance);
             }
-            else { return false; }
+            else { Settings.ActiveAIBackup = false; }
 
             return base.OnCalloutAccepted();
         }

@@ -29,6 +29,7 @@ namespace JMCalloutsRemastered.Callouts
         {
             spawnPoint = World.GetNextPositionOnStreet(Game.LocalPlayer.Character.Position.Around(1000f));
             ShowCalloutAreaBlipBeforeAccepting(spawnPoint, 100f);
+            CalloutInterfaceAPI.Functions.SendMessage(this, "A citizen's report of a suspicious person");
             CalloutMessage = "Reports of a suspicious person";
             CalloutPosition = spawnPoint;
 

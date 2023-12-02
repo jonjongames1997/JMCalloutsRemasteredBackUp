@@ -7,6 +7,7 @@ using Rage;
 using CalloutInterfaceAPI;
 using LSPD_First_Response.Mod.API;
 using LSPD_First_Response.Mod.Callouts;
+using LSPD_First_Response.Engine;
 using System.Drawing;
 using System.Windows.Forms;
 using JMCalloutsRemastered.Stuff;
@@ -21,20 +22,21 @@ namespace JMCalloutsRemastered.Callouts
     {
         private Ped deadBody;
         private Blip deadBlip;
+        private Vector3 spawnpoint;
 
         public override bool OnBeforeCalloutDisplayed()
         {
-            Vector3 spawnPoint = World.GetNextPositionOnStreet(Game.LocalPlayer.Character.Position.Around(1000f));
+            spawnpoint = World.GetNextPositionOnStreet(Game.LocalPlayer.Character.Position.Around(1000f));
 
-            deadBody = new Ped(spawnPoint);
+            deadBody = new Ped(spawnpoint);
             deadBody.IsPersistent = true;
             deadBody.Kill();
 
             NativeFunction.Natives.APPLY_PED_DAMAGE_PACK(deadBody, "BigHitByVehicle", 1f, 1f);
 
             CalloutMessage = "Reports of a dead body";
-            CalloutPosition = spawnPoint;
-            ShowCalloutAreaBlipBeforeAccepting(spawnPoint, 50);
+            CalloutPosition = spawnpoint;
+            ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 50);
 
             return base.OnBeforeCalloutDisplayed();
         }
@@ -72,6 +74,15 @@ namespace JMCalloutsRemastered.Callouts
             }
 
             base.Process();
+
+            if (Settings.ActiveAIBackup)
+            {
+                LSPD_First_Response.Mod.API.Functions.RequestBackup(spawnpoint, LSPD_First_Response.EBackupResponseType.Code3, LSPD_First_Response.EBackupUnitType.Ambulance);
+                LSPD_First_Response.Mod.API.Functions.RequestBackup(spawnpoint, LSPD_First_Response.EBackupResponseType.Code3, LSPD_First_Response.EBackupUnitType.Firetruck);
+                LSPD_First_Response.Mod.API.Functions.RequestBackup(spawnpoint, LSPD_First_Response.EBackupResponseType.Code3, LSPD_First_Response.EBackupUnitType.LocalUnit);
+                LSPD_First_Response.Mod.API.Functions.RequestBackup(spawnpoint, LSPD_First_Response.EBackupResponseType.Code3, LSPD_First_Response.EBackupUnitType.StateUnit);
+            }
+            else { Settings.ActiveAIBackup = false; }
         }
 
         public override void End()

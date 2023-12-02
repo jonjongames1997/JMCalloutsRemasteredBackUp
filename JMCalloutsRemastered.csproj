@@ -44,6 +44,9 @@
     <Reference Include="RagePluginHookSDK">
       <HintPath>..\References\RagePluginHookSDK.dll</HintPath>
     </Reference>
+    <Reference Include="SceneManager">
+      <HintPath>..\..\JMCalloutsRemastered\References\SceneManager.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -75,7 +78,6 @@
     <Compile Include="Callouts\RefuseToLeave.cs" />
     <Compile Include="Callouts\RefuseToPay.cs" />
     <Compile Include="Callouts\RocketMan.cs" />
-    <Compile Include="Callouts\ShotsFired.cs" />
     <Compile Include="Callouts\Soliciting.cs" />
     <Compile Include="Callouts\SolicitingDelPerroPier.cs" />
     <Compile Include="Callouts\SuspiciousPerson.cs" />
