@@ -109,7 +109,7 @@ namespace JMCalloutsRemastered.Callouts
                     if(counter == 9)
                     {
                         Game.DisplayNotification("Conversation has ended.");
-                        Suspect.Tasks.FightAgainstClosestHatedTarget(1000);
+                        Suspect.Tasks.FightAgainst(Game.LocalPlayer.Character);
                         Suspect.Inventory.GiveNewWeapon("WEAPON_MG", 500, true);
                     }
                 }
