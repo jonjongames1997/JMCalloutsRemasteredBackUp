@@ -52,5 +52,20 @@ namespace JMCalloutsRemastered.Callouts
 
             return base.OnCalloutAccepted();
         }
+
+        public override void OnCalloutNotAccepted()
+        {
+            if (vehicleBlip) vehicleBlip.Delete();
+            if (vehicleOnFire) vehicleOnFire.Delete();
+
+            base.OnCalloutNotAccepted();
+        }
+
+        public override void Process()
+        {
+
+
+            base.Process();
+        }
     }
 }
