@@ -17,6 +17,15 @@ namespace JMCalloutsRemastered.Callouts
 
     public class VehicleFire : Callout
     {
+        private Vehicle vehicleOnFire;
+        private Blip vehicleBlip;
+        private Ped driver;
 
+        public override bool OnBeforeCalloutDisplayed()
+        {
+
+
+            return base.OnBeforeCalloutDisplayed();
+        }
     }
 }
