@@ -42,7 +42,13 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnCalloutAccepted()
         {
-
+            vehicleBlip = new Blip(vehicleOnFire)
+            {
+                Color = Color.Red,
+                Scale = 0.8f,
+                IsRouteEnabled = true,
+                Name = "Vehicle On Fire",
+            };
 
             return base.OnCalloutAccepted();
         }
