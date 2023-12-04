@@ -58,6 +58,7 @@ namespace JMCalloutsRemastered.Callouts
         {
             if (vehicleBlip) vehicleBlip.Delete();
             if (vehicleOnFire) vehicleOnFire.Delete();
+            if (driver) driver.Delete();
 
             base.OnCalloutNotAccepted();
         }
@@ -95,7 +96,11 @@ namespace JMCalloutsRemastered.Callouts
 
         public override void End()
         {
+            if (vehicleOnFire) vehicleOnFire.Dismiss();
+            if (vehicleBlip) vehicleBlip.Delete();
+            if (driver) driver.Dismiss();
 
+            Game.LogTrivial("[JM Callouts Remastered Log]: Vehicle Fire is code 4!");
 
             base.End();
         }
