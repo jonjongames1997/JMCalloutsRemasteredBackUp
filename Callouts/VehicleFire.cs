@@ -23,7 +23,19 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnBeforeCalloutDisplayed()
         {
+            Vector3 spawnpoint = World.GetNextPositionOnStreet(Game.LocalPlayer.Character.Position.Around(300f, 500f));
 
+            vehicleOnFire = new Vehicle("BULLET", spawnpoint);
+            vehicleOnFire.IsPersistent = true;
+            vehicleOnFire.EngineHealth = -1000f;
+
+            driver = vehicleOnFire.CreateRandomDriver();
+            driver.IsPersistent = true;
+            driver.Kill();
+
+            CalloutInterfaceAPI.Functions.SendMessage(this, "A citizen's report of a vehicle on fire. Respond Code 3!");
+            CalloutMessage = "Vehicle on Fire";
+            CalloutPosition = spawnpoint;
 
             return base.OnBeforeCalloutDisplayed();
         }
