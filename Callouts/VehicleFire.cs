@@ -20,12 +20,13 @@ namespace JMCalloutsRemastered.Callouts
         private Vehicle vehicleOnFire;
         private Blip vehicleBlip;
         private Ped driver;
+        private Vector3 spawnPoint;
 
         public override bool OnBeforeCalloutDisplayed()
         {
-            Vector3 spawnpoint = World.GetNextPositionOnStreet(Game.LocalPlayer.Character.Position.Around(300f, 500f));
+            spawnPoint = World.GetNextPositionOnStreet(Game.LocalPlayer.Character.Position.Around(300f, 500f));
 
-            vehicleOnFire = new Vehicle("BULLET", spawnpoint);
+            vehicleOnFire = new Vehicle("BULLET", spawnPoint);
             vehicleOnFire.IsPersistent = true;
             vehicleOnFire.EngineHealth = -1000f;
 
@@ -35,7 +36,7 @@ namespace JMCalloutsRemastered.Callouts
 
             CalloutInterfaceAPI.Functions.SendMessage(this, "A citizen's report of a vehicle on fire. Respond Code 3!");
             CalloutMessage = "Vehicle on Fire";
-            CalloutPosition = spawnpoint;
+            CalloutPosition = spawnPoint;
 
             return base.OnBeforeCalloutDisplayed();
         }
@@ -80,6 +81,14 @@ namespace JMCalloutsRemastered.Callouts
                 vehicleOnFire.EngineHealth = -1000f;
                 Game.DisplayHelp("Put that fire out!");
             }
+
+            if (Settings.ActiveAIBackup)
+            {
+                LSPD_First_Response.Mod.API.Functions.RequestBackup(spawnPoint, LSPD_First_Response.EBackupResponseType.Code3, LSPD_First_Response.EBackupUnitType.Firetruck);
+                LSPD_First_Response.Mod.API.Functions.RequestBackup(spawnPoint, LSPD_First_Response.EBackupResponseType.Code3, LSPD_First_Response.EBackupUnitType.Ambulance);
+                LSPD_First_Response.Mod.API.Functions.RequestBackup(spawnPoint, LSPD_First_Response.EBackupResponseType.Code3, LSPD_First_Response.EBackupUnitType.LocalUnit);
+            }
+            else { Settings.ActiveAIBackup = false; }
 
             base.Process();
         }
