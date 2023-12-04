@@ -63,9 +63,32 @@ namespace JMCalloutsRemastered.Callouts
 
         public override void Process()
         {
+            if (!vehicleOnFire)
+            {
+                End();
+                return;
+            }
 
+            if(vehicleOnFire.EngineHealth >= 0 || !vehicleOnFire.IsOnFire)
+            {
+                End();
+                return;
+            }
+
+            if(Game.LocalPlayer.Character.DistanceTo(vehicleOnFire) < 30f && !IsEnding && vehicleOnFire.EngineHealth > 0)
+            {
+                vehicleOnFire.EngineHealth = -1000f;
+                Game.DisplayHelp("Put that fire out!");
+            }
 
             base.Process();
+        }
+
+        public override void End()
+        {
+
+
+            base.End();
         }
     }
 }
