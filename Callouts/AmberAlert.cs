@@ -26,8 +26,18 @@ namespace JMCalloutsRemastered.Callouts
             Random random = new Random();
             List<Vector3> list = new List<Vector3>
             {
-
-            },
+                new Vector3(),
+                new Vector3(),
+                new Vector3(),
+                new Vector3(),
+                new Vector3(),
+            };
+            spawnpoint = LocationChooser.chooseNearestLocation(list);
+            ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
+            CalloutInterfaceAPI.Functions.SendMessage(this, "A missing person reported. Be On A Lookout.");
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("AMBERALERT");
+            CalloutMessage = "A missing person reported";
+            CalloutPosition = spawnpoint;
 
             return base.OnBeforeCalloutDisplayed();
         }
