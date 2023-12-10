@@ -19,6 +19,18 @@ namespace JMCalloutsRemastered.Callouts
 
     public class LostPet : Callout
     {
+        private string[] pedList = new string[] { "A_C_WESTY", "A_C_SHEPERD", "A_C_ROTTWEILER", "A_C_RETRIEVER", "A_C_RABBIT_01", "A_C_PUG", "A_C_POODLE", "A_C_HUSKY", "A_C_CHOP", "A_C_CAT_01" };
+        private Ped lostPet;
+        private Blip blip;
+        private Vector3 spawnpoint;
+        private Vector3 searchArea;
 
+
+        public override bool OnBeforeCalloutDisplayed()
+        {
+
+
+            return base.OnBeforeCalloutDisplayed();
+        }
     }
 }
