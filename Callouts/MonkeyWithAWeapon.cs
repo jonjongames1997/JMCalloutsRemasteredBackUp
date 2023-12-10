@@ -113,5 +113,17 @@ namespace JMCalloutsRemastered.Callouts
 
             base.Process();
         }
+
+        public override void End()
+        {
+            if (suspect) suspect.Dismiss();
+            if (blip) blip.Delete();
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Monkey With A Weapon", "~b~You~w~: Dispatch, we are ~g~CODE 4~w~. Show me back 10-8.");
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_THIS_IS_DISPATCH_HIGH ALL_UNITS_CODE4 NO_FURTHER_UNITS_REQUIRED");
+            base.End();
+
+            Game.LogTrivial("[JM Callouts Remastered Log]: Monkey With A Weapon is Code 4!");
+
+        }
     }
 }
