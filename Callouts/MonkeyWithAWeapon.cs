@@ -41,6 +41,20 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnCalloutAccepted()
         {
+            Game.LogTrivial("[JM Callouts Remastered Log]: Monkey With A Weapon callout accepted!");
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Monkey With A Weapon", "~b~Dispatch~w~: The primate has been spotted! Respond ~r~Code 3~w~.");
+
+            suspect = new Ped(pedList[new Random().Next((int)pedList.Length)], spawnpoint, 0f);
+            suspect.Inventory.GiveNewWeapon("WEAPON_UNARMED", 500, true);
+            suspect.IsPersistent = true;
+            suspect.BlockPermanentEvents = true;
+            suspect.Tasks.Wander();
+
+            searcharea = spawnpoint.Around2D(1f, 2f);
+            blip = new Blip(searcharea, 80f);
+            blip.Color = Color.DarkOrange;
+            blip.EnableRoute(Color.DarkOrange);
+            blip.Alpha = 0.5f;
 
             return base.OnCalloutAccepted();
         }
