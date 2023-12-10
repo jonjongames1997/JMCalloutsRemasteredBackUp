@@ -14,7 +14,7 @@ namespace JMCalloutsRemastered.Callouts
 
     public class PersonWithAWeapon : Callout
     {
-        private string[] pedList = new string[] { "ig_amandatownley", "a_f_m_beach_01", "u_f_y_bikerchic", "a_f_m_bodybuild_01", "ig_chef", "g_m_m_chemwork_01" };
+        private string[] pedList = new string[] { "IG_AMANDATOWNLEY", "A_F_M_BEACH_01", "U_F_Y_BIKERCHIC", "A_F_M_BODYBUILD_01", "IG_CHEF", "G_M_M_CHEMWORK_01" };
         private string[] wepList = new string[] { "WEAPON_PISTOL", "WEAPON_MG", "WEAPON_COMBATMG", "WEAPON_TACTICALRIFLE", "WEAPON_CARBINERIFLE" };
         private Ped suspect;
         private Vector3 spawnPoint;
