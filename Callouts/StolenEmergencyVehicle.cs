@@ -1,15 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CalloutInterfaceAPI;
-using JMCalloutsRemastered.Callouts;
-using JMCalloutsRemastered.Stuff;
-using Rage;
+﻿using CalloutInterfaceAPI;
 using LSPD_First_Response.Mod.Callouts;
-using LSPD_First_Response.Mod.API;
-using LSPD_First_Response.Engine.Scripting;
 
 namespace JMCalloutsRemastered.Callouts
 {
@@ -18,6 +8,7 @@ namespace JMCalloutsRemastered.Callouts
 
     public class StolenEmergencyVehicle : Callout
     {
+        private string[] copVehicles = new string[] { "POLICE", "POLICE2", "POLICE3", "SHERIFF", "SHERIFF2", "POLICE4", "FBI", "FBI2", "AMBULANCE", "FIRETRUK", "POLICEB" };
 
     }
 }
