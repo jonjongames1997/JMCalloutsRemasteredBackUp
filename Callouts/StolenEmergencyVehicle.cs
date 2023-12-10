@@ -37,5 +37,39 @@ namespace JMCalloutsRemastered.Callouts
             return base.OnBeforeCalloutDisplayed();
         }
 
+        public override bool OnCalloutAccepted()
+        {
+            Game.LogTrivial("[JM Callouts Remastered Log]: Reckless Driving callout accepted!");
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Reckless Driving", "~b~Dispatch~w~: The suspect has been spotted! Respond ~r~Code 3~w~.");
+
+            emergencyVehicle = new Vehicle(emergencyVehicles[new Random().Next((int)emergencyVehicles.Length)], spawnpoint);
+            emergencyVehicle.IsSirenOn = true;
+
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Dispatch", "Loading ~g~Information~w~ of the ~o~LSPD Database~w~...");
+            LSPD_First_Response.Mod.API.Functions.DisplayVehicleRecord(emergencyVehicle, true);
+            suspect = new Ped(spawnpoint);
+            suspect.WarpIntoVehicle(emergencyVehicle, -1);
+            suspect.Inventory.GiveNewWeapon("WEAPON_PISTOL", 500, true);
+            suspect.BlockPermanentEvents = true;
+
+            blip = suspect.AttachBlip();
+
+            pursuit = LSPD_First_Response.Mod.API.Functions.CreatePursuit();
+            LSPD_First_Response.Mod.API.Functions.AddPedToPursuit(pursuit, suspect);
+            LSPD_First_Response.Mod.API.Functions.SetPursuitIsActiveForPlayer(pursuit, true);
+            pursuitCreated = true;
+
+            if (Settings.ActiveAIBackup)
+            {
+                LSPD_First_Response.Mod.API.Functions.RequestBackup(spawnpoint, LSPD_First_Response.EBackupResponseType.Pursuit, LSPD_First_Response.EBackupUnitType.LocalUnit);
+                LSPD_First_Response.Mod.API.Functions.RequestBackup(spawnpoint, LSPD_First_Response.EBackupResponseType.Pursuit, LSPD_First_Response.EBackupUnitType.LocalUnit);
+                LSPD_First_Response.Mod.API.Functions.RequestBackup(spawnpoint, LSPD_First_Response.EBackupResponseType.Pursuit, LSPD_First_Response.EBackupUnitType.AirUnit);
+            }
+            else { Settings.ActiveAIBackup = false; }
+
+
+            return base.OnCalloutAccepted();
+        }
+
     }
 }
