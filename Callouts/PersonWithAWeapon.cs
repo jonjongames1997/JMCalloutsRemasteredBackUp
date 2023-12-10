@@ -4,6 +4,8 @@ using LSPD_First_Response.Mod.Callouts;
 using Rage;
 using System;
 using System.Drawing;
+using JMCalloutsRemastered.Stuff;
+using JMCalloutsRemastered.Callouts;
 
 namespace JMCalloutsRemastered.Callouts
 {
@@ -95,14 +97,6 @@ namespace JMCalloutsRemastered.Callouts
                         }
                     }
                 }
-
-                if (Settings.ActiveAIBackup)
-                {
-                    LSPD_First_Response.Mod.API.Functions.RequestBackup(spawnPoint, LSPD_First_Response.EBackupResponseType.Code3, LSPD_First_Response.EBackupUnitType.LocalUnit);
-                    LSPD_First_Response.Mod.API.Functions.RequestBackup(spawnPoint, LSPD_First_Response.EBackupResponseType.Code3, LSPD_First_Response.EBackupUnitType.StateUnit);
-                    LSPD_First_Response.Mod.API.Functions.RequestBackup(spawnPoint, LSPD_First_Response.EBackupResponseType.Code3, LSPD_First_Response.EBackupUnitType.PrisonerTransport);
-                }
-                else { Settings.ActiveAIBackup = false; }
 
                 if (Game.LocalPlayer.Character.IsDead) End();
                 if (Game.IsKeyDown(Settings.EndCall)) End();
