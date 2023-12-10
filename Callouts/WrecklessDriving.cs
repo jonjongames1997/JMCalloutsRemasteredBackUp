@@ -38,7 +38,7 @@ namespace JMCalloutsRemastered.Callouts
             driver.Tasks.CruiseWithVehicle(vehicle.TopSpeed, VehicleDrivingFlags.Emergency);
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
             CalloutInterfaceAPI.Functions.SendMessage(this, "Reports of a reckless driver");
-            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_ALL_UNITS_01 WE_HAVE_01 CRIME_SUSPECT_ON_THE_RUN_02");
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_ALL_UNITS_01 WE_HAVE_01 CRIME_SUSPECT_ON_THE_RUN_02 UNITS_RESPOND_CODE_03_01");
             CalloutMessage = "Reckless driving in the area";
             CalloutPosition = spawnpoint;
 
