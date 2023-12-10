@@ -28,9 +28,27 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnBeforeCalloutDisplayed()
         {
+            spawnpoint = World.GetNextPositionOnStreet(Game.LocalPlayer.Character.Position.Around(1000f));
+            vehicle = new Vehicle("DOMINATOR", spawnpoint);
+            vehicle.IsPersistent = true;
 
+            driver = vehicle.CreateRandomDriver();
+            driver.BlockPermanentEvents = true;
+            driver.IsPersistent = true;
+            driver.Tasks.CruiseWithVehicle(vehicle.TopSpeed, VehicleDrivingFlags.Emergency);
+            ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
+            CalloutInterfaceAPI.Functions.SendMessage(this, "Reports of a reckless driver");
+            CalloutMessage = "Reckless driving in the area";
+            CalloutPosition = spawnpoint;
 
             return base.OnBeforeCalloutDisplayed();
+        }
+
+        public override bool OnCalloutAccepted()
+        {
+
+
+            return base.OnCalloutAccepted();
         }
     }
 }
