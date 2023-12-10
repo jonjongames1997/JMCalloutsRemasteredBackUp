@@ -104,6 +104,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Callouts\911HangUp.cs" />
+    <Compile Include="Callouts\AmberAlert.cs" />
     <Compile Include="Callouts\CodeKaren.cs" />
     <Compile Include="Callouts\DeadBody.cs" />
     <Compile Include="Callouts\DerangedLover.cs" />
@@ -112,6 +113,7 @@
     <Compile Include="Callouts\IllegalProstitution.cs" />
     <Compile Include="Callouts\IntoxicatedIndividual.cs" />
     <Compile Include="Callouts\LostIndividual.cs" />
+    <Compile Include="Callouts\MonkeyWithAWeapon.cs" />
     <Compile Include="Callouts\OfficerDown.cs" />
     <Compile Include="Callouts\PersonWithAKnife.cs" />
     <Compile Include="Callouts\PersonWithAWeapon.cs" />
