@@ -82,9 +82,22 @@ namespace JMCalloutsRemastered.Callouts
 
         public override void Process()
         {
-
+            GameFiber.StartNew(delegate
+            {
+                if (Game.LocalPlayer.IsDead) End();
+                if (Game.IsKeyDown(Settings.EndCall)) End();
+                if (suspect && suspect.IsDead) End();
+                if (suspect && LSPD_First_Response.Mod.API.Functions.IsPedArrested(suspect)) End();
+            }, "[JM Callouts Remastered Log]: Reckless Driving");
 
             base.Process();
+        }
+
+        public override void End()
+        {
+
+
+            base.End();
         }
 
     }
