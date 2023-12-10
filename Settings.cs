@@ -31,6 +31,7 @@ namespace JMCalloutsRemastered
         internal static bool OfficerDown = true;
         internal static bool TheCandyCaneWhacker = true;
         internal static bool VehicleFire = true;
+        internal static bool MonkeyWithAWeapon = true;
         internal static bool ActiveAIBackup = true;
         internal static bool HelpMessages = true;
         internal static Keys EndCall = Keys.End;
@@ -68,6 +69,7 @@ namespace JMCalloutsRemastered
             Settings.OfficerDown = ini.ReadBoolean("Callouts", "OfficerDown", true);
             Settings.TheCandyCaneWhacker = ini.ReadBoolean("Callouts", "TheCandyCaneWhacker", true);
             Settings.VehicleFire = ini.ReadBoolean("Callouts", "VehicleFire", true);
+            Settings.MonkeyWithAWeapon = ini.ReadBoolean("Callouts", "MonkeyWithAWeapon", true);
             Settings.ActiveAIBackup = ini.ReadBoolean("General", "ActiveAIBackup", true);
             Settings.HelpMessages = ini.ReadBoolean("HelpMessages", "Help Messages", true);
             EndCall = ini.ReadEnum("Keys", "EndCall", Keys.End);
