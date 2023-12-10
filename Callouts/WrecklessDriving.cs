@@ -71,9 +71,49 @@ namespace JMCalloutsRemastered.Callouts
 
         public override void Process()
         {
+            if(!vehicle || !driver)
+            {
+                End();
+            }
 
+            if(Game.LocalPlayer.Character.DistanceTo(vehicle) < 30f && pursuit == null)
+            {
+                pursuit = LSPD_First_Response.Mod.API.Functions.CreatePursuit();
+                LSPD_First_Response.Mod.API.Functions.AddPedToPursuit(pursuit, driver);
+                LSPD_First_Response.Mod.API.Functions.SetPursuitIsActiveForPlayer(pursuit, true);
+                if (driverBlip) driverBlip.Delete();
+            }
+
+            if(pursuit != null)
+            {
+                if (LSPD_First_Response.Mod.API.Functions.IsPursuitStillRunning(pursuit))
+                {
+                    Game.DisplaySubtitle("Catch the ~r~fucking~w~ driver, Officer!");
+                }
+                else if (!IsEnding)
+                {
+                    End();
+                }
+            }
+
+            if (Game.LocalPlayer.IsDead) End();
+            if (Game.IsKeyDown(Settings.EndCall)) End();
+            if (driver && driver.IsDead) End();
+            if (driver && LSPD_First_Response.Mod.API.Functions.IsPedArrested(driver)) End();
 
             base.Process();
+        }
+
+        public override void End()
+        {
+            if (driver) driver.Dismiss();
+            if (vehicle) vehicle.Dismiss();
+            if (driverBlip) driverBlip.Delete();
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Reckless Driving", "~b~You~w~: Dispatch, we are ~g~CODE 4~w~. Show me back 10-8.");
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_THIS_IS_DISPATCH_HIGH ALL_UNITS_CODE4 NO_FURTHER_UNITS_REQUIRED");
+            base.End();
+
+            Game.LogTrivial("[JM Callouts Remastered Log]: Reckless Driving is code 4!");
         }
     }
 }
