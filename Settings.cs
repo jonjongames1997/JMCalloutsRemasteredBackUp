@@ -73,7 +73,6 @@ namespace JMCalloutsRemastered
             Settings.VehicleFire = ini.ReadBoolean("Callouts", "VehicleFire", true);
             Settings.MonkeyWithAWeapon = ini.ReadBoolean("Callouts", "MonkeyWithAWeapon", true);
             Settings.AmberAlert = ini.ReadBoolean("Callouts", "AmberAlert", true);
-            Settings.ATMRobbery = ini.ReadBoolean("Callouts", "ATMRobbery", true);
             Settings.ActiveAIBackup = ini.ReadBoolean("General", "ActiveAIBackup", true);
             Settings.HelpMessages = ini.ReadBoolean("HelpMessages", "Help Messages", true);
             EndCall = ini.ReadEnum("Keys", "EndCall", Keys.End);
