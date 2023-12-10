@@ -67,9 +67,17 @@ namespace JMCalloutsRemastered.Callouts
 
         public override void OnCalloutNotAccepted()
         {
-
+            if (suspect) suspect.Delete();
+            if (blip) blip.Delete();
 
             base.OnCalloutNotAccepted();
+        }
+
+        public override void Process()
+        {
+
+
+            base.Process();
         }
     }
 }
