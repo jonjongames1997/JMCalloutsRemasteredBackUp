@@ -9,6 +9,7 @@ using CAPI = CalloutInterfaceAPI;
 using Rage;
 using Rage.Native;
 using System.Drawing;
+using JMCalloutsRemastered.Utilities;
 using LSPD_First_Response.Engine;
 using LSPD_First_Response.Mod.API;
 using LSPD_First_Response.Mod.Callouts;
@@ -42,9 +43,50 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnBeforeCalloutDisplayed()
         {
+            if (!Settings.ATMRobbery)
+            {
+                Game.Console.Print("[JM Callouts Remastered Log]: User has disabled ATMRobbery, returning false");
+                Game.LogTrivial("[JM Callouts Remastered Log]: To enable this callout, go to GTA V > plugins > LSPDFR > JMCalloutsRemastered.ini to enable from false to true.");
+                return false;
+            }
 
+            Random rindum = new Random();
+            List<Vector3> list = new List<Vector3>();
+            Tuple<Vector3, float>[] SpawnLocationList =
+            {
+                Tuple.Create(new Vector3()),
+                Tuple.Create(new Vector3()),
+                Tuple.Create(new Vector3()),
+                Tuple.Create(new Vector3()),
+                Tuple.Create(new Vector3()),
+                Tuple.Create(new Vector3()),
+                Tuple.Create(new Vector3()),
+                Tuple.Create(new Vector3()),
+                Tuple.Create(new Vector3()),
+                Tuple.Create(new Vector3()),
+            };
+            for (int i = 0; i < SpawnLocationList.Length; i++)
+            {
+                list.Add(SpawnLocationList[i].Item1);
+            }
+            int num = CallHandler.nearestLocationIndex(list);
+
+            spawnpoint = SpawnLocationList[num].Item1;
+
+            suspect = new Ped(pedList[new Random().Next((int)pedList.Length)], spawnpoint, SpawnLocationList[num].Item2);
+
+            mainScenario = new Random().Next(0, 3);
+
+            ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 20f);
+            AddMinimumDistanceCheck(100f, spawnpoint);
+            AddMaximumDistanceCheck(1200f, spawnpoint);
+
+            CalloutMessage = "ATM Robbery";
+            CalloutPosition = spawnpoint;
 
             return base.OnBeforeCalloutDisplayed();
         }
+
+
     }
 }
