@@ -10,6 +10,8 @@ using JMCalloutsRemastered.Stuff;
 using CalloutInterfaceAPI;
 using System.Drawing;
 using System.Windows.Forms;
+using Rage;
+using Rage.Native;
 
 namespace JMCalloutsRemastered.Callouts
 {
@@ -18,6 +20,17 @@ namespace JMCalloutsRemastered.Callouts
 
     public class WrecklessDriving : Callout
     {
+        private Vehicle vehicle;
+        private Vector3 spawnpoint;
+        private Blip driverBlip;
+        private Ped driver;
+        private LHandle pursuit;
 
+        public override bool OnBeforeCalloutDisplayed()
+        {
+
+
+            return base.OnBeforeCalloutDisplayed();
+        }
     }
 }
