@@ -71,8 +71,45 @@ namespace JMCalloutsRemastered.Callouts
         {
             GameFiber.StartNew(delegate
             {
+                if(suspect.DistanceTo(Game.LocalPlayer.Character.GetOffsetPosition(Vector3.RelativeFront)) < 25f && !isArmed)
+                {
+                    suspect.Inventory.GiveNewWeapon(wepList[new Random().Next((int)wepList.Length)], 500, true);
+                    isArmed = true;
+                }
+                if(suspect && suspect.DistanceTo(Game.LocalPlayer.Character.GetOffsetPosition(Vector3.RelativeFront)) < 25f && !hasBegunAttacking)
+                {
+                    if(scenario > 40)
+                    {
+                        suspect.KeepTasks = true;
+                        suspect.Tasks.FightAgainst(Game.LocalPlayer.Character);
+                        hasBegunAttacking = true;
+                        GameFiber.Wait(2000);
+                    }
+                    else
+                    {
+                        if (!hasPursuitBegun)
+                        {
+                            if (blip) blip.Delete();
+                            pursuit = LSPD_First_Response.Mod.API.Functions.CreatePursuit();
+                            LSPD_First_Response.Mod.API.Functions.AddPedToPursuit(pursuit, suspect);
+                            LSPD_First_Response.Mod.API.Functions.SetPursuitIsActiveForPlayer(pursuit, true);
+                            hasPursuitBegun = true;
+                        }
+                    }
+                }
 
-            });
+                if (Settings.ActiveAIBackup)
+                {
+                    LSPD_First_Response.Mod.API.Functions.RequestBackup(spawnpoint, LSPD_First_Response.EBackupResponseType.Code3, LSPD_First_Response.EBackupUnitType.LocalUnit);
+                    LSPD_First_Response.Mod.API.Functions.RequestBackup(spawnpoint, LSPD_First_Response.EBackupResponseType.Code3, LSPD_First_Response.EBackupUnitType.LocalUnit);
+                }
+                else { Settings.ActiveAIBackup = false; }
+
+                if (Game.LocalPlayer.Character.IsDead) End();
+                if (Game.IsKeyDown(Settings.EndCall)) End();
+                if (suspect && suspect.IsDead) End();
+                if (suspect && LSPD_First_Response.Mod.API.Functions.IsPedArrested(suspect)) End();
+            }, "JM Callouts Remastered: Monkey With Weapon");
 
             base.Process();
         }
