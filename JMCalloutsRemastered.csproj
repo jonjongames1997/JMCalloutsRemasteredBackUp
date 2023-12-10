@@ -84,6 +84,9 @@
     <Reference Include="LSPD First Response">
       <HintPath>..\References\LSPD First Response.dll</HintPath>
     </Reference>
+    <Reference Include="RAGENativeUI">
+      <HintPath>..\..\JMCalloutsRemastered\References\RAGENativeUI.dll</HintPath>
+    </Reference>
     <Reference Include="RagePluginHookSDK">
       <HintPath>..\References\RagePluginHookSDK.dll</HintPath>
     </Reference>
@@ -124,6 +127,7 @@
     <Compile Include="Callouts\RocketMan.cs" />
     <Compile Include="Callouts\Soliciting.cs" />
     <Compile Include="Callouts\SolicitingDelPerroPier.cs" />
+    <Compile Include="Callouts\StolenEmergencyVehicle.cs" />
     <Compile Include="Callouts\SuspiciousPerson.cs" />
     <Compile Include="Callouts\TheCandyCaneWhacker.cs" />
     <Compile Include="Callouts\TrespassingOnConstructionProperty.cs" />
@@ -131,6 +135,7 @@
     <Compile Include="Callouts\TrespassingOnRailRoadProperty.cs" />
     <Compile Include="Callouts\UnauthorizedAccessMovieStudio.cs" />
     <Compile Include="Callouts\VehicleFire.cs" />
+    <Compile Include="Callouts\WrecklessDriving.cs" />
     <Compile Include="IniFile.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
