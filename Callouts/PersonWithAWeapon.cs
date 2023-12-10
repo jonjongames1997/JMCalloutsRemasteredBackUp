@@ -42,7 +42,7 @@ namespace JMCalloutsRemastered.Callouts
         public override bool OnCalloutAccepted()
         {
             Game.LogTrivial("JM Callouts Remastered Log: Person With A Weapon callout accepted!");
-            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~y~Reports of an Armed Individual", "~b~Dispatch: The suspect has been spotted with a firearm! Respond ~r~Code 3");
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Person With A Weapon", "~b~Dispatch: The suspect has been spotted with a firearm! Respond ~r~Code 3");
 
             suspect = new Ped(pedList[new Random().Next((int)pedList.Length)], spawnPoint, 0f);
             suspect.Inventory.GiveNewWeapon("WEAPON_UNARMED", 500, true);
