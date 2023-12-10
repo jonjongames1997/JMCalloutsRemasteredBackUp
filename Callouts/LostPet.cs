@@ -15,7 +15,7 @@ using System.Windows.Forms;
 namespace JMCalloutsRemastered.Callouts
 {
 
-    [CalloutInterface("Lost Pet", CalloutProbability.Medium, "A citizen's report of a lost animal", "Code 2", "LSPD")]
+    [CalloutInterface("Lost Pet - BETA", CalloutProbability.Medium, "A citizen's report of a lost animal", "Code 2", "LSPD")]
 
     public class LostPet : Callout
     {
