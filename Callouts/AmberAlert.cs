@@ -6,6 +6,7 @@ using System;
 using System.Drawing;
 using JMCalloutsRemastered.Stuff;
 using JMCalloutsRemastered.Callouts;
+using System.Collections.Generic;
 
 namespace JMCalloutsRemastered.Callouts
 {
@@ -14,6 +15,21 @@ namespace JMCalloutsRemastered.Callouts
 
     public class AmberAlert : Callout
     {
+        private string[] pedList = new string[] { "IG_LESTERCREST", "A_F_Y_RURMETH_01", "A_F_M_SALTON_01", "A_F_O_SALTON_01", "A_M_O_SOUCENT_03", "S_M_M_TRUCKER_01", "IG_PRIEST" };
+        private Ped suspect;
+        private Blip blip;
+        private Vector3 spawnpoint;
 
+
+        public override bool OnBeforeCalloutDisplayed()
+        {
+            Random random = new Random();
+            List<Vector3> list = new List<Vector3>
+            {
+
+            },
+
+            return base.OnBeforeCalloutDisplayed();
+        }
     }
 }
