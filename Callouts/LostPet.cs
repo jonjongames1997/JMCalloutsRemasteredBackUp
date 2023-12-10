@@ -8,6 +8,8 @@ using LSPD_First_Response.Mod.Callouts;
 using LSPD_First_Response.Engine.Scripting;
 using JMCalloutsRemastered.Stuff;
 using CalloutInterfaceAPI;
+using System.Drawing;
+using Rage;
 
 namespace JMCalloutsRemastered.Callouts
 {
