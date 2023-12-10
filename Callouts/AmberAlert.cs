@@ -75,9 +75,60 @@ namespace JMCalloutsRemastered.Callouts
 
         public override void Process()
         {
+            if(Game.LocalPlayer.Character.DistanceTo(suspect) <= 10f)
+            {
+                Game.DisplayHelp("Press ~y~E~w~ to interact with the ~r~Victim~w~.", false);
 
+                if (Game.IsKeyDown(System.Windows.Forms.Keys.E))
+                {
+                    counter++;
+
+                    if(counter == 1)
+                    {
+                        Game.DisplaySubtitle("~b~You~w~: Excuse me, " + malefemale + ". May I speak with you for a moment?");
+                    }
+                    if(counter == 2)
+                    {
+                        Game.DisplaySubtitle("~r~Victim~w~: What's going on, Officer? Did I do something illegal?");
+                    }
+                    if(counter == 3)
+                    {
+                        Game.DisplaySubtitle("~b~You~w~: No, you didn't do anything wrong. We got a call from one of your loved ones. They were worried about you. They said they haven't seen you for a while.");
+                    }
+                    if(counter == 4)
+                    {
+                        Game.DisplaySubtitle("~r~Victim~w~: Oh, I forgot to tell them where I was heading. I'll notify them that I am safe. Thanks for your help, officer");
+                    }
+                    if(counter == 5)
+                    {
+                        suspect.Tasks.Wander();
+                        Game.DisplaySubtitle("Conversation Ended!");
+                    }
+                }
+            }
+
+            if (Game.LocalPlayer.Character.IsDead) End();
+            if (Game.IsKeyDown(Settings.EndCall)) End();
+            if (suspect && suspect.IsDead) End();
+            if (suspect && LSPD_First_Response.Mod.API.Functions.IsPedArrested(suspect)) End();
+
+            if(suspect.IsCuffed || suspect.IsDead || Game.LocalPlayer.Character.IsDead || !suspect.Exists())
+            {
+                End();
+            }
 
             base.Process();
+        }
+
+        public override void End()
+        {
+            if (suspect) suspect.Dismiss();
+            if (blip) blip.Delete();
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Amber Alert", "~b~You~w~: Dispatch, we are ~g~CODE 4~w~. Show me back 10-8.");
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_THIS_IS_DISPATCH_HIGH ALL_UNITS_CODE4 NO_FURTHER_UNITS_REQUIRED");
+            base.End();
+
+            Game.LogTrivial("[JM Callouts Remastered Log]: Amber Alert is Code 4!");
         }
     }
 }
