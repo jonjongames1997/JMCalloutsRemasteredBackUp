@@ -24,11 +24,17 @@ namespace JMCalloutsRemastered.Callouts
         private Blip blip;
         private Vector3 spawnpoint;
         private Vector3 searchArea;
+        private string malefemale;
+        private int counter;
 
 
         public override bool OnBeforeCalloutDisplayed()
         {
-
+            spawnpoint = World.GetNextPositionOnStreet(Game.LocalPlayer.Character.Position.Around(1000f));
+            ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
+            CalloutInterfaceAPI.Functions.SendMessage(this, "Reports of a lost pet");
+            CalloutMessage = "Lost animal";
+            CalloutPosition = spawnpoint;
 
             return base.OnBeforeCalloutDisplayed();
         }
