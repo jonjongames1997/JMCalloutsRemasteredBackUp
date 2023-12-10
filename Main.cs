@@ -1,8 +1,7 @@
-﻿using Rage;
+﻿using JMCalloutsRemastered.Callouts;
 using LSPD_First_Response.Mod.API;
-using JMCalloutsRemastered.Callouts;
+using Rage;
 using System.Reflection;
-using JMCalloutsRemastered.VersionChecker;
 
 namespace JMCalloutsRemastered
 {
@@ -35,7 +34,6 @@ namespace JMCalloutsRemastered
 
                     Game.DisplayNotification("web_jonjongames", "web_jonjongames", "JM Callouts Remastered", "~g~v" + Assembly.GetExecutingAssembly().GetName().Version.ToString() + " ~r~by OfficerMorrison", "~b~successfully loaded!");
                     Game.DisplayNotification("JM Callouts Remastered is looking for Playtesters to test out future versions. If interested, join ~y~OfficerMorrison's~w~ ~o~Official Discrd~w~.");
-                    Game.DisplayNotification("~y~JM Callouts (BETA) 0.5.4~w~ is ~r~Discontinued~y~ and ~r~Outdated~y~! If you have it in your Plugins/LSPDFR directory, Remove it! That pack is ~r~NOT ~w~being supported. Thank You, OfficerMorrison");
 
                     VersionChecker.VersionChecker.isUpdateAvailable();
                     GameFiber.Wait(300);

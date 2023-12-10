@@ -1,14 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Rage;
-using CalloutInterfaceAPI;
-using LSPD_First_Response.Mod.API;
+﻿using CalloutInterfaceAPI;
 using LSPD_First_Response.Mod.Callouts;
-using System.Drawing;
-using System.Windows.Forms;
+using Rage;
 
 namespace JMCalloutsRemastered.Callouts
 {
@@ -42,6 +34,9 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnCalloutAccepted()
         {
+            Game.LogTrivial("[JM Callouts Remastered Log]: Code Karen callout accepted!");
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Code Karan", "~b~Dispatch: ~w~Suspect spotted. Respond ~Code 2.");
+
             Suspect = new Ped(Spawnpoint, heading);
             Suspect.IsPersistent = true;
             Suspect.BlockPermanentEvents = true;
@@ -64,41 +59,41 @@ namespace JMCalloutsRemastered.Callouts
         {
             base.Process();
 
-            if(Game.LocalPlayer.Character.DistanceTo(Suspect) <= 10f)
+            if (Game.LocalPlayer.Character.DistanceTo(Suspect) <= 10f)
             {
 
-                Game.DisplayHelp("Press ~y~'E'~w~ to interact with suspect.");
+                Game.DisplayHelp("Press ~y~'E'~w~ to interact with suspect.", false);
 
                 if (Game.IsKeyDown(System.Windows.Forms.Keys.E))
                 {
                     counter++;
 
-                    if(counter == 1)
+                    if (counter == 1)
                     {
                         Suspect.Face(Game.LocalPlayer.Character);
                         Game.DisplaySubtitle("Player: Excuse me, " + malefemale + ". I'm gonna have to ask you to leave the premises cause the employee doesn't want you here.");
                     }
-                    if(counter == 2)
+                    if (counter == 2)
                     {
                         Game.DisplaySubtitle("~r~Suspect: Fuck no! I can come into this business anytime I want. It's public property!");
                     }
-                    if(counter == 3)
+                    if (counter == 3)
                     {
                         Game.DisplaySubtitle("Player: No it's not, " + malefemale + ". It's private property and they can trespass you anytime they want. Come talk to me real quick.");
                     }
-                    if(counter == 4)
+                    if (counter == 4)
                     {
                         Game.DisplaySubtitle("~r~Suspect: I'm not talking you until I receive my fucking merchandise that I paid for! I want to speak with the Manager!!!");
                     }
-                    if(counter == 5)
+                    if (counter == 5)
                     {
                         Game.DisplaySubtitle("Player: " + malefemale + ", I need you to calm down and please don't cuss, there's children in the store.");
                     }
-                    if(counter == 6)
+                    if (counter == 6)
                     {
                         Game.DisplaySubtitle("~r~Suspect: FUCK YOU AND FUCK THIS STORE! I'll be back with 'my little friend' I'll show y'all.");
                     }
-                    if(counter == 7)
+                    if (counter == 7)
                     {
                         Game.DisplayNotification("Arrest the suspect!");
                         Suspect.Tasks.FightAgainst(Game.LocalPlayer.Character);
@@ -106,13 +101,6 @@ namespace JMCalloutsRemastered.Callouts
                     }
                 }
             }
-
-            if (Settings.ActiveAIBackup)
-            {
-                LSPD_First_Response.Mod.API.Functions.RequestBackup(Spawnpoint, LSPD_First_Response.EBackupResponseType.Code2, LSPD_First_Response.EBackupUnitType.LocalUnit);
-                LSPD_First_Response.Mod.API.Functions.RequestBackup(Spawnpoint, LSPD_First_Response.EBackupResponseType.Code2, LSPD_First_Response.EBackupUnitType.PrisonerTransport);
-            }
-            else { Settings.ActiveAIBackup = false; }
 
             if (Suspect.IsCuffed || Suspect.IsDead || Game.LocalPlayer.Character.IsDead || !Suspect.Exists())
             {
@@ -133,6 +121,8 @@ namespace JMCalloutsRemastered.Callouts
                 SuspectBlip.Delete();
             }
 
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Code Karen", "~b~You:~w~ Dispatch, we are ~g~Code 4~w~. Show me back 10-8.");
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_THIS_IS_DISPATCH_HIGH ALL_UNITS_CODE4 NO_FURTHER_UNITS_REQUIRED");
 
             Game.LogTrivial("JM Callouts Remastered - Code Karen is Code 4!");
         }

@@ -1,17 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Rage;
-using CalloutInterfaceAPI;
-using LSPD_First_Response.Mod.API;
+﻿using CalloutInterfaceAPI;
 using LSPD_First_Response.Mod.Callouts;
-using LSPD_First_Response.Engine;
-using System.Drawing;
-using System.Windows.Forms;
-using JMCalloutsRemastered.Stuff;
+using Rage;
 using Rage.Native;
+using System.Drawing;
 
 namespace JMCalloutsRemastered.Callouts
 {
@@ -43,8 +34,8 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnCalloutAccepted()
         {
-            Game.LogTrivial("JM Callouts Remastered Log: Reports of an armed clown accepted!");
-            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~y~Reports of a Dead Body", "~b~Dispatch: The dead body has been spotted! Respond ~r~Code 3");
+            Game.LogTrivial("JM Callouts Remastered Log: Dead body callout accepted!");
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~y~Dead Body", "~b~Dispatch: The dead body has been spotted! Respond ~r~Code 3");
 
             deadBlip = new Blip(deadBody)
             {
@@ -67,29 +58,20 @@ namespace JMCalloutsRemastered.Callouts
 
         public override void Process()
         {
-            if(deadBody.DistanceTo(Game.LocalPlayer.Character) < 2f)
+            if (deadBody.DistanceTo(Game.LocalPlayer.Character) < 2f)
             {
                 End();
                 Game.DisplayNotification("Call EMS to attempt CPR or Call a Coroner to pick up the deceased body.");
             }
 
             base.Process();
-
-            if (Settings.ActiveAIBackup)
-            {
-                LSPD_First_Response.Mod.API.Functions.RequestBackup(spawnpoint, LSPD_First_Response.EBackupResponseType.Code3, LSPD_First_Response.EBackupUnitType.Ambulance);
-                LSPD_First_Response.Mod.API.Functions.RequestBackup(spawnpoint, LSPD_First_Response.EBackupResponseType.Code3, LSPD_First_Response.EBackupUnitType.Firetruck);
-                LSPD_First_Response.Mod.API.Functions.RequestBackup(spawnpoint, LSPD_First_Response.EBackupResponseType.Code3, LSPD_First_Response.EBackupUnitType.LocalUnit);
-                LSPD_First_Response.Mod.API.Functions.RequestBackup(spawnpoint, LSPD_First_Response.EBackupResponseType.Code3, LSPD_First_Response.EBackupUnitType.StateUnit);
-            }
-            else { Settings.ActiveAIBackup = false; }
         }
 
         public override void End()
         {
             if (deadBody) deadBody.Dismiss();
             if (deadBlip) deadBlip.Delete();
-            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~y~Reports of a Dead Body", "~b~You: Dispatch, We are ~g~CODE 4~w~! Show me back 10-8!");
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Dead Body", "~b~You: Dispatch, We are ~g~CODE 4~w~! Show me back 10-8!");
             LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_THIS_IS_DISPATCH_HIGH ALL_UNITS_CODE4 NO_FURTHER_UNITS_REQUIRED");
             base.End();
 

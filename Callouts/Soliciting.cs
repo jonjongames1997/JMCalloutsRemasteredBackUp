@@ -1,14 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Rage;
-using LSPD_First_Response.Mod.API;
+﻿using CalloutInterfaceAPI;
 using LSPD_First_Response.Mod.Callouts;
-using System.Drawing;
-using CalloutInterfaceAPI;
-using System.Windows.Forms;
+using Rage;
 
 namespace JMCalloutsRemastered.Callouts
 {
@@ -30,7 +22,7 @@ namespace JMCalloutsRemastered.Callouts
         {
             Spawnpoint = new Vector3(154.39f, -987.48f, 30.09f); // Legion Square in Mission Row //
             heading = 165.04f;
-            ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 1000f);
+            ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 100f);
             CalloutInterfaceAPI.Functions.SendMessage(this, "An individual is asking people for money and harassing them. Deal with this, Officer.");
             CalloutMessage = "An Individual asking people for money.";
             CalloutPosition = Spawnpoint;
@@ -40,6 +32,9 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnCalloutAccepted()
         {
+            Game.LogTrivial("[JM Callouts Remastered Log]: Soliciting Callout accaepted!");
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Soliciting", "~b~Dispatch:~w~ Suspect has been spotted. Respond ~r~Code 2.");
+
             Suspect = new Ped(Spawnpoint, heading);
             Suspect.IsPersistent = true;
             Suspect.BlockPermanentEvents = true;
@@ -62,7 +57,7 @@ namespace JMCalloutsRemastered.Callouts
         {
             base.Process();
 
-            if(Game.LocalPlayer.Character.DistanceTo(Suspect) <= 10f)
+            if (Game.LocalPlayer.Character.DistanceTo(Suspect) <= 10f)
             {
                 Game.DisplayHelp("Press ~y~E ~w~to talk to Suspect. ~y~Approach with caution.", false);
 
@@ -70,16 +65,16 @@ namespace JMCalloutsRemastered.Callouts
                 {
                     counter++;
 
-                    if(counter == 1)
+                    if (counter == 1)
                     {
                         Suspect.Face(Game.LocalPlayer.Character);
                         Game.DisplaySubtitle("Player: Excuse me, " + malefemale + ". Can you stop and talk to me please?");
                     }
-                    if(counter == 2)
+                    if (counter == 2)
                     {
                         Game.DisplaySubtitle("~r~Suspect:~w~ Oh, Shit. The one time!");
                     }
-                    if(counter == 3)
+                    if (counter == 3)
                     {
                         Game.DisplaySubtitle("Conversation ended!");
                         Suspect.Tasks.ReactAndFlee(Suspect);
@@ -106,6 +101,8 @@ namespace JMCalloutsRemastered.Callouts
                 SuspectBlip.Delete();
             }
 
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Soliciting", "~b~You~w~: We are ~g~Code 4!~w~ Show me back 10-8!");
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_THIS_IS_DISPATCH_HIGH ALL_UNITS_CODE4 NO_FURTHER_UNITS_REQUIRED");
 
             Game.LogTrivial("JM Callouts Remastered - Soliciting is Code 4!");
         }

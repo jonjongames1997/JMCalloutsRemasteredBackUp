@@ -1,14 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Rage;
-using LSPD_First_Response.Mod.API;
+﻿using CalloutInterfaceAPI;
 using LSPD_First_Response.Mod.Callouts;
-using System.Drawing;
-using CalloutInterfaceAPI;
-using System.Windows.Forms;
+using Rage;
 
 namespace JMCalloutsRemastered.Callouts
 {
@@ -41,6 +33,9 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnCalloutAccepted()
         {
+            Game.LogTrivial("[JM Callouts Remastered Log]: Refuse To Leave callout accepted!");
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Refuse To Leave", "~b~Dispatch: ~w~Suspect has been spotted. Respond ~r~Code 2");
+
             Suspect = new Ped(Spawnpoint, heading);
             Suspect.IsPersistent = true;
             Suspect.BlockPermanentEvents = true;
@@ -59,78 +54,79 @@ namespace JMCalloutsRemastered.Callouts
             return base.OnCalloutAccepted();
         }
 
+        public override void OnCalloutNotAccepted()
+        {
+            if (Suspect) Suspect.Delete();
+            if (SuspectBlip) SuspectBlip.Delete();
+
+            base.OnCalloutNotAccepted();
+        }
+
         public override void Process()
         {
             base.Process();
 
-            if(Game.LocalPlayer.Character.DistanceTo(Suspect) <= 10f)
+            if (Game.LocalPlayer.Character.DistanceTo(Suspect) <= 10f)
             {
 
-                Game.DisplayHelp("Press 'E' to interact with suspect. ~y~Approach with caution.");
+                Game.DisplayHelp("Press 'E' to interact with suspect. ~y~Approach with caution.", false);
 
                 if (Game.IsKeyDown(System.Windows.Forms.Keys.E))
                 {
                     counter++;
 
-                    if(counter == 1)
+                    if (counter == 1)
                     {
                         Suspect.Face(Game.LocalPlayer.Character);
                         Game.DisplaySubtitle("Player: Hello there " + malefemale + ", Can I talk to you for a second?");
                     }
-                    if(counter == 2)
+                    if (counter == 2)
                     {
                         Game.DisplaySubtitle("~r~Suspect:~w~ What now donut pigs?");
                     }
-                    if(counter == 3)
+                    if (counter == 3)
                     {
                         Game.DisplaySubtitle("Player: Can you tell me what's going on?");
                     }
-                    if(counter == 4)
+                    if (counter == 4)
                     {
                         Game.DisplaySubtitle("~r~Suspect:~w~ That bitch over there told me I can't come in here.");
                     }
-                    if(counter == 5)
+                    if (counter == 5)
                     {
                         Game.DisplaySubtitle("Player: Is there a reason why she can't let you come in here?");
                     }
-                    if(counter == 6)
+                    if (counter == 6)
                     {
                         Game.DisplaySubtitle("~r~Suspect:~w~ I was outside the door asking people for money. She called the cops and they told me that I was trespassed from the property.");
                     }
-                    if(counter == 7)
+                    if (counter == 7)
                     {
                         Game.DisplayNotification("Tip: ~o~If the suspect was trespassed from the property before, that's an arrestable offense.");
                     }
-                    if(counter == 8)
+                    if (counter == 8)
                     {
                         Game.DisplaySubtitle("Player: Ok. Well, you know you can be arrested for trespassing, right?");
                     }
-                    if(counter == 9)
+                    if (counter == 9)
                     {
                         Game.DisplaySubtitle("~r~Suspect:~w~ WHAT?! Are you fucking with me?");
                     }
-                    if(counter == 10)
+                    if (counter == 10)
                     {
                         Game.DisplaySubtitle("Player: No, I'm not. Don't try anything stupid, you'll make things worse on yourself.");
                     }
-                    if(counter == 11)
+                    if (counter == 11)
                     {
                         Game.DisplaySubtitle("~r~Suspect:~w~ Fuck you and fuck her! I'm outta here, playa!");
                     }
-                    if(counter == 12)
+                    if (counter == 12)
                     {
                         Game.DisplaySubtitle("Conversation ended!");
                         Suspect.Tasks.ReactAndFlee(Suspect);
                     }
                 }
             }
-
-            if (Settings.ActiveAIBackup)
-            {
-                LSPD_First_Response.Mod.API.Functions.RequestBackup(Spawnpoint, LSPD_First_Response.EBackupResponseType.Code2, LSPD_First_Response.EBackupUnitType.LocalUnit);
-                LSPD_First_Response.Mod.API.Functions.RequestBackup(Spawnpoint, LSPD_First_Response.EBackupResponseType.Code2, LSPD_First_Response.EBackupUnitType.PrisonerTransport);
-            }
-            else { Settings.ActiveAIBackup = false; }
 
             if (Suspect.IsCuffed || Suspect.IsDead || Game.LocalPlayer.Character.IsDead || !Suspect.Exists())
             {
@@ -151,6 +147,8 @@ namespace JMCalloutsRemastered.Callouts
                 SuspectBlip.Delete();
             }
 
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Refuse To Leave", "~b~You:~w~ Dispatch, we are ~g~Code 4~w~. Show me back 10-8.");
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_THIS_IS_DISPATCH_HIGH ALL_UNITS_CODE4 NO_FURTHER_UNITS_REQUIRED");
 
             Game.LogTrivial("JM Callouts Remastered - Refuse to leave is Code 4!");
         }

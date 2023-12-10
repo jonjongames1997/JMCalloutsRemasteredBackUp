@@ -1,14 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Rage;
-using LSPD_First_Response.Mod.API;
+﻿using CalloutInterfaceAPI;
 using LSPD_First_Response.Mod.Callouts;
-using System.Drawing;
-using CalloutInterfaceAPI;
-using System.Windows.Forms;
+using Rage;
 
 namespace JMCalloutsRemastered.Callouts
 {
@@ -40,6 +32,9 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnCalloutAccepted()
         {
+            Game.LogTrivial("[JM Callouts Remastered Log]: Trespassing On Private Property Callout accepted!");
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Trespassing On Private Property", "~b~Dispatch:~w~ Suspect has been spotted. Respond ~r~Code 2.");
+
             Suspect = new Ped(Spawnpoint, heading);
             Suspect.IsPersistent = true;
             Suspect.BlockPermanentEvents = true;
@@ -58,11 +53,19 @@ namespace JMCalloutsRemastered.Callouts
             return base.OnCalloutAccepted();
         }
 
+        public override void OnCalloutNotAccepted()
+        {
+            if (Suspect) Suspect.Delete();
+            if (SuspectBlip) SuspectBlip.Delete();
+
+            base.OnCalloutNotAccepted();
+        }
+
         public override void Process()
         {
             base.Process();
 
-            if(Game.LocalPlayer.Character.DistanceTo(Suspect) <= 10f)
+            if (Game.LocalPlayer.Character.DistanceTo(Suspect) <= 10f)
             {
 
                 Game.DisplayHelp("Press ~r~E~ ~w~to talk to Suspect. ~y~Approach with caution.", false);
@@ -70,43 +73,43 @@ namespace JMCalloutsRemastered.Callouts
                 if (Game.IsKeyDown(System.Windows.Forms.Keys.E))
                 {
                     counter++;
-                    
 
-                    if(counter == 1)
+
+                    if (counter == 1)
                     {
                         Suspect.Face(Game.LocalPlayer.Character);
                         Game.DisplaySubtitle("Player: Hello there " + malefemale + ", Can I talk to you for a moment?");
                     }
-                    if(counter == 2)
+                    if (counter == 2)
                     {
                         Game.DisplaySubtitle("~r~Suspect:~w~ What do you want now pigs?");
                     }
-                    if(counter == 3)
+                    if (counter == 3)
                     {
                         Game.DisplaySubtitle("~y~Player: ~w~Can you tell me what's going on here? We gotten a call about you being on this property when you are trespassed.");
                     }
-                    if(counter == 4)
+                    if (counter == 4)
                     {
                         Game.DisplaySubtitle("~r~Suspect:~w~ Trying to get a girl on my lap cause I have been working hard all day and I deserve to have fun. Is that a problem?");
                     }
-                    if(counter == 5)
+                    if (counter == 5)
                     {
                         Game.DisplaySubtitle("Player: Yes, the owner of this business doesn't want you here. I need you to leave the property cause the owner is requesting a restraining order against you.");
                     }
-                    if(counter == 6)
+                    if (counter == 6)
                     {
                         Game.DisplaySubtitle("~r~Suspect: ~w~That mothafucka!");
                     }
-                    if(counter == 7)
+                    if (counter == 7)
                     {
                         Game.DisplayNotification("You noticed the suspect is getting hostile.");
                         Game.DisplaySubtitle("Player: Leave now, " + malefemale + "! Refusing to leave the property will have you in handcuffs. You will be charged with criminal mischief and disobeying a lawful order.");
                     }
-                    if(counter == 8)
+                    if (counter == 8)
                     {
                         Game.DisplaySubtitle("~r~Suspect:~w~ Fine! I will have my revenge.");
                     }
-                    if(counter == 9)
+                    if (counter == 9)
                     {
                         Game.DisplayNotification("Conversation has ended.");
                         Suspect.Tasks.FightAgainst(Game.LocalPlayer.Character);
@@ -115,12 +118,7 @@ namespace JMCalloutsRemastered.Callouts
                 }
             }
 
-            if (Settings.ActiveAIBackup)
-            {
-                LSPD_First_Response.Mod.API.Functions.RequestBackup(Spawnpoint, LSPD_First_Response.EBackupResponseType.Code2, LSPD_First_Response.EBackupUnitType.LocalUnit);
-                LSPD_First_Response.Mod.API.Functions.RequestBackup(Spawnpoint, LSPD_First_Response.EBackupResponseType.Code2, LSPD_First_Response.EBackupUnitType.PrisonerTransport);
-            }
-            else { Settings.ActiveAIBackup = false; }
+            if (Game.IsKeyDown(Settings.EndCall)) End();
 
             if (Suspect.IsCuffed || Suspect.IsDead || Game.LocalPlayer.Character.IsDead || !Suspect.Exists())
             {
@@ -141,6 +139,8 @@ namespace JMCalloutsRemastered.Callouts
                 SuspectBlip.Delete();
             }
 
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Trespassing On Private Property", "~b~You:~w~ Dispatch, We are ~g~Code 4!~w~ Show me back 10-8!");
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_THIS_IS_DISPATCH_HIGH ALL_UNITS_CODE4 NO_FURTHER_UNITS_REQUIRED");
 
             Game.LogTrivial("JM Callouts Remastered - Trespasing on Private Property is Code 4!");
         }

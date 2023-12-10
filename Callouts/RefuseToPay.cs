@@ -1,14 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Rage;
-using LSPD_First_Response.Mod.API;
+﻿using CalloutInterfaceAPI;
 using LSPD_First_Response.Mod.Callouts;
-using System.Drawing;
-using CalloutInterfaceAPI;
-using System.Windows.Forms;
+using Rage;
 
 namespace JMCalloutsRemastered.Callouts
 {
@@ -40,6 +32,9 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnCalloutAccepted()
         {
+            Game.LogTrivial("[JM Callouts Remastered Log]: Refuse To Pay callout Accepted!");
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Refuse To Pay", "~b~Dispatch: The suspect has been spotted with a firearm! Respond ~r~Code 3");
+
             Suspect = new Ped(Spawnpoint, heading);
             Suspect.IsPersistent = true;
             Suspect.BlockPermanentEvents = true;
@@ -49,23 +44,31 @@ namespace JMCalloutsRemastered.Callouts
             SuspectBlip.IsRouteEnabled = true;
 
             if (Suspect.IsMale)
-                malefemale = "sir";
+                malefemale = "Sir";
             else
-                malefemale = "ma'am";
+                malefemale = "Ma'am";
 
             counter = 0;
 
             return base.OnCalloutAccepted();
         }
 
+        public override void OnCalloutNotAccepted()
+        {
+            if (Suspect) Suspect.Delete();
+            if (SuspectBlip) SuspectBlip.Delete();
+
+            base.OnCalloutNotAccepted();
+        }
+
         public override void Process()
         {
             base.Process();
 
-            if(Game.LocalPlayer.Character.DistanceTo(Suspect) <= 10f)
+            if (Game.LocalPlayer.Character.DistanceTo(Suspect) <= 10f)
             {
 
-                Game.DisplayHelp("Press 'E' to interact with suspect.");
+                Game.DisplayHelp("Press 'E' to interact with suspect.", false);
 
                 if (Game.IsKeyDown(System.Windows.Forms.Keys.E))
                 {
@@ -133,13 +136,6 @@ namespace JMCalloutsRemastered.Callouts
                 }
             }
 
-            if (Settings.ActiveAIBackup)
-            {
-                LSPD_First_Response.Mod.API.Functions.RequestBackup(Spawnpoint, LSPD_First_Response.EBackupResponseType.Code2, LSPD_First_Response.EBackupUnitType.LocalUnit);
-                LSPD_First_Response.Mod.API.Functions.RequestBackup(Spawnpoint, LSPD_First_Response.EBackupResponseType.Code2, LSPD_First_Response.EBackupUnitType.PrisonerTransport);
-            }
-            else { Settings.ActiveAIBackup = false; }
-
             if (Suspect.IsCuffed || Suspect.IsDead || Game.LocalPlayer.Character.IsDead || !Suspect.Exists())
             {
                 End();
@@ -158,8 +154,8 @@ namespace JMCalloutsRemastered.Callouts
             {
                 SuspectBlip.Delete();
             }
-
-
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "Refuse To Pay", "~b~You~w~: We are ~g~Code-4!~w~ Show me back 10-8.");
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_THIS_IS_DISPATCH_HIGH ALL_UNITS_CODE4 NO_FURTHER_UNITS_REQUIRED");
             Game.LogTrivial("JM Callouts Remastered - Refuse to pay is Code 4!");
         }
     }

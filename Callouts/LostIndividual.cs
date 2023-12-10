@@ -1,17 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Rage;
-using CalloutInterfaceAPI;
-using LSPD_First_Response.Mod.API;
+﻿using CalloutInterfaceAPI;
 using LSPD_First_Response.Mod.Callouts;
-using System.Drawing;
-using System.Windows.Forms;
-using JMCalloutsRemastered.Stuff;
-using LSPD_First_Response.Engine.Scripting.Entities;
-using LSPD_First_Response.Engine.Scripting;
+using Rage;
 
 
 namespace JMCalloutsRemastered.Callouts
@@ -50,10 +39,15 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnCalloutAccepted()
         {
+            Game.LogTrivial("[JM Callouts Remastered Log]: Lost Individual callout accepted!");
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Lost Individual", "~b~Dispatch: ~w~Victim has been spotted. Respond ~r~Code 2.");
+
+            // Amanda is a decoy in this situation //
             victim = new Ped("IG_AMANDATOWNLEY", spawnPoint, heading);
             victim.IsPersistent = true;
             victim.BlockPermanentEvents = true;
 
+            // Michael Spawns and equips a gun //
             suspect = new Ped("PLAYER_ZERO", suspectSpawnpoint, suspectHeading);
             suspect.IsPersistent = true;
             suspect.BlockPermanentEvents = true;
@@ -85,37 +79,37 @@ namespace JMCalloutsRemastered.Callouts
 
         public override void Process()
         {
-            if(Game.LocalPlayer.Character.DistanceTo(victim) <= 10f)
+            if (Game.LocalPlayer.Character.DistanceTo(victim) <= 10f)
             {
 
-                Game.DisplayHelp("Press ~y~E~w~ to interact with the ~r~victim~w~.");
+                Game.DisplayHelp("Press ~y~E~w~ to interact with the ~r~victim~w~.", false);
 
                 if (Game.IsKeyDown(System.Windows.Forms.Keys.E))
                 {
                     counter++;
 
-                    if(counter == 1)
+                    if (counter == 1)
                     {
                         suspect.Face(Game.LocalPlayer.Character);
                         Game.DisplaySubtitle("~b~Player~w~: Excuse me, " + malefemale + ". Can you tell me what happened?");
                     }
-                    if(counter == 2)
+                    if (counter == 2)
                     {
                         Game.DisplaySubtitle("~y~Victim~w~: Well, I was doing my grocery shopping for my family, somehow I managed to hit my head on a pole. I was knocked out for a few minutes. I don't remember the rest");
                     }
-                    if(counter == 3)
+                    if (counter == 3)
                     {
                         Game.DisplaySubtitle("~b~Player~w~: Okay, " + malefemale + ". Do you need any medical attention?");
                     }
-                    if(counter == 4)
+                    if (counter == 4)
                     {
                         Game.DisplaySubtitle("~y~Victim~w~: No, I'll be fine. I'll just take some Tylenol and get some rest. I'll be okay.");
                     }
-                    if(counter == 5)
+                    if (counter == 5)
                     {
                         Game.DisplaySubtitle("Conversation Ended! Call her an Uber.");
                     }
-                    if(counter == 6)
+                    if (counter == 6)
                     {
                         Game.DisplaySubtitle("~r~Suspect: ~w~You motherfucker, you! DIE!!!!!");
                         LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("YOUMOTHERFUCKERYOU");
@@ -126,13 +120,6 @@ namespace JMCalloutsRemastered.Callouts
                 }
 
             }
-
-            if (Settings.ActiveAIBackup)
-            {
-                LSPD_First_Response.Mod.API.Functions.RequestBackup(spawnPoint, LSPD_First_Response.EBackupResponseType.Code2, LSPD_First_Response.EBackupUnitType.LocalUnit);
-                LSPD_First_Response.Mod.API.Functions.RequestBackup(spawnPoint, LSPD_First_Response.EBackupResponseType.Code2, LSPD_First_Response.EBackupUnitType.PrisonerTransport);
-            }
-            else { Settings.ActiveAIBackup = false; }
 
             if (victim.IsCuffed || victim.IsDead || Game.LocalPlayer.Character.IsDead || !victim.Exists() && suspect.IsCuffed || suspect.IsDead || Game.LocalPlayer.Character.IsDead || !suspect.Exists())
             {
@@ -158,6 +145,8 @@ namespace JMCalloutsRemastered.Callouts
                 suspect.Dismiss();
             }
 
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Lost Individual", "~b~You:~w~ Dispatch, we are ~g~Code 4~w~. Show me back 10-8.");
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_THIS_IS_DISPATCH_HIGH ALL_UNITS_CODE4 NO_FURTHER_UNITS_REQUIRED");
             base.End();
 
             Game.LogTrivial("[JM Callouts Remastered]: Lost Individual is CODE 4!");

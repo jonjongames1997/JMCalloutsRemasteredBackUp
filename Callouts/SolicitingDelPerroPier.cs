@@ -1,17 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Rage;
-using CalloutInterfaceAPI;
-using LSPD_First_Response.Mod.API;
+﻿using CalloutInterfaceAPI;
 using LSPD_First_Response.Mod.Callouts;
-using System.Drawing;
-using System.Windows.Forms;
-using JMCalloutsRemastered.Stuff;
-using LSPD_First_Response.Engine.Scripting.Entities;
-using LSPD_First_Response.Engine.Scripting;
+using Rage;
 
 namespace JMCalloutsRemastered.Callouts
 {
@@ -42,7 +31,7 @@ namespace JMCalloutsRemastered.Callouts
         public override bool OnCalloutAccepted()
         {
             Game.LogTrivial("JM Callouts Remastered Log: Reports of an individual soliciting callout accepted!");
-            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~y~Reports of an Individual Soliciting", "~b~Dispatch: The suspect has been spotted! Respond ~r~Code 2");
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Soliciting - Del Perro", "~b~Dispatch: The suspect has been spotted! Respond ~r~Code 2");
 
             suspect = new Ped(spawnpoint, heading);
             suspect.IsPersistent = true;
@@ -72,7 +61,7 @@ namespace JMCalloutsRemastered.Callouts
 
         public override void Process()
         {
-            if(Game.LocalPlayer.Character.DistanceTo(suspect) <= 10f)
+            if (Game.LocalPlayer.Character.DistanceTo(suspect) <= 10f)
             {
 
                 Game.DisplayHelp("Press ~y~E~w~ to interact with ~r~Suspect~w~.", false);
@@ -81,28 +70,28 @@ namespace JMCalloutsRemastered.Callouts
                 {
                     counter++;
 
-                    if(counter == 1)
+                    if (counter == 1)
                     {
                         suspect.Face(Game.LocalPlayer.Character);
                         Game.DisplaySubtitle("~b~You: Excuse me, " + malefemale + ". Can you come talk to me real quick?");
                     }
-                    if(counter == 2)
+                    if (counter == 2)
                     {
                         Game.DisplaySubtitle("~r~Suspect:~w~ What now, you motherfucker you, cops?");
                     }
-                    if(counter == 3)
+                    if (counter == 3)
                     {
                         Game.DisplaySubtitle("~b~You: Why are you asking people for money? Panhandling is ~r~ILLEGAL~w~ in the state.");
                     }
-                    if(counter == 4)
+                    if (counter == 4)
                     {
                         Game.DisplaySubtitle("~r~Suspect:~w~ Fuck this, I'm outta here.");
                     }
-                    if(counter == 5)
+                    if (counter == 5)
                     {
                         Game.DisplaySubtitle("Conversation Ended!");
                     }
-                    if(counter == 6)
+                    if (counter == 6)
                     {
                         Game.DisplaySubtitle("~r~Suspect:~w~ Die, you motherfucka!");
                         suspect.Tasks.FightAgainst(Game.LocalPlayer.Character);
@@ -123,7 +112,7 @@ namespace JMCalloutsRemastered.Callouts
         {
             if (suspect) suspect.Dismiss();
             if (blip) blip.Delete();
-            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~y~Reports of an Individual Soliciting", "~b~You: Dispatch, We are ~g~CODE 4~w~! Show me back 10-8!");
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Soliciting - Del Perro", "~b~You:~w~ Dispatch, We are ~g~CODE 4~w~! Show me back 10-8!");
             LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_THIS_IS_DISPATCH_HIGH ALL_UNITS_CODE4 NO_FURTHER_UNITS_REQUIRED");
             base.End();
 

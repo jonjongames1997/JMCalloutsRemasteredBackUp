@@ -1,6 +1,5 @@
-﻿using System.Windows.Forms;
-using Rage;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
+﻿using Rage;
+using System.Windows.Forms;
 
 namespace JMCalloutsRemastered
 {
@@ -74,6 +73,6 @@ namespace JMCalloutsRemastered
             EndCall = ini.ReadEnum("Keys", "EndCall", Keys.End);
             Dialog = ini.ReadEnum("Keys", "Dialog", Keys.E);
         }
-        public static readonly string PluginVersion = "3.8.1.5";
+        public static readonly string PluginVersion = "3.8.2.0";
     }
 }

@@ -1,17 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Rage;
-using CalloutInterfaceAPI;
-using LSPD_First_Response.Mod.API;
-using LSPD_First_Response.Mod.Callouts;
-using System.Drawing;
-using System.Windows.Forms;
+﻿using CalloutInterfaceAPI;
 using JMCalloutsRemastered.Stuff;
-using LSPD_First_Response.Engine.Scripting.Entities;
-using LSPD_First_Response.Engine.Scripting;
+using LSPD_First_Response.Mod.Callouts;
+using Rage;
+using System;
+using System.Collections.Generic;
 
 namespace JMCalloutsRemastered.Callouts
 {
@@ -45,7 +37,7 @@ namespace JMCalloutsRemastered.Callouts
                 new Vector3(126.7119f, -1472.859f, 29.14161f), // Lucky Plucker in Strawberry
             };
             spawnPoint = LocationChooser.chooseNearestLocation(list);
-            ShowCalloutAreaBlipBeforeAccepting(spawnPoint, 70f);
+            ShowCalloutAreaBlipBeforeAccepting(spawnPoint, 100f);
             CalloutInterfaceAPI.Functions.SendMessage(this, "Rival Gang Shootout in public. Respond Code 99!");
             CalloutMessage = "Reports of a gang shootout";
             CalloutPosition = spawnPoint;
@@ -120,7 +112,7 @@ namespace JMCalloutsRemastered.Callouts
         {
             GameFiber.StartNew(delegate
             {
-                if(Game.LocalPlayer.Character.DistanceTo(spawnPoint) < 100f && !hasBegunAttacking)
+                if (Game.LocalPlayer.Character.DistanceTo(spawnPoint) < 100f && !hasBegunAttacking)
                 {
                     new RelationshipGroup("LOST MC");
                     new RelationshipGroup("HIPSTERS");

@@ -1,18 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CalloutInterfaceAPI;
+using JMCalloutsRemastered.Stuff;
+using LSPD_First_Response.Mod.Callouts;
 using Rage;
 using Rage.Native;
-using CalloutInterfaceAPI;
-using LSPD_First_Response.Mod.API;
-using LSPD_First_Response.Mod.Callouts;
+using System;
+using System.Collections.Generic;
 using System.Drawing;
-using System.Windows.Forms;
-using JMCalloutsRemastered.Stuff;
-using LSPD_First_Response.Engine.Scripting.Entities;
-using LSPD_First_Response.Engine.Scripting;
 
 namespace JMCalloutsRemastered.Callouts
 {
@@ -64,7 +57,7 @@ namespace JMCalloutsRemastered.Callouts
         public override bool OnCalloutAccepted()
         {
             Game.LogTrivial("JM Callouts Remastered Log: Officer Down callout accepted");
-            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~y~Reports of a Officer Down", "~b~Dispatch: The suspects has been spotted! Respond ~r~Code 3");
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Officer Down", "~b~Dispatch: The suspects has been spotted! Respond ~r~Code 3");
 
             suspect1 = new Ped(spawnPoint);
             suspect1.Inventory.GiveNewWeapon("WEAPON_UNARMED", 500, true);
@@ -100,14 +93,6 @@ namespace JMCalloutsRemastered.Callouts
             blip.EnableRoute(Color.OrangeRed);
             blip.Alpha = 0.5f;
 
-            if (Settings.ActiveAIBackup)
-            {
-                LSPD_First_Response.Mod.API.Functions.RequestBackup(spawnPoint, LSPD_First_Response.EBackupResponseType.Code3, LSPD_First_Response.EBackupUnitType.LocalUnit);
-                LSPD_First_Response.Mod.API.Functions.RequestBackup(spawnPoint, LSPD_First_Response.EBackupResponseType.Code3, LSPD_First_Response.EBackupUnitType.LocalUnit);
-                LSPD_First_Response.Mod.API.Functions.RequestBackup(spawnPoint, LSPD_First_Response.EBackupResponseType.Code3, LSPD_First_Response.EBackupUnitType.Ambulance);
-            }
-            else { Settings.ActiveAIBackup = false; }
-
             return base.OnCalloutAccepted();
         }
 
@@ -129,18 +114,18 @@ namespace JMCalloutsRemastered.Callouts
         {
             GameFiber.StartNew(delegate
             {
-                if(suspect1.DistanceTo(Game.LocalPlayer.Character.GetOffsetPosition(Vector3.RelativeFront)) < 40f)
+                if (suspect1.DistanceTo(Game.LocalPlayer.Character.GetOffsetPosition(Vector3.RelativeFront)) < 40f)
                 {
                     if (blip) blip.Delete();
                 }
-                if(suspect1.DistanceTo(Game.LocalPlayer.Character.GetOffsetPosition(Vector3.RelativeFront)) < 70f && !isArmed)
+                if (suspect1.DistanceTo(Game.LocalPlayer.Character.GetOffsetPosition(Vector3.RelativeFront)) < 70f && !isArmed)
                 {
                     suspect1.Inventory.GiveNewWeapon(wepList[new Random().Next((int)wepList.Length)], 500, true);
                     isArmed = true;
                 }
-                if(suspect1 && suspect1.DistanceTo(Game.LocalPlayer.Character.GetOffsetPosition(Vector3.RelativeFront)) < 40f && !hasBegunAttacking)
+                if (suspect1 && suspect1.DistanceTo(Game.LocalPlayer.Character.GetOffsetPosition(Vector3.RelativeFront)) < 40f && !hasBegunAttacking)
                 {
-                    if(scenario > 40f)
+                    if (scenario > 40f)
                     {
                         new RelationshipGroup("VICTIM");
                         new RelationshipGroup("AGGRESSOR");
@@ -188,7 +173,7 @@ namespace JMCalloutsRemastered.Callouts
             if (cop2) cop2.Dismiss();
             if (blip) blip.Delete();
             if (susBlip) susBlip.Delete();
-            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~y~Reports of a Officer Down", "~b~You: Dispatch, We are ~g~CODE 4~w~! Show me back 10-8!");
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Officer Down", "~b~You: Dispatch, We are ~g~CODE 4~w~! Show me back 10-8!");
             LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_THIS_IS_DISPATCH_HIGH ALL_UNITS_CODE4 NO_FURTHER_UNITS_REQUIRED");
 
             base.End();

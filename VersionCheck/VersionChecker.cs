@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Rage;
+using System;
 using System.Net;
-using Rage;
 
 namespace JMCalloutsRemastered.VersionChecker
 {

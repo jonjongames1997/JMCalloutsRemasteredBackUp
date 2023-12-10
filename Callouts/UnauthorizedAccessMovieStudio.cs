@@ -1,14 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Rage;
-using CalloutInterfaceAPI;
-using LSPD_First_Response.Mod.API;
+﻿using CalloutInterfaceAPI;
 using LSPD_First_Response.Mod.Callouts;
-using System.Drawing;
-using System.Windows.Forms;
+using Rage;
 
 namespace JMCalloutsRemastered.Callouts
 {
@@ -39,7 +31,7 @@ namespace JMCalloutsRemastered.Callouts
         public override bool OnCalloutAccepted()
         {
             Game.LogTrivial("JM Callouts Remastered Log: Unauthorized Acces Movie Studio callout accepted!");
-            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~y~Reports of a Individual Trespassing", "~b~Dispatch: The suspect has been spotted! Respond ~r~Code 2");
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Unauthorized Access Movie Studio", "~b~Dispatch: The suspect has been spotted! Respond ~r~Code 2");
 
             suspect = new Ped(spawnpoint, heading);
             suspect.IsPersistent = true;
@@ -71,44 +63,44 @@ namespace JMCalloutsRemastered.Callouts
         {
             base.Process();
 
-            if(Game.LocalPlayer.Character.DistanceTo(suspect) <= 10f)
+            if (Game.LocalPlayer.Character.DistanceTo(suspect) <= 10f)
             {
                 Game.DisplayHelp("Press ~y~E~w~ to interact with suspect.", false);
 
                 if (Game.IsKeyDown(System.Windows.Forms.Keys.E))
                 {
                     counter++;
-                    suspect.Face(Game.LocalPlayer.Character);
 
-                    if(counter == 1)
+                    if (counter == 1)
                     {
+                        suspect.Face(Game.LocalPlayer.Character);
                         Game.DisplaySubtitle("~b~You: ~w~Excuse me, " + malefemale + ". Talk to me real quick.");
                     }
-                    if(counter == 2)
+                    if (counter == 2)
                     {
                         Game.DisplaySubtitle("~r~Suspect: ~w~Well, hello, Officer, what seems to be the problem?");
                     }
-                    if(counter == 3)
+                    if (counter == 3)
                     {
                         Game.DisplaySubtitle("~b~You: ~w~I have received a call from the security officer that you were trespassing without proper authorization. Explain to me about that.");
                     }
-                    if(counter == 4)
+                    if (counter == 4)
                     {
                         Game.DisplaySubtitle("~r~Suspect:~ w~I have the right to be here. It's public property. I am with the ~y~'Cougars Gone Wild'~w~ cast. No, not that kind of Cougars Gone Wild, I'm talking about the animal. I don't need proper authorization.");
                     }
-                    if(counter == 5)
+                    if (counter == 5)
                     {
                         Game.DisplaySubtitle("~b~You: ~w~Well, the secuirty officer said by the owner's policy that you are required to have some type of authorization to be here. So, you are looking at a trespassing citation/charge.");
                     }
-                    if(counter == 6)
+                    if (counter == 6)
                     {
                         Game.DisplaySubtitle("~r~Suspect:~w~ Fuck this, I'm gonna kill everybody! Fuck my life.");
                     }
-                    if(counter == 7)
+                    if (counter == 7)
                     {
                         Game.DisplaySubtitle("Comversation Ended. Attempt to arrest the suspect. Save everyone's lives.");
                     }
-                    if(counter == 8)
+                    if (counter == 8)
                     {
                         suspect.Tasks.FightAgainst(Game.LocalPlayer.Character);
                         suspect.Inventory.GiveNewWeapon("WEAPON_GUSENBERG", 500, true);
@@ -116,12 +108,7 @@ namespace JMCalloutsRemastered.Callouts
                 }
             }
 
-            if (Settings.ActiveAIBackup)
-            {
-                LSPD_First_Response.Mod.API.Functions.RequestBackup(spawnpoint, LSPD_First_Response.EBackupResponseType.Code2, LSPD_First_Response.EBackupUnitType.LocalUnit);
-                LSPD_First_Response.Mod.API.Functions.RequestBackup(spawnpoint, LSPD_First_Response.EBackupResponseType.Code2, LSPD_First_Response.EBackupUnitType.PrisonerTransport);
-            }
-            else { Settings.ActiveAIBackup = false; }
+            if (Game.IsKeyDown(Settings.EndCall)) End();
 
             if (suspect.IsCuffed || suspect.IsDead || Game.LocalPlayer.Character.IsDead || !suspect.Exists())
             {
@@ -133,7 +120,7 @@ namespace JMCalloutsRemastered.Callouts
         {
             if (suspect) suspect.Dismiss();
             if (susBlip) susBlip.Delete();
-            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~y~Reports of an Individual Trespassing", "~b~You: Dispatch, We are ~g~CODE 4~w~! Show me back 10-8!");
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Unauthorized Access Movie Studio", "~b~You:~w~ Dispatch, We are ~g~CODE 4~w~! Show me back 10-8!");
             LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_THIS_IS_DISPATCH_HIGH ALL_UNITS_CODE4 NO_FURTHER_UNITS_REQUIRED");
             base.End();
 

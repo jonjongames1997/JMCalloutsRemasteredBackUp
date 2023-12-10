@@ -1,17 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Rage;
-using CalloutInterfaceAPI;
+﻿using CalloutInterfaceAPI;
 using LSPD_First_Response.Mod.API;
 using LSPD_First_Response.Mod.Callouts;
+using Rage;
+using System;
 using System.Drawing;
-using System.Windows.Forms;
-using JMCalloutsRemastered.Stuff;
-using LSPD_First_Response.Engine.Scripting.Entities;
-using LSPD_First_Response.Engine.Scripting;
 
 namespace JMCalloutsRemastered.Callouts
 {
@@ -21,7 +13,7 @@ namespace JMCalloutsRemastered.Callouts
     public class TheCandyCaneWhacker : Callout
     {
         private string[] wepList = new string[] { "WEAPON_CANDYCANE" };
-        private string[] pedList = new string[] { "ig_amandatownley", "a_m_m_afriamer_01", "ig_ashley", "u_m_y_babyd", "a_f_y_eastsa_03", "ig_jimmydisanto" };
+        private string[] pedList = new string[] { "A_M_M_AFRIAMER_01", "IG_ASHLEY", "U_M_Y_BABYD", "A_F_Y_EASTSA_03" };
         private Ped suspect;
         private Vector3 spawnpoint;
         private Vector3 searcharea;
@@ -48,7 +40,7 @@ namespace JMCalloutsRemastered.Callouts
         public override bool OnCalloutAccepted()
         {
             Game.LogTrivial("JM Callouts Remastered Log: The Candy Cane Whacker Callout accepted!");
-            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~y~Reports of a Candy Cane Whacker", "~b~Dispatch~w~: The suspect has been spotted with a Candy Cane! ~r~Respond Code 2~w~!");
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Candy Cane Whacker", "~b~Dispatch~w~: The suspect has been spotted with a Candy Cane! ~r~Respond Code 2~w~!");
 
             suspect = new Ped(pedList[new Random().Next((int)pedList.Length)], spawnpoint, 0f);
             suspect.Inventory.GiveNewWeapon("WEAPON_UNARMED", 500, true);
@@ -79,14 +71,14 @@ namespace JMCalloutsRemastered.Callouts
         {
             GameFiber.StartNew(delegate
             {
-                if(suspect.DistanceTo(Game.LocalPlayer.Character.GetOffsetPosition(Vector3.RelativeFront)) < 25f && isArmed)
+                if (suspect.DistanceTo(Game.LocalPlayer.Character.GetOffsetPosition(Vector3.RelativeFront)) < 25f && isArmed)
                 {
                     suspect.Inventory.GiveNewWeapon(wepList[new Random().Next((int)wepList.Length)], 500, true);
                     isArmed = true;
                 }
-                if(suspect && suspect.DistanceTo(Game.LocalPlayer.Character.GetOffsetPosition(Vector3.RelativeFront)) < 25f && !hasBegunAttacking)
+                if (suspect && suspect.DistanceTo(Game.LocalPlayer.Character.GetOffsetPosition(Vector3.RelativeFront)) < 25f && !hasBegunAttacking)
                 {
-                    if(scenario > 40)
+                    if (scenario > 40)
                     {
                         suspect.KeepTasks = true;
                         suspect.Tasks.FightAgainst(Game.LocalPlayer.Character);
@@ -105,13 +97,10 @@ namespace JMCalloutsRemastered.Callouts
                         }
                     }
                 }
-
-                if (Settings.ActiveAIBackup)
-                {
-                    LSPD_First_Response.Mod.API.Functions.RequestBackup(spawnpoint, LSPD_First_Response.EBackupResponseType.Code2, LSPD_First_Response.EBackupUnitType.LocalUnit);
-                    LSPD_First_Response.Mod.API.Functions.RequestBackup(spawnpoint, LSPD_First_Response.EBackupResponseType.Code2, LSPD_First_Response.EBackupUnitType.PrisonerTransport);
-                }
-                else { Settings.ActiveAIBackup = false; }
+                if (Game.LocalPlayer.Character.IsDead) End();
+                if (Game.IsKeyDown(Settings.EndCall)) End();
+                if (suspect && suspect.IsDead) End();
+                if (suspect && LSPD_First_Response.Mod.API.Functions.IsPedArrested(suspect)) End();
             }, "JM Callouts Remastered: The Candy Cane Whacker");
 
             base.Process();
@@ -122,7 +111,7 @@ namespace JMCalloutsRemastered.Callouts
             if (suspect) suspect.Dismiss();
             if (blip) blip.Delete();
             if (suspectBlip) suspectBlip.Delete();
-            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~Reports of The Candy Cane Whacker", "~b~You:~w~We are ~g~CODE 4~w~!Show me back ~g~10-8~w~!");
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~The Candy Cane Whacker", "~b~You:~w~Dispatch, We are ~g~CODE 4~w~!Show me back ~g~10-8~w~!");
             LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_THIS_IS_DISPATCH_HIGH ALL_UNITS_CODE4 NO_FURTHER_UNITS_REQUIRED");
             base.End();
         }

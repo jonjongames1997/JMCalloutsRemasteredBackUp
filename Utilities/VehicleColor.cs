@@ -1,7 +1,4 @@
-﻿using Rage;
-using Rage.Native;
-using System.Drawing;
-using System;
+﻿using System;
 
 //Credit to Stealth22 for this struct
 /// <summary>

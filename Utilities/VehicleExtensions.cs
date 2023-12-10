@@ -1,7 +1,6 @@
 ﻿using Rage;
 using Rage.Native;
 using System.Drawing;
-using System;
 
 /// <summary>
 /// Vehicle extensions

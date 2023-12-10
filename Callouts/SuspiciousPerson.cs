@@ -1,17 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Rage;
-using CalloutInterfaceAPI;
+﻿using CalloutInterfaceAPI;
+using LSPD_First_Response.Engine.Scripting.Entities;
 using LSPD_First_Response.Mod.API;
 using LSPD_First_Response.Mod.Callouts;
+using Rage;
 using System.Drawing;
-using System.Windows.Forms;
-using JMCalloutsRemastered.Stuff;
-using LSPD_First_Response.Engine.Scripting.Entities;
-using LSPD_First_Response.Engine.Scripting;
 
 namespace JMCalloutsRemastered.Callouts
 {
@@ -38,8 +30,8 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnCalloutAccepted()
         {
-            Game.LogTrivial("JM Callouts Remastered Log: Deranged Lover callout accepted!");
-            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~y~Reports of a Suspicious Person", "~b~Dispatch: The suspect has been spotted! Respond ~r~Code 3");
+            Game.LogTrivial("JM Callouts Remastered Log: Suspicious Person callout accepted!");
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Suspicious Person", "~b~Dispatch: The suspect has been spotted! Respond ~r~Code 3");
             LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("DONTBESUSPICIOUS");
 
             Game.DisplayHelp("Search the area for any suspicious citizens");
@@ -69,7 +61,7 @@ namespace JMCalloutsRemastered.Callouts
 
         public override void Process()
         {
-            if(Game.LocalPlayer.Character.DistanceTo(suspect) < 20f && pursuit == null)
+            if (Game.LocalPlayer.Character.DistanceTo(suspect) < 20f && pursuit == null)
             {
                 suspect.Tasks.Flee(Game.LocalPlayer.Character, 9999f, -1);
                 suspect.KeepTasks = true;
@@ -79,18 +71,19 @@ namespace JMCalloutsRemastered.Callouts
                 if (susBlip) susBlip.Delete();
             }
 
-            if(pursuit != null)
+            if (pursuit != null)
             {
                 if (LSPD_First_Response.Mod.API.Functions.IsPursuitStillRunning(pursuit))
                 {
                     Game.DisplaySubtitle("Catch the ~r~wanted~w~ suspect.");
-                }else if (!IsEnding)
+                }
+                else if (!IsEnding)
                 {
                     End();
                 }
             }
 
-            if(suspect.IsDead || suspect.IsCuffed)
+            if (suspect.IsDead || suspect.IsCuffed)
             {
                 End();
             }
@@ -102,7 +95,7 @@ namespace JMCalloutsRemastered.Callouts
         {
             if (suspect) suspect.Dismiss();
             if (susBlip) susBlip.Delete();
-            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~y~Reports of a Suspicious Person", "~b~You: Dispatch, We are ~g~CODE 4~w~! Show me back 10-8!");
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Suspicious Person", "~b~You: Dispatch, We are ~g~CODE 4~w~! Show me back 10-8!");
             LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_THIS_IS_DISPATCH_HIGH ALL_UNITS_CODE4 NO_FURTHER_UNITS_REQUIRED");
             base.End();
 
