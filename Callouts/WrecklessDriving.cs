@@ -47,9 +47,33 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnCalloutAccepted()
         {
+            Game.LogTrivial("[JM Callouts Remastered Log]: Reckless Driving callout accepted!");
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Reckless Driving", "~b~Dispatch~w~: The suspect has been spotted! Respond ~r~Code 3~w~.");
 
+            driverBlip = new Blip(driver)
+            {
+                IsFriendly = false,
+                Color = Color.Red,
+                IsRouteEnabled = true,
+            };
 
             return base.OnCalloutAccepted();
+        }
+
+        public override void OnCalloutNotAccepted()
+        {
+            if (driver) driver.Delete();
+            if (vehicle) vehicle.Delete();
+            if (driverBlip) driverBlip.Delete();
+
+            base.OnCalloutNotAccepted();
+        }
+
+        public override void Process()
+        {
+
+
+            base.Process();
         }
     }
 }
