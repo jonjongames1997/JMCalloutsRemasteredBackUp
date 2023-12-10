@@ -38,5 +38,30 @@ namespace JMCalloutsRemastered.Callouts
 
             return base.OnBeforeCalloutDisplayed();
         }
+
+        public override bool OnCalloutAccepted()
+        {
+            Game.LogTrivial("[JM Callouts Remastered Log]: Lost Pet callout accepted!");
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Lost Pet", "~b~Dispatch~w~: The animal has been spotted! Respond ~r~Code 2~w~.");
+
+            lostPet = new Ped(pedList[new Random().Next((int)pedList.Length)], spawnpoint, 0f);
+            lostPet.IsPersistent = true;
+            lostPet.BlockPermanentEvents = true;
+            lostPet.Tasks.Wander();
+
+            searchArea = spawnpoint.Around2D(1f, 2f);
+            blip = new Blip(searchArea, 80f);
+            blip.Color = Color.DarkOliveGreen;
+            blip.EnableRoute(Color.DarkOliveGreen);
+            blip.Alpha = 0.5f;
+
+            return base.OnCalloutAccepted();
+        }
+
+        public override void OnCalloutNotAccepted()
+        {
+
+            base.OnCalloutNotAccepted();
+        }
     }
 }
