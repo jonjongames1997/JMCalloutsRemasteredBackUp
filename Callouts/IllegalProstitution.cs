@@ -2,6 +2,8 @@
 using LSPD_First_Response.Mod.Callouts;
 using Rage;
 using System;
+using JMCalloutsRemastered.Callouts;
+using JMCalloutsRemastered.Stuff;
 
 namespace JMCalloutsRemastered.Callouts
 {
