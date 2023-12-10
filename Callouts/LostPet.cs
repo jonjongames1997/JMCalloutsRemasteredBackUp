@@ -48,6 +48,7 @@ namespace JMCalloutsRemastered.Callouts
             lostPet.IsPersistent = true;
             lostPet.BlockPermanentEvents = true;
             lostPet.Tasks.Wander();
+            lostPet.AttachBlip();
 
             searchArea = spawnpoint.Around2D(1f, 2f);
             blip = new Blip(searchArea, 80f);
@@ -60,6 +61,7 @@ namespace JMCalloutsRemastered.Callouts
 
         public override void OnCalloutNotAccepted()
         {
+
 
             base.OnCalloutNotAccepted();
         }
