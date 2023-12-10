@@ -101,7 +101,8 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if(counter == 5)
                     {
-                        suspect.Tasks.Wander();
+                        suspect.Tasks.StandStill(500);
+                        suspect.KeepTasks = true;
                         Game.DisplaySubtitle("Conversation Ended!");
                     }
                 }
