@@ -19,6 +19,8 @@ namespace JMCalloutsRemastered.Callouts
         private Ped suspect;
         private Blip blip;
         private Vector3 spawnpoint;
+        private string malefemale;
+        private int counter;
 
 
         public override bool OnBeforeCalloutDisplayed()
@@ -40,6 +42,34 @@ namespace JMCalloutsRemastered.Callouts
             CalloutPosition = spawnpoint;
 
             return base.OnBeforeCalloutDisplayed();
+        }
+
+        public override bool OnCalloutAccepted()
+        {
+            Game.LogTrivial("[JM Callouts Remastered Log]: Amber Alert callout accepted!");
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Amber Alert", "~b~Dispatch~w~: The missing person has been spotted. Respond ~r~Code 2.");
+
+            suspect = new Ped(pedList[new Random().Next((int)pedList.Length)], spawnpoint, 0f);
+            suspect.IsPersistent = true;
+            suspect.BlockPermanentEvents = true;
+            suspect.AttachBlip();
+            blip.IsRouteEnabled = true;
+
+            if (suspect.IsMale)
+                malefemale = "Sir";
+            else
+                malefemale = "Ma'am";
+
+            counter = 0;
+
+            return base.OnCalloutAccepted();
+        }
+
+        public override void OnCalloutNotAccepted()
+        {
+
+
+            base.OnCalloutNotAccepted();
         }
     }
 }
