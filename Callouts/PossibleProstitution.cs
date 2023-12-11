@@ -73,7 +73,7 @@ namespace JMCalloutsRemastered.Callouts
                     if (counter == 1)
                     {
                         Suspect.Face(Game.LocalPlayer.Character);
-                        Game.DisplaySubtitle("Player: Good evening " + malefemale + ", Can I ask you some questions?");
+                        Game.DisplaySubtitle("~b~You~w~: Good evening " + malefemale + ", Can I ask you some questions?");
                     }
                     if (counter == 2)
                     {
@@ -81,7 +81,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 3)
                     {
-                        Game.DisplaySubtitle("Player: I have gotten reports of you possibly selling your body for money. Is it true?");
+                        Game.DisplaySubtitle("~b~You~w~: I have gotten reports of you possibly selling your body for money. Is it true?");
                     }
                     if (counter == 4)
                     {
@@ -89,7 +89,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 5)
                     {
-                        Game.DisplaySubtitle("Player: You know that's illegal in the state of San Andreas. Which I can arrest you for that.");
+                        Game.DisplaySubtitle("~b~You~w~: You know that's illegal in the state of San Andreas. Which I can arrest you for that.");
                     }
                     if (counter == 6)
                     {
@@ -97,7 +97,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 7)
                     {
-                        Game.DisplaySubtitle("Player: " + malefemale + ", You can get a job anywhere here in the city. We can help you get a job through a vocational school.");
+                        Game.DisplaySubtitle("~b~You~w~: " + malefemale + ", You can get a job anywhere here in the city. We can help you get a job through a vocational school.");
                     }
                     if (counter == 8)
                     {
@@ -109,7 +109,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 10)
                     {
-                        Game.DisplaySubtitle("Player: " + malefemale + ", You're under arrest for prostitution.");
+                        Game.DisplaySubtitle("~b~You~w~: " + malefemale + ", You're under arrest for prostitution.");
                     }
                     if (counter == 11)
                     {
