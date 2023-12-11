@@ -89,7 +89,7 @@ namespace JMCalloutsRemastered.Callouts
             {
                 if (LSPD_First_Response.Mod.API.Functions.IsPursuitStillRunning(pursuit))
                 {
-                    Game.DisplaySubtitle("Catch the ~r~fucking~w~ driver, Officer!");
+                    Game.DisplaySubtitle("Go get ~r~'em~w~, Officer!");
                 }
                 else if (!IsEnding)
                 {
