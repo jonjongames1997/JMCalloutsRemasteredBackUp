@@ -25,16 +25,7 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnBeforeCalloutDisplayed()
         {
-            Random random = new Random();
-            List<Vector3> list = new List<Vector3>
-            {
-                new Vector3(1136.09f, -981.52f, 46.42f), // Convienence Store in Murrieta Heights
-                new Vector3(558.55f, -1787.33f, 29.20f), // Hotel on Innocence Blvd, Josh Bernstein Mission
-                new Vector3(44.89f, -1747.11f, 29.49f), // Mega Mall
-                new Vector3(-235.59f, -2003.09f, 24.69f), // Maze Bank Arena, Fame or Shame Recording
-                new Vector3(-627.48f, -1660.77f, 25.83f), // Junkyard near the Helipad where franklin buys the helipad in La Puerta
-            };
-            spawnpoint = LocationChooser.chooseNearestLocation(list);
+            spawnpoint = World.GetNextPositionOnStreet(Game.LocalPlayer.Character.Position.Around(1000f));
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
             CalloutInterfaceAPI.Functions.SendMessage(this, "A missing person reported. Be On A Lookout.");
             LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("AMBERALERT");
@@ -107,11 +98,6 @@ namespace JMCalloutsRemastered.Callouts
                     }
                 }
             }
-
-            if (Game.LocalPlayer.Character.IsDead) End();
-            if (Game.IsKeyDown(Settings.EndCall)) End();
-            if (suspect && suspect.IsDead) End();
-            if (suspect && LSPD_First_Response.Mod.API.Functions.IsPedArrested(suspect)) End();
 
             if(suspect.IsCuffed || suspect.IsDead || Game.LocalPlayer.Character.IsDead || !suspect.Exists())
             {

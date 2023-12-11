@@ -98,13 +98,6 @@ namespace JMCalloutsRemastered.Callouts
                     }
                 }
 
-                if (Settings.ActiveAIBackup)
-                {
-                    LSPD_First_Response.Mod.API.Functions.RequestBackup(spawnpoint, LSPD_First_Response.EBackupResponseType.Code3, LSPD_First_Response.EBackupUnitType.LocalUnit);
-                    LSPD_First_Response.Mod.API.Functions.RequestBackup(spawnpoint, LSPD_First_Response.EBackupResponseType.Code3, LSPD_First_Response.EBackupUnitType.LocalUnit);
-                }
-                else { Settings.ActiveAIBackup = false; }
-
                 if (Game.LocalPlayer.Character.IsDead) End();
                 if (Game.IsKeyDown(Settings.EndCall)) End();
                 if (suspect && suspect.IsDead) End();

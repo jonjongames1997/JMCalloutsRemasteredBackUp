@@ -29,9 +29,9 @@ namespace JMCalloutsRemastered.Callouts
         {
             spawnpoint = World.GetNextPositionOnStreet(Game.LocalPlayer.Character.Position.Around(1000f));
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
-            CalloutInterfaceAPI.Functions.SendMessage(this, "Reports of a reckless driver in the area");
+            CalloutInterfaceAPI.Functions.SendMessage(this, "Reports of a stolen emergency vehicle in the area");
             LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_ALL_UNITS_01 WE_HAVE_01 CRIME_SUSPECT_ON_THE_RUN_01 UNITS_RESPOND_CODE_03_02");
-            CalloutMessage = "Multiple reports of a reckless driver";
+            CalloutMessage = "Multiple reports of a stolen emergency vehicle";
             CalloutPosition = spawnpoint;
 
             return base.OnBeforeCalloutDisplayed();
@@ -40,7 +40,7 @@ namespace JMCalloutsRemastered.Callouts
         public override bool OnCalloutAccepted()
         {
             Game.LogTrivial("[JM Callouts Remastered Log]: Reckless Driving callout accepted!");
-            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Reckless Driving", "~b~Dispatch~w~: The suspect has been spotted! Respond ~r~Code 3~w~.");
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Stolen Emergency Vehicle", "~b~Dispatch~w~: The suspect has been spotted! Respond ~r~Code 3~w~.");
 
             emergencyVehicle = new Vehicle(emergencyVehicles[new Random().Next((int)emergencyVehicles.Length)], spawnpoint);
             emergencyVehicle.IsSirenOn = true;
