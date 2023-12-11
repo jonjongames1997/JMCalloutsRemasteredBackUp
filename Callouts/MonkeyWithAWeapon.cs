@@ -49,6 +49,7 @@ namespace JMCalloutsRemastered.Callouts
             suspect.IsPersistent = true;
             suspect.BlockPermanentEvents = true;
             suspect.Tasks.Wander();
+            blip = suspect.AttachBlip();
 
             searcharea = spawnpoint.Around2D(1f, 2f);
             blip = new Blip(searcharea, 80f);

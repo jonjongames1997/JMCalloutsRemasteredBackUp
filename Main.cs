@@ -71,7 +71,6 @@ namespace JMCalloutsRemastered
             if (Settings.TheCandyCaneWhacker) { Functions.RegisterCallout(typeof(TheCandyCaneWhacker)); }
             if (Settings.VehicleFire) { Functions.RegisterCallout(typeof(VehicleFire)); }
             if (Settings.MonkeyWithAWeapon) { Functions.RegisterCallout(typeof(MonkeyWithAWeapon)); }
-            if (Settings.AmberAlert) { Functions.RegisterCallout(typeof(AmberAlert)); }
             if (Settings.WrecklessDriving) { Functions.RegisterCallout(typeof(WrecklessDriving)); }
             if (Settings.StolenEmergencyVehicle) { Functions.RegisterCallout(typeof(StolenEmergencyVehicle)); }
             Game.Console.Print("[LOG]: All callouts of the JMCalloutsRemastered.ini were loaded successfully.");
