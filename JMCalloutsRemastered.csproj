@@ -107,7 +107,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Callouts\911HangUp.cs" />
-    <Compile Include="Callouts\AmberAlert.cs" />
     <Compile Include="Callouts\CodeKaren.cs" />
     <Compile Include="Callouts\DeadBody.cs" />
     <Compile Include="Callouts\DerangedLover.cs" />
