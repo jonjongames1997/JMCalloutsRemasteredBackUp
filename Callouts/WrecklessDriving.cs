@@ -20,6 +20,7 @@ namespace JMCalloutsRemastered.Callouts
 
     public class WrecklessDriving : Callout
     {
+        private string[] vehicleList = new string[] { "BULLET", "CERBERUS3", "BLISTA", "ISSI2", "AKUMA", "DOMINATOR", "BIFTA", "CHINO2" };
         private Vehicle vehicle;
         private Vector3 spawnpoint;
         private Blip driverBlip;
@@ -29,7 +30,7 @@ namespace JMCalloutsRemastered.Callouts
         public override bool OnBeforeCalloutDisplayed()
         {
             spawnpoint = World.GetNextPositionOnStreet(Game.LocalPlayer.Character.Position.Around(1000f));
-            vehicle = new Vehicle("DOMINATOR", spawnpoint);
+            vehicle = new Vehicle(vehicleList[new Random().Next((int)vehicleList.Length)], spawnpoint);
             vehicle.IsPersistent = true;
 
             driver = vehicle.CreateRandomDriver();
