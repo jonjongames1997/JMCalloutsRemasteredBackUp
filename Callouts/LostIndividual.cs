@@ -123,8 +123,6 @@ namespace JMCalloutsRemastered.Callouts
 
             if (Game.LocalPlayer.Character.IsDead) End();
             if (Game.IsKeyDown(Settings.EndCall)) End();
-            if (victim && victim.IsDead) End();
-            if (victim && LSPD_First_Response.Mod.API.Functions.IsPedArrested(victim)) End();
             if (suspect && suspect.IsDead) End();
             if (suspect && LSPD_First_Response.Mod.API.Functions.IsPedArrested(suspect)) End();
 
