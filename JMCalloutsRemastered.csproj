@@ -81,8 +81,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\JMCalloutsRemastered\References\CalloutInterfaceAPI.dll</HintPath>
     </Reference>
-    <Reference Include="LSPD First Response">
-      <HintPath>..\References\LSPD First Response.dll</HintPath>
+    <Reference Include="LSPD First Response, Version=0.4.8433.20359, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\JMCalloutsRemastered\References\LSPD First Response.dll</HintPath>
     </Reference>
     <Reference Include="RAGENativeUI">
       <HintPath>..\..\JMCalloutsRemastered\References\RAGENativeUI.dll</HintPath>
