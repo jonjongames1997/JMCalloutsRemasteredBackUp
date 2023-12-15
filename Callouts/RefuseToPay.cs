@@ -114,7 +114,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 9)
                     {
-                        Game.DisplaySubtitle("~r~Suspect:~w~ Yeah, fine. I'm in a hurry to record my tv show called 'Cougars Gone Wild'.");
+                        Game.DisplaySubtitle("~r~Suspect:~w~ Yeah, fine. I'm in a hurry to record my tv show called 'Cougars Gone Wild'. Not that kind of Cougars Gone Wild, you sick fuck.");
                     }
                     if (counter == 10)
                     {
