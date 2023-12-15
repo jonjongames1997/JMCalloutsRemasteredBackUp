@@ -45,9 +45,9 @@ namespace JMCalloutsRemastered.Callouts
             SuspectBlip.IsRouteEnabled = true;
 
             if (Suspect.IsMale)
-                malefemale = "sir";
+                malefemale = "Sir";
             else
-                malefemale = "ma'am";
+                malefemale = "Ma'am";
 
             counter = 0;
 
@@ -78,7 +78,7 @@ namespace JMCalloutsRemastered.Callouts
                     if (counter == 1)
                     {
                         Suspect.Face(Game.LocalPlayer.Character);
-                        Game.DisplaySubtitle("Player: Hello there " + malefemale + ". Can I speak to you for a moment?");
+                        Game.DisplaySubtitle("~b~Player~w~: Hello there " + malefemale + ". Can I speak to you for a moment?");
                     }
                     if (counter == 2)
                     {
@@ -86,7 +86,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 3)
                     {
-                        Game.DisplaySubtitle("Player: " + malefemale + ", Calm down for me please.");
+                        Game.DisplaySubtitle("~b~Player~w~: " + malefemale + ", Calm down for me please.");
                     }
                     if (counter == 4)
                     {
@@ -94,7 +94,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 5)
                     {
-                        Game.DisplaySubtitle("Player:~w~ Did you do any illegal drugs that I should know about? and why are you on railroad property?");
+                        Game.DisplaySubtitle("~b~Player~w~: Did you do any illegal drugs that I should know about? and why are you on railroad property?");
                     }
                     if (counter == 6)
                     {
@@ -102,7 +102,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 7)
                     {
-                        Game.DisplaySubtitle("Player: Well " + malefemale + ", that's fine but you can't be on the tracks cause people have been comitting suicde by train almost every year. As long as you're on the other side of the crossing, that's fine. Can I see some identification from you if it's in your posession?");
+                        Game.DisplaySubtitle("~b~Player~w~: Well " + malefemale + ", that's fine but you can't be on the tracks cause people have been comitting suicde by train almost every year. As long as you're on the other side of the crossing, that's fine. Can I see some identification from you if it's in your posession?");
                     }
                     if (counter == 8)
                     {
@@ -110,27 +110,24 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 9)
                     {
-                        Game.DisplaySubtitle("Player: " + malefemale + ", you're under arrest.");
+                        Game.DisplaySubtitle("~b~Player~w~: " + malefemale + ", you're under arrest.");
                     }
                     if (counter == 10)
                     {
-                        Game.DisplaySubtitle("~r~Suspect:~w~ You gotta catch me first!");
+                        Game.DisplaySubtitle("~r~Suspect~w~: You gotta catch me first!");
                     }
                     if (counter == 11)
                     {
                         Game.DisplaySubtitle("Conversation ended.");
-                        Suspect.Tasks.FightAgainst(Game.LocalPlayer.Character);
-                        Suspect.Inventory.GiveNewWeapon("WEAPON_CANDYCANE", 500, true);
+                        Suspect.Tasks.ReactAndFlee(Suspect);
                     }
                 }
             }
 
+            if (Game.LocalPlayer.Character.IsDead) End();
             if (Game.IsKeyDown(Settings.EndCall)) End();
-
-            if (Suspect.IsCuffed || Suspect.IsDead || Game.LocalPlayer.Character.IsDead || !Suspect.Exists())
-            {
-                End();
-            }
+            if (Suspect && Suspect.IsDead) End();
+            if (Suspect && LSPD_First_Response.Mod.API.Functions.IsPedArrested(Suspect)) End();
         }
 
         public override void End()
