@@ -97,10 +97,15 @@ namespace JMCalloutsRemastered.Callouts
                     {
                         Game.DisplayNotification("Arrest the suspect!");
                         Suspect.Tasks.FightAgainst(Game.LocalPlayer.Character);
-                        Suspect.Inventory.GiveNewWeapon("WEAPON_KNIFE", 500, true);
+                        Suspect.Inventory.GiveNewWeapon("WEAPON_CANDYCANE", 500, true);
                     }
                 }
             }
+
+            if (Game.LocalPlayer.Character.IsDead) End();
+            if (Game.IsKeyDown(Settings.EndCall)) End();
+            if (Suspect && Suspect.IsDead) End();
+            if (Suspect && LSPD_First_Response.Mod.API.Functions.IsPedArrested(Suspect)) End();
 
             if (Suspect.IsCuffed || Suspect.IsDead || Game.LocalPlayer.Character.IsDead || !Suspect.Exists())
             {
