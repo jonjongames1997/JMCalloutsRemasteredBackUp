@@ -99,8 +99,7 @@ namespace JMCalloutsRemastered.Callouts
                     if (counter == 8)
                     {
                         Game.DisplaySubtitle("~r~Suspect~w~: Snitch! I'm gonna give you the ass whooping of your life, Officer, that your parents couldn't give you as a child.");
-                        Suspect.Tasks.FightAgainst(Game.LocalPlayer.Character);
-                        Suspect.Inventory.GiveNewWeapon("WEAPON_SWITCHBLADE", 500, true);
+                        Suspect.Tasks.ReactAndFlee(Suspect);
                     }
                 }
             }
