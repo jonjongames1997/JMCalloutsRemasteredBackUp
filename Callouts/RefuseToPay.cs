@@ -1,6 +1,11 @@
 ﻿using CalloutInterfaceAPI;
 using LSPD_First_Response.Mod.Callouts;
 using Rage;
+using LSPD_First_Response.Mod.API;
+using LSPD_First_Response.Engine.Scripting;
+using LSPD_First_Response.Engine;
+using JMCalloutsRemastered.Callouts;
+using JMCalloutsRemastered.Stuff;
 
 namespace JMCalloutsRemastered.Callouts
 {
@@ -68,7 +73,7 @@ namespace JMCalloutsRemastered.Callouts
             if (Game.LocalPlayer.Character.DistanceTo(Suspect) <= 10f)
             {
 
-                Game.DisplayHelp("Press 'E' to interact with suspect.", false);
+                Game.DisplayHelp("Press ~y~E~w~ to interact with ~r~suspect~w~.", false);
 
                 if (Game.IsKeyDown(System.Windows.Forms.Keys.E))
                 {
