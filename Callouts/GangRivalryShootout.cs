@@ -79,14 +79,6 @@ namespace JMCalloutsRemastered.Callouts
             Aggressor5.Armor = 500;
             Aggressor6.Armor = 500;
 
-            if (Settings.ActiveAIBackup)
-            {
-                LSPD_First_Response.Mod.API.Functions.RequestBackup(spawnPoint, LSPD_First_Response.EBackupResponseType.Code3, LSPD_First_Response.EBackupUnitType.SwatTeam);
-                LSPD_First_Response.Mod.API.Functions.RequestBackup(spawnPoint, LSPD_First_Response.EBackupResponseType.Code3, LSPD_First_Response.EBackupUnitType.LocalUnit);
-                LSPD_First_Response.Mod.API.Functions.RequestBackup(spawnPoint, LSPD_First_Response.EBackupResponseType.Code3, LSPD_First_Response.EBackupUnitType.NooseTeam);
-            }
-            else { Settings.ActiveAIBackup = false; }
-
             return base.OnCalloutAccepted();
         }
 
