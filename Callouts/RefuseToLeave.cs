@@ -123,7 +123,7 @@ namespace JMCalloutsRemastered.Callouts
                     if (counter == 12)
                     {
                         Game.DisplaySubtitle("Conversation ended!");
-                        Suspect.Tasks.ReactAndFlee(Suspect);
+                        Suspect.Tasks.FightAgainst(Game.LocalPlayer.Character);
                         Suspect.Inventory.GiveNewWeapon("WEAPON_PISTOL", 500, true);
                     }
                 }
