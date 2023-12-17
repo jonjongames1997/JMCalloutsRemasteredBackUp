@@ -71,27 +71,27 @@ namespace JMCalloutsRemastered.Callouts
                     if (counter == 1)
                     {
                         Suspect.Face(Game.LocalPlayer.Character);
-                        Game.DisplaySubtitle("Player: Excuse me, " + malefemale + ". I'm gonna have to ask you to leave the premises cause the employee doesn't want you here.");
+                        Game.DisplaySubtitle("~b~Player~w~: Excuse me, " + malefemale + ". I'm gonna have to ask you to leave the premises cause the employee doesn't want you here.");
                     }
                     if (counter == 2)
                     {
-                        Game.DisplaySubtitle("~r~Suspect: Fuck no! I can come into this business anytime I want. It's public property!");
+                        Game.DisplaySubtitle("~r~Suspect~w~: Fuck no! I can come into this business anytime I want. It's public property!");
                     }
                     if (counter == 3)
                     {
-                        Game.DisplaySubtitle("Player: No it's not, " + malefemale + ". It's private property and they can trespass you anytime they want. Come talk to me real quick.");
+                        Game.DisplaySubtitle("~b~Player~w~: No it's not, " + malefemale + ". It's private property and they can trespass you anytime they want. Come talk to me real quick.");
                     }
                     if (counter == 4)
                     {
-                        Game.DisplaySubtitle("~r~Suspect: I'm not talking you until I receive my fucking merchandise that I paid for! I want to speak with the Manager!!!");
+                        Game.DisplaySubtitle("~r~Suspect~w~: I'm not talking you until I receive my fucking merchandise that I paid for! I want to speak with the Manager!!!");
                     }
                     if (counter == 5)
                     {
-                        Game.DisplaySubtitle("Player: " + malefemale + ", I need you to calm down and please don't cuss, there's children in the store.");
+                        Game.DisplaySubtitle("~b~Player~w~: " + malefemale + ", I need you to calm down and please don't cuss, there's children in the store.");
                     }
                     if (counter == 6)
                     {
-                        Game.DisplaySubtitle("~r~Suspect: FUCK YOU AND FUCK THIS STORE! I'll be back with 'my little friend' I'll show y'all.");
+                        Game.DisplaySubtitle("~r~Suspect~w~: FUCK YOU AND FUCK THIS STORE! I'll be back with 'my little friend' I'll show y'all.");
                     }
                     if (counter == 7)
                     {
