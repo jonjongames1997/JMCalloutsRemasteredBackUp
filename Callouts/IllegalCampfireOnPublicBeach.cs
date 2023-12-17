@@ -68,35 +68,35 @@ namespace JMCalloutsRemastered.Callouts
 
                     if (counter == 1)
                     {
-                        Game.DisplaySubtitle("Player: Good evening" + malefemale + ", May I speak with you for a moment?");
+                        Game.DisplaySubtitle("~b~Player~w~: Good evening " + malefemale + ", May I speak with you for a moment?");
                     }
                     if (counter == 2)
                     {
-                        Game.DisplaySubtitle("~r~Suspect:~w~ Good evening to you as well officer. What seems to be the problem?");
+                        Game.DisplaySubtitle("~r~Suspect~w~: Good evening to you as well officer. What seems to be the problem?");
                     }
                     if (counter == 3)
                     {
-                        Game.DisplaySubtitle("Player: Are you aware of the City Wide Ban on campfires on public beaches?");
+                        Game.DisplaySubtitle("~b~Player~w~: Are you aware of the City Wide Ban on campfires on public beaches?");
                     }
                     if (counter == 4)
                     {
-                        Game.DisplaySubtitle("~r~Suspect:~w~ No, officer. Is there really a ban on campfires on beaches?");
+                        Game.DisplaySubtitle("~r~Suspect~w~: No, officer. Is there really a ban on campfires on beaches?");
                     }
                     if (counter == 5)
                     {
-                        Game.DisplaySubtitle("Player: Yes there is. The city said there is a a heat wave that's in effect until further notice and it's a high risk of causing wild fires.");
+                        Game.DisplaySubtitle("~b~Player~w~: Yes there is. The city said there is a a heat wave that's in effect until further notice and it's a high risk of causing wild fires.");
                     }
                     if (counter == 6)
                     {
-                        Game.DisplaySubtitle("~r~Suspect:~w~ RISK OF WILDFI.... That's asinine! This is sand. Are they mentally retarded? They need to go back to science class.");
+                        Game.DisplaySubtitle("~r~Suspect~w~: RISK OF WILDFI.... That's asinine! This is sand. Are they mentally retarded? They need to go back to science class.");
                     }
                     if (counter == 7)
                     {
-                        Game.DisplaySubtitle("Player: " + malefemale + ", I'm gonna ask you to put out the fire and leave or I'll place you under arrest for failure to comply with a lawful order.");
+                        Game.DisplaySubtitle("~b~Player~w~: " + malefemale + ", I'm gonna ask you to put out the fire and leave or I'll place you under arrest for failure to comply with a lawful order.");
                     }
                     if (counter == 8)
                     {
-                        Game.DisplaySubtitle("~r~Suspect:~w~ Fuck you, Dick Tickler! I'll do my campfires any time anywhere I want. It's my right as a US Citizen.");
+                        Game.DisplaySubtitle("~r~Suspect~w~: Fuck you, Dick Tickler! I'll do my campfires any time anywhere I want. It's my right as a US Citizen.");
                     }
                     if (counter == 9)
                     {
