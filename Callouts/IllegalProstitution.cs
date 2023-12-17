@@ -73,7 +73,7 @@ namespace JMCalloutsRemastered.Callouts
                     if (counter == 1)
                     {
                         Suspect.Face(Game.LocalPlayer.Character);
-                        Game.DisplaySubtitle("Player: Excuse me, " + malefemale + ". Can you talk to me for a minute?");
+                        Game.DisplaySubtitle("~b~Player~w~: Excuse me, " + malefemale + ". Can you talk to me for a minute?");
                     }
                     if (counter == 2)
                     {
@@ -81,7 +81,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 3)
                     {
-                        Game.DisplaySubtitle("Player: We've gotten reports of you selling your body for money. Can you explain why for me please? I want to remind you that you're under oath.");
+                        Game.DisplaySubtitle("~b~Player~w~: We've gotten reports of you selling your body for money. Can you explain why for me please? I want to remind you that you're under oath.");
                     }
                     if (counter == 4)
                     {
@@ -89,7 +89,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 5)
                     {
-                        Game.DisplaySubtitle("Player: Please don't call me 'cutie', " + malefemale + ". I am happily married and I got kids.");
+                        Game.DisplaySubtitle("~b~Player~w~: Please don't call me 'cutie', " + malefemale + ". I am happily married and I got kids.");
                     }
                     if (counter == 6)
                     {
@@ -97,11 +97,11 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 7)
                     {
-                        Game.DisplaySubtitle("Player: You know you can apply for Food Stamps and get benefits to help you get food. Selling your body is not the way to go. My job as an officer of the law is to prevent you from doing this. (1/2)");
+                        Game.DisplaySubtitle("~b~Player~w~: You know you can apply for Food Stamps and get benefits to help you get food. Selling your body is not the way to go. My job as an officer of the law is to prevent you from doing this. (1/2)");
                     }
                     if (counter == 8)
                     {
-                        Game.DisplaySubtitle("Player: Because I'm concerned for your safety. There are people out here that can rape, kidnap, or kill you. You know how many women were victims because of prostituting? (2/2)");
+                        Game.DisplaySubtitle("~b~Player~w~: Because I'm concerned for your safety. There are people out here that can rape, kidnap, or kill you. You know how many women were victims because of prostituting? (2/2)");
                     }
                     if (counter == 9)
                     {
@@ -113,7 +113,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 11)
                     {
-                        Game.DisplaySubtitle("Player: " + malefemale + ", I'm trying to do my job and prevent you from doing this. I'm giving you the opportunity to walk home or I'll have to place you in cuffs and charge you with prostitution.");
+                        Game.DisplaySubtitle("~b~Player~w~: " + malefemale + ", I'm trying to do my job and prevent you from doing this. I'm giving you the opportunity to walk home or I'll have to place you in cuffs and charge you with prostitution.");
                     }
                     if (counter == 12)
                     {
