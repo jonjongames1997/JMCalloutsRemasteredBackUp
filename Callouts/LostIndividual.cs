@@ -126,11 +126,6 @@ namespace JMCalloutsRemastered.Callouts
             if (suspect && suspect.IsDead) End();
             if (suspect && LSPD_First_Response.Mod.API.Functions.IsPedArrested(suspect)) End();
 
-            if (victim.IsCuffed || victim.IsDead || Game.LocalPlayer.Character.IsDead || !victim.Exists() && suspect.IsCuffed || suspect.IsDead || Game.LocalPlayer.Character.IsDead || !suspect.Exists())
-            {
-                End();
-            }
-
             base.Process();
         }
 
