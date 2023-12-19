@@ -34,7 +34,6 @@ namespace JMCalloutsRemastered
 
                     Game.DisplayNotification("web_jonjongames", "web_jonjongames", "JM Callouts Remastered", "~g~v" + Assembly.GetExecutingAssembly().GetName().Version.ToString() + " ~r~by OfficerMorrison", "~b~successfully loaded!");
                     Game.DisplayNotification("JM Callouts Remastered is looking for Playtesters to test out future versions. If interested, join ~y~OfficerMorrison's~w~ ~o~Official Discord~w~.");
-                    Game.DisplayNotification("This is the final update of ~o~JM Callouts Remastered~w~ for the remainder of 2023. I'll see y'all in 2024. Thanks for the support and feedback. - OfficerMorrison");
 
                     VersionChecker.VersionChecker.isUpdateAvailable();
                     GameFiber.Wait(300);
