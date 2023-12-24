@@ -133,6 +133,7 @@
     <Compile Include="Callouts\TrespassingOnConstructionProperty.cs" />
     <Compile Include="Callouts\TrespassingOnPrivateProperty.cs" />
     <Compile Include="Callouts\TrespassingOnRailRoadProperty.cs" />
+    <Compile Include="Callouts\TrespassingOnSchoolProperty.cs" />
     <Compile Include="Callouts\UnauthorizedAccessMovieStudio.cs" />
     <Compile Include="Callouts\VehicleFire.cs" />
     <Compile Include="Callouts\WrecklessDriving.cs" />
