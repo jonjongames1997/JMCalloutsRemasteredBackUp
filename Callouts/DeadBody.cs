@@ -27,7 +27,7 @@ namespace JMCalloutsRemastered.Callouts
 
             CalloutMessage = "Reports of a dead body";
             CalloutPosition = spawnpoint;
-            ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 50);
+            ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
 
             return base.OnBeforeCalloutDisplayed();
         }
