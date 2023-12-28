@@ -15,7 +15,7 @@ using Rage;
 namespace JMCalloutsRemastered.Callouts
 {
 
-    [CalloutInterface("Lock Picking - ULS", CalloutProbability.Medium, "A school security guard reporting a student locker break in", "Code 2", "LSPD")]
+    [CalloutInterface("Lockpicking - ULS", CalloutProbability.Medium, "A school security guard reporting a student locker break in", "Code 2", "LSPD")]
 
     public class LockPickingSchool : Callout
     {
@@ -48,7 +48,37 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnCalloutAccepted()
         {
+            Game.LogTrivial("[JM Callouts Remastered Log]: Lockpicking - ULS callout has been accepted!");
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Lockpicking - ULS", "~b~Dispatch~w~: Suspect has been spotted by another student! Respond ~r~Code 2~w~!");
 
+            victim = new Ped("A_F_Y_RURMETH_01", spawnpoint, heading);
+            victim.IsPersistent = true;
+            victim.BlockPermanentEvents = true;
+
+            suspect = new Ped(susSpawnPoint, susHeading);
+            suspect.IsPersistent = true;
+            suspect.BlockPermanentEvents = true;
+            suspect.KeepTasks = true;
+            suspect.Tasks.StandStill(500);
+            suspect.AttachBlip();
+
+            suspectBlip.Color = System.Drawing.Color.Red;
+
+            victim.AttachBlip();
+            victimBlip.Color = System.Drawing.Color.Aqua;
+            victimBlip.IsRouteEnabled = true;
+
+            if (victim.IsMale)
+                malefemale = "Sir";
+            else
+                malefemale = "Ma'am";
+
+            if (suspect.IsMale)
+                malefemale = "Sir";
+            else
+                malefemale = "Ma'am";
+
+            counter = 0;
 
             return base.OnCalloutAccepted();
         }
