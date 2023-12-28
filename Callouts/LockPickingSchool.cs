@@ -44,6 +44,8 @@ namespace JMCalloutsRemastered.Callouts
             heading = 1509.25f;
             susSpawnPoint = new Vector3();
             susHeading = 1789.69f;
+            securitySpawn = new Vector3();
+            securityHeading = 1089.69f;
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
             CalloutInterfaceAPI.Functions.SendMessage(this, "A unknown individual reported breaking into a student's locker");
             CalloutMessage = "A student locker break in";
@@ -75,7 +77,6 @@ namespace JMCalloutsRemastered.Callouts
             victimBlip.IsRouteEnabled = true;
 
             securityGuard = new Ped(pedList[new Random().Next((int)pedList.Length)], securitySpawn, 0f);
-            securityHeading = 1089.69f;
             securityGuard.IsPersistent = true;
             securityGuard.Kill();
             NativeFunction.Natives.APPLY_PED_DAMAGE_PACK(securityGuard, "ShotByPistol", 1f, 2f);
