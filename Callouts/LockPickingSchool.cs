@@ -83,5 +83,12 @@ namespace JMCalloutsRemastered.Callouts
             return base.OnCalloutAccepted();
         }
 
+        public override void OnCalloutNotAccepted()
+        {
+
+
+            base.OnCalloutNotAccepted();
+        }
+
     }
 }
