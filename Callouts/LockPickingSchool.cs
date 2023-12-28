@@ -95,9 +95,77 @@ namespace JMCalloutsRemastered.Callouts
 
         public override void Process()
         {
+            if(Game.LocalPlayer.Character.DistanceTo(victim) <= 10f)
+            {
+                Game.DisplayHelp("Press ~y~E~w~ to interact with the victim", false);
 
+                if (Game.IsKeyDown(System.Windows.Forms.Keys.E))
+                {
+                    counter++;
+
+                    if(counter == 1)
+                    {
+                        victim.Face(Game.LocalPlayer.Character);
+                        Game.DisplaySubtitle("~b~Player~w~: Hello there, " + malefemale + ". Can you explain to me what is going on?");
+                    }
+                    if(counter == 2)
+                    {
+                        Game.DisplaySubtitle("~y~Victim~w~: Officer, there was this suspicious person trying to break into my locker for no reason. (1/3)");
+                    }
+                    if(counter == 3)
+                    {
+                        Game.DisplaySubtitle("~y~Victim~w~: I went to go get the security guard and he busted him then chased him out, the guy pulled out a gun then fatally shot the poor security guard. (2/3)");
+                    }
+                    if(counter == 4)
+                    {
+                        Game.DisplaySubtitle("~y~Victim~w~: The security guard was loved by our beloved staff and other students. He was our best security guard we ever had.");
+                    }
+                    if(counter == 5)
+                    {
+                        Game.DisplaySubtitle("~b~You~w~: Do you know this person? What kind of gun did they have? Did you see they had a weapon on them?");
+                    }
+                    if(counter == 6)
+                    {
+                        Game.DisplaySubtitle("~y~Victim~w~: I never met this person in my life. They had a handgun pistol and yes I did see them with the weapon after I got the security guard.");
+                    }
+                    if(counter == 7)
+                    {
+                        Game.DisplaySubtitle("~b~You~w~: Do you need any medical assistance? Do you mind sit tight for me while I'll talk to them?");
+                    }
+                    if(counter == 8)
+                    {
+                        Game.DisplaySubtitle("~y~Victim~w~: No, I'm fine, officer and sure thing, officer.");
+                    }
+                    if(counter == 9)
+                    {
+                        Game.DisplaySubtitle("Conversation with victim has ended! Talk to the ~r~Suspect~w~.");
+                    }
+                    if(counter == 10)
+                    {
+                        Game.DisplaySubtitle("~b~You~w~: Excuse me, " + malefemale + ". Stop right there! Don't reach for anything!");
+                    }
+                    if(counter == 11)
+                    {
+                        Game.DisplaySubtitle("~r~Suspect~w~: Die, you motherfucker, die! I will not be taken in alive, copper!");
+                        suspect.Inventory.GiveNewWeapon("WEAPON_PISTOL", 500, true);
+                        suspect.Tasks.FightAgainst(Game.LocalPlayer.Character);
+                    }
+                }
+            }
+
+            if (Game.LocalPlayer.IsDead) End();
+            if (Game.IsKeyDown(Settings.EndCall)) End();
+            if (suspect && suspect.IsDead) End();
+            if (suspect && LSPD_First_Response.Mod.API.Functions.IsPedArrested(suspect)) End();
 
             base.Process();
+        }
+
+        public override void End()
+        {
+
+
+            base.End();
         }
 
     }
