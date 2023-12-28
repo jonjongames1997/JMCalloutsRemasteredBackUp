@@ -34,7 +34,14 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnBeforeCalloutDisplayed()
         {
-
+            spawnpoint = new Vector3(); // University of Los Santos //
+            heading = 1509.25f;
+            susSpawnPoint = new Vector3();
+            susHeading = 1789.69f;
+            ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
+            CalloutInterfaceAPI.Functions.SendMessage(this, "A unknown individual reported breaking into a student's locker");
+            CalloutMessage = "A student locker break in";
+            CalloutPosition = spawnpoint;
 
             return base.OnBeforeCalloutDisplayed();
         }
