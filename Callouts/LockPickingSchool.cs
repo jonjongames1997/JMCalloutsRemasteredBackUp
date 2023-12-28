@@ -11,6 +11,7 @@ using LSPD_First_Response.Mod.API;
 using LSPD_First_Response.Mod.Callouts;
 using LSPD_First_Response.Engine.Scripting;
 using Rage;
+using Rage.Native;
 
 namespace JMCalloutsRemastered.Callouts
 {
@@ -22,6 +23,8 @@ namespace JMCalloutsRemastered.Callouts
 
         private Ped suspect;
         private Ped victim;
+        private Ped securityGuard;
+        private Vector3 guardBlip;
         private Vector3 spawnpoint;
         private Vector3 susSpawnPoint;
         private Blip suspectBlip;
