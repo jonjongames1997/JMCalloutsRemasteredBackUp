@@ -24,6 +24,7 @@ namespace JMCalloutsRemastered.Callouts
         private Ped suspect;
         private Ped victim;
         private Ped securityGuard;
+        private Vector3 securitySpawn;
         private Vector3 guardBlip;
         private Vector3 spawnpoint;
         private Vector3 susSpawnPoint;
@@ -33,6 +34,7 @@ namespace JMCalloutsRemastered.Callouts
         private int counter;
         private float heading;
         private float susHeading;
+        private float securityHeading;
 
 
         public override bool OnBeforeCalloutDisplayed()
@@ -70,6 +72,12 @@ namespace JMCalloutsRemastered.Callouts
             victim.AttachBlip();
             victimBlip.Color = System.Drawing.Color.Aqua;
             victimBlip.IsRouteEnabled = true;
+
+            securityGuard = new Ped("S_M_Y_BLACKOPS_01", securitySpawn, securityHeading);
+            securityGuard.IsPersistent = true;
+            securityGuard.Kill();
+            NativeFunction.Natives.APPLY_PED_DAMAGE_PACK(securityGuard, "ShotByPistol", 1f, 2f);
+
 
             if (victim.IsMale)
                 malefemale = "Sir";
