@@ -46,5 +46,12 @@ namespace JMCalloutsRemastered.Callouts
             return base.OnBeforeCalloutDisplayed();
         }
 
+        public override bool OnCalloutAccepted()
+        {
+
+
+            return base.OnCalloutAccepted();
+        }
+
     }
 }
