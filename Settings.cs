@@ -34,7 +34,6 @@ namespace JMCalloutsRemastered
         internal static bool MonkeyWithAWeapon = true;
         internal static bool WrecklessDriving = true;
         internal static bool StolenEmergencyVehicle = true;
-        internal static bool ActiveAIBackup = true;
         internal static bool HelpMessages = true;
         internal static Keys EndCall = Keys.End;
         internal static Keys Dialog = Keys.E;
@@ -74,7 +73,6 @@ namespace JMCalloutsRemastered
             Settings.MonkeyWithAWeapon = ini.ReadBoolean("Callouts", "MonkeyWithAWeapon", true);
             Settings.WrecklessDriving = ini.ReadBoolean("Callouts", "RecklessDriving", true);
             Settings.StolenEmergencyVehicle = ini.ReadBoolean("Callouts", "StolenEmergencyVehicle", true);
-            Settings.ActiveAIBackup = ini.ReadBoolean("General", "ActiveAIBackup", true);
             Settings.HelpMessages = ini.ReadBoolean("HelpMessages", "Help Messages", true);
             EndCall = ini.ReadEnum("Keys", "EndCall", Keys.End);
             Dialog = ini.ReadEnum("Keys", "Dialog", Keys.E);
