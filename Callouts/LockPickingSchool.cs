@@ -24,6 +24,7 @@ namespace JMCalloutsRemastered.Callouts
         private Ped suspect;
         private Ped victim;
         private Ped securityGuard;
+        private string[] pedList = new string[] { "S_M_Y_BLACKOPS_01", "S_M_Y_BLACKOPS_02", "S_M_Y_BLACKOPS_03", "S_F_Y_COP_01", "S_M_Y_COP_01", "S_M_M_MARINE_01", "CSB_PROLSEC" };
         private Vector3 securitySpawn;
         private Vector3 guardBlip;
         private Vector3 spawnpoint;
@@ -73,7 +74,8 @@ namespace JMCalloutsRemastered.Callouts
             victimBlip.Color = System.Drawing.Color.Aqua;
             victimBlip.IsRouteEnabled = true;
 
-            securityGuard = new Ped("S_M_Y_BLACKOPS_01", securitySpawn, securityHeading);
+            securityGuard = new Ped(pedList[new Random().Next((int)pedList.Length)], securitySpawn, 0f);
+            securityHeading = 1089.69f;
             securityGuard.IsPersistent = true;
             securityGuard.Kill();
             NativeFunction.Natives.APPLY_PED_DAMAGE_PACK(securityGuard, "ShotByPistol", 1f, 2f);
