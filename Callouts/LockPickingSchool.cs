@@ -10,7 +10,7 @@ using JMCalloutsRemastered.Stuff;
 using LSPD_First_Response.Mod.API;
 using LSPD_First_Response.Mod.Callouts;
 using LSPD_First_Response.Engine.Scripting;
-using LSPD_First_Response.Engine.Scripting.Entities;
+using Rage;
 
 namespace JMCalloutsRemastered.Callouts
 {
@@ -19,6 +19,25 @@ namespace JMCalloutsRemastered.Callouts
 
     public class LockPickingSchool : Callout
     {
+
+        private Ped suspect;
+        private Ped victim;
+        private Vector3 spawnpoint;
+        private Vector3 susSpawnPoint;
+        private Blip suspectBlip;
+        private Blip victimBlip;
+        private string malefemale;
+        private int counter;
+        private float heading;
+        private float susHeading;
+
+
+        public override bool OnBeforeCalloutDisplayed()
+        {
+
+
+            return base.OnBeforeCalloutDisplayed();
+        }
 
     }
 }
