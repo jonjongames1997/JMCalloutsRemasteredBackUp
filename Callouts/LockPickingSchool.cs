@@ -15,7 +15,7 @@ using LSPD_First_Response.Engine.Scripting.Entities;
 namespace JMCalloutsRemastered.Callouts
 {
 
-
+    [CalloutInterface("Lock Picking - ULS", CalloutProbability.Medium, "A school security guard reporting a student locker break in", "Code 2", "LSPD")]
 
     public class LockPickingSchool : Callout
     {
