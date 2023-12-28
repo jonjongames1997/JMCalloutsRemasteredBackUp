@@ -85,7 +85,10 @@ namespace JMCalloutsRemastered.Callouts
 
         public override void OnCalloutNotAccepted()
         {
-
+            if (suspect) suspect.Delete();
+            if (victim) victim.Delete();
+            if (victimBlip) victimBlip.Delete();
+            if (suspectBlip) suspectBlip.Delete();
 
             base.OnCalloutNotAccepted();
         }
