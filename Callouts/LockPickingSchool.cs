@@ -40,10 +40,10 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnBeforeCalloutDisplayed()
         {
-            spawnpoint = new Vector3(); // University of Los Santos //
-            heading = 1509.25f;
-            susSpawnPoint = new Vector3();
-            susHeading = 1789.69f;
+            spawnpoint = new Vector3(-1602.71f, 206.43f, 59.28f); // University of Los Santos //
+            heading = 100.56f;
+            susSpawnPoint = new Vector3(-1635.71f, 180.96f, 61.76f);
+            susHeading = 300.18f;
             securitySpawn = new Vector3();
             securityHeading = 1089.69f;
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
