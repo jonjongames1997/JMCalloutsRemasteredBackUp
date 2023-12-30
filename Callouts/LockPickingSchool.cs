@@ -31,6 +31,7 @@ namespace JMCalloutsRemastered.Callouts
         private Vector3 susSpawnPoint;
         private Blip suspectBlip;
         private Blip victimBlip;
+        private Blip securityBlip;
         private string malefemale;
         private int counter;
         private float heading;
@@ -77,6 +78,8 @@ namespace JMCalloutsRemastered.Callouts
             victimBlip.IsRouteEnabled = true;
 
             securityGuard = new Ped(pedList[new Random().Next((int)pedList.Length)], securitySpawn, 0f);
+            securityGuard.AttachBlip();
+            securityBlip.Color = System.Drawing.Color.Blue;
             securityGuard.IsPersistent = true;
             securityGuard.Kill();
             NativeFunction.Natives.APPLY_PED_DAMAGE_PACK(securityGuard, "ShotByPistol", 1f, 2f);
