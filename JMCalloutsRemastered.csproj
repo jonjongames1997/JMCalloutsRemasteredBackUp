@@ -130,7 +130,6 @@
     <Compile Include="Callouts\SolicitingDelPerroPier.cs" />
     <Compile Include="Callouts\StolenEmergencyVehicle.cs" />
     <Compile Include="Callouts\SuspiciousPerson.cs" />
-    <Compile Include="Callouts\TheCandyCaneWhacker.cs" />
     <Compile Include="Callouts\TrespassingOnConstructionProperty.cs" />
     <Compile Include="Callouts\TrespassingOnPrivateProperty.cs" />
     <Compile Include="Callouts\TrespassingOnRailRoadProperty.cs" />
