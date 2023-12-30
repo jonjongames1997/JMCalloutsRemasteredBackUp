@@ -29,12 +29,10 @@ namespace JMCalloutsRemastered
         internal static bool RocketMan = true;
         internal static bool SolicitingDelPerroPier = true;
         internal static bool OfficerDown = true;
-        internal static bool TheCandyCaneWhacker = true;
         internal static bool VehicleFire = true;
         internal static bool MonkeyWithAWeapon = true;
         internal static bool WrecklessDriving = true;
         internal static bool StolenEmergencyVehicle = true;
-        internal static bool LockPickingSchool = true;
         internal static bool HelpMessages = true;
         internal static Keys EndCall = Keys.End;
         internal static Keys Dialog = Keys.E;
@@ -69,12 +67,10 @@ namespace JMCalloutsRemastered
             Settings.RocketMan = ini.ReadBoolean("Callots", "RocketMan", true);
             Settings.SolicitingDelPerroPier = ini.ReadBoolean("Callouts", "SolicitingDelPerro", true);
             Settings.OfficerDown = ini.ReadBoolean("Callouts", "OfficerDown", true);
-            Settings.TheCandyCaneWhacker = ini.ReadBoolean("Callouts", "TheCandyCaneWhacker", true);
             Settings.VehicleFire = ini.ReadBoolean("Callouts", "VehicleFire", true);
             Settings.MonkeyWithAWeapon = ini.ReadBoolean("Callouts", "MonkeyWithAWeapon", true);
             Settings.WrecklessDriving = ini.ReadBoolean("Callouts", "RecklessDriving", true);
             Settings.StolenEmergencyVehicle = ini.ReadBoolean("Callouts", "StolenEmergencyVehicle", true);
-            Settings.LockPickingSchool = ini.ReadBoolean("Callouts", "LockPickingSchool", true);
             Settings.HelpMessages = ini.ReadBoolean("HelpMessages", "Help Messages", true);
             EndCall = ini.ReadEnum("Keys", "EndCall", Keys.End);
             Dialog = ini.ReadEnum("Keys", "Dialog", Keys.E);
