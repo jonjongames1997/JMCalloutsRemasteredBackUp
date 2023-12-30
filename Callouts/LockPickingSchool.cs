@@ -44,8 +44,8 @@ namespace JMCalloutsRemastered.Callouts
             heading = 100.56f;
             susSpawnPoint = new Vector3(-1635.71f, 180.96f, 61.76f); // Suspect spawnpoint //
             susHeading = 300.18f;
-            securitySpawn = new Vector3(); // downed Security Guard spawn //
-            securityHeading = 1089.69f;
+            securitySpawn = new Vector3(-1617.98f, 208.21f, 60.16f); // downed Security Guard spawn //
+            securityHeading = 161.30f;
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
             CalloutInterfaceAPI.Functions.SendMessage(this, "A unknown individual reported breaking into a student's locker");
             CalloutMessage = "A student locker break in";
