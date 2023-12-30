@@ -42,9 +42,9 @@ namespace JMCalloutsRemastered.Callouts
         {
             spawnpoint = new Vector3(-1602.71f, 206.43f, 59.28f); // University of Los Santos //
             heading = 100.56f;
-            susSpawnPoint = new Vector3(-1635.71f, 180.96f, 61.76f);
+            susSpawnPoint = new Vector3(-1635.71f, 180.96f, 61.76f); // Suspect spawnpoint //
             susHeading = 300.18f;
-            securitySpawn = new Vector3();
+            securitySpawn = new Vector3(); // downed Security Guard spawn //
             securityHeading = 1089.69f;
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
             CalloutInterfaceAPI.Functions.SendMessage(this, "A unknown individual reported breaking into a student's locker");
