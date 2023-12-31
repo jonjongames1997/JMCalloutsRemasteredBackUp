@@ -28,6 +28,11 @@ namespace JMCalloutsRemastered.Callouts
         private Blip blip;
         private Ped suspect;
         private LHandle pursuit;
+        private int scenario = 0;
+        private bool hasBegunAttacking = false;
+        private bool isArmed = false;
+        private bool hasPursuitBegun = false;
+
 
     }
 }
