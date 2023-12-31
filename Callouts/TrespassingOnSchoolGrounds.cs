@@ -33,6 +33,11 @@ namespace JMCalloutsRemastered.Callouts
         private bool isArmed = false;
         private bool hasPursuitBegun = false;
 
+        public override bool OnBeforeCalloutDisplayed()
+        {
 
+
+            return base.OnBeforeCalloutDisplayed();
+        }
     }
 }
