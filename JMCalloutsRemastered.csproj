@@ -115,7 +115,6 @@
     <Compile Include="Callouts\IllegalCampfireOnPublicBeach.cs" />
     <Compile Include="Callouts\IllegalProstitution.cs" />
     <Compile Include="Callouts\IntoxicatedIndividual.cs" />
-    <Compile Include="Callouts\LockPickingSchool.cs" />
     <Compile Include="Callouts\LostIndividual.cs" />
     <Compile Include="Callouts\MonkeyWithAWeapon.cs" />
     <Compile Include="Callouts\OfficerDown.cs" />
