@@ -50,12 +50,10 @@ namespace JMCalloutsRemastered.Callouts
             suspect = new Ped(pedList[new Random().Next((int)pedList.Length)], spawnpoint, 0f);
             suspect.IsPersistent = true;
             suspect.BlockPermanentEvents = true;
-            suspect.Inventory.GiveNewWeapon("WEAPON_UNARMED", 500, true);
 
             blip = suspect.AttachBlip();
             blip.Color = System.Drawing.Color.Orange;
             blip.IsRouteEnabled = true;
-            blip.Alpha = 0.5f;
 
             if (suspect.IsMale)
                 malefemale = "Sir";
