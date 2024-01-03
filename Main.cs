@@ -72,6 +72,7 @@ namespace JMCalloutsRemastered
             if (Settings.MonkeyWithAWeapon) { Functions.RegisterCallout(typeof(MonkeyWithAWeapon)); }
             if (Settings.WrecklessDriving) { Functions.RegisterCallout(typeof(WrecklessDriving)); }
             if (Settings.StolenEmergencyVehicle) { Functions.RegisterCallout(typeof(StolenEmergencyVehicle)); }
+            if (Settings.TrespassingOnSchoolGrounds) { Functions.RegisterCallout(typeof(TrespassingOnSchoolGrounds)); }
             Game.Console.Print("[LOG]: All callouts of the JMCalloutsRemastered.ini were loaded successfully.");
             Game.Console.Print();
             Game.Console.Print("================================================== JM Callouts Remastered ===================================================");
