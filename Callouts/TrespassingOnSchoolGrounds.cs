@@ -35,6 +35,7 @@ namespace JMCalloutsRemastered.Callouts
             spawnpoint = new Vector3(-1602.71f, 206.43f, 59.28f);
             heading = 100.56f;
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
+            AddMinimumDistanceCheck(100f, spawnpoint);
             CalloutInterfaceAPI.Functions.SendMessage(this, "An unknown individual trespassing on school property");
             CalloutMessage = "Reports of an unknown person trespassing";
             CalloutPosition = spawnpoint;
