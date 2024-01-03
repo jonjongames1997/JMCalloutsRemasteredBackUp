@@ -35,7 +35,6 @@ namespace JMCalloutsRemastered.Callouts
             spawnpoint = new Vector3(-1602.71f, 206.43f, 59.28f);
             heading = 100.56f;
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
-            AddMinimumDistanceCheck(100f, spawnpoint);
             CalloutInterfaceAPI.Functions.SendMessage(this, "An unknown individual trespassing on school property");
             CalloutMessage = "Reports of an unknown person trespassing";
             CalloutPosition = spawnpoint;
@@ -78,9 +77,61 @@ namespace JMCalloutsRemastered.Callouts
 
         public override void Process()
         {
+            if(Game.LocalPlayer.Character.DistanceTo(suspect) <= 10f)
+            {
+                Game.DisplayHelp("Press ~y~E~w~ to interact with ~r~Suspect~w~.", false);
 
+                if (Game.IsKeyDown(System.Windows.Forms.Keys.E))
+                {
+                    counter++;
+
+                    if(counter == 1)
+                    {
+                        suspect.Face(Game.LocalPlayer.Character);
+                        Game.DisplaySubtitle("~b~You~w~: Police Departmant. Stop where I can see you " + malefemale + ". I want to talk to you.");
+                    }
+                    if(counter == 2)
+                    {
+                        Game.DisplaySubtitle("~r~Suspect~w~: What now?");
+                    }
+                    if(counter == 3)
+                    {
+                        Game.DisplaySubtitle("~b~You~w~: I have gotten reports of you trespassing on the school grounds without a vistor's pass. Why you refusing a vistor's pass from the school staff?");
+                    }
+                    if(counter == 4)
+                    {
+                        Game.DisplaySubtitle("~r~Suspect~w~: I am a student here at ULSA. Why you come up with that marlarkey?");
+                    }
+                    if(counter == 5)
+                    {
+                        Game.DisplaySubtitle("~b~You~w~: Are you sure? I will review the CCTV Footage, you better tell me the truth and be honest.");
+                    }
+                    if(counter == 6)
+                    {
+                        Game.DisplaySubtitle("~r~Suspect~w~: Fuck me, they know I am not a student here. Take your last breath of fresh air, Motherfucker!");
+                        suspect.Inventory.GiveNewWeapon(wepList[new Random().Next((int)wepList.Length)], 500, true);
+                        suspect.Tasks.FightAgainst(Game.LocalPlayer.Character);
+                    }
+                }
+            }
+
+            if (Game.LocalPlayer.Character.IsDead) End();
+            if (Game.IsKeyDown(Settings.EndCall)) End();
+            if (suspect && suspect.IsDead) End();
+            if (suspect && LSPD_First_Response.Mod.API.Functions.IsPedArrested(suspect)) End();
 
             base.Process();
+        }
+
+        public override void End()
+        {
+            if (suspect) suspect.Dismiss();
+            if (blip) blip.Delete();
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Trespassing On School Property", "~b~You~w~: Dispatch, we are ~g~CODE 4~w~. Show me back 10-8.");
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_THIS_IS_DISPATCH_HIGH ALL_UNITS_CODE4 NO_FURTHER_UNITS_REQUIRED");
+            base.End();
+
+            Game.LogTrivial("[JM Callouts Remastered Log]: Trespassing on School Property is code 4!");
         }
     }
 }
