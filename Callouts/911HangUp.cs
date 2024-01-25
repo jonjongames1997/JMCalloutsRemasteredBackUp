@@ -23,15 +23,21 @@ namespace JMCalloutsRemastered.Callouts
         private Ped Suspect;
         private Blip SuspectBlip;
         private Vector3 Spawnpoint;
-        private float heading;
         private string malefemale;
         private int counter;
 
 
         public override bool OnBeforeCalloutDisplayed()
         {
-            Spawnpoint = new Vector3(1082.087f, -346.2961f, 67.1872f); // Mirror Park near Horny's //
-            heading = 146.671f;
+            Random random = new Random();
+            List<Vector3> list = new List<Vector3>
+            {
+                new Vector3(1082.087f, -346.2961f, 67.1872f), // Mirror Park near Horny's //
+                new Vector3(-1294.99f, -1316.46f, 4.69f), // OCRP Postal 305/Vespucci Beach //
+                new Vector3(),
+                new Vector3(),
+            };
+            Spawnpoint = LocationChooser.chooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 100f);
             CalloutInterfaceAPI.Functions.SendMessage(this, "A civilian called 9-1-1 then immediately hung up. Deal with this, Officer.");
             CalloutMessage = "A citizen called 911 then hung up on dispatch"; // Brief description of callout //
