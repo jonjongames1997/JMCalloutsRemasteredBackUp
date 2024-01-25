@@ -79,20 +79,20 @@
   <ItemGroup>
     <Reference Include="CalloutInterfaceAPI, Version=1.0.3.0, Culture=neutral, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\JMCalloutsRemastered\References\CalloutInterfaceAPI.dll</HintPath>
+      <HintPath>..\JMCalloutsRemasteredReferences\CalloutInterfaceAPI.dll</HintPath>
     </Reference>
     <Reference Include="LSPD First Response, Version=0.4.8433.20359, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\JMCalloutsRemastered\References\LSPD First Response.dll</HintPath>
+      <HintPath>..\JMCalloutsRemasteredReferences\LSPD First Response.dll</HintPath>
     </Reference>
     <Reference Include="RAGENativeUI">
-      <HintPath>..\..\JMCalloutsRemastered\References\RAGENativeUI.dll</HintPath>
+      <HintPath>..\JMCalloutsRemasteredReferences\RAGENativeUI.dll</HintPath>
     </Reference>
     <Reference Include="RagePluginHookSDK">
-      <HintPath>..\References\RagePluginHookSDK.dll</HintPath>
+      <HintPath>..\JMCalloutsRemasteredReferences\RagePluginHookSDK.dll</HintPath>
     </Reference>
     <Reference Include="SceneManager">
-      <HintPath>..\..\JMCalloutsRemastered\References\SceneManager.dll</HintPath>
+      <HintPath>..\JMCalloutsRemasteredReferences\SceneManager.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
