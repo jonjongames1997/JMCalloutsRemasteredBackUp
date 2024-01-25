@@ -36,6 +36,7 @@ namespace JMCalloutsRemastered.Callouts
                 new Vector3(-1294.99f, -1316.46f, 4.69f), // OCRP Postal 305/Vespucci Beach //
                 new Vector3(),
                 new Vector3(),
+                new Vector3(),
             };
             Spawnpoint = LocationChooser.chooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 100f);
