@@ -1,6 +1,14 @@
 ﻿using CalloutInterfaceAPI;
 using LSPD_First_Response.Mod.Callouts;
 using Rage;
+using System;
+using System.Drawing;
+using System.Collections;
+using System.Collections.Generic;
+using JMCalloutsRemastered;
+using JMCalloutsRemastered.Stuff;
+using LSPD_First_Response.Engine.Scripting.Entities;
+using LSPD_First_Response.Engine.Scripting;
 
 namespace JMCalloutsRemastered.Callouts
 {
@@ -16,13 +24,19 @@ namespace JMCalloutsRemastered.Callouts
         private Blip SuspectBlip;
         private Vector3 Spawnpoint;
         private int counter;
-        private float heading;
         private string malefemale;
 
         public override bool OnBeforeCalloutDisplayed()
         {
-            Spawnpoint = new Vector3(452.94f, -1648.89f, 29.97f);
-            heading = 225.98f;
+            Random random = new Random();
+            List<Vector3> list = new List<Vector3>
+            {
+                new Vector3(452.94f, -1648.89f, 29.97f), // Next to Davis Sheriff
+                new Vector3(1743.83f, 3464.93f, 38.50f), // Railroad tracks on Panarama Dr/Sandy Shores Welcome sign
+                new Vector3(),
+                new Vector3(),
+            };
+            Spawnpoint = LocationChooser.chooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 1000f);
             CalloutMessage = "A citizen is reporting a suspicious person on railroad tracks.";
             CalloutPosition = Spawnpoint;
@@ -35,7 +49,7 @@ namespace JMCalloutsRemastered.Callouts
             Game.LogTrivial("[JM Callouts Remastered Log]: Trespassing On Railroad Property callout accepted!");
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "Trespassing On Railroad Property", "~b~Dispatch:~w~ Suspect Spotted. Respond ~r~Code 2.");
 
-            Suspect = new Ped(Spawnpoint, heading); // Optional if you want to add a ped for the callout. If you don't want a specific ped for the callout, just put 'Spawnpoint' and 'heading' in the brackets.
+            Suspect = new Ped(Spawnpoint); // Optional if you want to add a ped for the callout. If you don't want a specific ped for the callout, just put 'Spawnpoint' and 'heading' in the brackets.
             Suspect.IsPersistent = true;
             Suspect.BlockPermanentEvents = true;
             CalloutInterfaceAPI.Functions.SendMessage(this, "A citizen reporting a suspicious female on the railroad tracks. Possibly high on drugs. Approach with caution.");
