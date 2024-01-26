@@ -23,7 +23,6 @@ namespace JMCalloutsRemastered
         internal static bool UnauthorizedAccessMovieStudio = true;
         internal static bool DerangedLover = true;
         internal static bool DeadBody = true;
-        internal static bool SuspiciousPerson = true;
         internal static bool PersonWithAWeapon = false;
         internal static bool GangRivalryShootout = true;
         internal static bool RocketMan = true;
@@ -62,7 +61,6 @@ namespace JMCalloutsRemastered
             Settings.UnauthorizedAccessMovieStudio = ini.ReadBoolean("Callouts", "UnauthorizedAccessMovieStudio", true);
             Settings.DerangedLover = ini.ReadBoolean("Callouts", "DerangedLover", true);
             Settings.DeadBody = ini.ReadBoolean("Callouts", "Dead Body", true);
-            Settings.SuspiciousPerson = ini.ReadBoolean("Callouts", "Suspicious Person", true);
             Settings.PersonWithAWeapon = ini.ReadBoolean("Callouts", "Person With A Weapon", true);
             Settings.GangRivalryShootout = ini.ReadBoolean("Callouts", "Gang Rivalry Shootout", true);
             Settings.RocketMan = ini.ReadBoolean("Callots", "RocketMan", true);
