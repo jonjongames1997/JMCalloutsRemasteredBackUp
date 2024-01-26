@@ -4,6 +4,8 @@ using LSPD_First_Response.Mod.Callouts;
 using Rage;
 using System;
 using System.Collections.Generic;
+using JMCalloutsRemastered.Callouts;
+using JMCalloutsRemastered;
 
 namespace JMCalloutsRemastered.Callouts
 {
