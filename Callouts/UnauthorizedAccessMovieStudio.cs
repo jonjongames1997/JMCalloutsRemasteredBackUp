@@ -28,7 +28,12 @@ namespace JMCalloutsRemastered.Callouts
             Random random = new Random();
             List<Vector3> list = new List<Vector3>
             {
-                new Vector3(-1050.09f, -512.47f, 36.04f), // Richard's Majestic Movie Studio
+                // Richard's Majestic Movie Studio
+
+                new Vector3(-1050.09f, -512.47f, 36.04f),
+                new Vector3(),
+                new Vector3(),
+                new Vector3(),
             };
             spawnpoint = LocationChooser.chooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
