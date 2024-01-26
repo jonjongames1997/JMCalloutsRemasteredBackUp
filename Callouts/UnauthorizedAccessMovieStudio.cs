@@ -28,7 +28,7 @@ namespace JMCalloutsRemastered.Callouts
             Random random = new Random();
             List<Vector3> list = new List<Vector3>
             {
-                // Richard's Majestic Movie Studio
+                // Richard's Majestic Movie Studio //
 
                 new Vector3(-1050.09f, -512.47f, 36.04f),
                 new Vector3(),
