@@ -1,6 +1,14 @@
 ﻿using CalloutInterfaceAPI;
 using LSPD_First_Response.Mod.Callouts;
 using Rage;
+using System;
+using System.Drawing;
+using System.Collections;
+using System.Collections.Generic;
+using JMCalloutsRemastered;
+using JMCalloutsRemastered.Stuff;
+using LSPD_First_Response.Engine.Scripting.Entities;
+using LSPD_First_Response.Engine.Scripting;
 
 namespace JMCalloutsRemastered.Callouts
 {
@@ -13,14 +21,21 @@ namespace JMCalloutsRemastered.Callouts
         private Ped Suspect;
         private Blip SuspectBlip;
         private Vector3 Spawnnpoint;
-        private float heading;
         private int counter;
         private string malefemale;
 
         public override bool OnBeforeCalloutDisplayed()
         {
-            Spawnnpoint = new Vector3(94.63f, -217.37f, 54.49f); // Shopping Center in Vinewood //
-            heading = 53.08f;
+            Random random = new Random();
+            List<Vector3> list = new List<Vector3>
+            {
+                new Vector3(94.63f, -217.37f, 54.49f), // Shopping Center in Vinewood //
+                new Vector3(),
+                new Vector3(),
+                new Vector3(),
+                new Vector3(),
+            };
+            Spawnnpoint = LocationChooser.chooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(Spawnnpoint, 100f);
             CalloutInterfaceAPI.Functions.SendMessage(this, "A business owner reported an individual being drunk on business property.");
             CalloutMessage = "Suspect refused to leave property. Owner said that suspect is possibly be drunk or under the influence of narcotics. Approach with caustion.";
@@ -34,7 +49,7 @@ namespace JMCalloutsRemastered.Callouts
             Game.LogTrivial("[JM Callouts Remastered Log]: Intoxicated Individual callout accepted!");
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Intoxicated Individual", "~b~Dispatch:~w~ Suspect located. Respond ~r~Code 2.");
 
-            Suspect = new Ped(Spawnnpoint, heading);
+            Suspect = new Ped(Spawnnpoint);
             Suspect.IsPersistent = true;
             Suspect.BlockPermanentEvents = true;
 
