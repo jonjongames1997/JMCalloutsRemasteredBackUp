@@ -27,7 +27,14 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnBeforeCalloutDisplayed()
         {
-            spawnPoint = new Vector3(-174.17f, -1427.77f, 31.25f);
+            Random random = new Random();
+            List<Vector3> list = new List<Vector3>
+            {
+                new Vector3(-174.17f, -1427.77f, 31.25f), // Across from the auto shop in strawberry
+                new Vector3(),
+                new Vector3(),
+            };
+            spawnPoint = LocationChooser.chooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(spawnPoint, 100f);
             CalloutInterfaceAPI.Functions.SendMessage(this, "A citizen's reporting a public disturbance.");
             CalloutMessage = "A citizen's reporting a person threatening a victim's life with a deadly weapon.";
@@ -74,7 +81,7 @@ namespace JMCalloutsRemastered.Callouts
             if (Game.LocalPlayer.Character.DistanceTo(suspect) <= 10f)
             {
 
-                Game.DisplayHelp("Press ~y~E~w~ to talk to suspect. ~y~Approach with caution.", false);
+                Game.DisplayHelp("Press ~y~E~w~ to talk to suspect. ~y~Approach with caution~w~.", false);
 
                 if (Game.IsKeyDown(System.Windows.Forms.Keys.E))
                 {
