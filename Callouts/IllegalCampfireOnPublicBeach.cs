@@ -31,6 +31,9 @@ namespace JMCalloutsRemastered.Callouts
             List<Vector3> list = new List<Vector3>
             {
                 new Vector3(-1537.564f, -1214.748f, 1.887064f), // Campfire Spawns at night //
+                new Vector3(),
+                new Vector3(),
+                new Vector3(),
             };
             Spawnpoint = LocationChooser.chooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 1000f); // Blips the area of the callout //
