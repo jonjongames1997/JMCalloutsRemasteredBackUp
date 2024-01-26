@@ -31,8 +31,8 @@ namespace JMCalloutsRemastered.Callouts
             Random random = new Random();
             List<Vector3> list = new List<Vector3>
             {
-                new Vector3(), 
-                new Vector3(), 
+                new Vector3(-1222.69f, -907.14f, -12.33f), // Rob's Liquors near the Nightclub
+                new Vector3(-1193.68f, -768.45f, 17.32f), // Suburban near Vespucci PD HQ
                 new Vector3(),
                 new Vector3(), 
                 new Vector3(), 
