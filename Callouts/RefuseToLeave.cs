@@ -31,11 +31,11 @@ namespace JMCalloutsRemastered.Callouts
             Random random = new Random();
             List<Vector3> list = new List<Vector3>
             {
-                new Vector3(),
-                new Vector3(),
-                new Vector3(),
-                new Vector3(),
-                new Vector3(),
+                new Vector3(-53.57f, -1757.29f, 29.44f), // LTD on Grove Street
+                new Vector3(166.99f, -1554.36f, 29.26f), // Ron Station on MacDonald Street/Davis Ave
+                new Vector3(288.13f, -1267.06f, 29.44f), // Gas Station near Vanilla Unicorn on Capital Blvd
+                new Vector3(2677.34f, 3281.31f, 55.24f), // Gas Station on Senora Freeway/Route 13
+                new Vector3(2001.63f, 3779.19f, 32.18f), // Gas station on Alhambra Dr next to the 24/7 in Sandy Shores
             };
             Spawnpoint = LocationChooser.chooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 100f);
