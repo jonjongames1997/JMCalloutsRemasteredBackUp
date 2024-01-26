@@ -1,6 +1,14 @@
 ﻿using CalloutInterfaceAPI;
 using LSPD_First_Response.Mod.Callouts;
 using Rage;
+using System;
+using System.Drawing;
+using System.Collections;
+using System.Collections.Generic;
+using JMCalloutsRemastered;
+using JMCalloutsRemastered.Stuff;
+using LSPD_First_Response.Engine.Scripting.Entities;
+using LSPD_First_Response.Engine.Scripting;
 
 namespace JMCalloutsRemastered.Callouts
 {
@@ -14,15 +22,22 @@ namespace JMCalloutsRemastered.Callouts
         private Ped Suspect;
         private Blip SuspectBlip;
         private Vector3 Spawnpoint;
-        private float heading;
         private int counter;
         private string malefemale;
 
 
         public override bool OnBeforeCalloutDisplayed()
         {
-            Spawnpoint = new Vector3(-821.94f, -1073.82f, 11.33f); // Near Floyd's Apartment //
-            heading = 45.67f;
+            Random random = new Random();
+            List<Vector3> list = new List<Vector3>
+            {
+                new Vector3(),
+                new Vector3(),
+                new Vector3(),
+                new Vector3(),
+                new Vector3(),
+            };
+            Spawnpoint = LocationChooser.chooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 100f);
             CalloutInterfaceAPI.Functions.SendMessage(this, "Business employee told the individual to leave the property but refuses to. Employee suspects the individual to be under the influence.");
             CalloutMessage = "Individual refusing to leave property by business owner/employee.";
@@ -36,7 +51,7 @@ namespace JMCalloutsRemastered.Callouts
             Game.LogTrivial("[JM Callouts Remastered Log]: Refuse To Leave callout accepted!");
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Refuse To Leave", "~b~Dispatch: ~w~Suspect has been spotted. Respond ~r~Code 2");
 
-            Suspect = new Ped(Spawnpoint, heading);
+            Suspect = new Ped(Spawnpoint);
             Suspect.IsPersistent = true;
             Suspect.BlockPermanentEvents = true;
 
