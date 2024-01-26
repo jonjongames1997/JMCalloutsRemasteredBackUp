@@ -1,6 +1,14 @@
 ﻿using CalloutInterfaceAPI;
 using LSPD_First_Response.Mod.Callouts;
 using Rage;
+using System;
+using System.Drawing;
+using System.Collections;
+using System.Collections.Generic;
+using JMCalloutsRemastered;
+using JMCalloutsRemastered.Stuff;
+using LSPD_First_Response.Engine.Scripting.Entities;
+using LSPD_First_Response.Engine.Scripting;
 
 namespace JMCalloutsRemastered.Callouts
 {
@@ -16,15 +24,13 @@ namespace JMCalloutsRemastered.Callouts
         private Vector3 spawnPoint;
         private int counter;
         private string malefemale;
-        private float heading;
 
         public override bool OnBeforeCalloutDisplayed()
         {
             spawnPoint = new Vector3(-174.17f, -1427.77f, 31.25f);
-            heading = 178.40f;
             ShowCalloutAreaBlipBeforeAccepting(spawnPoint, 100f);
             CalloutInterfaceAPI.Functions.SendMessage(this, "A citizen's reporting a public disturbance.");
-            CalloutMessage = "A citizen's reporting a disturbance with a white male with no shirt. Threatening the victim's life with a deadly weapon.";
+            CalloutMessage = "A citizen's reporting a person threatening a victim's life with a deadly weapon.";
             CalloutPosition = spawnPoint;
 
             return base.OnBeforeCalloutDisplayed();
@@ -35,7 +41,7 @@ namespace JMCalloutsRemastered.Callouts
             Game.LogTrivial("[JM Callouts Remastered Log]: Public Disturbance callout accepted!");
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Public Disturbance", "~b~Dispatch:~w~ Suspect has been spotted!. Respond ~r~Code 2.");
 
-            suspect = new Ped(spawnPoint, heading);
+            suspect = new Ped(spawnPoint);
             suspect.IsPersistent = true;
             suspect.BlockPermanentEvents = true;
 
