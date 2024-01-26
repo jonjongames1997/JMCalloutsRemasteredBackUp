@@ -1,12 +1,14 @@
 ﻿using CalloutInterfaceAPI;
-using JMCalloutsRemastered.Stuff;
 using LSPD_First_Response.Mod.Callouts;
 using Rage;
 using System;
-using System.Collections.Generic;
-using JMCalloutsRemastered.Callouts;
-using JMCalloutsRemastered;
 using System.Drawing;
+using System.Collections;
+using System.Collections.Generic;
+using JMCalloutsRemastered;
+using JMCalloutsRemastered.Stuff;
+using LSPD_First_Response.Engine.Scripting.Entities;
+using LSPD_First_Response.Engine.Scripting;
 
 namespace JMCalloutsRemastered.Callouts
 {
