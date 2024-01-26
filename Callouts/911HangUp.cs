@@ -61,9 +61,9 @@ namespace JMCalloutsRemastered.Callouts
             SuspectBlip.IsRouteEnabled = true;
 
             if (Suspect.IsMale)
-                malefemale = "sir";
+                malefemale = "Sir";
             else
-                malefemale = "ma'am";
+                malefemale = "Ma'am";
 
             counter = 0;
 
