@@ -1,11 +1,14 @@
 ﻿using CalloutInterfaceAPI;
 using LSPD_First_Response.Mod.Callouts;
 using Rage;
-using LSPD_First_Response.Mod.API;
-using LSPD_First_Response.Engine.Scripting;
-using LSPD_First_Response.Engine;
-using JMCalloutsRemastered.Callouts;
+using System;
+using System.Drawing;
+using System.Collections;
+using System.Collections.Generic;
+using JMCalloutsRemastered;
 using JMCalloutsRemastered.Stuff;
+using LSPD_First_Response.Engine.Scripting.Entities;
+using LSPD_First_Response.Engine.Scripting;
 
 namespace JMCalloutsRemastered.Callouts
 {
@@ -19,14 +22,21 @@ namespace JMCalloutsRemastered.Callouts
         private Blip SuspectBlip;
         private Vector3 Spawnpoint;
         private int counter;
-        private float heading;
         private string malefemale;
 
 
         public override bool OnBeforeCalloutDisplayed()
         {
-            Spawnpoint = new Vector3(-707.51f, -912.68f, 19.22f); // LTD Gas Station Near Weazel News //
-            heading = 267.11f;
+            Random random = new Random();
+            List<Vector3> list = new List<Vector3>
+            {
+                new Vector3(-53.57f, -1757.29f, 29.44f), // LTD on Grove Street
+                new Vector3(166.99f, -1554.36f, 29.26f), // Ron Station on MacDonald Street/Davis Ave
+                new Vector3(288.13f, -1267.06f, 29.44f), // Gas Station near Vanilla Unicorn on Capital Blvd
+                new Vector3(2677.34f, 3281.31f, 55.24f), // Gas Station on Senora Freeway/Route 13
+                new Vector3(2001.63f, 3779.19f, 32.18f), // Gas station on Alhambra Dr next to the 24/7 in Sandy Shores
+            };
+            Spawnpoint = LocationChooser.chooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 100f);
             CalloutInterfaceAPI.Functions.SendMessage(this, "An Individual is refusing to pay for their gas. The individual is being little aggressive. Approach with caution");
             CalloutMessage = "Individual Refusing to pay";
@@ -40,7 +50,7 @@ namespace JMCalloutsRemastered.Callouts
             Game.LogTrivial("[JM Callouts Remastered Log]: Refuse To Pay callout Accepted!");
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Refuse To Pay", "~b~Dispatch: The suspect has been spotted with a firearm! Respond ~r~Code 3");
 
-            Suspect = new Ped(Spawnpoint, heading);
+            Suspect = new Ped(Spawnpoint);
             Suspect.IsPersistent = true;
             Suspect.BlockPermanentEvents = true;
 
