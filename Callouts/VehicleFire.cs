@@ -18,7 +18,7 @@ namespace JMCalloutsRemastered.Callouts
         {
             Vector3 spawnpoint = World.GetNextPositionOnStreet(Game.LocalPlayer.Character.Position.Around(300f, 500f));
 
-            vehicleOnFire = new Vehicle("BULLET", spawnpoint);
+            vehicleOnFire = new Vehicle(spawnpoint);
             vehicleOnFire.IsPersistent = true;
             vehicleOnFire.EngineHealth = -1000f;
 
@@ -59,13 +59,13 @@ namespace JMCalloutsRemastered.Callouts
         {
             if (!vehicleOnFire)
             {
-                End();
+                if (Game.IsKeyDown(Settings.EndCall)) End();
                 return;
             }
 
             if (vehicleOnFire.EngineHealth >= 0 || !vehicleOnFire.IsOnFire)
             {
-                End();
+                if (Game.IsKeyDown(Settings.EndCall)) End();
                 return;
             }
 
@@ -76,6 +76,8 @@ namespace JMCalloutsRemastered.Callouts
             }
 
             base.Process();
+
+            if (Game.IsKeyDown(Settings.EndCall)) End();
         }
 
         public override void End()
