@@ -62,7 +62,6 @@ namespace JMCalloutsRemastered
             if (Settings.UnauthorizedAccessMovieStudio) { Functions.RegisterCallout(typeof(UnauthorizedAccessMovieStudio)); }
             if (Settings.DerangedLover) { Functions.RegisterCallout(typeof(DerangedLover)); }
             if (Settings.DeadBody) { Functions.RegisterCallout(typeof(DeadBody)); }
-            if (Settings.SuspiciousPerson) { Functions.RegisterCallout(typeof(SuspiciousPerson)); }
             if (Settings.PersonWithAWeapon) { Functions.RegisterCallout(typeof(PersonWithAWeapon)); }
             if (Settings.GangRivalryShootout) { Functions.RegisterCallout(typeof(GangRivalryShootout)); }
             if (Settings.RocketMan) { Functions.RegisterCallout(typeof(RocketMan)); }
