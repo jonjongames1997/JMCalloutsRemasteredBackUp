@@ -12,7 +12,7 @@ namespace JMCalloutsRemastered.Callouts
 
     public class DerangedLover : Callout
     {
-        private string[] pedList = new string[] { "ig_amanadatownley", "ig_ashley", "s_m_m_autoshop_01", "g_m_y_azteca_01", "g_f_y_ballas_01", "s_f_y_bartender_01", "s_m_y_baywatch_01", "a_m_y_beach_01" };
+        private string[] pedList = new string[] { "ig_amanadatownley", "ig_ashley", "s_m_m_autoshop_01", "g_m_y_azteca_01", "g_f_y_ballas_01", "s_f_y_bartender_01", "s_m_y_baywatch_01", "a_m_y_beach_01", "a_m_y_beach_01", "ig_beverly" };
         private string[] wepList = new string[] { "WEAPON_PISTOL", "WEAPON_MICROSMG", "WEAPON_SMG", "WEAPON_MINISMG", "WEAPON_MOLOTOV" };
         private Ped suspect;
         private Vector3 spawnPoint;
