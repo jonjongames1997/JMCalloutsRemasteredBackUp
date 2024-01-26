@@ -30,7 +30,6 @@ namespace JMCalloutsRemastered.Callouts
             spawnpoint = World.GetNextPositionOnStreet(Game.LocalPlayer.Character.Position.Around(1000f));
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
             CalloutInterfaceAPI.Functions.SendMessage(this, "A citizen's report of an individual with an explosive weapon.");
-            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("HERECOMESROCKETMAN");
             CalloutMessage = "Reports of an armed individual with an explosive weapon";
             CalloutPosition = spawnpoint;
 
