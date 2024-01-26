@@ -32,6 +32,10 @@ namespace JMCalloutsRemastered.Callouts
             List<Vector3> list = new List<Vector3>
             {
                 new Vector3(-535.76f, -849.20f, 29.44f), // Near Lucky Plucker in Little Seoul // 
+                new Vector3(),
+                new Vector3(),
+                new Vector3(),
+                new Vector3(),
             };
             Spawnpoint = LocationChooser.chooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 100f);
