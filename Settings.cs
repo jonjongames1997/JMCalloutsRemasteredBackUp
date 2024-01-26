@@ -63,7 +63,7 @@ namespace JMCalloutsRemastered
             Settings.DerangedLover = ini.ReadBoolean("Callouts", "DerangedLover", true);
             Settings.DeadBody = ini.ReadBoolean("Callouts", "Dead Body", true);
             Settings.SuspiciousPerson = ini.ReadBoolean("Callouts", "Suspicious Person", true);
-            Settings.PersonWithAWeapon = ini.ReadBoolean("Callouts", "Person With A Weapon", false);
+            Settings.PersonWithAWeapon = ini.ReadBoolean("Callouts", "Person With A Weapon", true);
             Settings.GangRivalryShootout = ini.ReadBoolean("Callouts", "Gang Rivalry Shootout", true);
             Settings.RocketMan = ini.ReadBoolean("Callots", "RocketMan", true);
             Settings.SolicitingDelPerroPier = ini.ReadBoolean("Callouts", "SolicitingDelPerro", true);
@@ -77,6 +77,6 @@ namespace JMCalloutsRemastered
             EndCall = ini.ReadEnum("Keys", "EndCall", Keys.End);
             Dialog = ini.ReadEnum("Keys", "Dialog", Keys.E);
         }
-        public static readonly string PluginVersion = "3.9.7.0";
+        public static readonly string PluginVersion = "3.9.10.3";
     }
 }
