@@ -1,6 +1,14 @@
 ﻿using CalloutInterfaceAPI;
 using LSPD_First_Response.Mod.Callouts;
 using Rage;
+using System;
+using System.Drawing;
+using System.Collections;
+using System.Collections.Generic;
+using JMCalloutsRemastered;
+using JMCalloutsRemastered.Stuff;
+using LSPD_First_Response.Engine.Scripting.Entities;
+using LSPD_First_Response.Engine.Scripting;
 
 namespace JMCalloutsRemastered.Callouts
 {
@@ -74,27 +82,27 @@ namespace JMCalloutsRemastered.Callouts
                     if (counter == 1)
                     {
                         suspect.Face(Game.LocalPlayer.Character);
-                        Game.DisplaySubtitle("~b~You: ~w~Excuse me, " + malefemale + ". Talk to me real quick.");
+                        Game.DisplaySubtitle("~b~You~w~: Excuse me, " + malefemale + ". Talk to me real quick.");
                     }
                     if (counter == 2)
                     {
-                        Game.DisplaySubtitle("~r~Suspect: ~w~Well, hello, Officer, what seems to be the problem?");
+                        Game.DisplaySubtitle("~r~Suspect~w~: Well, hello, Officer, what seems to be the problem?");
                     }
                     if (counter == 3)
                     {
-                        Game.DisplaySubtitle("~b~You: ~w~I have received a call from the security officer that you were trespassing without proper authorization. Explain to me about that.");
+                        Game.DisplaySubtitle("~b~You~w~: I have received a call from the security officer that you were trespassing without proper authorization. Explain to me about that.");
                     }
                     if (counter == 4)
                     {
-                        Game.DisplaySubtitle("~r~Suspect:~ w~I have the right to be here. It's public property. I am with the ~y~'Cougars Gone Wild'~w~ cast. No, not that kind of Cougars Gone Wild, I'm talking about the animal. I don't need proper authorization.");
+                        Game.DisplaySubtitle("~r~Suspect~w~: I have the right to be here. It's public property. I am with the ~y~'Cougars Gone Wild'~w~ cast. No, not that kind of Cougars Gone Wild, I'm talking about the animal. I don't need proper authorization.");
                     }
                     if (counter == 5)
                     {
-                        Game.DisplaySubtitle("~b~You: ~w~Well, the secuirty officer said by the owner's policy that you are required to have some type of authorization to be here. So, you are looking at a trespassing citation/charge.");
+                        Game.DisplaySubtitle("~b~You~w~: Well, the secuirty officer said by the owner's policy that you are required to have some type of authorization to be here. So, you are looking at a trespassing citation/charge.");
                     }
                     if (counter == 6)
                     {
-                        Game.DisplaySubtitle("~r~Suspect:~w~ Fuck this, I'm gonna kill everybody! Fuck my life.");
+                        Game.DisplaySubtitle("~r~Suspect~w~: Fuck this, I'm gonna kill everybody! Fuck my life.");
                     }
                     if (counter == 7)
                     {
@@ -103,7 +111,7 @@ namespace JMCalloutsRemastered.Callouts
                     if (counter == 8)
                     {
                         suspect.Tasks.FightAgainst(Game.LocalPlayer.Character);
-                        suspect.Inventory.GiveNewWeapon("WEAPON_GUSENBERG", 500, true);
+                        suspect.Inventory.GiveNewWeapon("WEAPON_PISTOL_MK2", 500, true);
                     }
                 }
             }
