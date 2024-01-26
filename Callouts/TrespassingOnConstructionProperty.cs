@@ -1,6 +1,14 @@
 ﻿using CalloutInterfaceAPI;
 using LSPD_First_Response.Mod.Callouts;
 using Rage;
+using System;
+using System.Drawing;
+using System.Collections;
+using System.Collections.Generic;
+using JMCalloutsRemastered;
+using JMCalloutsRemastered.Stuff;
+using LSPD_First_Response.Engine.Scripting.Entities;
+using LSPD_First_Response.Engine.Scripting;
 
 namespace JMCalloutsRemastered.Callouts
 {
@@ -13,15 +21,21 @@ namespace JMCalloutsRemastered.Callouts
         private Ped Suspect;
         private Blip SuspectBlip;
         private Vector3 Spawnpoint;
-        private float heading;
         private string malefemale;
         private int counter;
 
 
         public override bool OnBeforeCalloutDisplayed()
         {
-            Spawnpoint = new Vector3(7.788585f, -394.9392f, 39.41744f);
-            heading = 218.558f;
+            Random random = new Random();
+            List<Vector3> list = new List<Vector3>
+            {
+                new Vector3(7.788585f, -394.9392f, 39.41744f), // Construction site next the Freeway
+                new Vector3(),
+                new Vector3(),
+                new Vector3(),
+            };
+            Spawnpoint = LocationChooser.chooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 100f);
             CalloutInterfaceAPI.Functions.SendMessage(this, "A citizen reporting a trespasser on construction property.");
             CalloutMessage = "Reports of an individual trespassing on constrcution property";
@@ -35,7 +49,7 @@ namespace JMCalloutsRemastered.Callouts
             Game.LogTrivial("[JM Callouts Remasteed Log]: Trespassing On Construction Property Callout accepted!");
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Trespassing On Construction Property", "~b~Dispatch:~w~ Suspect has been spotted. Respond ~r~Code 2.");
 
-            Suspect = new Ped(Spawnpoint, heading);
+            Suspect = new Ped(Spawnpoint);
             Suspect.IsPersistent = true;
             Suspect.BlockPermanentEvents = true;
 
