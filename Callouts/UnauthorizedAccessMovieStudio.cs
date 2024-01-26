@@ -20,14 +20,17 @@ namespace JMCalloutsRemastered.Callouts
         private Ped suspect;
         private Blip susBlip;
         private Vector3 spawnpoint;
-        private float heading;
         private string malefemale;
         private int counter;
 
         public override bool OnBeforeCalloutDisplayed()
         {
-            spawnpoint = new Vector3(-1050.09f, -512.47f, 36.04f); // Richard's Majestic Movie Studio
-            heading = 341.35f;
+            Random random = new Random();
+            List<Vector3> list = new List<Vector3>
+            {
+                new Vector3(-1050.09f, -512.47f, 36.04f), // Richard's Majestic Movie Studio
+            };
+            spawnpoint = LocationChooser.chooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
             CalloutInterfaceAPI.Functions.SendMessage(this, "A security officer reporting an individual trespassing on private property without proper access.");
             CalloutMessage = "An individual refusing to leave";
@@ -41,7 +44,7 @@ namespace JMCalloutsRemastered.Callouts
             Game.LogTrivial("JM Callouts Remastered Log: Unauthorized Acces Movie Studio callout accepted!");
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Unauthorized Access Movie Studio", "~b~Dispatch: The suspect has been spotted! Respond ~r~Code 2");
 
-            suspect = new Ped(spawnpoint, heading);
+            suspect = new Ped(spawnpoint);
             suspect.IsPersistent = true;
             suspect.BlockPermanentEvents = true;
 
