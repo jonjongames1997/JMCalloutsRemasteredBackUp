@@ -86,7 +86,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 2)
                     {
-                        Game.DisplaySubtitle("~r~Suspect:~w~ What do you want now, you donut eaters?");
+                        Game.DisplaySubtitle("~r~Suspect~w~: What do you want now, you donut eaters?");
                     }
                     if (counter == 3)
                     {
@@ -94,37 +94,36 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 4)
                     {
-                        Game.DisplaySubtitle("~r~Suspect: ~w~I have a bipolar disorder which I can't control and it makes me say offensive things.");
+                        Game.DisplaySubtitle("~r~Suspect~w~: I have a bipolar disorder which I can't control and it makes me say offensive things.");
                     }
                     if (counter == 5)
                     {
-                        Game.DisplaySubtitle("~b~You (Officer): ~w~Do you take any type of medication for your disorder?");
+                        Game.DisplaySubtitle("~b~You (Officer)~w~: Do you take any type of medication for your disorder?");
                     }
                     if (counter == 6)
                     {
-                        Game.DisplaySubtitle("~r~Suspect: ~w~Yes, I have forget about it. I do apologize for y'all to be called out here.");
+                        Game.DisplaySubtitle("~r~Suspect~w~: Yes, I have forget about it. I do apologize for y'all to be called out here.");
                     }
                     if (counter == 7)
                     {
-                        Game.DisplaySubtitle("~b~You (Officer): ~w~Why did threat someone's life for when they didn't do anything to you?");
+                        Game.DisplaySubtitle("~b~You (Officer)~w~: Why did threat someone's life for when they didn't do anything to you?");
                     }
                     if (counter == 8)
                     {
-                        Game.DisplaySubtitle("~r~Suspect: ~w~I didn't mean anything by it. I do apologize about it.");
+                        Game.DisplaySubtitle("~r~Suspect~w~: I didn't mean anything by it. I do apologize about it.");
                     }
                     if (counter == 9)
                     {
-                        Game.DisplaySubtitle("~b~You (Officer): ~w~Next time, take your medicine when you are supposed to take it, " + malefemale + ".");
+                        Game.DisplaySubtitle("~b~You (Officer)~w~: Next time, take your medicine when you are supposed to take it, " + malefemale + ".");
                     }
                     if (counter == 10)
                     {
-                        Game.DisplaySubtitle("~r~Suspect: ~w~I understand that loud and clear, Officer.");
+                        Game.DisplaySubtitle("~r~Suspect~w~: I understand that loud and clear, Officer.");
                     }
                     if (counter == 11)
                     {
                         Game.DisplaySubtitle("Conversation Ended!");
-                        suspect.Tasks.FightAgainst(Game.LocalPlayer.Character);
-                        suspect.Inventory.GiveNewWeapon("WEAPON_KNIFE", 500, true);
+                        suspect.Tasks.Wander();
                     }
                 }
 
