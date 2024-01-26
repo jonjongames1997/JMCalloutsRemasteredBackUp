@@ -2,6 +2,13 @@
 using LSPD_First_Response.Mod.Callouts;
 using Rage;
 using System;
+using System.Drawing;
+using System.Collections;
+using System.Collections.Generic;
+using JMCalloutsRemastered;
+using JMCalloutsRemastered.Stuff;
+using LSPD_First_Response.Engine.Scripting.Entities;
+using LSPD_First_Response.Engine.Scripting;
 
 namespace JMCalloutsRemastered.Callouts
 {
@@ -17,13 +24,16 @@ namespace JMCalloutsRemastered.Callouts
         private Blip SuspectBlip;
         private Vector3 Spawnpoint;
         private int counter;
-        private float heading;
         private string malefemale;
 
         public override bool OnBeforeCalloutDisplayed()
         {
-            Spawnpoint = new Vector3(-535.76f, -849.20f, 29.44f); // Near Lucky Plucker in Little Seoul // 
-            heading = 28.60f;
+            Random random = new Random();
+            List<Vector3> list = new List<Vector3>
+            {
+                new Vector3(-535.76f, -849.20f, 29.44f), // Near Lucky Plucker in Little Seoul // 
+            };
+            Spawnpoint = LocationChooser.chooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 100f);
             CalloutInterfaceAPI.Functions.SendMessage(this, "A citizen reported a young female selling her body for money. Talk to her and see if the claim is true. Approach with caution.");
             CalloutMessage = "Citizens reporting a young female possibly selling her body for money.";
