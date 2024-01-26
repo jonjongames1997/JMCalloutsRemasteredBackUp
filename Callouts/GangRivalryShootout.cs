@@ -32,9 +32,10 @@ namespace JMCalloutsRemastered.Callouts
             Random random = new Random();
             List<Vector3> list = new List<Vector3>
             {
-                new Vector3(-24.46961f, -1457.463f, 30.6445f), // Franklin's Hood
                 new Vector3(39.15001f, -1739.961f, 29.30341f), // Mega Mall
                 new Vector3(126.7119f, -1472.859f, 29.14161f), // Lucky Plucker in Strawberry
+                new Vector3(-1176.59f, -1517.95f, 4.39f), // Floyd's House 
+                new Vector3(-435.25f, -1703.43f, 18.96f), // Recycling Plant near Maze Bank Arena
             };
             spawnPoint = LocationChooser.chooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(spawnPoint, 100f);
