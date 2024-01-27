@@ -58,6 +58,7 @@ namespace JMCalloutsRemastered.Callouts
         {
             Game.LogTrivial("JM Callouts Remastered Log: Officer Down callout accepted");
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Officer Down", "~b~Dispatch: The suspects has been spotted! Respond ~r~Code 3");
+            Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout.", false);
 
             suspect1 = new Ped(spawnPoint);
             suspect1.Inventory.GiveNewWeapon("WEAPON_UNARMED", 500, true);
