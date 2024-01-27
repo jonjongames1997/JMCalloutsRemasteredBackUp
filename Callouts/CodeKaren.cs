@@ -33,8 +33,8 @@ namespace JMCalloutsRemastered.Callouts
             List<Vector3> list = new List<Vector3>
             {
                 new Vector3(-624.7086f, -231.8441f, 38.05705f), // Vangelico Jewellery Store // 
-                new Vector3(),
-                new Vector3(),
+                new Vector3(4.01f, 6512.48f, 31.88f), // Discount Store in Paleto Bay
+                new Vector3(843.45f, -1031.66f, 28.19f), // Ammunation in Vespucci Blvd near Garment Factory
             };
             Spawnpoint = LocationChooser.chooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 100f);
