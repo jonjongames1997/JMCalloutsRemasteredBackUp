@@ -33,8 +33,8 @@ namespace JMCalloutsRemastered.Callouts
             {
                 new Vector3(452.94f, -1648.89f, 29.97f), // Next to Davis Sheriff
                 new Vector3(1743.83f, 3464.93f, 38.50f), // Railroad tracks on Panarama Dr/Sandy Shores Welcome sign
-                new Vector3(),
-                new Vector3(),
+                new Vector3(2609.09f, 1699.36f, 26.83f), // Near power station near Sandy Shores/Davis Quartz
+                new Vector3(2744.25f, 3888.97f, 43.94f), // See screenshot for location 
             };
             Spawnpoint = LocationChooser.chooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 1000f);
