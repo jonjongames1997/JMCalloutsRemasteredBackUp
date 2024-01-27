@@ -22,7 +22,6 @@ namespace JMCalloutsRemastered.Callouts
         private Ped Suspect;
         private Blip SuspectBlip;
         private Vector3 Spawnpoint;
-        private float heading;
         private int counter;
         private string malefemale;
 
