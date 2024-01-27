@@ -81,6 +81,12 @@ namespace JMCalloutsRemastered.Callouts
             base.OnCalloutNotAccepted();
         }
 
+        public override void Process()
+        {
+            base.Process();
 
+
+
+        }
     }
 }
