@@ -19,6 +19,7 @@ namespace JMCalloutsRemastered.Callouts
     {
 
         // General Variables //
+        private string[] wepList = new string[] { "WEAPON_PISTOL", "WEAPON_BAT", "WEAPON_KNIFE", "WEPAON_HAMMER", "WEAPON_MACHETE", "WEAPON_CROWBAR", "WEAPON_CARBINERIFLE" };
         private Ped Suspect;
         private Blip SuspectBlip;
         private Vector3 Spawnpoint;
@@ -139,7 +140,7 @@ namespace JMCalloutsRemastered.Callouts
                     {
                         Game.DisplaySubtitle("Conversation ended!");
                         Suspect.Tasks.FightAgainst(Game.LocalPlayer.Character);
-                        Suspect.Inventory.GiveNewWeapon("WEAPON_PISTOL", 500, true);
+                        Suspect.Inventory.GiveNewWeapon(wepList[new Random().Next((int)wepList.Length)], 500, true);
                     }
                 }
             }
@@ -163,7 +164,7 @@ namespace JMCalloutsRemastered.Callouts
             }
 
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Refuse To Leave", "~b~You:~w~ Dispatch, we are ~g~Code 4~w~. Show me back 10-8.");
-            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_THIS_IS_DISPATCH_HIGH ALL_UNITS_CODE4 NO_FURTHER_UNITS_REQUIRED");
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ALL_UNITS_CODE4 NO_FURTHER_UNITS_REQUIRED");
 
             Game.LogTrivial("JM Callouts Remastered - Refuse to leave is Code 4!");
         }
