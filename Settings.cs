@@ -1,5 +1,10 @@
-﻿using Rage;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
+using System.Collections.Generic;
+using Rage;
+using System.Xml;
+using JMCalloutsRemastered;
+using JMCalloutsRemastered.Callouts;
+using System;
 
 namespace JMCalloutsRemastered
 {
