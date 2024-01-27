@@ -102,7 +102,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 4)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: I have the right to be here. It's public property. I am with the ~y~'Cougars Gone Wild'~w~ cast. No, not that kind of Cougars Gone Wild, I'm talking about the animal. I don't need proper authorization.");
+                        Game.DisplaySubtitle("~r~Suspect~w~: I have the right to be here. It's public property. I am here to film my new movie called '~y~Deranged Bank Robbers of San Andreas~w~' I don't need proper authorization.");
                     }
                     if (counter == 5)
                     {
@@ -110,14 +110,11 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 6)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: Fuck this, I'm gonna kill everybody! Fuck my life.");
+                        Game.DisplaySubtitle("~r~Suspect~w~: F**k this, I'm gonna kill everybody!");
                     }
                     if (counter == 7)
                     {
-                        Game.DisplaySubtitle("Comversation Ended. Attempt to arrest the suspect. Save everyone's lives.");
-                    }
-                    if (counter == 8)
-                    {
+                        Game.DisplaySubtitle("~r~Suspect~w~: ~r~KIFFLOM MOTHERF**KAS~w~!");
                         suspect.Tasks.FightAgainst(Game.LocalPlayer.Character);
                         suspect.Inventory.GiveNewWeapon("WEAPON_PISTOL_MK2", 500, true);
                     }
