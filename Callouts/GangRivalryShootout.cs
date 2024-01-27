@@ -41,8 +41,8 @@ namespace JMCalloutsRemastered.Callouts
                 new Vector3(126.7119f, -1472.859f, 29.14161f), // Lucky Plucker in Strawberry
                 new Vector3(-1176.59f, -1517.95f, 4.39f), // Floyd's House 
                 new Vector3(-435.25f, -1703.43f, 18.96f), // Recycling Plant near Maze Bank Arena
-                new Vector3(),
-                new Vector3(),
+                new Vector3(86.61f, 3688.23f, 39.73f), // Stab City
+                new Vector3(1958.62f, 4639.84f, 40.68f), // Near MacKenzie Field Airstrip
             };
             spawnPoint = LocationChooser.chooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(spawnPoint, 100f);
