@@ -30,10 +30,10 @@ namespace JMCalloutsRemastered.Callouts
             List<Vector3> list = new List<Vector3>
             {
                 new Vector3(94.63f, -217.37f, 54.49f), // Shopping Center in Vinewood //
-                new Vector3(),
-                new Vector3(),
-                new Vector3(),
-                new Vector3(),
+                new Vector3(-1682.72f,-296.65f, 51.81f), // Vinewood Cemetery
+                new Vector3(-1392.72f, -607.95f, 30.32f), // Bahama Mamas
+                new Vector3(-47.78f, -1097.19f, 26.42f), // Simeon's Dealership
+                new Vector3(128.20f, -1285.29f, 29.28f), // Vanilla Unicorn
             };
             Spawnnpoint = LocationChooser.chooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(Spawnnpoint, 100f);
