@@ -82,7 +82,7 @@ namespace JMCalloutsRemastered.Callouts
                     if (counter == 1)
                     {
                         Suspect.Face(Game.LocalPlayer.Character);
-                        Game.DisplaySubtitle("Player: Excuse me, " + malefemale + ". Can you stop and talk to me please?");
+                        Game.DisplaySubtitle("~b~Player~w~: Excuse me, " + malefemale + ". Can you stop and talk to me please?");
                     }
                     if (counter == 2)
                     {
@@ -91,7 +91,7 @@ namespace JMCalloutsRemastered.Callouts
                     if (counter == 3)
                     {
                         Game.DisplaySubtitle("Conversation ended!");
-                        Suspect.Tasks.ReactAndFlee(Suspect);
+                        Suspect.Tasks.FightAgainst(Game.LocalPlayer.Character);
                         Suspect.Inventory.GiveNewWeapon("WEAPON_PISTOL_MK2", 500, true);
                         Suspect.Armor = 500;
                     }
