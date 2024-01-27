@@ -31,9 +31,9 @@ namespace JMCalloutsRemastered.Callouts
             List<Vector3> list = new List<Vector3>
             {
                 new Vector3(154.39f, -987.48f, 30.09f), // Legion Square in Mission Row //
-                new Vector3(),
-                new Vector3(),
-                new Vector3(),
+                new Vector3(-330.96f, 6081.46f, 31.45f), // Ammunation Near Paleto PD
+                new Vector3(-113.23f, 6469.90f, 31.63f), // Paleto Bank
+                new Vector3(-57.16f, 6522.26f, 31.49f), // Willie's Grocery Store
             };
             Spawnpoint = LocationChooser.chooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 100f);
