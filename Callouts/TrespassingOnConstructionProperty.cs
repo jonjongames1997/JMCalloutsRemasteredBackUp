@@ -31,9 +31,9 @@ namespace JMCalloutsRemastered.Callouts
             List<Vector3> list = new List<Vector3>
             {
                 new Vector3(7.788585f, -394.9392f, 39.41744f), // Construction site next the Freeway
-                new Vector3(),
-                new Vector3(),
-                new Vector3(),
+                new Vector3(-129.83f, -1041.61f, 27.27f), // Across from Simeon's Dealership
+                new Vector3(-1140.92f, -1405.55f, 4.44f), // Near Floyd's Apartment
+                new Vector3(-2349.65f, 3997.07f, 26.90f), // On the G.O.H near Route 68
             };
             Spawnpoint = LocationChooser.chooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 100f);
