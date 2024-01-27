@@ -31,8 +31,9 @@ namespace JMCalloutsRemastered.Callouts
             List<Vector3> list = new List<Vector3>
             {
                 new Vector3(-174.17f, -1427.77f, 31.25f), // Across from the auto shop in strawberry
-                new Vector3(),
-                new Vector3(),
+                new Vector3(1693.54f, 4822.75f, 42.06f), // Clothing Shop in Grape Seed
+                new Vector3(1991.82f, 3048.46f, 47.22f), // Yellow Jack
+                new Vector3(1197.32f, 2695.93f, 37.91f), // Clothing Shop on Route 68
             };
             spawnPoint = LocationChooser.chooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(spawnPoint, 100f);
