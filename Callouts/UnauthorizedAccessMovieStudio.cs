@@ -30,10 +30,10 @@ namespace JMCalloutsRemastered.Callouts
             {
                 // Richard's Majestic Movie Studio //
 
-                new Vector3(-1050.09f, -512.47f, 36.04f),
-                new Vector3(),
-                new Vector3(),
-                new Vector3(),
+                new Vector3(-1050.09f, -512.47f, 36.04f), // Near Solomon's Office
+                new Vector3(-1116.63f, -502.75f, 35.81f), // Dressing Room Trailer near the movie set
+                new Vector3(-1135.64f, -458.73f, 35.42f), // Electricty Trailer near the movie set
+                new Vector3(-1157.02f, -563.55f, 35.78f), // Ac Units near the movie set
             };
             spawnpoint = LocationChooser.chooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
