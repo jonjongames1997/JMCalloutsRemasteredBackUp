@@ -93,7 +93,7 @@ namespace JMCalloutsRemastered.Callouts
                     if (counter == 1)
                     {
                         Suspect.Face(Game.LocalPlayer.Character);
-                        Game.DisplaySubtitle("Player: Hello there " + malefemale + ", Can I talk to you for a moment?");
+                        Game.DisplaySubtitle("~b~Player~w~: Hello there " + malefemale + ", Can I talk to you for a moment?");
                     }
                     if (counter == 2)
                     {
@@ -101,7 +101,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 3)
                     {
-                        Game.DisplaySubtitle("~y~Player: ~w~Can you tell me what's going on here? We gotten a call about you being on this property when you are trespassed.");
+                        Game.DisplaySubtitle("~b~Player~w~: Can you tell me what's going on here? We gotten a call about you being on this property when you are trespassed.");
                     }
                     if (counter == 4)
                     {
@@ -109,16 +109,16 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 5)
                     {
-                        Game.DisplaySubtitle("Player: Yes, the owner of this business doesn't want you here. I need you to leave the property cause the owner is requesting a restraining order against you.");
+                        Game.DisplaySubtitle("~b~Player~w~: Yes, the owner of this business doesn't want you here. I need you to leave the property cause the owner is requesting a restraining order against you.");
                     }
                     if (counter == 6)
                     {
-                        Game.DisplaySubtitle("~r~Suspect: ~w~That mothafucka!");
+                        Game.DisplaySubtitle("~r~Suspect~w~: That mothafucka!");
                     }
                     if (counter == 7)
                     {
                         Game.DisplayNotification("You noticed the suspect is getting hostile.");
-                        Game.DisplaySubtitle("Player: Leave now, " + malefemale + "! Refusing to leave the property will have you in handcuffs. You will be charged with criminal mischief and disobeying a lawful order.");
+                        Game.DisplaySubtitle("~b~Player~w~: Leave now, " + malefemale + "! Refusing to leave the property will have you in handcuffs. You will be charged with criminal mischief and disobeying a lawful order.");
                     }
                     if (counter == 8)
                     {
