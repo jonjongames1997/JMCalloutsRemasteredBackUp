@@ -33,9 +33,9 @@ namespace JMCalloutsRemastered.Callouts
             {
                 new Vector3(-1222.69f, -907.14f, -12.33f), // Rob's Liquors near the Nightclub
                 new Vector3(-1193.68f, -768.45f, 17.32f), // Suburban near Vespucci PD HQ
-                new Vector3(),
-                new Vector3(), 
-                new Vector3(), 
+                new Vector3(-330.96f, 6081.46f, 31.45f), // Ammunation Near Paleto PD
+                new Vector3(-113.23f, 6469.90f, 31.63f), // Paleto Bank
+                new Vector3(-57.16f, 6522.26f, 31.49f), // Willie's Grocery Store
             };
             Spawnpoint = LocationChooser.chooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 100f);
@@ -101,7 +101,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 3)
                     {
-                        Game.DisplaySubtitle("Player: Can you tell me what's going on?");
+                        Game.DisplaySubtitle("~b~Player~w~: Can you tell me what's going on?");
                     }
                     if (counter == 4)
                     {
@@ -109,31 +109,31 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 5)
                     {
-                        Game.DisplaySubtitle("Player: Is there a reason why she can't let you come in here?");
+                        Game.DisplaySubtitle("~b~Player~w~: Is there a reason why they can't let you come in here?");
                     }
                     if (counter == 6)
                     {
-                        Game.DisplaySubtitle("~r~Suspect:~w~ I was outside the door asking people for money. She called the cops and they told me that I was trespassed from the property.");
+                        Game.DisplaySubtitle("~r~Suspect:~w~ I was outside the door asking people for money. They called the cops and they told me that I was trespassed from the property.");
                     }
                     if (counter == 7)
                     {
-                        Game.DisplayNotification("Tip: ~o~If the suspect was trespassed from the property before, that's an arrestable offense.");
+                        Game.DisplayNotification("~y~Tip~w~: ~o~If the suspect was trespassed from the property before, that's an arrestable offense.");
                     }
                     if (counter == 8)
                     {
-                        Game.DisplaySubtitle("Player: Ok. Well, you know you can be arrested for trespassing, right?");
+                        Game.DisplaySubtitle("~b~Player~w~: Ok. Well, you know you can be arrested and/or cited for trespassing, right?");
                     }
                     if (counter == 9)
                     {
-                        Game.DisplaySubtitle("~r~Suspect:~w~ WHAT?! Are you fucking with me?");
+                        Game.DisplaySubtitle("~r~Suspect:~w~ WHAT?! Are you f***ing with me?");
                     }
                     if (counter == 10)
                     {
-                        Game.DisplaySubtitle("Player: No, I'm not. Don't try anything stupid, you'll make things worse on yourself.");
+                        Game.DisplaySubtitle("~b~Player~w~: No, I'm not. Don't try anything stupid, you'll make things worse on yourself.");
                     }
                     if (counter == 11)
                     {
-                        Game.DisplaySubtitle("~r~Suspect:~w~ Fuck you and fuck her! I'm outta here, playa!");
+                        Game.DisplaySubtitle("~r~Suspect:~w~ F**k you and f**k them! I'm outta here, playa!");
                     }
                     if (counter == 12)
                     {
