@@ -17,6 +17,7 @@ namespace JMCalloutsRemastered.Callouts
 
     public class UnauthorizedAccessMovieStudio : Callout
     {
+        private string[] wepList = new string[] { "WEAPON_PISTOL_MK2", "WEPAON_SPECIALCARBINE", "WEPAON_ASSAULTRIFLE", "WEAPON_PISTOL", "WEAPON_COMBATPISTOL", "WEAPON_BAT", "WEAPON_GOLFCLUB" };
         private Ped suspect;
         private Blip susBlip;
         private Vector3 spawnpoint;
@@ -116,7 +117,7 @@ namespace JMCalloutsRemastered.Callouts
                     {
                         Game.DisplaySubtitle("~r~Suspect~w~: ~r~KIFFLOM MOTHERF**KAS~w~!");
                         suspect.Tasks.FightAgainst(Game.LocalPlayer.Character);
-                        suspect.Inventory.GiveNewWeapon("WEAPON_PISTOL_MK2", 500, true);
+                        suspect.Inventory.GiveNewWeapon(wepList[new Random().Next((int)wepList.Length)], 500, true);
                     }
                 }
             }
