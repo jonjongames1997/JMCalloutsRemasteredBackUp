@@ -145,5 +145,8 @@
     <Compile Include="Utilities\VehicleExtensions.cs" />
     <Compile Include="VersionCheck\VersionChecker.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include=".editorconfig" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
