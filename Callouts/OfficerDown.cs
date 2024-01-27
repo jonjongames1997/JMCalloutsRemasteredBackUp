@@ -156,8 +156,6 @@ namespace JMCalloutsRemastered.Callouts
                 }
                 if (Game.LocalPlayer.Character.IsDead) End();
                 if (Game.IsKeyDown(Settings.EndCall)) End();
-                if (suspect1 && suspect1.IsDead) End();
-                if (suspect1 && LSPD_First_Response.Mod.API.Functions.IsPedArrested(suspect1)) End();
             }, "Reports of a officer down [JM Callouts Remastered]");
 
             base.Process();
