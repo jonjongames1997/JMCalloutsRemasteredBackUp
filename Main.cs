@@ -18,6 +18,7 @@ using JMCalloutsRemastered.Callouts;
 using JMCalloutsRemastered.Stuff;
 using JMCalloutsRemastered.VersionChecker;
 
+[assembly: Rage.Attributes.Plugin("JMCalloutsRemastered", Description = "LSPDFR Callout Pack", Author = "OfficerMorrison")]
 namespace JMCalloutsRemastered
 {
     public class Main : Plugin
