@@ -44,6 +44,10 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnCalloutAccepted()
         {
+            Game.LogTrivial("JM Callouts Remastered [LOG]: Person on the highway callout accepted!");
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~y~Person With A Knife", "~b~Dispatch~w~: The suspect has been spotted! Respond ~r~Code 3~w~.");
+            Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
+
             Suspect = new Ped(pedList[new Random().Next((int)pedList.Length)], Spawnpoint, 0f);
             Suspect.BlockPermanentEvents = true;
             Suspect.IsPersistent = true;
@@ -115,8 +119,6 @@ namespace JMCalloutsRemastered.Callouts
 
                 if (Game.LocalPlayer.Character.IsDead) End();
                 if (Game.IsKeyDown(Settings.EndCall)) End();
-                if (Suspect && Suspect.IsDead) End();
-                if (Suspect && Suspect.IsCuffed) End();
 
             }, "Person With A Knife [JM Callouts Remastered]");
 
