@@ -7,6 +7,7 @@ using System.Collections;
 using System.Collections.Generic;
 using JMCalloutsRemastered;
 using JMCalloutsRemastered.Stuff;
+using JMCalloutsRemastered.Callouts;
 using LSPD_First_Response.Engine.Scripting.Entities;
 using LSPD_First_Response.Engine.Scripting;
 using LSPD_First_Response.Mod.API;
