@@ -23,9 +23,6 @@ namespace JMCalloutsRemastered
 {
     public class Main : Plugin
     {
-        public static bool CalloutInterface;
-        public static bool STP;
-
         public override void Finally() { }
 
         public override void Initialize()
@@ -61,26 +58,6 @@ namespace JMCalloutsRemastered
         private static void RegisterCallouts()
         {
             Game.Console.Print();
-            if (Functions.GetAllUserPlugins().ToList().Any(a => a != null && a.FullName.Contains("CalloutInterface")) == true)
-            {
-                Game.LogTrivial("User has CalloutInterface INSTALLED starting integration with Callout Interface by Opus49");
-                CalloutInterface = true;
-            }
-            else
-            {
-                Game.LogTrivial("User do NOT have CalloutInterface installed.");
-                CalloutInterface = false;
-            }
-            if (Functions.GetAllUserPlugins().ToList().Any(a => a != null && a.FullName.Contains("StopThePed")) == true)
-            {
-                Game.LogTrivial("User has StopThePed INSTALLED starting integration with Stop The Ped by Bejoijo...");
-                STP = true;
-            }
-            else
-            {
-                Game.LogTrivial("User do NOT have StopThePed installed.....");
-                STP = false;
-            }
             Game.Console.Print();
             Game.Console.Print("================================================== JM Callouts Remastered ===================================================");
             Game.Console.Print();
