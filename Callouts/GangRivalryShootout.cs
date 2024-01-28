@@ -9,6 +9,7 @@ using JMCalloutsRemastered;
 using JMCalloutsRemastered.Stuff;
 using LSPD_First_Response.Engine.Scripting.Entities;
 using LSPD_First_Response.Engine.Scripting;
+using System.Threading;
 
 namespace JMCalloutsRemastered.Callouts
 {
@@ -112,6 +113,7 @@ namespace JMCalloutsRemastered.Callouts
         {
             GameFiber.StartNew(delegate
             {
+                GameFiber.Yield();
                 if (Game.LocalPlayer.Character.DistanceTo(spawnPoint) < 100f && !hasBegunAttacking)
                 {
                     new RelationshipGroup("LOST MC");
@@ -137,7 +139,6 @@ namespace JMCalloutsRemastered.Callouts
                     Aggressor5.Tasks.FightAgainstClosestHatedTarget(1000f);
                     Aggressor6.Tasks.FightAgainstClosestHatedTarget(1000f);
                     hasBegunAttacking = true;
-                    GameFiber.Sleep(5000);
                 }
                 if (Game.LocalPlayer.Character.IsDead) End();
                 if (Game.IsKeyDown(Settings.EndCall)) End();
