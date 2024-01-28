@@ -7,6 +7,8 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Threading;
+using LSPD_First_Response.Engine.Scripting.Entities;
+using LSPD_First_Response.Engine.Scripting;
 
 namespace JMCalloutsRemastered.Callouts
 {
