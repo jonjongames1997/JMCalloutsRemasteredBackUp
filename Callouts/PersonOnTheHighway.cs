@@ -144,9 +144,18 @@ namespace JMCalloutsRemastered.Callouts
 
         public override void End()
         {
-
+            if (suspect.Exists())
+            {
+                suspect.Dismiss();
+            }
+            if (blip.Exists())
+            {
+                blip.Delete();
+            }
 
             base.End();
+
+
         }
     }
 }
