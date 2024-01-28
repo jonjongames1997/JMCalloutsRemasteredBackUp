@@ -114,12 +114,9 @@ namespace JMCalloutsRemastered.Callouts
                         }
                     }
                 }
-            });
-
-            if (Game.LocalPlayer.Character.IsDead) End();
-            if (Game.IsKeyDown(Settings.EndCall)) End();
-
-            Game.LogTrivial("Reports of an armed individual with an explosive weapon [JM Callouts Remastered]");
+                if (Game.LocalPlayer.Character.IsDead) End();
+                if (Game.IsKeyDown(Settings.EndCall)) End();
+            }, "Reports of an armed individual with an explosive weapon [JM Callouts Remastered]");
         }
 
         public override void End()
