@@ -57,7 +57,6 @@ namespace JMCalloutsRemastered.Callouts
         {
             Game.LogTrivial("JM Callouts Remastered Log: Gang Rivalry Shootout callout accepted!");
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~y~Reports of an Gang Shootout", "~b~Dispatch: The Gangs has been spotted! Respond ~r~Code 99");
-            Game.DisplayNotification("Chief: LETHAL FORCE IS AUTHORIZED! SHOOT TO KILL!");
 
             Aggressor1 = new Ped("ig_ashley", Stuff.Vector3Extension.ExtensionAround(spawnPoint, 20f), 0f);
             Aggressor2 = new Ped("cs_johnnyklebitz", Stuff.Vector3Extension.ExtensionAround(spawnPoint, 30f), 0f);
