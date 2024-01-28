@@ -82,7 +82,7 @@ namespace JMCalloutsRemastered.Callouts
             if (Game.LocalPlayer.Character.DistanceTo(Suspect) <= 10f)
             {
 
-                Game.DisplayHelp("Press ~yr~E~~w~ to talk to Suspect. ~y~Approach with caution.", false);
+                Game.DisplayHelp("Press ~y~E~~w~ to talk to Suspect. ~y~Approach with caution.", false);
 
                 if (Game.IsKeyDown(System.Windows.Forms.Keys.E))
                 {
@@ -119,8 +119,6 @@ namespace JMCalloutsRemastered.Callouts
 
             if (Game.LocalPlayer.Character.IsDead) End();
             if (Game.IsKeyDown(Settings.EndCall)) End();
-            if (Suspect && Suspect.IsDead) End();
-            if (Suspect && LSPD_First_Response.Mod.API.Functions.IsPedArrested(Suspect)) End();
         }
 
         public override void End()
