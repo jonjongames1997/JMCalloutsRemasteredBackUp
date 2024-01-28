@@ -34,10 +34,10 @@ namespace JMCalloutsRemastered.Callouts
             List<Vector3> list = new List<Vector3>
             {
                 new Vector3(131.11f, -1301.31f, 29.23f), // Vanilla Unicorn //
-                new Vector3(),
-                new Vector3(),
-                new Vector3(),
-                new Vector3(),
+                new Vector3(-895.89f, -4.68f, 43.80f), // OCRP Postal 679
+                new Vector3(980.39f, -627.39f, 59.24f), // OCRP Postal 430
+                new Vector3(-350.56f, 513.67f, 120.64f), // OCRP Postal 549
+                new Vector3(-1943.11f, 449.60f, 102.93f), // OCRP Postal 832
             };
             Spawnpoint = LocationChooser.chooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 100f);
