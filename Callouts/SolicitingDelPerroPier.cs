@@ -1,6 +1,15 @@
 ﻿using CalloutInterfaceAPI;
 using LSPD_First_Response.Mod.Callouts;
 using Rage;
+using System;
+using System.Drawing;
+using System.Collections;
+using System.Collections.Generic;
+using JMCalloutsRemastered;
+using JMCalloutsRemastered.Stuff;
+using LSPD_First_Response.Engine.Scripting.Entities;
+using LSPD_First_Response.Engine.Scripting;
+using JMCalloutsRemastered.Callouts;
 
 namespace JMCalloutsRemastered.Callouts
 {
@@ -32,6 +41,7 @@ namespace JMCalloutsRemastered.Callouts
         {
             Game.LogTrivial("JM Callouts Remastered Log: Reports of an individual soliciting callout accepted!");
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Soliciting - Del Perro", "~b~Dispatch: The suspect has been spotted! Respond ~r~Code 2");
+            Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
 
             suspect = new Ped(spawnpoint, heading);
             suspect.IsPersistent = true;
@@ -103,8 +113,6 @@ namespace JMCalloutsRemastered.Callouts
 
             if (Game.LocalPlayer.Character.IsDead) End();
             if (Game.IsKeyDown(Settings.EndCall)) End();
-            if (suspect && suspect.IsDead) End();
-            if (suspect && LSPD_First_Response.Mod.API.Functions.IsPedArrested(suspect)) End();
 
             base.Process();
         }
