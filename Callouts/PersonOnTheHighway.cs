@@ -32,10 +32,10 @@ namespace JMCalloutsRemastered.Callouts
             Random random = new Random();
             List<Vector3> list = new List<Vector3>
             {
-                new Vector3(),
-                new Vector3(),
-                new Vector3(),
-                new Vector3(),
+                new Vector3(2865.42f, 4259.82f, 50.08f), // Route 13 near Maude's House 
+                new Vector3(1707.10f, 1413.60f, 85.92f), // Route 13 going into Blaine County
+                new Vector3(2440.64f, 963.54f, 87.11f), // Near the wind farm 
+                new Vector3(-2721.99f, 8.95f, 15.55f), // Route 1 going into Chumash
             };
             spawnpoint = LocationChooser.chooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
@@ -60,7 +60,7 @@ namespace JMCalloutsRemastered.Callouts
             blip.Color = System.Drawing.Color.Gold;
             blip.IsRouteEnabled = true;
 
-            suspect.Tasks.Wander();
+            suspect.Tasks.PutHandsUp(500, Game.LocalPlayer.Character);
             suspect.KeepTasks = true;
             suspect.Inventory.GiveNewWeapon("WEAPON_UNARMED", 500, true);
 
