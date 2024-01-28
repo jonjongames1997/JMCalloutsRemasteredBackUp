@@ -49,6 +49,7 @@ namespace JMCalloutsRemastered.Callouts
         {
             Game.LogTrivial("[JM Callouts Remastered Log]: Code Karen callout accepted!");
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Code Karan", "~b~Dispatch: ~w~Suspect spotted. Respond ~Code 2.");
+            Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
 
             Suspect = new Ped(Spawnpoint);
             Suspect.IsPersistent = true;
