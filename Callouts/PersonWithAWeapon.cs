@@ -43,6 +43,7 @@ namespace JMCalloutsRemastered.Callouts
         {
             Game.LogTrivial("JM Callouts Remastered Log: Person With A Weapon callout accepted!");
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Person With A Weapon", "~b~Dispatch~w~: The suspect has been spotted with a firearm! Respond ~r~Code 3");
+            Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
 
             suspect = new Ped(pedList[new Random().Next((int)pedList.Length)], spawnPoint, 0f);
             suspect.Inventory.GiveNewWeapon("WEAPON_UNARMED", 500, true);
@@ -100,8 +101,6 @@ namespace JMCalloutsRemastered.Callouts
 
                 if (Game.LocalPlayer.Character.IsDead) End();
                 if (Game.IsKeyDown(Settings.EndCall)) End();
-                if (suspect && suspect.IsDead) End();
-                if (suspect && LSPD_First_Response.Mod.API.Functions.IsPedArrested(suspect)) End();
             }, "JM Callouts Remastered: Person With A Weapon");
 
             base.Process();
