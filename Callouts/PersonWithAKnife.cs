@@ -10,6 +10,7 @@ using JMCalloutsRemastered.Stuff;
 using LSPD_First_Response.Engine.Scripting.Entities;
 using LSPD_First_Response.Engine.Scripting;
 using LSPD_First_Response.Mod.API;
+using System.Threading;
 
 namespace JMCalloutsRemastered.Callouts
 {
@@ -78,14 +79,22 @@ namespace JMCalloutsRemastered.Callouts
 
         public override void Process()
         {
-
-            GameFiber.StartNew(delegate
+            GameFiber.StartNew((ThreadStart)(() =>
             {
                 if (Suspect.DistanceTo(Game.LocalPlayer.Character.GetOffsetPosition(Vector3.RelativeFront)) < 18f && !isArmed)
                 {
                     Suspect.Inventory.GiveNewWeapon("WEAPON_KNIFE", 500, true);
                     isArmed = true;
                 }
+            }));
+            base.Process();
+        }
+
+        public void BeginFighting()
+        {
+            GameFiber.StartNew(delegate
+            {
+                GameFiber.Yield();
                 if (Suspect && Suspect.DistanceTo(Game.LocalPlayer.Character.GetOffsetPosition(Vector3.RelativeFront)) < 18f && !hasBegunAttacking)
                 {
                     if (scenario > 40)
@@ -109,7 +118,6 @@ namespace JMCalloutsRemastered.Callouts
                                 break;
                             default: break;
                         }
-                        GameFiber.Wait(2000);
                     }
                     else
                     {
@@ -125,10 +133,7 @@ namespace JMCalloutsRemastered.Callouts
 
                 if (Game.LocalPlayer.Character.IsDead) End();
                 if (Game.IsKeyDown(Settings.EndCall)) End();
-
             }, "Person With A Knife [JM Callouts Remastered]");
-
-            base.Process();
         }
 
         public override void End()
