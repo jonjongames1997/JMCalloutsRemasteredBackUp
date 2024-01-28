@@ -49,6 +49,7 @@ namespace JMCalloutsRemastered.Callouts
         {
             Game.LogTrivial("JM Callouts Remastered Log: Unauthorized Acces Movie Studio callout accepted!");
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Unauthorized Access Movie Studio", "~b~Dispatch: The suspect has been spotted! Respond ~r~Code 2");
+            Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
 
             suspect = new Ped(spawnpoint);
             suspect.IsPersistent = true;
@@ -123,8 +124,6 @@ namespace JMCalloutsRemastered.Callouts
             }
             if (Game.LocalPlayer.Character.IsDead) End();
             if (Game.IsKeyDown(Settings.EndCall)) End();
-            if (suspect && suspect.IsDead) End();
-            if (suspect && LSPD_First_Response.Mod.API.Functions.IsPedArrested(suspect)) End();
         }
 
         public override void End()
