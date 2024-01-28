@@ -11,6 +11,7 @@ using JMCalloutsRemastered.Callouts;
 using LSPD_First_Response.Engine.Scripting.Entities;
 using LSPD_First_Response.Engine.Scripting;
 using LSPD_First_Response.Mod.API;
+using System.Threading;
 
 namespace JMCalloutsRemastered.Callouts
 {
@@ -75,13 +76,23 @@ namespace JMCalloutsRemastered.Callouts
 
         public override void Process()
         {
-            GameFiber.StartNew(delegate
+            GameFiber.StartNew((ThreadStart)(() =>
             {
                 if (suspect.DistanceTo(Game.LocalPlayer.Character.GetOffsetPosition(Vector3.RelativeFront)) < 25f && !isArmed)
                 {
                     suspect.Inventory.GiveNewWeapon(wepList[new Random().Next((int)wepList.Length)], 500, true);
                     isArmed = true;
                 }
+            }));
+
+            base.Process();
+        }
+
+        public void BeginFighting()
+        {
+            GameFiber.StartNew(delegate
+            {
+                GameFiber.Yield();
                 if (suspect && suspect.DistanceTo(Game.LocalPlayer.Character.GetOffsetPosition(Vector3.RelativeFront)) < 25f && !hasBegunAttacking)
                 {
                     if (scenario > 40)
@@ -107,8 +118,6 @@ namespace JMCalloutsRemastered.Callouts
                 if (Game.LocalPlayer.Character.IsDead) End();
                 if (Game.IsKeyDown(Settings.EndCall)) End();
             }, "JM Callouts Remastered: Person With A Weapon");
-
-            base.Process();
         }
 
         public override void End()
