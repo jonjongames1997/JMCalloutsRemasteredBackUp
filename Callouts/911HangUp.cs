@@ -51,6 +51,7 @@ namespace JMCalloutsRemastered.Callouts
         {
             Game.LogTrivial("[JM Callouts Remastered Log]: 9-1-1 Hang Up callout accepted!");
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~ 9-1-1 Hang Up", "~b~Dispatch: Suspect has been spotted. Respond ~r~Code 1.");
+            Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
 
             Suspect = new Ped(Spawnpoint);
             Suspect.IsPersistent = true;
