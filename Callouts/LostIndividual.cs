@@ -41,6 +41,7 @@ namespace JMCalloutsRemastered.Callouts
         {
             Game.LogTrivial("[JM Callouts Remastered Log]: Lost Individual callout accepted!");
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Lost Individual", "~b~Dispatch: ~w~Victim has been spotted. Respond ~r~Code 2.");
+            Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
 
             // Amanda is a decoy in this situation //
             victim = new Ped("IG_AMANDATOWNLEY", spawnPoint, heading);
@@ -123,8 +124,6 @@ namespace JMCalloutsRemastered.Callouts
 
             if (Game.LocalPlayer.Character.IsDead) End();
             if (Game.IsKeyDown(Settings.EndCall)) End();
-            if (suspect && suspect.IsDead) End();
-            if (suspect && LSPD_First_Response.Mod.API.Functions.IsPedArrested(suspect)) End();
 
             base.Process();
         }
