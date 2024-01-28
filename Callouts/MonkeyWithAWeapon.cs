@@ -6,6 +6,7 @@ using System;
 using System.Drawing;
 using JMCalloutsRemastered.Stuff;
 using JMCalloutsRemastered.Callouts;
+using System.Threading;
 
 namespace JMCalloutsRemastered.Callouts
 {
@@ -71,40 +72,43 @@ namespace JMCalloutsRemastered.Callouts
 
         public override void Process()
         {
-            GameFiber.StartNew(delegate
+            GameFiber.StartNew((ThreadStart)(() =>
             {
-                if(suspect.DistanceTo(Game.LocalPlayer.Character.GetOffsetPosition(Vector3.RelativeFront)) < 25f && !isArmed)
+                if (suspect.DistanceTo(Game.LocalPlayer.Character.GetOffsetPosition(Vector3.RelativeFront)) < 25f && !isArmed)
                 {
                     suspect.Inventory.GiveNewWeapon(wepList[new Random().Next((int)wepList.Length)], 500, true);
                     isArmed = true;
                 }
-                if(suspect && suspect.DistanceTo(Game.LocalPlayer.Character.GetOffsetPosition(Vector3.RelativeFront)) < 25f && !hasBegunAttacking)
-                {
-                    if(scenario > 40)
-                    {
-                        suspect.KeepTasks = true;
-                        suspect.Tasks.FightAgainst(Game.LocalPlayer.Character);
-                        hasBegunAttacking = true;
-                        GameFiber.Wait(2000);
-                    }
-                    else
-                    {
-                        if (!hasPursuitBegun)
-                        {
-                            if (blip) blip.Delete();
-                            pursuit = LSPD_First_Response.Mod.API.Functions.CreatePursuit();
-                            LSPD_First_Response.Mod.API.Functions.AddPedToPursuit(pursuit, suspect);
-                            LSPD_First_Response.Mod.API.Functions.SetPursuitIsActiveForPlayer(pursuit, true);
-                            hasPursuitBegun = true;
-                        }
-                    }
-                }
-
-                if (Game.LocalPlayer.Character.IsDead) End();
-                if (Game.IsKeyDown(Settings.EndCall)) End();
-            }, "JM Callouts Remastered: Monkey With Weapon");
+            }));
 
             base.Process();
+        }
+
+        public void BeginFighting()
+        {
+            if (suspect && suspect.DistanceTo(Game.LocalPlayer.Character.GetOffsetPosition(Vector3.RelativeFront)) < 25f && !hasBegunAttacking)
+            {
+                if (scenario > 40)
+                {
+                    suspect.KeepTasks = true;
+                    suspect.Tasks.FightAgainst(Game.LocalPlayer.Character);
+                    hasBegunAttacking = true;
+                }
+                else
+                {
+                    if (!hasPursuitBegun)
+                    {
+                        if (blip) blip.Delete();
+                        pursuit = LSPD_First_Response.Mod.API.Functions.CreatePursuit();
+                        LSPD_First_Response.Mod.API.Functions.AddPedToPursuit(pursuit, suspect);
+                        LSPD_First_Response.Mod.API.Functions.SetPursuitIsActiveForPlayer(pursuit, true);
+                        hasPursuitBegun = true;
+                    }
+                }
+            }
+
+            if (Game.LocalPlayer.Character.IsDead) End();
+            if (Game.IsKeyDown(Settings.EndCall)) End();
         }
 
         public override void End()
