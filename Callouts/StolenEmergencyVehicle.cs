@@ -11,6 +11,7 @@ using LSPD_First_Response.Engine.Scripting.Entities;
 using LSPD_First_Response.Engine.Scripting;
 using JMCalloutsRemastered.Callouts;
 using LSPD_First_Response.Mod.API;
+using System.Threading;
 
 namespace JMCalloutsRemastered.Callouts
 {
@@ -76,11 +77,11 @@ namespace JMCalloutsRemastered.Callouts
 
         public override void Process()
         {
-            GameFiber.StartNew(delegate
+            GameFiber.StartNew((ThreadStart)(() =>
             {
                 if (Game.LocalPlayer.IsDead) End();
                 if (Game.IsKeyDown(Settings.EndCall)) End();
-            }, "[JM Callouts Remastered Log]: Reckless Driving");
+            }));
 
             base.Process();
         }
