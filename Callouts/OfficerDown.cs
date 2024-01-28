@@ -126,6 +126,7 @@ namespace JMCalloutsRemastered.Callouts
                     suspect1.Inventory.GiveNewWeapon(wepList[new Random().Next((int)wepList.Length)], 500, true);
                     isArmed = true;
                 }
+                base.Process();
             }));
         }
 
