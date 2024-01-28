@@ -89,28 +89,32 @@ namespace JMCalloutsRemastered.Callouts
 
         public void BeginFighting()
         {
-            if(suspect && suspect.DistanceTo(Game.LocalPlayer.Character.GetOffsetPosition(Vector3.RelativeFront)) < 25f && !hasBegunAttacking)
+            GameFiber.StartNew(delegate
+            {
+                GameFiber.Yield();
+                if (suspect && suspect.DistanceTo(Game.LocalPlayer.Character.GetOffsetPosition(Vector3.RelativeFront)) < 25f && !hasBegunAttacking)
                 {
-                if (scenario > 40)
-                {
-                    suspect.KeepTasks = true;
-                    suspect.Tasks.FightAgainst(Game.LocalPlayer.Character);
-                    LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("HERECOMESROCKETMAN");
-                    suspect.Armor = 500;
-                    hasBegunAttacking = true;
-                }
-                else
-                {
-                    if (!hasPursuitBegun)
+                    if (scenario > 40)
                     {
-                        if (blip) blip.Delete();
-                        pursuit = LSPD_First_Response.Mod.API.Functions.CreatePursuit();
-                        LSPD_First_Response.Mod.API.Functions.AddPedToPursuit(pursuit, suspect);
-                        LSPD_First_Response.Mod.API.Functions.SetPursuitIsActiveForPlayer(pursuit, true);
-                        hasPursuitBegun = true;
+                        suspect.KeepTasks = true;
+                        suspect.Tasks.FightAgainst(Game.LocalPlayer.Character);
+                        LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("HERECOMESROCKETMAN");
+                        suspect.Armor = 500;
+                        hasBegunAttacking = true;
+                    }
+                    else
+                    {
+                        if (!hasPursuitBegun)
+                        {
+                            if (blip) blip.Delete();
+                            pursuit = LSPD_First_Response.Mod.API.Functions.CreatePursuit();
+                            LSPD_First_Response.Mod.API.Functions.AddPedToPursuit(pursuit, suspect);
+                            LSPD_First_Response.Mod.API.Functions.SetPursuitIsActiveForPlayer(pursuit, true);
+                            hasPursuitBegun = true;
+                        }
                     }
                 }
-            }
+            });
 
             if (Game.LocalPlayer.Character.IsDead) End();
             if (Game.IsKeyDown(Settings.EndCall)) End();
