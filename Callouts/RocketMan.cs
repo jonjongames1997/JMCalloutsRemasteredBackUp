@@ -56,6 +56,7 @@ namespace JMCalloutsRemastered.Callouts
             suspect.IsPersistent = true;
             suspect.Tasks.Wander();
 
+            blip = suspect.AttachBlip();
             searchArea = spawnpoint.Around2D(1f, 2f);
             blip = new Blip(searchArea, 80f);
             blip.Color = Color.Pink;
