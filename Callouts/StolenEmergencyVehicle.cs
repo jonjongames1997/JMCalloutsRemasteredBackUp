@@ -1,14 +1,16 @@
 ﻿using CalloutInterfaceAPI;
 using LSPD_First_Response.Mod.Callouts;
-using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using JMCalloutsRemastered.Callouts;
-using JMCalloutsRemastered.Stuff;
-using LSPD_First_Response.Engine.Scripting;
-using LSPD_First_Response.Mod.API;
 using Rage;
+using System;
+using System.Drawing;
+using System.Collections;
+using System.Collections.Generic;
+using JMCalloutsRemastered;
+using JMCalloutsRemastered.Stuff;
+using LSPD_First_Response.Engine.Scripting.Entities;
+using LSPD_First_Response.Engine.Scripting;
+using JMCalloutsRemastered.Callouts;
+using LSPD_First_Response.Mod.API;
 
 namespace JMCalloutsRemastered.Callouts
 {
@@ -41,6 +43,7 @@ namespace JMCalloutsRemastered.Callouts
         {
             Game.LogTrivial("[JM Callouts Remastered Log]: Stolen Emergency Vehicle callout accepted!");
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Stolen Emergency Vehicle", "~b~Dispatch~w~: The suspect has been spotted! Respond ~r~Code 3~w~.");
+            Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
 
             emergencyVehicle = new Vehicle(emergencyVehicles[new Random().Next((int)emergencyVehicles.Length)], spawnpoint);
             emergencyVehicle.IsSirenOn = true;
@@ -77,8 +80,6 @@ namespace JMCalloutsRemastered.Callouts
             {
                 if (Game.LocalPlayer.IsDead) End();
                 if (Game.IsKeyDown(Settings.EndCall)) End();
-                if (suspect && suspect.IsDead) End();
-                if (suspect && LSPD_First_Response.Mod.API.Functions.IsPedArrested(suspect)) End();
             }, "[JM Callouts Remastered Log]: Reckless Driving");
 
             base.Process();
