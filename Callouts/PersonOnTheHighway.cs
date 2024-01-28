@@ -85,8 +85,63 @@ namespace JMCalloutsRemastered.Callouts
         {
             base.Process();
 
+            if(Game.LocalPlayer.Character.DistanceTo(suspect) <= 10f)
+            {
 
+                Game.DisplayHelp("Press ~y~E~w~ to interact with the ~r~suspect~w~. Approach with ~y~CAUTION~w~.", false);
 
+                if (Game.IsKeyDown(System.Windows.Forms.Keys.E))
+                {
+                    counter++;
+
+                    if(counter == 1)
+                    {
+                        suspect.Face(Game.LocalPlayer.Character);
+                        Game.DisplaySubtitle("~b~Officer (You)~w~: Hey there, " + malefemale + ". What goin' on? Come talk to me real quick.");
+                    }
+                    if(counter == 2)
+                    {
+                        Game.DisplaySubtitle("~r~Suspect~w~: Hi, Officer, My Uber driver kicked me out his car for no reason.");
+                    }
+                    if(counter == 3)
+                    {
+                        Game.DisplaySubtitle("~b~Officer (You)~w~: Why would your driver do that? What was the reason?");
+                    }
+                    if(counter == 4)
+                    {
+                        Game.DisplaySubtitle("~r~Suspect~w~: The driver is very picky on who they pick up. I find that as discrimination.");
+                    }
+                    if(counter == 5)
+                    {
+                        Game.DisplaySubtitle("~b~Officer (You)~w~: Ok, you didn't call a taxi? If you are being discriminated, you can contact Uber and file a complaint with them cause that's on the company. If the driver was threatening you or anything criminal, that's when we step in.");
+                    }
+                    if(counter == 6)
+                    {
+                        Game.DisplaySubtitle("~r~Suspect~w~: No I didn't call a taxi. I prefer to walk. I know it's against the law to do that but nobody will stop and help me.");
+                    }
+                    if(counter == 7)
+                    {
+                        Game.DisplaySubtitle("~b~Officer (You)~w~: I am more than happy to call you a taxi. I don't want to put you in cuffs. Let me call you a taxi and get you home safe. I am worried for your safety,");
+                    }
+                    if(counter == 8)
+                    {
+                        Game.DisplaySubtitle("~r~Suspect~w~: Thank you, officer.");
+                    }
+                    if(counter == 9)
+                    {
+                        Game.DisplaySubtitle("~r~Suspect~w~: Death to Los Santos, Motherfucka!");
+                        suspect.Tasks.FightAgainst(Game.LocalPlayer.Character);
+                        suspect.KeepTasks = true;
+                        suspect.Inventory.GiveNewWeapon(wepList[new Random().Next((int)wepList.Length)], 500, true);
+                        suspect.Armor = 500;
+                    }
+                }
+
+                if (Game.LocalPlayer.Character.IsDead) End();
+                if (Game.IsKeyDown(Settings.EndCall)) End();
+            }
         }
+
+
     }
 }
