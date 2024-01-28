@@ -101,8 +101,6 @@ namespace JMCalloutsRemastered.Callouts
 
                 if (Game.LocalPlayer.Character.IsDead) End();
                 if (Game.IsKeyDown(Settings.EndCall)) End();
-                if (suspect && suspect.IsDead) End();
-                if (suspect && LSPD_First_Response.Mod.API.Functions.IsPedArrested(suspect)) End();
             }, "Reports of a deranged lover [JM Callouts Remastered]");
 
             base.Process();
