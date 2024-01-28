@@ -40,6 +40,7 @@ namespace JMCalloutsRemastered.Callouts
         {
             Game.LogTrivial("JM Callouts Remastered Log: RocketMan callout accepted!");
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~RocketMan", "~b~Dispatch: The suspect has been spotted with a explosive weapon! Respond ~r~Code 3");
+            Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
 
             suspect = new Ped(pedList[new Random().Next((int)pedList.Length)], spawnpoint, 0f);
             suspect.Inventory.GiveNewWeapon("WEAPON_UNARMED", 500, true);
@@ -100,8 +101,6 @@ namespace JMCalloutsRemastered.Callouts
 
                 if (Game.LocalPlayer.Character.IsDead) End();
                 if (Game.IsKeyDown(Settings.EndCall)) End();
-                if (suspect && suspect.IsDead) End();
-                if (suspect && LSPD_First_Response.Mod.API.Functions.IsPedArrested(suspect)) End();
             }, "Reports of an armed individual with an explosive weapon [JM Callouts Remastered]");
 
             base.Process();
