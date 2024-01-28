@@ -118,6 +118,7 @@
     <Compile Include="Callouts\LostIndividual.cs" />
     <Compile Include="Callouts\MonkeyWithAWeapon.cs" />
     <Compile Include="Callouts\OfficerDown.cs" />
+    <Compile Include="Callouts\PersonOnTheHighway.cs" />
     <Compile Include="Callouts\PersonWithAKnife.cs" />
     <Compile Include="Callouts\PersonWithAWeapon.cs" />
     <Compile Include="Callouts\PossibleProstitution.cs" />
@@ -133,7 +134,6 @@
     <Compile Include="Callouts\TrespassingOnRailRoadProperty.cs" />
     <Compile Include="Callouts\TrespassingOnSchoolGrounds.cs" />
     <Compile Include="Callouts\UnauthorizedAccessMovieStudio.cs" />
-    <Compile Include="Callouts\VehicleFire.cs" />
     <Compile Include="Callouts\WrecklessDriving.cs" />
     <Compile Include="IniFile.cs" />
     <Compile Include="Main.cs" />
@@ -144,9 +144,6 @@
     <Compile Include="Utilities\VehicleColor.cs" />
     <Compile Include="Utilities\VehicleExtensions.cs" />
     <Compile Include="VersionCheck\VersionChecker.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include=".editorconfig" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
