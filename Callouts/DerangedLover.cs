@@ -43,6 +43,7 @@ namespace JMCalloutsRemastered.Callouts
         {
             Game.LogTrivial("JM Callouts Remastered Log: Deranged Lover callout accepted!");
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Deranged Lover", "~b~Dispatch: The suspect has been spotted! Respond ~r~Code 3");
+            Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
 
             suspect = new Ped(pedList[new Random().Next((int)pedList.Length)], spawnPoint, 0f);
             suspect.Inventory.GiveNewWeapon("WEAPON_UNARMED", 500, true);
