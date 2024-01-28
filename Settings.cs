@@ -42,13 +42,6 @@ namespace JMCalloutsRemastered
         internal static bool HelpMessages = true;
         internal static Keys EndCall = Keys.End;
         internal static Keys Dialog = Keys.E;
-        internal static string CallSign;
-        internal static string OfficerName = "Jonathan Morrison";
-        internal static Keys InteractionKey1 = Keys.None;
-        internal static Keys InteractionKey2 = Keys.None;
-        internal static Keys StopThePedKey = Keys.E;
-        internal static Keys StopThePedKey1 = Keys.None;
-        internal static bool IsSTPKeyModifierSet;
         internal static InitializationFile ini;
         internal static string inipath = "Plugins/LSPDFR/JMCalloutsRemastered.ini";
 
@@ -88,22 +81,6 @@ namespace JMCalloutsRemastered
             Settings.HelpMessages = ini.ReadBoolean("HelpMessages", "Help Messages", true);
             EndCall = ini.ReadEnum("Keys", "EndCall", Keys.End);
             Dialog = ini.ReadEnum("Keys", "Dialog", Keys.E);
-            InteractionKey1 = ini.ReadEnum("Keys", "InteractionKey1", Keys.None);
-            InteractionKey2 = ini.ReadEnum("Keys", "InteractionKey2", Keys.None);
-            CallSign = ini.ReadString("Officer Settings", "Callsign", "1-Lincoln-5");
-            OfficerName = ini.ReadString("Officer Settings", "OfficerName", "Jonathan Morrison");
-
-            if (Main.STP)
-            {
-                var stpini = new InitializationFile("Plugins/LSPDFR/StopThePed.ini");
-                StopThePedKey = stpini.ReadEnum("Keys", "StopPedKey", Keys.E);
-                if (!stpini.ReadEnum("Keys", "StopPedModifierKey", Keys.None).Equals(Keys.None))
-                {
-                    StopThePedKey1 = stpini.ReadEnum("Keys", "StopPedModifierKey", Keys.None);
-                    IsSTPKeyModifierSet = true;
-                }
-                else { IsSTPKeyModifierSet = false; }
-            }
         }
         public static readonly string PluginVersion = "3.10.0.4";
     }
