@@ -97,7 +97,6 @@ namespace JMCalloutsRemastered.Callouts
                         suspect.KeepTasks = true;
                         suspect.Tasks.FightAgainst(Game.LocalPlayer.Character);
                         hasBegunAttacking = true;
-                        GameFiber.Wait(2000);
                     }
                     else
                     {
