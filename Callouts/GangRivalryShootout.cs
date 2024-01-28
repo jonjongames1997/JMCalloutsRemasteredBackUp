@@ -81,9 +81,9 @@ namespace JMCalloutsRemastered.Callouts
             blip5 = Aggressor5.AttachBlip();
             blip6 = Aggressor6.AttachBlip();
 
-            Aggressor1.Armor = 500;
-            Aggressor2.Armor = 500;
-            Aggressor3.Armor = 500;
+            Aggressor1.Armor = 700;
+            Aggressor2.Armor = 700;
+            Aggressor3.Armor = 00;
             Aggressor4.Armor = 500;
             Aggressor5.Armor = 500;
             Aggressor6.Armor = 500;
