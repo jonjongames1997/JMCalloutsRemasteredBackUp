@@ -6,6 +6,7 @@ using Rage.Native;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Threading;
 
 namespace JMCalloutsRemastered.Callouts
 {
@@ -76,7 +77,7 @@ namespace JMCalloutsRemastered.Callouts
             cop2 = new Ped("S_M_Y_COP_01", spawnPoint, scenario);
             cop2.BlockPermanentEvents = true;
             cop2.IsPersistent = true;
-            cop2.Tasks.StandStill(500);
+            cop2.Tasks.PutHandsUp(500, Game.LocalPlayer.Character);
 
             suspect2 = new Ped(spawnPoint);
             suspect3 = new Ped(spawnPoint);
@@ -113,7 +114,8 @@ namespace JMCalloutsRemastered.Callouts
 
         public override void Process()
         {
-            GameFiber.StartNew(delegate
+
+            GameFiber.StartNew((ThreadStart)(() =>
             {
                 if (suspect1.DistanceTo(Game.LocalPlayer.Character.GetOffsetPosition(Vector3.RelativeFront)) < 40f)
                 {
@@ -124,6 +126,14 @@ namespace JMCalloutsRemastered.Callouts
                     suspect1.Inventory.GiveNewWeapon(wepList[new Random().Next((int)wepList.Length)], 500, true);
                     isArmed = true;
                 }
+            }));
+        }
+
+        public void BeginFighting()
+        {
+            GameFiber.StartNew(delegate
+            {
+                GameFiber.Yield();
                 if (suspect1 && suspect1.DistanceTo(Game.LocalPlayer.Character.GetOffsetPosition(Vector3.RelativeFront)) < 40f && !hasBegunAttacking)
                 {
                     if (scenario > 40f)
@@ -139,10 +149,8 @@ namespace JMCalloutsRemastered.Callouts
                         suspect1.KeepTasks = true;
                         Game.SetRelationshipBetweenRelationshipGroups("VICTIM", "AGGRESSOR", Relationship.Hate);
                         suspect1.Tasks.FightAgainstClosestHatedTarget(1000f);
-                        GameFiber.Wait(2000);
                         suspect1.Tasks.FightAgainst(Game.LocalPlayer.Character);
                         hasBegunAttacking = true;
-                        GameFiber.Wait(600);
                     }
                     else
                     {
@@ -155,11 +163,7 @@ namespace JMCalloutsRemastered.Callouts
                         }
                     }
                 }
-                if (Game.LocalPlayer.Character.IsDead) End();
-                if (Game.IsKeyDown(Settings.EndCall)) End();
-            }, "Reports of a officer down [JM Callouts Remastered]");
-
-            base.Process();
+            });
         }
 
         public override void End()
