@@ -9,6 +9,7 @@ using JMCalloutsRemastered;
 using JMCalloutsRemastered.Stuff;
 using LSPD_First_Response.Engine.Scripting.Entities;
 using LSPD_First_Response.Engine.Scripting;
+using LSPD_First_Response.Mod.API;
 
 namespace JMCalloutsRemastered.Callouts
 {
