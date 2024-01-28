@@ -107,7 +107,6 @@ namespace JMCalloutsRemastered
             if (Settings.RocketMan) { Functions.RegisterCallout(typeof(RocketMan)); }
             if (Settings.SolicitingDelPerroPier) { Functions.RegisterCallout(typeof(SolicitingDelPerroPier)); }
             if (Settings.OfficerDown) { Functions.RegisterCallout(typeof(OfficerDown)); }
-            if (Settings.VehicleFire) { Functions.RegisterCallout(typeof(VehicleFire)); }
             if (Settings.MonkeyWithAWeapon) { Functions.RegisterCallout(typeof(MonkeyWithAWeapon)); }
             if (Settings.WrecklessDriving) { Functions.RegisterCallout(typeof(WrecklessDriving)); }
             if (Settings.StolenEmergencyVehicle) { Functions.RegisterCallout(typeof(StolenEmergencyVehicle)); }
