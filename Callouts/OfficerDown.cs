@@ -116,11 +116,11 @@ namespace JMCalloutsRemastered.Callouts
 
         public override void Process() => GameFiber.StartNew((ThreadStart) (() =>
         {
-            if ((double)((Entity)this.suspect1).DistanceTo(((Entity)Game.LocalPlayer.Character).GetOffsetPosition(Vector3.RelativeFront)) < 40.0 && Blip.op_Implicit(this.blip))
+            if ((double)((Entity)this.suspect1).DistanceTo(((Entity)Game.LocalPlayer.Character).GetOffsetPosition(Vector3.RelativeFront)) < 40.0 && (this.blip))
                 this.blip.Delete();
             if((double) ((Entity) this.suspect1).DistanceTo(((Entity) Game.LocalPlayer.Character).GetOffsetPosition(Vector3.RelativeFront)) < 70.0 && !this.isArmed)
             {
-                this.suspect1.Inventory.GiveNewWeapon(WeaponAsset.op_Implicit(this.wepList[new Random().Next(this.wepList.Length)]), (short)500, true);
+                this.suspect1.Inventory.GiveNewWeapon((this.wepList[new Random().Next(this.wepList.Length)]), (short)500, true);
                 this.isArmed = true;
             }
 
