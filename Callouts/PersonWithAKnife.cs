@@ -1,16 +1,14 @@
-﻿using CalloutInterfaceAPI;
-using LSPD_First_Response.Mod.Callouts;
-using Rage;
-using System;
-using System.Drawing;
-using System.Collections;
+﻿using System;
 using System.Collections.Generic;
-using JMCalloutsRemastered;
-using JMCalloutsRemastered.Stuff;
-using LSPD_First_Response.Engine.Scripting.Entities;
-using LSPD_First_Response.Engine.Scripting;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Rage;
+using CalloutInterfaceAPI;
 using LSPD_First_Response.Mod.API;
-using System.Threading;
+using LSPD_First_Response.Mod.Callouts;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace JMCalloutsRemastered.Callouts
 {
@@ -42,7 +40,7 @@ namespace JMCalloutsRemastered.Callouts
             scenario = new Random().Next(0, 100);
             Spawnpoint = World.GetNextPositionOnStreet(Game.LocalPlayer.Character.Position.Around(1000f));
             ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 1000f);
-            CalloutInterfaceAPI.Functions.SendMessage(this, "Reports of an individual with a deadly weapon.");
+            AddMinimumDistanceCheck(100f, Spawnpoint);
             CalloutMessage = "Citizen's reporting a person carrying a deadly weapon";
             CalloutPosition = Spawnpoint;
 
@@ -51,10 +49,6 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnCalloutAccepted()
         {
-            Game.LogTrivial("JM Callouts Remastered [LOG]: Person on the highway callout accepted!");
-            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~y~Person With A Knife", "~b~Dispatch~w~: The suspect has been spotted! Respond ~r~Code 3~w~.");
-            Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
-
             Suspect = new Ped(pedList[new Random().Next((int)pedList.Length)], Spawnpoint, 0f);
             Suspect.BlockPermanentEvents = true;
             Suspect.IsPersistent = true;
@@ -77,24 +71,16 @@ namespace JMCalloutsRemastered.Callouts
             base.OnCalloutNotAccepted();
         }
 
-        public override void Process() => GameFiber.StartNew((ThreadStart)(() =>
+        public override void Process()
         {
-            if ((double)((Entity)this.Suspect).DistanceTo(((Entity)Game.LocalPlayer.Character).GetOffsetPosition(Vector3.RelativeFront)) < 40.0 && (this.suspectBlip))
-                this.suspectBlip.Delete();
-            if ((double)((Entity)this.Suspect).DistanceTo(((Entity)Game.LocalPlayer.Character).GetOffsetPosition(Vector3.RelativeFront)) < 70.0 && !this.isArmed)
-            {
-                this.Suspect.Inventory.GiveNewWeapon("WEAPON_KNIFE", 500, true);
-                this.isArmed = true;
-            }
 
-            base.Process();
-        }));
-
-        public void BeginFighting()
-        {
             GameFiber.StartNew(delegate
             {
-                GameFiber.Yield();
+                if (Suspect.DistanceTo(Game.LocalPlayer.Character.GetOffsetPosition(Vector3.RelativeFront)) < 18f && !isArmed)
+                {
+                    Suspect.Inventory.GiveNewWeapon("WEAPON_KNIFE", 500, true);
+                    isArmed = true;
+                }
                 if (Suspect && Suspect.DistanceTo(Game.LocalPlayer.Character.GetOffsetPosition(Vector3.RelativeFront)) < 18f && !hasBegunAttacking)
                 {
                     if (scenario > 40)
@@ -118,6 +104,7 @@ namespace JMCalloutsRemastered.Callouts
                                 break;
                             default: break;
                         }
+                        GameFiber.Yield();
                     }
                     else
                     {
@@ -130,10 +117,12 @@ namespace JMCalloutsRemastered.Callouts
                         }
                     }
                 }
-
                 if (Game.LocalPlayer.Character.IsDead) End();
                 if (Game.IsKeyDown(Settings.EndCall)) End();
+
             }, "Person With A Knife [JM Callouts Remastered]");
+
+            base.Process();
         }
 
         public override void End()
@@ -141,7 +130,7 @@ namespace JMCalloutsRemastered.Callouts
 
             if (Suspect) Suspect.Dismiss();
             if (suspectBlip) suspectBlip.Delete();
-            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~y~Person With a Knife", "~b~You: ~w~Dispatch we're code 4. Show me back ~g~10-8.");
+            Game.DisplayNotification("web_lossantospolicedept", "web_lossantospolicedept", "~w~JM Callouts Remastered", "~y~Person With a Knife", "~b~You: ~w~Dispatch we're code 4. Show me back ~g~10-8.");
             Game.DisplayNotification("Good Job, Officer! You are getting a promotion.");
 
             base.End();
