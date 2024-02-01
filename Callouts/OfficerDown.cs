@@ -114,23 +114,18 @@ namespace JMCalloutsRemastered.Callouts
             base.OnCalloutNotAccepted();
         }
 
-        public override void Process()
+        public override void Process() => GameFiber.StartNew((ThreadStart) (() =>
         {
-
-            GameFiber.StartNew((ThreadStart)(() =>
+            if ((double)((Entity)this.suspect1).DistanceTo(((Entity)Game.LocalPlayer.Character).GetOffsetPosition(Vector3.RelativeFront)) < 40.0 && Blip.op_Implicit(this.blip))
+                this.blip.Delete();
+            if((double) ((Entity) this.suspect1).DistanceTo(((Entity) Game.LocalPlayer.Character).GetOffsetPosition(Vector3.RelativeFront)) < 70.0 && !this.isArmed)
             {
-                if (suspect1.DistanceTo(Game.LocalPlayer.Character.GetOffsetPosition(Vector3.RelativeFront)) < 40f)
-                {
-                    if (blip) blip.Delete();
-                }
-                if (suspect1.DistanceTo(Game.LocalPlayer.Character.GetOffsetPosition(Vector3.RelativeFront)) < 70f && !isArmed)
-                {
-                    suspect1.Inventory.GiveNewWeapon(wepList[new Random().Next((int)wepList.Length)], 500, true);
-                    isArmed = true;
-                }
-                base.Process();
-            }));
-        }
+                this.suspect1.Inventory.GiveNewWeapon(WeaponAsset.op_Implicit(this.wepList[new Random().Next(this.wepList.Length)]), (short)500, true);
+                this.isArmed = true;
+            }
+
+            base.Process();
+        }));
 
         public void BeginFighting()
         {
