@@ -70,25 +70,16 @@ namespace JMCalloutsRemastered.Callouts
             base.OnCalloutNotAccepted();
         }
 
-        public override void Process() => GameFiber.StartNew((ThreadStart)(() =>
-        {
-            if ((double)((Entity)this.suspect).DistanceTo(((Entity)Game.LocalPlayer.Character).GetOffsetPosition(Vector3.RelativeFront)) < 40.0 && (this.blip))
-                this.blip.Delete();
-            if ((double)((Entity)this.suspect).DistanceTo(((Entity)Game.LocalPlayer.Character).GetOffsetPosition(Vector3.RelativeFront)) < 70.0 && !this.isArmed)
-            {
-                this.suspect.Inventory.GiveNewWeapon((this.wepList[new Random().Next(this.wepList.Length)]), (short)500, true);
-                this.isArmed = true;
-            }
-
-            base.Process();
-        }));
-
-        public void BeginFighting()
+        public override void Process()
         {
             GameFiber.StartNew(delegate
             {
-                GameFiber.Yield();
-                if (suspect && suspect.DistanceTo(Game.LocalPlayer.Character.GetOffsetPosition(Vector3.RelativeFront)) < 25f && !hasBegunAttacking)
+                if (suspect.DistanceTo(Game.LocalPlayer.Character.GetOffsetPosition(Vector3.RelativeFront)) < 18f && !isArmed)
+                {
+                    suspect.Inventory.GiveNewWeapon(wepList[new Random().Next((int)wepList.Length)], 500, true);
+                    isArmed = true;
+                }
+                if (suspect && suspect.DistanceTo(Game.LocalPlayer.Character.GetOffsetPosition(Vector3.RelativeFront)) < 18f && !hasBegunAttacking)
                 {
                     if (scenario > 40)
                     {
@@ -108,10 +99,11 @@ namespace JMCalloutsRemastered.Callouts
                         }
                     }
                 }
-
                 if (Game.LocalPlayer.Character.IsDead) End();
                 if (Game.IsKeyDown(Settings.EndCall)) End();
-            }, "Reports of a Monkey With A Weapon [JM Callouts Remastered]");
+            }, "JM Callouts Remastered: Person With A Wepaon");
+
+            base.Process();
         }
 
         public override void End()
