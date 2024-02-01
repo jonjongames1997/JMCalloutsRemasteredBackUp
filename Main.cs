@@ -77,10 +77,8 @@ namespace JMCalloutsRemastered
             if (Settings.DerangedLover) { Functions.RegisterCallout(typeof(DerangedLover)); }
             if (Settings.DeadBody) { Functions.RegisterCallout(typeof(DeadBody)); }
             if (Settings.PersonWithAWeapon) { Functions.RegisterCallout(typeof(PersonWithAWeapon)); }
-            if (Settings.GangRivalryShootout) { Functions.RegisterCallout(typeof(GangRivalryShootout)); }
             if (Settings.RocketMan) { Functions.RegisterCallout(typeof(RocketMan)); }
             if (Settings.SolicitingDelPerroPier) { Functions.RegisterCallout(typeof(SolicitingDelPerroPier)); }
-            if (Settings.OfficerDown) { Functions.RegisterCallout(typeof(OfficerDown)); }
             if (Settings.MonkeyWithAWeapon) { Functions.RegisterCallout(typeof(MonkeyWithAWeapon)); }
             if (Settings.WrecklessDriving) { Functions.RegisterCallout(typeof(WrecklessDriving)); }
             if (Settings.StolenEmergencyVehicle) { Functions.RegisterCallout(typeof(StolenEmergencyVehicle)); }
