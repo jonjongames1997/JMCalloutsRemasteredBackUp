@@ -111,13 +111,11 @@
     <Compile Include="Callouts\CodeKaren.cs" />
     <Compile Include="Callouts\DeadBody.cs" />
     <Compile Include="Callouts\DerangedLover.cs" />
-    <Compile Include="Callouts\GangRivalryShootout.cs" />
     <Compile Include="Callouts\IllegalCampfireOnPublicBeach.cs" />
     <Compile Include="Callouts\IllegalProstitution.cs" />
     <Compile Include="Callouts\IntoxicatedIndividual.cs" />
     <Compile Include="Callouts\LostIndividual.cs" />
     <Compile Include="Callouts\MonkeyWithAWeapon.cs" />
-    <Compile Include="Callouts\OfficerDown.cs" />
     <Compile Include="Callouts\PersonOnTheHighway.cs" />
     <Compile Include="Callouts\PersonWithAKnife.cs" />
     <Compile Include="Callouts\PersonWithAWeapon.cs" />
