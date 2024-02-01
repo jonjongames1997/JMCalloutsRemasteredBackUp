@@ -111,10 +111,10 @@ namespace JMCalloutsRemastered.Callouts
 
         public override void Process()
         {
-            GameFiber.StartNew(delegate
+            GameFiber.StartNew((ThreadStart) (() => 
             {
                 GameFiber.Yield();
-                if (Game.LocalPlayer.Character.DistanceTo(spawnPoint) < 100f && !hasBegunAttacking)
+                if((double) ((Entity) Game.LocalPlayer.Character).DistanceTo(this.spawnPoint) < 100.0f && !this.hasBegunAttacking)
                 {
                     new RelationshipGroup("LOST MC");
                     new RelationshipGroup("HIPSTERS");
@@ -142,7 +142,7 @@ namespace JMCalloutsRemastered.Callouts
                 }
                 if (Game.LocalPlayer.Character.IsDead) End();
                 if (Game.IsKeyDown(Settings.EndCall)) End();
-            }, "JM Callouts Remastered: Gang Rivalry Shootout");
+            }), "JM Callouts Remastered: Gang Rivalry Shootout");
 
             base.Process();
         }
