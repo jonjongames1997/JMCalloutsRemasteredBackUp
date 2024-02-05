@@ -18,8 +18,8 @@ namespace JMCalloutsRemastered.Callouts
 
     public class PersonOnTheHighway : Callout
     {
-        private string[] wepList = new string[] { "WEAPON_KNIFE", "WEAPON_BAT", "WEAPON_DAGGER", "WEAPON_GOLFCLUB", "WEAPON_HAMMER", "WEAPON_HATCHET" };
-        private string[] pedList = new string[] { "a_m_m_afriamer_01", "ig_abigail", "ig_amandatownley", "csb_anita", "ig_ashley", "g_f_y_ballas_01", "a_f_m_bodybuild_01", "a_f_y_eastsa_03", "ig_maryann" };
+        private string[] wepList = new string[] { "WEAPON_KNIFE", "WEAPON_BAT", "WEAPON_DAGGER", "WEAPON_GOLFCLUB", "WEAPON_HAMMER", "WEAPON_HATCHET", "WEAPON_PISTOL", "WEAPON_COMBATPISTOL", "WEAPON_AUTOSHOTGUN" };
+        private string[] pedList = new string[] { "a_m_m_afriamer_01", "ig_amandatownley", "ig_ashley", "g_f_y_ballas_01", "a_f_m_bodybuild_01", "a_f_y_eastsa_03", "ig_maryann", "ig_money", "s_m_y_baywatch_01", "a_f_y_beach_01", "a_f_m_bevhills_01", "a_f_m_fatbla_01" };
         private Blip blip;
         private Ped suspect;
         private Vector3 spawnpoint;
@@ -36,6 +36,8 @@ namespace JMCalloutsRemastered.Callouts
                 new Vector3(1707.10f, 1413.60f, 85.92f), // Route 13 going into Blaine County
                 new Vector3(2440.64f, 963.54f, 87.11f), // Near the wind farm 
                 new Vector3(-2721.99f, 8.95f, 15.55f), // Route 1 going into Chumash
+                new Vector3(),
+                new Vector3(),
             };
             spawnpoint = LocationChooser.chooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
