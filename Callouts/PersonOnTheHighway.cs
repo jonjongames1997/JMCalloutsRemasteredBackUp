@@ -34,10 +34,10 @@ namespace JMCalloutsRemastered.Callouts
             {
                 new Vector3(2865.42f, 4259.82f, 50.08f), // Route 13 near Maude's House 
                 new Vector3(1707.10f, 1413.60f, 85.92f), // Route 13 going into Blaine County
-                new Vector3(2440.64f, 963.54f, 87.11f), // Near the wind farm 
+                new Vector3(2440.64f, 963.54f, 87.11f), // Near the wind farm on Route 15
                 new Vector3(-2721.99f, 8.95f, 15.55f), // Route 1 going into Chumash
-                new Vector3(),
-                new Vector3(),
+                new Vector3(1668.16f, -946.03f, 64.91f), // Polomino Freeway
+                new Vector3(1311.71f, -2292.97f, 52.39f), // ElysianFields Freeway
             };
             spawnpoint = LocationChooser.chooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
