@@ -46,7 +46,7 @@ namespace JMCalloutsRemastered
 
 
                     Game.DisplayNotification("web_jonjongames", "web_jonjongames", "JM Callouts Remastered", "~g~v" + Assembly.GetExecutingAssembly().GetName().Version.ToString() + " ~r~by OfficerMorrison", "~b~successfully loaded!");
-                    Game.DisplayNotification("JM Callouts Remastered is looking for Playtesters to test out future versions. If interested, join ~y~OfficerMorrison's~w~ ~o~Official Discord~w~.");
+                    Game.DisplayNotification("JM Callouts Remastered 4.0 is in production. After 4.0, I'll be 10-42 for the final and maybe last time in the callout programming community.");
 
                     VersionChecker.VersionChecker.isUpdateAvailable();
                     GameFiber.Wait(300);
@@ -63,7 +63,6 @@ namespace JMCalloutsRemastered
             if (Settings.IllegalCampfireOnPublicBeach) { Functions.RegisterCallout(typeof(IllegalCampfireOnPublicBeach)); }
             if (Settings.IllegalProstitution) { Functions.RegisterCallout(typeof(IllegalProstitution)); }
             if (Settings.IntoxicatedIndividual) { Functions.RegisterCallout(typeof(IntoxicatedIndividual)); }
-            if (Settings.PersonWithAKnife) { Functions.RegisterCallout(typeof(PersonWithAKnife)); }
             if (Settings.PossibleProstitution) { Functions.RegisterCallout(typeof(PossibleProstitution)); }
             if (Settings.PublicDisturbance) { Functions.RegisterCallout(typeof(PublicDisturbance)); }
             if (Settings.RefuseToLeave) { Functions.RegisterCallout(typeof(RefuseToLeave)); }
@@ -74,12 +73,8 @@ namespace JMCalloutsRemastered
             if (Settings.TrespassingOnConstructionProperty) { Functions.RegisterCallout(typeof(TrespassingOnConstructionProperty)); }
             if (Settings.LostIndividual) { Functions.RegisterCallout(typeof(LostIndividual)); }
             if (Settings.UnauthorizedAccessMovieStudio) { Functions.RegisterCallout(typeof(UnauthorizedAccessMovieStudio)); }
-            if (Settings.DerangedLover) { Functions.RegisterCallout(typeof(DerangedLover)); }
             if (Settings.DeadBody) { Functions.RegisterCallout(typeof(DeadBody)); }
-            if (Settings.PersonWithAWeapon) { Functions.RegisterCallout(typeof(PersonWithAWeapon)); }
-            if (Settings.RocketMan) { Functions.RegisterCallout(typeof(RocketMan)); }
             if (Settings.SolicitingDelPerroPier) { Functions.RegisterCallout(typeof(SolicitingDelPerroPier)); }
-            if (Settings.MonkeyWithAWeapon) { Functions.RegisterCallout(typeof(MonkeyWithAWeapon)); }
             if (Settings.WrecklessDriving) { Functions.RegisterCallout(typeof(WrecklessDriving)); }
             if (Settings.StolenEmergencyVehicle) { Functions.RegisterCallout(typeof(StolenEmergencyVehicle)); }
             if (Settings.TrespassingOnSchoolGrounds) { Functions.RegisterCallout(typeof(TrespassingOnSchoolGrounds)); }
