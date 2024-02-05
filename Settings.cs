@@ -14,7 +14,6 @@ namespace JMCalloutsRemastered
         internal static bool IllegalCampfireOnPublicBeach = true;
         internal static bool IllegalProstitution = true;
         internal static bool IntoxicatedIndividual = true;
-        internal static bool PersonWithAKnife = true;
         internal static bool _911HangUp = true;
         internal static bool PossibleProstitution = true;
         internal static bool PublicDisturbance = true;
@@ -27,12 +26,8 @@ namespace JMCalloutsRemastered
         internal static bool TrespassingOnConstructionProperty = true;
         internal static bool LostIndividual = true;
         internal static bool UnauthorizedAccessMovieStudio = true;
-        internal static bool DerangedLover = true;
         internal static bool DeadBody = true;
-        internal static bool PersonWithAWeapon = true;
-        internal static bool RocketMan = true;
         internal static bool SolicitingDelPerroPier = true;
-        internal static bool MonkeyWithAWeapon = true;
         internal static bool WrecklessDriving = true;
         internal static bool StolenEmergencyVehicle = true;
         internal static bool TrespassingOnSchoolGrounds = true;
@@ -53,7 +48,6 @@ namespace JMCalloutsRemastered
             Settings.IllegalCampfireOnPublicBeach = ini.ReadBoolean("Callouts", "IllegalCampfireOnPublicBeach", true);
             Settings.IllegalProstitution = ini.ReadBoolean("Callouts", "IllegalProstitution", true);
             Settings.IntoxicatedIndividual = ini.ReadBoolean("Callouts", "IntoxicatedIndividual", true);
-            Settings.PersonWithAKnife = ini.ReadBoolean("Callouts", "PersonWithAKnife", true);
             Settings.PossibleProstitution = ini.ReadBoolean("Callouts", "PossibleProstitution", true);
             Settings.PublicDisturbance = ini.ReadBoolean("Callouts", "PublicDisturbance", true);
             Settings.RefuseToLeave = ini.ReadBoolean("Callouts", "RefuseToLeave", true);
@@ -64,12 +58,8 @@ namespace JMCalloutsRemastered
             Settings.TrespassingOnConstructionProperty = ini.ReadBoolean("Callouts", "TrespassingOnConstructionProperty", true);
             Settings.LostIndividual = ini.ReadBoolean("Callouts", "LostIndividual", true);
             Settings.UnauthorizedAccessMovieStudio = ini.ReadBoolean("Callouts", "UnauthorizedAccessMovieStudio", true);
-            Settings.DerangedLover = ini.ReadBoolean("Callouts", "DerangedLover", true);
             Settings.DeadBody = ini.ReadBoolean("Callouts", "Dead Body", true);
-            Settings.PersonWithAWeapon = ini.ReadBoolean("Callouts", "Person With A Weapon", true);
-            Settings.RocketMan = ini.ReadBoolean("Callots", "RocketMan", true);
             Settings.SolicitingDelPerroPier = ini.ReadBoolean("Callouts", "SolicitingDelPerro", true);
-            Settings.MonkeyWithAWeapon = ini.ReadBoolean("Callouts", "MonkeyWithAWeapon", true);
             Settings.WrecklessDriving = ini.ReadBoolean("Callouts", "RecklessDriving", true);
             Settings.StolenEmergencyVehicle = ini.ReadBoolean("Callouts", "StolenEmergencyVehicle", true);
             Settings.TrespassingOnSchoolGrounds = ini.ReadBoolean("Callouts", "TrespassingOnSchoolGrounds", true);
@@ -78,6 +68,6 @@ namespace JMCalloutsRemastered
             EndCall = ini.ReadEnum("Keys", "EndCall", Keys.End);
             Dialog = ini.ReadEnum("Keys", "Dialog", Keys.E);
         }
-        public static readonly string PluginVersion = "3.12.2";
+        public static readonly string PluginVersion = "3.13.3";
     }
 }
