@@ -113,7 +113,6 @@ namespace JMCalloutsRemastered.Callouts
                     if (counter == 6)
                     {
                         Game.DisplaySubtitle("~r~Suspect: ~w~You motherfucker, you! DIE!!!!!");
-                        LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("YOUMOTHERFUCKERYOU");
                         suspect.Tasks.FightAgainst(Game.LocalPlayer.Character);
                         suspect.Inventory.GiveNewWeapon("WEAPON_GUSENBERG", 500, true);
                     }
