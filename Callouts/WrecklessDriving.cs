@@ -20,7 +20,7 @@ namespace JMCalloutsRemastered.Callouts
 
     public class WrecklessDriving : Callout
     {
-        private string[] vehicleList = new string[] { "BULLET", "CERBERUS3", "BLISTA", "ISSI2", "AKUMA", "DOMINATOR", "BIFTA", "CHINO2", "RROCKET", "SHOTARO", "HUSTLER" };
+        private string[] vehicleList = new string[] { "CERBERUS3", "ISSI2", "AKUMA", "BIFTA", "CHINO2", "RROCKET", "SHOTARO", "HUSTLER", "" };
         private Vehicle vehicle;
         private Vector3 spawnpoint;
         private Blip driverBlip;
