@@ -39,11 +39,9 @@ namespace JMCalloutsRemastered.Callouts
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Public Disturbance", "~b~Dispatch:~w~ Suspect has been spotted!. Respond ~r~Code 2.");
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
 
-            suspect = new Ped(spawnPoint)
-            {
-                IsPersistent = true,
-                BlockPermanentEvents = true
-            };
+            suspect = new Ped(spawnPoint);
+            suspect.IsPersistent = true;
+            suspect.BlockPermanentEvents = true;
 
             SuspectBlip = suspect.AttachBlip();
             SuspectBlip.Color = System.Drawing.Color.BurlyWood;
