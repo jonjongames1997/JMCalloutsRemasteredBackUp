@@ -5,7 +5,6 @@ using System.Xml;
 using JMCalloutsRemastered;
 using JMCalloutsRemastered.Callouts;
 using System;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace JMCalloutsRemastered
 {
