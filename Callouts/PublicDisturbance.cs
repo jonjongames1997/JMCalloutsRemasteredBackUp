@@ -17,7 +17,7 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnBeforeCalloutDisplayed()
         {
-            List<Vector3> list = new List<Vector3>
+            List<Vector3> list = new()
             {
                 new(-174.17f, -1427.77f, 31.25f), // Across from the auto shop in strawberry
                 new(1693.54f, 4822.75f, 42.06f), // Clothing Shop in Grape Seed
@@ -39,9 +39,11 @@ namespace JMCalloutsRemastered.Callouts
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Public Disturbance", "~b~Dispatch:~w~ Suspect has been spotted!. Respond ~r~Code 2.");
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
 
-            suspect = new Ped(spawnPoint);
-            suspect.IsPersistent = true;
-            suspect.BlockPermanentEvents = true;
+            suspect = new Ped(spawnPoint)
+            {
+                IsPersistent = true,
+                BlockPermanentEvents = true
+            };
 
             SuspectBlip = suspect.AttachBlip();
             SuspectBlip.Color = System.Drawing.Color.BurlyWood;
@@ -69,7 +71,7 @@ namespace JMCalloutsRemastered.Callouts
         {
             base.Process();
 
-            if (Game.LocalPlayer.Character.DistanceTo(suspect) <= 10f)
+            if (MainPlayer.DistanceTo(suspect) <= 10f)
             {
 
                 Game.DisplayHelp("Press ~y~E~w~ to talk to suspect. ~y~Approach with caution~w~.", false);
@@ -80,6 +82,7 @@ namespace JMCalloutsRemastered.Callouts
 
                     if (counter == 1)
                     {
+                        suspect.Face(MainPlayer);
                         Game.DisplaySubtitle("~b~You (Officier)~w~: Excuse me, " + malefemale + ", Can you come talk to me for a second?");
                     }
                     if (counter == 2)
@@ -125,7 +128,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                 }
 
-                if (Game.LocalPlayer.Character.IsDead) End();
+                if (MainPlayer.IsDead) End();
                 if (Game.IsKeyDown(Settings.EndCall)) End();
             }
         }
