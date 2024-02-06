@@ -34,9 +34,11 @@ namespace JMCalloutsRemastered.Callouts
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Trespassing On School Property", "~b~Dispatch~w~: Suspect has been spotted! Respond ~r~Code 2~w~.");
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
 
-            suspect = new Ped(pedList[new Random().Next((int)pedList.Length)], spawnpoint, 0f);
-            suspect.IsPersistent = true;
-            suspect.BlockPermanentEvents = true;
+            suspect = new Ped(pedList[new Random().Next((int)pedList.Length)], spawnpoint, 0f)
+            {
+                IsPersistent = true,
+                BlockPermanentEvents = true
+            };
 
             blip = suspect.AttachBlip();
             blip.Color = System.Drawing.Color.Orange;
@@ -62,7 +64,7 @@ namespace JMCalloutsRemastered.Callouts
 
         public override void Process()
         {
-            if(Game.LocalPlayer.Character.DistanceTo(suspect) <= 10f)
+            if(MainPlayer.DistanceTo(suspect) <= 10f)
             {
                 Game.DisplayHelp("Press ~y~E~w~ to interact with ~r~Suspect~w~.", false);
 
@@ -72,7 +74,7 @@ namespace JMCalloutsRemastered.Callouts
 
                     if(counter == 1)
                     {
-                        suspect.Face(Game.LocalPlayer.Character);
+                        suspect.Face(MainPlayer);
                         Game.DisplaySubtitle("~b~You~w~: Police Departmant. Stop where I can see you " + malefemale + ". I want to talk to you.");
                     }
                     if(counter == 2)
@@ -95,13 +97,13 @@ namespace JMCalloutsRemastered.Callouts
                     {
                         Game.DisplaySubtitle("~r~Suspect~w~: Fuck me, they know I am not a student here. Take your last breath of fresh air, Motherfucker!");
                         suspect.Inventory.GiveNewWeapon(wepList[new Random().Next((int)wepList.Length)], 500, true);
-                        suspect.Tasks.FightAgainst(Game.LocalPlayer.Character);
+                        suspect.Tasks.FightAgainst(MainPlayer);
                         suspect.Inventory.GiveNewWeapon("WEAPON_PISTOL", 500, true);
                     }
                 }
             }
 
-            if (Game.LocalPlayer.Character.IsDead) End();
+            if (MainPlayer.IsDead) End();
             if (Game.IsKeyDown(Settings.EndCall)) End();
 
             base.Process();
