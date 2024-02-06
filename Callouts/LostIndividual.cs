@@ -1,6 +1,4 @@
 ﻿using CalloutInterfaceAPI;
-using LSPD_First_Response.Mod.Callouts;
-using Rage;
 
 
 namespace JMCalloutsRemastered.Callouts
@@ -25,9 +23,9 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnBeforeCalloutDisplayed()
         {
-            spawnPoint = new Vector3(-663.64f, -227.5f, 37.39f);
+            spawnPoint = new(-663.64f, -227.5f, 37.39f);
             heading = 70.58f;
-            suspectSpawnpoint = new Vector3(-623.54f, -230.25f, 38.06f); // Second Suspect will spawn at this location 
+            suspectSpawnpoint = new(-623.54f, -230.25f, 38.06f); // Second Suspect will spawn at this location 
             suspectHeading = 131.09f;
             ShowCalloutAreaBlipBeforeAccepting(spawnPoint, 100f);
             CalloutInterfaceAPI.Functions.SendMessage(this, "Michael DeSanta reported his wife missing. Locate and help her get home safely, Officer.");
