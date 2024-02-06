@@ -13,7 +13,7 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnBeforeCalloutDisplayed()
         {
-            spawnpoint = World.GetNextPositionOnStreet(Game.LocalPlayer.Character.Position.Around(1000f));
+            spawnpoint = World.GetNextPositionOnStreet(MainPlayer.Position.Around(1000f));
 
             deadBody = new Ped(spawnpoint);
             deadBody.IsPersistent = true;
@@ -54,7 +54,7 @@ namespace JMCalloutsRemastered.Callouts
 
         public override void Process()
         {
-            if (deadBody.DistanceTo(Game.LocalPlayer.Character) < 10f)
+            if (deadBody.DistanceTo(MainPlayer) < 10f)
             {
                 Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout.");
                 Game.DisplayNotification("Call EMS to attempt CPR or Call a Coroner to pick up the deceased body.");
