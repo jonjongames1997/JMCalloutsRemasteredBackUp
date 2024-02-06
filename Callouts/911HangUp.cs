@@ -3,7 +3,7 @@
 namespace JMCalloutsRemastered.Callouts
 {
 
-    [CalloutInterface("9-1-1 Hang Up - Mirror Park", CalloutProbability.High, "An individual hung up on 911.", "Code 1", "LSPD")]
+    [CalloutInterface("9-1-1 Hang Up", CalloutProbability.High, "An individual hung up on 911.", "Code 1", "LSPD")]
 
     public class _911HangUp : Callout
     {
@@ -41,11 +41,9 @@ namespace JMCalloutsRemastered.Callouts
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~ 9-1-1 Hang Up", "~b~Dispatch: Suspect has been spotted. Respond ~r~Code 1.");
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
 
-            Suspect = new Ped(Spawnpoint)
-            {
-                IsPersistent = true,
-                BlockPermanentEvents = true
-            };
+            Suspect = new Ped(Spawnpoint);
+            Suspect.IsPersistent = true;
+            Suspect.BlockPermanentEvents = true;
 
             SuspectBlip = Suspect.AttachBlip();
             SuspectBlip.Color = System.Drawing.Color.BlueViolet;
