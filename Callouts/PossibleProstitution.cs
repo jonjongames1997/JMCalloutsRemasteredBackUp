@@ -18,7 +18,7 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnBeforeCalloutDisplayed()
         {
-            List<Vector3> list = new List<Vector3>
+            List<Vector3> list = new()
             {
                 new(-535.76f, -849.20f, 29.44f), // Near Lucky Plucker in Little Seoul // 
                 new(-415.10f, 1172.77f, 325.81f), // Galileo Observatory
@@ -41,9 +41,11 @@ namespace JMCalloutsRemastered.Callouts
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Possible Prostitution", "~b~Dispatch:~w~ Suspect has been spotted. Respond ~r~Code 2.");
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
 
-            Suspect = new Ped(pedList[new Random().Next((int)pedList.Length)], Spawnpoint, 0f);
-            Suspect.IsPersistent = true;
-            Suspect.BlockPermanentEvents = true;
+            Suspect = new Ped(pedList[new Random().Next((int)pedList.Length)], Spawnpoint, 0f)
+            {
+                IsPersistent = true,
+                BlockPermanentEvents = true
+            };
 
             Game.DisplayNotification("Tip: This callout works better at night time when other prostitutes are on the streets.");
 
@@ -65,7 +67,7 @@ namespace JMCalloutsRemastered.Callouts
         {
             base.Process();
 
-            if (Game.LocalPlayer.Character.DistanceTo(Suspect) <= 10f)
+            if (MainPlayer.DistanceTo(Suspect) <= 10f)
             {
 
                 Game.DisplayHelp("Press ~y~E~w~ to interact with ~r~suspect~w~.", false);
@@ -76,7 +78,7 @@ namespace JMCalloutsRemastered.Callouts
 
                     if (counter == 1)
                     {
-                        Suspect.Face(Game.LocalPlayer.Character);
+                        Suspect.Face(MainPlayer);
                         Game.DisplaySubtitle("~b~You~w~: Good evening " + malefemale + ", Can I ask you some questions?");
                     }
                     if (counter == 2)
@@ -122,13 +124,13 @@ namespace JMCalloutsRemastered.Callouts
                     if (counter == 12)
                     {
                         Game.DisplaySubtitle("Conversation ended.");
-                        Suspect.Tasks.FightAgainst(Game.LocalPlayer.Character);
+                        Suspect.Tasks.FightAgainst(MainPlayer);
                         Suspect.Inventory.GiveNewWeapon("WEAPON_PISTOL", 500, true);
                     }
                 }
             }
 
-            if (Game.LocalPlayer.Character.IsDead) End();
+            if (MainPlayer.IsDead) End();
             if (Game.IsKeyDown(Settings.EndCall)) End();
         }
 
