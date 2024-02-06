@@ -40,11 +40,9 @@ namespace JMCalloutsRemastered.Callouts
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Unauthorized Access Movie Studio", "~b~Dispatch: The suspect has been spotted! Respond ~r~Code 2");
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
 
-            suspect = new Ped(spawnpoint)
-            {
-                IsPersistent = true,
-                BlockPermanentEvents = true
-            };
+            suspect = new Ped(spawnpoint);
+            suspect.IsPersistent = true;
+            suspect.BlockPermanentEvents = true;
 
             susBlip = suspect.AttachBlip();
             susBlip.Color = System.Drawing.Color.Yellow;
