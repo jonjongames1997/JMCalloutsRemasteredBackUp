@@ -36,6 +36,7 @@ namespace JMCalloutsRemastered.Callouts
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
 
             constructionVehicle = new Vehicle(constructionVehicles[new Random().Next((int)constructionVehicles.Length)], spawnpoint);
+            constructionVehicle.IsPersistent = true;
 
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Dispatch", "Loading ~g~Information~w~ of the ~o~LSPD Database~w~...");
             LSPD_First_Response.Mod.API.Functions.DisplayVehicleRecord(constructionVehicle, true);
