@@ -17,7 +17,6 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnBeforeCalloutDisplayed()
         {
-            Random random = new Random();
             List<Vector3> list = new List<Vector3>
             {
                 new(7.788585f, -394.9392f, 39.41744f), // Construction site next the Freeway
