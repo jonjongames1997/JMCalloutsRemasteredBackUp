@@ -18,7 +18,7 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnBeforeCalloutDisplayed()
         {
-            List<Vector3> list = new List<Vector3>
+            List<Vector3> list = new()
             {
                 new(131.11f, -1301.31f, 29.23f), // Vanilla Unicorn //
                 new(-895.89f, -4.68f, 43.80f), // OCRP Postal 679
