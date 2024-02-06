@@ -32,11 +32,9 @@ namespace JMCalloutsRemastered.Callouts
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Soliciting - Del Perro", "~b~Dispatch: The suspect has been spotted! Respond ~r~Code 2");
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
 
-            suspect = new Ped(spawnpoint, heading)
-            {
-                IsPersistent = true,
-                BlockPermanentEvents = true
-            };
+            suspect = new Ped(spawnpoint, heading);
+            suspect.IsPersistent = true;
+            suspect.BlockPermanentEvents = true;
 
             blip = suspect.AttachBlip();
             blip.Color = System.Drawing.Color.Aqua;
