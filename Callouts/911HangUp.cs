@@ -18,7 +18,7 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnBeforeCalloutDisplayed()
         {
-            List<Vector3> list = new List<Vector3>
+            List<Vector3> list = new()
             {
                 new(1082.087f, -346.2961f, 67.1872f), // Mirror Park near Horny's //
                 new(-1294.99f, -1316.46f, 4.69f), // OCRP Postal 305/Vespucci Beach //
@@ -41,9 +41,11 @@ namespace JMCalloutsRemastered.Callouts
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~ 9-1-1 Hang Up", "~b~Dispatch: Suspect has been spotted. Respond ~r~Code 1.");
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
 
-            Suspect = new Ped(Spawnpoint);
-            Suspect.IsPersistent = true;
-            Suspect.BlockPermanentEvents = true;
+            Suspect = new Ped(Spawnpoint)
+            {
+                IsPersistent = true,
+                BlockPermanentEvents = true
+            };
 
             SuspectBlip = Suspect.AttachBlip();
             SuspectBlip.Color = System.Drawing.Color.BlueViolet;
@@ -63,7 +65,7 @@ namespace JMCalloutsRemastered.Callouts
         {
             base.Process();
 
-            if (Game.LocalPlayer.Character.DistanceTo(Suspect) <= 10f)
+            if (MainPlayer.DistanceTo(Suspect) <= 10f)
             {
 
                 Game.DisplayHelp("Press ~y~E~w~ to speak with the ~r~suspect~w~.", false);
@@ -74,7 +76,7 @@ namespace JMCalloutsRemastered.Callouts
 
                     if (counter == 1)
                     {
-                        Suspect.Face(Game.LocalPlayer.Character);
+                        Suspect.Face(MainPlayer);
                         Game.DisplaySubtitle("~b~Player~w~: Excuse me " + malefemale + ", Can I speak to you for a moment?");
                     }
                     if (counter == 2)
@@ -104,13 +106,13 @@ namespace JMCalloutsRemastered.Callouts
                     if (counter == 8)
                     {
                         Game.DisplaySubtitle("~r~Suspect~w~: Snitch! I'm gonna give you the ass whooping of your life, Officer, that your parents couldn't give you as a child.");
-                        Suspect.Tasks.FightAgainst(Game.LocalPlayer.Character);
-                        Suspect.Inventory.GiveNewWeapon("WEAPON_CANDYCANE", 500, true);
+                        Suspect.Tasks.FightAgainst(MainPlayer);
+                        Suspect.Inventory.GiveNewWeapon("WEAPON_MACHETE", 500, true);
                     }
                 }
             }
 
-            if (Game.LocalPlayer.Character.IsDead) End();
+            if (MainPlayer.IsDead) End();
             if (Game.IsKeyDown(Settings.EndCall)) End();
         }
 
