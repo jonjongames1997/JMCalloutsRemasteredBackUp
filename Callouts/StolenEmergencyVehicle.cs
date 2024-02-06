@@ -55,6 +55,7 @@ namespace JMCalloutsRemastered.Callouts
             suspect.WarpIntoVehicle(emergencyVehicle, -1);
             suspect.Inventory.GiveNewWeapon("WEAPON_PISTOL", 500, true);
             suspect.BlockPermanentEvents = true;
+            suspect.IsPersistent = true;
 
             blip = suspect.AttachBlip();
 
