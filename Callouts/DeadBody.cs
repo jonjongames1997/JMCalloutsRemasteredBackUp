@@ -1,8 +1,4 @@
 ﻿using CalloutInterfaceAPI;
-using LSPD_First_Response.Mod.Callouts;
-using Rage;
-using Rage.Native;
-using System.Drawing;
 
 namespace JMCalloutsRemastered.Callouts
 {
