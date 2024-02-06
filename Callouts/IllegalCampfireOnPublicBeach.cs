@@ -41,11 +41,9 @@ namespace JMCalloutsRemastered.Callouts
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
             Game.DisplayNotification("This callout works best at night time only.");
 
-            Suspect = new Ped(Spawnpoint)
-            {
-                IsPersistent = true,
-                BlockPermanentEvents = true
-            };
+            Suspect = new Ped(Spawnpoint);
+            Suspect.IsPersistent = true;
+            Suspect.BlockPermanentEvents = true;
 
             SuspectBlip = Suspect.AttachBlip();
             SuspectBlip.Color = System.Drawing.Color.Chocolate;
