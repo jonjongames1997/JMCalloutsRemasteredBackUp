@@ -14,7 +14,7 @@ namespace JMCalloutsRemastered.Callouts
         private static Vector3 spawnpoint;
         private static Blip blip;
         private static LHandle pursuit;
-        private static readonly bool pursuitCreated = false;
+        private static bool pursuitCreated = false;
 
         public override bool OnBeforeCalloutDisplayed()
         {
@@ -52,6 +52,7 @@ namespace JMCalloutsRemastered.Callouts
             pursuit = LSPD_First_Response.Mod.API.Functions.CreatePursuit();
             LSPD_First_Response.Mod.API.Functions.AddPedToPursuit(pursuit, suspect);
             LSPD_First_Response.Mod.API.Functions.SetPursuitIsActiveForPlayer(pursuit, true);
+            pursuitCreated = true;
 
             return base.OnCalloutAccepted();
         }
