@@ -42,19 +42,15 @@ namespace JMCalloutsRemastered.Callouts
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
 
             // Amanda is a decoy in this situation //
-            victim = new Ped("IG_AMANDATOWNLEY", spawnPoint, heading)
-            {
-                IsPersistent = true,
-                BlockPermanentEvents = true
-            };
+            victim = new Ped("IG_AMANDATOWNLEY", spawnPoint, heading);
+            victim.IsPersistent = true;
+            victim.BlockPermanentEvents = true;
 
             // Michael Spawns and equips a gun //
-            suspect = new Ped("PLAYER_ZERO", suspectSpawnpoint, suspectHeading)
-            {
-                IsPersistent = true,
-                BlockPermanentEvents = true,
-                KeepTasks = true
-            };
+            suspect = new Ped("PLAYER_ZERO", suspectSpawnpoint, suspectHeading);
+            suspect.IsPersistent = true;
+            suspect.BlockPermanentEvents = true;
+            suspect.KeepTasks = true;
             suspect.Tasks.StandStill(500);
 
             vicBlip = victim.AttachBlip();
