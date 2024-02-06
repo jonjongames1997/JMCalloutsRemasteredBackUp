@@ -72,19 +72,19 @@ namespace JMCalloutsRemastered.Callouts
                     if (counter == 1)
                     {
                         suspect.Face(MainPlayer);
-                        Game.DisplaySubtitle("~b~You: Excuse me, " + malefemale + ". Can you come talk to me real quick?");
+                        Game.DisplaySubtitle("~b~You~w~: Excuse me, " + malefemale + ". Can you come talk to me real quick?");
                     }
                     if (counter == 2)
                     {
-                        Game.DisplaySubtitle("~r~Suspect:~w~ What now, you motherfucker you, cops?");
+                        Game.DisplaySubtitle("~r~Suspect~w~: What now, you motherfucker you, cops?");
                     }
                     if (counter == 3)
                     {
-                        Game.DisplaySubtitle("~b~You: Why are you asking people for money? Panhandling is ~r~ILLEGAL~w~ in the state.");
+                        Game.DisplaySubtitle("~b~You~w~: Why are you asking people for money? Panhandling is ~r~ILLEGAL~w~ in the state.");
                     }
                     if (counter == 4)
                     {
-                        Game.DisplaySubtitle("~r~Suspect:~w~ Fuck this, I'm outta here.");
+                        Game.DisplaySubtitle("~r~Suspect~w~: Fuck this, I'm outta here.");
                     }
                     if (counter == 5)
                     {
