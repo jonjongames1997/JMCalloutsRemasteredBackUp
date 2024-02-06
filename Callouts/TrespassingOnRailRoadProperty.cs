@@ -1,16 +1,4 @@
 ﻿using CalloutInterfaceAPI;
-using LSPD_First_Response.Mod.Callouts;
-using Rage;
-using System;
-using System.Drawing;
-using System.Collections;
-using System.Collections.Generic;
-using JMCalloutsRemastered;
-using JMCalloutsRemastered.Stuff;
-using LSPD_First_Response.Engine.Scripting.Entities;
-using LSPD_First_Response.Engine.Scripting;
-using JMCalloutsRemastered.Callouts;
-using LSPD_First_Response.Mod.API;
 
 namespace JMCalloutsRemastered.Callouts
 {
@@ -22,23 +10,22 @@ namespace JMCalloutsRemastered.Callouts
 
 
         // General Variables //
-        private Ped Suspect;
-        private Blip SuspectBlip;
-        private Vector3 Spawnpoint;
-        private int counter;
-        private string malefemale;
+        private static Ped Suspect;
+        private static Blip SuspectBlip;
+        private static Vector3 Spawnpoint;
+        private static int counter;
+        private static string malefemale;
 
         public override bool OnBeforeCalloutDisplayed()
         {
-            Random random = new Random();
             List<Vector3> list = new List<Vector3>
             {
-                new Vector3(452.94f, -1648.89f, 29.97f), // Next to Davis Sheriff
-                new Vector3(1743.83f, 3464.93f, 38.50f), // Railroad tracks on Panarama Dr/Sandy Shores Welcome sign
-                new Vector3(2609.09f, 1699.36f, 26.83f), // Near power station near Sandy Shores/Davis Quartz
-                new Vector3(2744.25f, 3888.97f, 43.94f), // See screenshot for location 
+                new(452.94f, -1648.89f, 29.97f), // Next to Davis Sheriff
+                new(1743.83f, 3464.93f, 38.50f), // Railroad tracks on Panarama Dr/Sandy Shores Welcome sign
+                new(2609.09f, 1699.36f, 26.83f), // Near power station near Sandy Shores/Davis Quartz
+                new(2744.25f, 3888.97f, 43.94f), // See screenshot for location 
             };
-            Spawnpoint = LocationChooser.chooseNearestLocation(list);
+            Spawnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 1000f);
             CalloutMessage = "A citizen is reporting a suspicious person on railroad tracks.";
             CalloutPosition = Spawnpoint;
