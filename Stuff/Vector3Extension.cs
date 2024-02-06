@@ -7,7 +7,7 @@ namespace JMCalloutsRemastered.Stuff
     {
         public static Vector3 ExtensionAround(this Vector3 start, float radius)
         {
-            Vector3 direction = ExtensionRandomXY();
+            Vector3 direction = ExtensionRandomXy();
             Vector3 around = start + (direction * radius);
             return around;
         }
@@ -17,7 +17,7 @@ namespace JMCalloutsRemastered.Stuff
             return (end - start).Length();
         }
 
-        public static Vector3 ExtensionRandomXY()
+        public static Vector3 ExtensionRandomXy()
         {
             Random random = new Random(Environment.TickCount);
 
