@@ -54,7 +54,7 @@
     <Optimize>true</Optimize>
     <DebugType>pdbonly</DebugType>
     <PlatformTarget>x86</PlatformTarget>
-    <LangVersion>7.3</LangVersion>
+    <LangVersion>10.0</LangVersion>
     <ErrorReport>send</ErrorReport>
     <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
     <DebugSymbols>true</DebugSymbols>
@@ -140,6 +140,7 @@
     <Compile Include="Main.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings.cs" />
+    <Compile Include="Stuff\Helper.cs" />
     <Compile Include="Stuff\LocationChooser.cs" />
     <Compile Include="Stuff\Vector3Extension.cs" />
     <Compile Include="Utilities\VehicleColor.cs" />
