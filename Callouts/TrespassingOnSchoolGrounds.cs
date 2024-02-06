@@ -34,11 +34,9 @@ namespace JMCalloutsRemastered.Callouts
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Trespassing On School Property", "~b~Dispatch~w~: Suspect has been spotted! Respond ~r~Code 2~w~.");
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
 
-            suspect = new Ped(pedList[new Random().Next((int)pedList.Length)], spawnpoint, 0f)
-            {
-                IsPersistent = true,
-                BlockPermanentEvents = true
-            };
+            suspect = new Ped(pedList[new Random().Next((int)pedList.Length)], spawnpoint, 0f);
+            suspect.IsPersistent = true;
+            suspect.BlockPermanentEvents = true;
 
             blip = suspect.AttachBlip();
             blip.Color = System.Drawing.Color.Orange;
