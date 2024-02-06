@@ -1,9 +1,4 @@
 ﻿using System.Windows.Forms;
-using System.Collections.Generic;
-using Rage;
-using JMCalloutsRemastered;
-using JMCalloutsRemastered.Callouts;
-using System;
 
 namespace JMCalloutsRemastered
 {
