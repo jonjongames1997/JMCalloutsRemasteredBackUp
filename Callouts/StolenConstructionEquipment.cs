@@ -67,6 +67,15 @@ namespace JMCalloutsRemastered.Callouts
             return base.OnCalloutAccepted();
         }
 
+        public override void OnCalloutNotAccepted()
+        {
+            if (blip) blip.Delete();
+            if (constructionVehicle) constructionVehicle.Delete();
+            if (suspect) suspect.Delete();
+
+            base.OnCalloutNotAccepted();
+        }
+
 
     }
 }
