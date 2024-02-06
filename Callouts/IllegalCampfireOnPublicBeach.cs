@@ -17,7 +17,7 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnBeforeCalloutDisplayed()
         {
-            List<Vector3> list = new List<Vector3>
+            List<Vector3> list = new()
             {
                 new(-1537.564f, -1214.748f, 1.887064f), // Campfire Spawns at night //
                 new(-1420.77f, -1536.43f, 2.12f),
@@ -41,9 +41,11 @@ namespace JMCalloutsRemastered.Callouts
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
             Game.DisplayNotification("This callout works best at night time only.");
 
-            Suspect = new Ped(Spawnpoint);
-            Suspect.IsPersistent = true;
-            Suspect.BlockPermanentEvents = true;
+            Suspect = new Ped(Spawnpoint)
+            {
+                IsPersistent = true,
+                BlockPermanentEvents = true
+            };
 
             SuspectBlip = Suspect.AttachBlip();
             SuspectBlip.Color = System.Drawing.Color.Chocolate;
@@ -63,7 +65,7 @@ namespace JMCalloutsRemastered.Callouts
         {
             base.Process();
 
-            if (Game.LocalPlayer.Character.DistanceTo(Suspect) <= 10f)
+            if (MainPlayer.DistanceTo(Suspect) <= 10f)
             {
 
                 Game.DisplayHelp("Press 'E' to speak with the ~r~suspect.", false);
@@ -74,6 +76,7 @@ namespace JMCalloutsRemastered.Callouts
 
                     if (counter == 1)
                     {
+                        Suspect.Face(MainPlayer);
                         Game.DisplaySubtitle("~b~Player~w~: Good evening " + malefemale + ", May I speak with you for a moment?");
                     }
                     if (counter == 2)
@@ -108,13 +111,13 @@ namespace JMCalloutsRemastered.Callouts
                     {
                         Game.DisplaySubtitle("Conversation has ended!");
                         Game.DisplayNotification("Arrest the suspect, Officer.");
-                        Suspect.Tasks.FightAgainst(Game.LocalPlayer.Character);
+                        Suspect.Tasks.FightAgainst(MainPlayer);
                         Suspect.Inventory.GiveNewWeapon("WEAPON_MACHETE", 500, true);
                     }
                 }
             }
 
-            if (Game.LocalPlayer.Character.IsDead) End();
+            if (MainPlayer.IsDead) End();
             if (Game.IsKeyDown(Settings.EndCall)) End();
 
         }
