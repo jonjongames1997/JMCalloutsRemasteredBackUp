@@ -1,16 +1,4 @@
 ﻿using CalloutInterfaceAPI;
-using LSPD_First_Response.Mod.Callouts;
-using Rage;
-using System;
-using System.Drawing;
-using System.Collections;
-using System.Collections.Generic;
-using JMCalloutsRemastered;
-using JMCalloutsRemastered.Stuff;
-using LSPD_First_Response.Engine.Scripting.Entities;
-using LSPD_First_Response.Engine.Scripting;
-using JMCalloutsRemastered.Callouts;
-using LSPD_First_Response.Mod.API;
 using System.Threading;
 
 namespace JMCalloutsRemastered.Callouts
@@ -20,13 +8,13 @@ namespace JMCalloutsRemastered.Callouts
 
     public class StolenEmergencyVehicle : Callout
     {
-        private string[] emergencyVehicles = new string[] { "POLICE", "POLICE2", "POLICE3", "SHERIFF", "SHERIFF2", "POLICE4", "FBI", "FBI2", "AMBULANCE", "FIRETRUK", "POLICEB", "PBUS", "PRANGER", "POLICET", "RIOT", "RIOT2", "LGUARD", "POLICEOLD1", "POLICEOLD2" };
-        private Vehicle emergencyVehicle;
-        private Ped suspect;
-        private Vector3 spawnpoint;
-        private Blip blip;
-        private LHandle pursuit;
-        private bool pursuitCreated = false;
+        private static string[] emergencyVehicles = new string[] { "POLICE", "POLICE2", "POLICE3", "SHERIFF", "SHERIFF2", "POLICE4", "FBI", "FBI2", "AMBULANCE", "FIRETRUK", "POLICEB", "PBUS", "PRANGER", "POLICET", "RIOT", "RIOT2", "LGUARD", "POLICEOLD1", "POLICEOLD2" };
+        private static Vehicle emergencyVehicle;
+        private static Ped suspect;
+        private static Vector3 spawnpoint;
+        private static Blip blip;
+        private static LHandle pursuit;
+        private static bool pursuitCreated = false;
 
         public override bool OnBeforeCalloutDisplayed()
         {
