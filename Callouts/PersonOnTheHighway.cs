@@ -18,7 +18,7 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnBeforeCalloutDisplayed()
         {
-            List<Vector3> list = new List<Vector3>
+            List<Vector3> list = new()
             {
                 new(2865.42f, 4259.82f, 50.08f), // Route 13 near Maude's House 
                 new(1707.10f, 1413.60f, 85.92f), // Route 13 going into Blaine County
@@ -42,15 +42,17 @@ namespace JMCalloutsRemastered.Callouts
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~y~Person On The Highway", "~b~Dispatch~w~: The suspect has been spotted. Respond ~r~Code 2~w~.");
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
 
-            suspect = new Ped(pedList[new Random().Next((int)pedList.Length)], spawnpoint, 0f);
-            suspect.IsPersistent = true;
-            suspect.BlockPermanentEvents = true;
+            suspect = new Ped(pedList[new Random().Next((int)pedList.Length)], spawnpoint, 0f)
+            {
+                IsPersistent = true,
+                BlockPermanentEvents = true
+            };
 
             blip = suspect.AttachBlip();
             blip.Color = System.Drawing.Color.Gold;
             blip.IsRouteEnabled = true;
 
-            suspect.Tasks.PutHandsUp(500, Game.LocalPlayer.Character);
+            suspect.Tasks.PutHandsUp(500, MainPlayer);
             suspect.KeepTasks = true;
             suspect.Inventory.GiveNewWeapon("WEAPON_UNARMED", 500, true);
 
@@ -76,7 +78,7 @@ namespace JMCalloutsRemastered.Callouts
         {
             base.Process();
 
-            if(Game.LocalPlayer.Character.DistanceTo(suspect) <= 10f)
+            if(MainPlayer.DistanceTo(suspect) <= 10f)
             {
 
                 Game.DisplayHelp("Press ~y~E~w~ to interact with the ~r~suspect~w~. Approach with ~y~CAUTION~w~.", false);
@@ -87,7 +89,7 @@ namespace JMCalloutsRemastered.Callouts
 
                     if(counter == 1)
                     {
-                        suspect.Face(Game.LocalPlayer.Character);
+                        suspect.Face(MainPlayer);
                         Game.DisplaySubtitle("~b~Officer (You)~w~: Hey there, " + malefemale + ". What goin' on? Come talk to me real quick.");
                     }
                     if(counter == 2)
@@ -121,14 +123,14 @@ namespace JMCalloutsRemastered.Callouts
                     if(counter == 9)
                     {
                         Game.DisplaySubtitle("~r~Suspect~w~: Death to Los Santos, Motherfucka!");
-                        suspect.Tasks.FightAgainst(Game.LocalPlayer.Character);
+                        suspect.Tasks.FightAgainst(MainPlayer);
                         suspect.KeepTasks = true;
                         suspect.Inventory.GiveNewWeapon(wepList[new Random().Next((int)wepList.Length)], 500, true);
                         suspect.Armor = 500;
                     }
                 }
 
-                if (Game.LocalPlayer.Character.IsDead) End();
+                if (MainPlayer.IsDead) End();
                 if (Game.IsKeyDown(Settings.EndCall)) End();
             }
         }
