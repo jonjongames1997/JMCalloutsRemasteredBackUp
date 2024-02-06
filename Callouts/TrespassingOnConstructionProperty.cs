@@ -17,7 +17,7 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnBeforeCalloutDisplayed()
         {
-            List<Vector3> list = new List<Vector3>
+            List<Vector3> list = new()
             {
                 new(7.788585f, -394.9392f, 39.41744f), // Construction site next the Freeway
                 new(-129.83f, -1041.61f, 27.27f), // Across from Simeon's Dealership
