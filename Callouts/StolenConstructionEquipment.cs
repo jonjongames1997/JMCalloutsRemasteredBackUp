@@ -21,6 +21,19 @@ namespace JMCalloutsRemastered.Callouts
 
     public class StolenConstructionEquipment : Callout
     {
+        private string[] constructionVehicle = new string[] { "BULLDOZER", "CUTTER", "DUMP", "MIXER", "MIXER2", "HANDLER", "RUBBLE", "TIPTRUCK", "TIPTRUCK2" };
+        private Vehicle consVehicle;
+        private Ped suspect;
+        private Vector3 spawnpoint;
+        private Blip blip;
+        private LHandle pursuit;
+        private bool hasPursuitBegun = false;
 
+        public override bool OnBeforeCalloutDisplayed()
+        {
+
+
+            return base.OnBeforeCalloutDisplayed();
+        }
     }
 }
