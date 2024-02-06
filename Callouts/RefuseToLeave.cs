@@ -9,12 +9,12 @@ namespace JMCalloutsRemastered.Callouts
     {
 
         // General Variables //
-        private string[] wepList = new string[] { "WEAPON_PISTOL", "WEAPON_BAT", "WEAPON_KNIFE", "WEPAON_HAMMER", "WEAPON_MACHETE", "WEAPON_CROWBAR", "WEAPON_CARBINERIFLE" };
-        private Ped Suspect;
-        private Blip SuspectBlip;
-        private Vector3 Spawnpoint;
-        private int counter;
-        private string malefemale;
+        private static string[] wepList = new string[] { "WEAPON_PISTOL", "WEAPON_BAT", "WEAPON_KNIFE", "WEPAON_HAMMER", "WEAPON_MACHETE", "WEAPON_CROWBAR", "WEAPON_CARBINERIFLE" };
+        private static Ped Suspect;
+        private static Blip SuspectBlip;
+        private static Vector3 Spawnpoint;
+        private static int counter;
+        private static string malefemale;
 
 
         public override bool OnBeforeCalloutDisplayed()
