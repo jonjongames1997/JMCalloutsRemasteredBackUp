@@ -7,9 +7,9 @@ namespace JMCalloutsRemastered.Callouts
 
     public class DeadBody : Callout
     {
-        private Ped deadBody;
-        private Blip deadBlip;
-        private Vector3 spawnpoint;
+        private static Ped deadBody;
+        private static Blip deadBlip;
+        private static Vector3 spawnpoint;
 
         public override bool OnBeforeCalloutDisplayed()
         {
