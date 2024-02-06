@@ -107,7 +107,7 @@ namespace JMCalloutsRemastered.Callouts
                     {
                         Game.DisplaySubtitle("~r~Suspect~w~: Snitch! I'm gonna give you the ass whooping of your life, Officer, that your parents couldn't give you as a child.");
                         Suspect.Tasks.FightAgainst(MainPlayer);
-                        Suspect.Inventory.GiveNewWeapon("WEAPON_MACHETE", 500, true);
+                        Suspect.Inventory.GiveNewWeapon("WEAPON_GOLFCLUB", 500, true);
                     }
                 }
             }
