@@ -80,7 +80,7 @@ namespace JMCalloutsRemastered.Callouts
 
                     if (counter == 1)
                     {
-                        suspect.Face(Game.LocalPlayer.Character);
+                        suspect.Face(MainPlayer);
                         Game.DisplaySubtitle("~b~You~w~: Excuse me, " + malefemale + ". Talk to me real quick.");
                     }
                     if (counter == 2)
@@ -106,12 +106,12 @@ namespace JMCalloutsRemastered.Callouts
                     if (counter == 7)
                     {
                         Game.DisplaySubtitle("~r~Suspect~w~: ~r~KIFFLOM MOTHERF**KAS~w~!");
-                        suspect.Tasks.FightAgainst(Game.LocalPlayer.Character);
+                        suspect.Tasks.FightAgainst(MainPlayer);
                         suspect.Inventory.GiveNewWeapon(wepList[new Random().Next((int)wepList.Length)], 500, true);
                     }
                 }
             }
-            if (Game.LocalPlayer.Character.IsDead) End();
+            if (MainPlayer.IsDead) End();
             if (Game.IsKeyDown(Settings.EndCall)) End();
         }
 
