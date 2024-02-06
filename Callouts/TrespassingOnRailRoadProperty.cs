@@ -138,7 +138,7 @@ namespace JMCalloutsRemastered.Callouts
                         Game.DisplaySubtitle("Conversation ended.");
                         Suspect.Tasks.FightAgainst(Game.LocalPlayer.Character);
                         Suspect.Inventory.GiveNewWeapon("WEAPON_BAT", 500, true);
-                        Suspect.Armor = 100;
+                        Suspect.Armor = 500;
                     }
                 }
             }
