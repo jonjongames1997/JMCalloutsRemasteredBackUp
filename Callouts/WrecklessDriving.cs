@@ -1,17 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using LSPD_First_Response.Mod.API;
-using LSPD_First_Response.Mod.Callouts;
-using JMCalloutsRemastered.Callouts;
-using JMCalloutsRemastered.Stuff;
-using CalloutInterfaceAPI;
-using System.Drawing;
-using System.Windows.Forms;
-using Rage;
-using Rage.Native;
+﻿using CalloutInterfaceAPI;
 
 namespace JMCalloutsRemastered.Callouts
 {
@@ -20,12 +7,12 @@ namespace JMCalloutsRemastered.Callouts
 
     public class WrecklessDriving : Callout
     {
-        private string[] vehicleList = new string[] { "CERBERUS3", "ISSI2", "AKUMA", "BIFTA", "CHINO2", "RROCKET", "SHOTARO", "HUSTLER", "" };
-        private Vehicle vehicle;
-        private Vector3 spawnpoint;
-        private Blip driverBlip;
-        private Ped driver;
-        private LHandle pursuit;
+        private static readonly string[] vehicleList = new string[] { "CERBERUS3", "ISSI2", "AKUMA", "BIFTA", "CHINO2", "RROCKET", "SHOTARO", "HUSTLER", "" };
+        private static Vehicle vehicle;
+        private static Vector3 spawnpoint;
+        private static Blip driverBlip;
+        private static Ped driver;
+        private static LHandle pursuit;
 
         public override bool OnBeforeCalloutDisplayed()
         {
