@@ -17,7 +17,6 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnBeforeCalloutDisplayed()
         {
-            Random random = new Random();
             List<Vector3> list = new List<Vector3>
             {
                 new(-53.57f, -1757.29f, 29.44f), // LTD on Grove Street
