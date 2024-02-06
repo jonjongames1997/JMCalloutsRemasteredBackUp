@@ -21,13 +21,13 @@ namespace JMCalloutsRemastered.Callouts
 
     public class StolenConstructionEquipment : Callout
     {
-        private string[] constructionVehicle = new string[] { "BULLDOZER", "CUTTER", "DUMP", "MIXER", "MIXER2", "HANDLER", "RUBBLE", "TIPTRUCK", "TIPTRUCK2" };
-        private Vehicle consVehicle;
+        private string[] constructionVehicles = new string[] { "BULLDOZER", "CUTTER", "DUMP", "MIXER", "MIXER2", "HANDLER", "RUBBLE", "TIPTRUCK", "TIPTRUCK2" };
+        private Vehicle constructionVehicle;
         private Ped suspect;
         private Vector3 spawnpoint;
         private Blip blip;
         private LHandle pursuit;
-        private bool hasPursuitBegun = false;
+        private bool pursuitCreated = false;
 
         public override bool OnBeforeCalloutDisplayed()
         {
@@ -40,5 +40,33 @@ namespace JMCalloutsRemastered.Callouts
 
             return base.OnBeforeCalloutDisplayed();
         }
+
+        public override bool OnCalloutAccepted()
+        {
+            Game.LogTrivial("[JM Callouts Remastered Log]: Stolen Construction Equipment callout accepted!");
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Stolen Construction Equipment", "~b~Dispatch~w~: The suspect has been spotted! Respond ~r~Code 3~w~.");
+            Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
+
+            constructionVehicle = new Vehicle(constructionVehicles[new Random().Next((int)constructionVehicles.Length)], spawnpoint);
+
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Dispatch", "Loading ~g~Information~w~ of the ~o~LSPD Database~w~...");
+            LSPD_First_Response.Mod.API.Functions.DisplayVehicleRecord(constructionVehicle, true);
+            suspect = new Ped(spawnpoint);
+            suspect.WarpIntoVehicle(constructionVehicle, -1);
+            suspect.Inventory.GiveNewWeapon("WEAPON_COMBATPISTOL", 500, true);
+            suspect.BlockPermanentEvents = true;
+            suspect.IsPersistent = true;
+
+            blip = suspect.AttachBlip();
+
+            pursuit = LSPD_First_Response.Mod.API.Functions.CreatePursuit();
+            LSPD_First_Response.Mod.API.Functions.AddPedToPursuit(pursuit, suspect);
+            LSPD_First_Response.Mod.API.Functions.SetPursuitIsActiveForPlayer(pursuit, true);
+            pursuitCreated = true;
+
+            return base.OnCalloutAccepted();
+        }
+
+
     }
 }
