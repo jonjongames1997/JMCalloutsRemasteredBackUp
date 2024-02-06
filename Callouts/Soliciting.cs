@@ -18,7 +18,6 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnBeforeCalloutDisplayed()
         {
-            Random random = new Random();
             List<Vector3> list = new List<Vector3>
             {
                 new(154.39f, -987.48f, 30.09f), // Legion Square in Mission Row //
