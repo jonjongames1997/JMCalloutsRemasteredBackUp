@@ -1,14 +1,4 @@
 ﻿using CalloutInterfaceAPI;
-using LSPD_First_Response.Mod.Callouts;
-using Rage;
-using System;
-using System.Drawing;
-using System.Collections;
-using System.Collections.Generic;
-using JMCalloutsRemastered;
-using JMCalloutsRemastered.Stuff;
-using LSPD_First_Response.Engine.Scripting.Entities;
-using LSPD_First_Response.Engine.Scripting;
 
 namespace JMCalloutsRemastered.Callouts
 {
@@ -17,26 +7,25 @@ namespace JMCalloutsRemastered.Callouts
 
     public class UnauthorizedAccessMovieStudio : Callout
     {
-        private string[] wepList = new string[] { "WEAPON_PISTOL_MK2", "WEPAON_SPECIALCARBINE", "WEPAON_ASSAULTRIFLE", "WEAPON_PISTOL", "WEAPON_COMBATPISTOL", "WEAPON_BAT", "WEAPON_GOLFCLUB" };
-        private Ped suspect;
-        private Blip susBlip;
-        private Vector3 spawnpoint;
-        private string malefemale;
-        private int counter;
+        private static readonly string[] wepList = new string[] { "WEAPON_PISTOL_MK2", "WEPAON_SPECIALCARBINE", "WEPAON_ASSAULTRIFLE", "WEAPON_PISTOL", "WEAPON_COMBATPISTOL", "WEAPON_BAT", "WEAPON_GOLFCLUB" };
+        private static Ped suspect;
+        private static Blip susBlip;
+        private static Vector3 spawnpoint;
+        private static string malefemale;
+        private static int counter;
 
         public override bool OnBeforeCalloutDisplayed()
         {
-            Random random = new Random();
             List<Vector3> list = new List<Vector3>
             {
                 // Richard's Majestic Movie Studio //
 
-                new Vector3(-1050.09f, -512.47f, 36.04f), // Near Solomon's Office
-                new Vector3(-1116.63f, -502.75f, 35.81f), // Dressing Room Trailer near the movie set
-                new Vector3(-1135.64f, -458.73f, 35.42f), // Electricty Trailer near the movie set
-                new Vector3(-1157.02f, -563.55f, 35.78f), // Ac Units near the movie set
+                new(-1050.09f, -512.47f, 36.04f), // Near Solomon's Office
+                new(-1116.63f, -502.75f, 35.81f), // Dressing Room Trailer near the movie set
+                new(-1135.64f, -458.73f, 35.42f), // Electricty Trailer near the movie set
+                new(-1157.02f, -563.55f, 35.78f), // Ac Units near the movie set
             };
-            spawnpoint = LocationChooser.chooseNearestLocation(list);
+            spawnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
             CalloutInterfaceAPI.Functions.SendMessage(this, "A security officer reporting an individual trespassing on private property without proper access.");
             CalloutMessage = "An individual refusing to leave";
