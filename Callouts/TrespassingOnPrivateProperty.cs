@@ -1,16 +1,4 @@
 ﻿using CalloutInterfaceAPI;
-using LSPD_First_Response.Mod.Callouts;
-using Rage;
-using System;
-using System.Drawing;
-using System.Collections;
-using System.Collections.Generic;
-using JMCalloutsRemastered;
-using JMCalloutsRemastered.Stuff;
-using LSPD_First_Response.Engine.Scripting.Entities;
-using LSPD_First_Response.Engine.Scripting;
-using JMCalloutsRemastered.Callouts;
-using LSPD_First_Response.Mod.API;
 
 namespace JMCalloutsRemastered.Callouts
 {
@@ -21,25 +9,24 @@ namespace JMCalloutsRemastered.Callouts
     {
         // General Variables //
 
-        private string[] wepList = new string[] { "WEAPON_PISTOL", "WEAPON_MG", "WEAPON_BAT", "WEAPON_GOLFCLUB", "WEAPON_KNIFE", "WEAPON_HATCHET", "WEAPON_SWITCHBLADE", "WEAPON_COMBATPISTOL" };
-        private Ped Suspect;
-        private Blip SuspectBlip;
-        private Vector3 Spawnpoint;
-        private int counter;
-        private string malefemale;
+        private static readonly string[] wepList = new string[] { "WEAPON_PISTOL", "WEAPON_MG", "WEAPON_BAT", "WEAPON_GOLFCLUB", "WEAPON_KNIFE", "WEAPON_HATCHET", "WEAPON_SWITCHBLADE", "WEAPON_COMBATPISTOL" };
+        private static Ped Suspect;
+        private static Blip SuspectBlip;
+        private static Vector3 Spawnpoint;
+        private static int counter;
+        private static string malefemale;
 
         public override bool OnBeforeCalloutDisplayed()
         {
-            Random random = new Random();
             List<Vector3> list = new List<Vector3>
             {
-                new Vector3(131.11f, -1301.31f, 29.23f), // Vanilla Unicorn //
-                new Vector3(-895.89f, -4.68f, 43.80f), // OCRP Postal 679
-                new Vector3(980.39f, -627.39f, 59.24f), // OCRP Postal 430
-                new Vector3(-350.56f, 513.67f, 120.64f), // OCRP Postal 549
-                new Vector3(-1943.11f, 449.60f, 102.93f), // OCRP Postal 832
+                new(131.11f, -1301.31f, 29.23f), // Vanilla Unicorn //
+                new(-895.89f, -4.68f, 43.80f), // OCRP Postal 679
+                new(980.39f, -627.39f, 59.24f), // OCRP Postal 430
+                new(-350.56f, 513.67f, 120.64f), // OCRP Postal 549
+                new(-1943.11f, 449.60f, 102.93f), // OCRP Postal 832
             };
-            Spawnpoint = LocationChooser.chooseNearestLocation(list);
+            Spawnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 100f);
             CalloutInterfaceAPI.Functions.SendMessage(this, "A business owner reported an individual trespassing on their property.");
             CalloutMessage = "An individual trespassing on private property";
