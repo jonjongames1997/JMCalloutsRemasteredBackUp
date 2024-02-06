@@ -18,7 +18,7 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnBeforeCalloutDisplayed()
         {
-            List<Vector3> list = new List<Vector3>
+            List<Vector3> list = new()
             {
                 new(154.39f, -987.48f, 30.09f), // Legion Square in Mission Row //
                 new(-330.96f, 6081.46f, 31.45f), // Ammunation Near Paleto PD
