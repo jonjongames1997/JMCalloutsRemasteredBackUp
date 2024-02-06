@@ -42,15 +42,19 @@ namespace JMCalloutsRemastered.Callouts
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
 
             // Amanda is a decoy in this situation //
-            victim = new Ped("IG_AMANDATOWNLEY", spawnPoint, heading);
-            victim.IsPersistent = true;
-            victim.BlockPermanentEvents = true;
+            victim = new Ped("IG_AMANDATOWNLEY", spawnPoint, heading)
+            {
+                IsPersistent = true,
+                BlockPermanentEvents = true
+            };
 
             // Michael Spawns and equips a gun //
-            suspect = new Ped("PLAYER_ZERO", suspectSpawnpoint, suspectHeading);
-            suspect.IsPersistent = true;
-            suspect.BlockPermanentEvents = true;
-            suspect.KeepTasks = true;
+            suspect = new Ped("PLAYER_ZERO", suspectSpawnpoint, suspectHeading)
+            {
+                IsPersistent = true,
+                BlockPermanentEvents = true,
+                KeepTasks = true
+            };
             suspect.Tasks.StandStill(500);
 
             vicBlip = victim.AttachBlip();
@@ -78,7 +82,7 @@ namespace JMCalloutsRemastered.Callouts
 
         public override void Process()
         {
-            if (Game.LocalPlayer.Character.DistanceTo(victim) <= 10f)
+            if (MainPlayer.DistanceTo(victim) <= 10f)
             {
 
                 Game.DisplayHelp("Press ~y~E~w~ to interact with the ~r~victim~w~.", false);
@@ -89,7 +93,7 @@ namespace JMCalloutsRemastered.Callouts
 
                     if (counter == 1)
                     {
-                        suspect.Face(Game.LocalPlayer.Character);
+                        suspect.Face(MainPlayer);
                         Game.DisplaySubtitle("~b~Player~w~: Excuse me, " + malefemale + ". Can you tell me what happened?");
                     }
                     if (counter == 2)
@@ -111,7 +115,7 @@ namespace JMCalloutsRemastered.Callouts
                     if (counter == 6)
                     {
                         Game.DisplaySubtitle("~r~Suspect: ~w~You motherfucker, you! DIE!!!!!");
-                        suspect.Tasks.FightAgainst(Game.LocalPlayer.Character);
+                        suspect.Tasks.FightAgainst(MainPlayer);
                         suspect.Inventory.GiveNewWeapon("WEAPON_GUSENBERG", 500, true);
                     }
 
@@ -119,7 +123,7 @@ namespace JMCalloutsRemastered.Callouts
 
             }
 
-            if (Game.LocalPlayer.Character.IsDead) End();
+            if (MainPlayer.IsDead) End();
             if (Game.IsKeyDown(Settings.EndCall)) End();
 
             base.Process();
