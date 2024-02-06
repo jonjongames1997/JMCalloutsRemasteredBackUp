@@ -19,7 +19,7 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnBeforeCalloutDisplayed()
         {
-            spawnpoint = World.GetNextPositionOnStreet(Game.LocalPlayer.Character.Position.Around(1000f));
+            spawnpoint = World.GetNextPositionOnStreet(MainPlayer.Position.Around(1000f));
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
             CalloutInterfaceAPI.Functions.SendMessage(this, "Mulitple reports of a stolen construction equipment");
             LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_ALL_UNITS_01 WE_HAVE_01 CRIME_SUSPECT_ON_THE_RUN_01 UNITS_RESPOND_CODE_03_02");
@@ -66,11 +66,8 @@ namespace JMCalloutsRemastered.Callouts
 
         public override void Process()
         {
-            GameFiber.StartNew((ThreadStart)(() =>
-            {
-                if (Game.LocalPlayer.IsDead) End();
-                if (Game.IsKeyDown(Settings.EndCall)) End();
-            }));
+            if (MainPlayer.IsDead) End();
+            if (Game.IsKeyDown(Settings.EndCall)) End();
 
             base.Process();
         }
