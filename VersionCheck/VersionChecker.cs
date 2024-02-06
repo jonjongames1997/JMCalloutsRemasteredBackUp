@@ -45,7 +45,7 @@ namespace JMCalloutsRemastered.VersionChecker
             }
             else
             {
-                Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "", "Detected the ~g~latest~w~ build of ~o~JM Callouts Remastered! Thank you for downloading! :-)");
+                Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "", "Detected the ~g~latest~w~ build of ~o~JM Callouts Remastered~w~! Thank you for downloading! :-)");
                 return false;
             }
         }
