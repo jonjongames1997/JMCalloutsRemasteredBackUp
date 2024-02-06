@@ -39,11 +39,9 @@ namespace JMCalloutsRemastered.Callouts
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Intoxicated Individual", "~b~Dispatch:~w~ Suspect located. Respond ~r~Code 2.");
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
 
-            Suspect = new Ped(Spawnnpoint)
-            {
-                IsPersistent = true,
-                BlockPermanentEvents = true
-            };
+            Suspect = new Ped(Spawnnpoint);
+            Suspect.IsPersistent = true;
+            Suspect.BlockPermanentEvents = true;
 
             SuspectBlip = Suspect.AttachBlip();
             SuspectBlip.Color = System.Drawing.Color.CadetBlue;
