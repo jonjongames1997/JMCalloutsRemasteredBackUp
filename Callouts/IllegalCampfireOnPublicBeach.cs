@@ -20,11 +20,11 @@ namespace JMCalloutsRemastered.Callouts
             Random random = new Random();
             List<Vector3> list = new List<Vector3>
             {
-                new Vector3(-1537.564f, -1214.748f, 1.887064f), // Campfire Spawns at night //
-                new Vector3(-1420.77f, -1536.43f, 2.12f),
-                new Vector3(-1463.18f, -1357.66f, 2.89f),
-                new Vector3(-1490.16f, -1283.89f, 2.43f),
-                new Vector3(-1571.04f, -1131.01f, 3.20f),
+                new(-1537.564f, -1214.748f, 1.887064f), // Campfire Spawns at night //
+                new(-1420.77f, -1536.43f, 2.12f),
+                new(-1463.18f, -1357.66f, 2.89f),
+                new(-1490.16f, -1283.89f, 2.43f),
+                new(-1571.04f, -1131.01f, 3.20f),
             };
             Spawnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 1000f); // Blips the area of the callout //
