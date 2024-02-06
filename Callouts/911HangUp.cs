@@ -1,15 +1,4 @@
 ﻿using CalloutInterfaceAPI;
-using LSPD_First_Response.Mod.Callouts;
-using Rage;
-using JMCalloutsRemastered;
-using System;
-using System.Drawing;
-using Rage.Native;
-using JMCalloutsRemastered.Callouts;
-using JMCalloutsRemastered.Stuff;
-using System.Collections.Generic;
-using LSPD_First_Response.Engine.Scripting.Entities;
-using LSPD_First_Response.Engine.Scripting;
 
 namespace JMCalloutsRemastered.Callouts
 {
@@ -38,7 +27,7 @@ namespace JMCalloutsRemastered.Callouts
                 new Vector3(-1335.80f, -929.51f, 11.75f), // Motel Near Rob's Liquors
                 new Vector3(-232.05f, -2055.64f, 27.62f), // Maze Bank Arena Parking 
             };
-            Spawnpoint = LocationChooser.chooseNearestLocation(list);
+            Spawnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 100f);
             CalloutInterfaceAPI.Functions.SendMessage(this, "A civilian called 9-1-1 then immediately hung up. Deal with this, Officer.");
             CalloutMessage = "A citizen called 911 then hung up on dispatch"; // Brief description of callout //
