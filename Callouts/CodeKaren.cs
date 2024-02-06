@@ -1,14 +1,4 @@
 ﻿using CalloutInterfaceAPI;
-using LSPD_First_Response.Mod.Callouts;
-using Rage;
-using System;
-using System.Drawing;
-using System.Collections;
-using System.Collections.Generic;
-using JMCalloutsRemastered;
-using JMCalloutsRemastered.Stuff;
-using LSPD_First_Response.Engine.Scripting.Entities;
-using LSPD_First_Response.Engine.Scripting;
 
 namespace JMCalloutsRemastered.Callouts
 {
@@ -32,11 +22,11 @@ namespace JMCalloutsRemastered.Callouts
             Random random = new Random();
             List<Vector3> list = new List<Vector3>
             {
-                new Vector3(-624.7086f, -231.8441f, 38.05705f), // Vangelico Jewellery Store // 
-                new Vector3(4.01f, 6512.48f, 31.88f), // Discount Store in Paleto Bay
-                new Vector3(843.45f, -1031.66f, 28.19f), // Ammunation in Vespucci Blvd near Garment Factory
+                new (-624.7086f, -231.8441f, 38.05705f), // Vangelico Jewellery Store // 
+                new (4.01f, 6512.48f, 31.88f), // Discount Store in Paleto Bay
+                new (843.45f, -1031.66f, 28.19f), // Ammunation in Vespucci Blvd near Garment Factory
             };
-            Spawnpoint = LocationChooser.chooseNearestLocation(list);
+            Spawnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 100f);
             CalloutInterfaceAPI.Functions.SendMessage(this, "A business employee reporting an individual causing a scene. Respond Code 2. Possibly a Karen.");
             CalloutMessage = "A business employee requesting an officer to escort a individual causing a scene";
