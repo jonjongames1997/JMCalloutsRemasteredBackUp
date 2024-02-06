@@ -18,7 +18,7 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnBeforeCalloutDisplayed()
         {
-            Spawnpoint = World.GetNextPositionOnStreet(Game.LocalPlayer.Character.Position.Around(1000f));
+            Spawnpoint = World.GetNextPositionOnStreet(MainPlayer.Position.Around(1000f));
             ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 100f);
             CalloutInterfaceAPI.Functions.SendMessage(this, "A female civillian is selling her body for money");
             CalloutMessage = "Citizens reporting a young female selling her body for money.";
@@ -33,9 +33,11 @@ namespace JMCalloutsRemastered.Callouts
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Illegal Prostitution", "~b~Dispatch: The suspect has been spotted! Respond ~r~Code 2");
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
 
-            Suspect = new Ped(pedList[new Random().Next((int)pedList.Length)], Spawnpoint, 0f);
-            Suspect.IsPersistent = true;
-            Suspect.BlockPermanentEvents = true;
+            Suspect = new Ped(pedList[new Random().Next((int)pedList.Length)], Spawnpoint, 0f)
+            {
+                IsPersistent = true,
+                BlockPermanentEvents = true
+            };
 
             Game.DisplayNotification("Tip: This callout works best at night time.");
 
@@ -57,7 +59,7 @@ namespace JMCalloutsRemastered.Callouts
         {
             base.Process();
 
-            if (Game.LocalPlayer.Character.DistanceTo(Suspect) <= 10f)
+            if (MainPlayer.DistanceTo(Suspect) <= 10f)
             {
 
                 Game.DisplayHelp("Press ~y~E ~w~to talk to Suspect. ~y~Approach with caution.", false);
@@ -68,7 +70,7 @@ namespace JMCalloutsRemastered.Callouts
 
                     if (counter == 1)
                     {
-                        Suspect.Face(Game.LocalPlayer.Character);
+                        Suspect.Face(MainPlayer);
                         Game.DisplaySubtitle("~b~Player~w~: Excuse me, " + malefemale + ". Can you talk to me for a minute?");
                     }
                     if (counter == 2)
@@ -118,13 +120,13 @@ namespace JMCalloutsRemastered.Callouts
                     if (counter == 13)
                     {
                         Game.DisplaySubtitle("Conversation ended. Arrest the suspect.");
-                        Suspect.Tasks.FightAgainst(Game.LocalPlayer.Character); // What the suspect will do after the conversation ends //
+                        Suspect.Tasks.FightAgainst(MainPlayer); // What the suspect will do after the conversation ends //
                         Suspect.Inventory.GiveNewWeapon("WEAPON_PISTOL", 500, true);
                     }
                 }
             }
 
-            if (Game.LocalPlayer.Character.IsDead) End();
+            if (MainPlayer.IsDead) End();
             if (Game.IsKeyDown(Settings.EndCall)) End();
         }
 
