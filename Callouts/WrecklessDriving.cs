@@ -16,7 +16,7 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnBeforeCalloutDisplayed()
         {
-            spawnpoint = World.GetNextPositionOnStreet(Game.LocalPlayer.Character.Position.Around(1000f));
+            spawnpoint = World.GetNextPositionOnStreet(MainPlayer.Position.Around(1000f));
             vehicle = new Vehicle(vehicleList[new Random().Next((int)vehicleList.Length)], spawnpoint);
             vehicle.IsPersistent = true;
 
