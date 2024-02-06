@@ -81,7 +81,7 @@ namespace JMCalloutsRemastered.Callouts
                     if (counter == 1)
                     {
                         Suspect.Face(MainPlayer);
-                        Game.DisplaySubtitle("Player: Good Afternoon " + malefemale + ", How are you today?");
+                        Game.DisplaySubtitle("~b~Player~w~: Good Afternoon " + malefemale + ", How are you today?");
                     }
                     if (counter == 2)
                     {
@@ -89,7 +89,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 3)
                     {
-                        Game.DisplaySubtitle("Player: We've gotten reports from this business behind you that you were intoxicated. Did you have anything to drink today?");
+                        Game.DisplaySubtitle("~b~Player~w~: We've gotten reports from this business behind you that you were intoxicated. Did you have anything to drink today?");
                     }
                     if (counter == 4)
                     {
@@ -97,7 +97,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 5)
                     {
-                        Game.DisplaySubtitle("Player: Let me give you a sobriety test to make sure you're not under the influence of alcohol or drugs.");
+                        Game.DisplaySubtitle("~b~Player~w~: Let me give you a sobriety test to make sure you're not under the influence of alcohol or drugs.");
                     }
                     if (counter == 6)
                     {
