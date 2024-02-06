@@ -92,7 +92,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 6)
                     {
-                        Game.DisplaySubtitle("~r~Suspect:~w~ Die, you motherfucka!");
+                        Game.DisplaySubtitle("~r~Suspect~w~: Die, you motherfucka!");
                         suspect.Tasks.FightAgainst(MainPlayer);
                         suspect.Inventory.GiveNewWeapon("WEAPON_PISTOL", 500, true);
                     }
