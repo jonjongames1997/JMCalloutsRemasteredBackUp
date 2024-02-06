@@ -19,7 +19,6 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnBeforeCalloutDisplayed()
         {
-            Random random = new Random();
             List<Vector3> list = new List<Vector3>
             {
                 new(-1222.80f, -907.12f, 12.33f), // Rob's Liquors near the Nightclub
