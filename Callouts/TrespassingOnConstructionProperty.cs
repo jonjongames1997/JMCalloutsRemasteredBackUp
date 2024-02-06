@@ -1,16 +1,4 @@
 ﻿using CalloutInterfaceAPI;
-using LSPD_First_Response.Mod.Callouts;
-using Rage;
-using System;
-using System.Drawing;
-using System.Collections;
-using System.Collections.Generic;
-using JMCalloutsRemastered;
-using JMCalloutsRemastered.Stuff;
-using LSPD_First_Response.Engine.Scripting.Entities;
-using LSPD_First_Response.Engine.Scripting;
-using JMCalloutsRemastered.Callouts;
-using LSPD_First_Response.Mod.API;
 
 namespace JMCalloutsRemastered.Callouts
 {
@@ -20,11 +8,11 @@ namespace JMCalloutsRemastered.Callouts
     public class TrespassingOnConstructionProperty : Callout
     {
         // General Variables //
-        private Ped Suspect;
-        private Blip SuspectBlip;
-        private Vector3 Spawnpoint;
-        private string malefemale;
-        private int counter;
+        private static Ped Suspect;
+        private static Blip SuspectBlip;
+        private static Vector3 Spawnpoint;
+        private static string malefemale;
+        private static int counter;
 
 
         public override bool OnBeforeCalloutDisplayed()
@@ -32,12 +20,12 @@ namespace JMCalloutsRemastered.Callouts
             Random random = new Random();
             List<Vector3> list = new List<Vector3>
             {
-                new Vector3(7.788585f, -394.9392f, 39.41744f), // Construction site next the Freeway
-                new Vector3(-129.83f, -1041.61f, 27.27f), // Across from Simeon's Dealership
-                new Vector3(-1140.92f, -1405.55f, 4.44f), // Near Floyd's Apartment
-                new Vector3(-2349.65f, 3997.07f, 26.90f), // On the G.O.H near Route 68
+                new(7.788585f, -394.9392f, 39.41744f), // Construction site next the Freeway
+                new(-129.83f, -1041.61f, 27.27f), // Across from Simeon's Dealership
+                new(-1140.92f, -1405.55f, 4.44f), // Near Floyd's Apartment
+                new(-2349.65f, 3997.07f, 26.90f), // On the G.O.H near Route 68
             };
-            Spawnpoint = LocationChooser.chooseNearestLocation(list);
+            Spawnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 100f);
             CalloutInterfaceAPI.Functions.SendMessage(this, "A citizen reporting a trespasser on construction property.");
             CalloutMessage = "Reports of an individual trespassing on constrcution property";
