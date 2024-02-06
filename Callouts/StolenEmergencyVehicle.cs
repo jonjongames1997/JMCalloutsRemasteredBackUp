@@ -34,8 +34,10 @@ namespace JMCalloutsRemastered.Callouts
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Stolen Emergency Vehicle", "~b~Dispatch~w~: The suspect has been spotted! Respond ~r~Code 3~w~.");
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
 
-            emergencyVehicle = new Vehicle(emergencyVehicles[new Random().Next((int)emergencyVehicles.Length)], spawnpoint);
-            emergencyVehicle.IsSirenOn = true;
+            emergencyVehicle = new Vehicle(emergencyVehicles[new Random().Next((int)emergencyVehicles.Length)], spawnpoint)
+            {
+                IsSirenOn = true
+            };
 
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Dispatch", "Loading ~g~Information~w~ of the ~o~LSPD Database~w~...");
             LSPD_First_Response.Mod.API.Functions.DisplayVehicleRecord(emergencyVehicle, true);
