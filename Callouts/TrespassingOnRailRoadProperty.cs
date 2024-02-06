@@ -131,12 +131,14 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 10)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: You gotta catch me first!");
+                        Game.DisplaySubtitle("~r~Suspect~w~: I'm not going back to prison to drop the soap!");
                     }
                     if (counter == 11)
                     {
                         Game.DisplaySubtitle("Conversation ended.");
-                        Suspect.Tasks.ReactAndFlee(Suspect);
+                        Suspect.Tasks.FightAgainst(Game.LocalPlayer.Character);
+                        Suspect.Inventory.GiveNewWeapon("WEAPON_BAT", 500, true);
+                        Suspect.Armor = 100;
                     }
                 }
             }
