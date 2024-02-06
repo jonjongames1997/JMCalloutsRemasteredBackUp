@@ -41,11 +41,9 @@ namespace JMCalloutsRemastered.Callouts
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Possible Prostitution", "~b~Dispatch:~w~ Suspect has been spotted. Respond ~r~Code 2.");
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
 
-            Suspect = new Ped(pedList[new Random().Next((int)pedList.Length)], Spawnpoint, 0f)
-            {
-                IsPersistent = true,
-                BlockPermanentEvents = true
-            };
+            Suspect = new Ped(pedList[new Random().Next((int)pedList.Length)], Spawnpoint, 0f);
+            Suspect.IsPersistent = true;
+            Suspect.BlockPermanentEvents = true;
 
             Game.DisplayNotification("Tip: This callout works better at night time when other prostitutes are on the streets.");
 
