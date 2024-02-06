@@ -17,7 +17,7 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnBeforeCalloutDisplayed()
         {
-            List<Vector3> list = new List<Vector3>
+            List<Vector3> list = new()
             {
                 new(-53.57f, -1757.29f, 29.44f), // LTD on Grove Street
                 new(166.99f, -1554.36f, 29.26f), // Ron Station on MacDonald Street/Davis Ave
