@@ -8,11 +8,11 @@ namespace JMCalloutsRemastered.Callouts
     public class IntoxicatedIndividual : Callout
     {
 
-        private Ped Suspect;
-        private Blip SuspectBlip;
-        private Vector3 Spawnnpoint;
-        private int counter;
-        private string malefemale;
+        private static Ped Suspect;
+        private static Blip SuspectBlip;
+        private static Vector3 Spawnnpoint;
+        private static int counter;
+        private static string malefemale;
 
         public override bool OnBeforeCalloutDisplayed()
         {
