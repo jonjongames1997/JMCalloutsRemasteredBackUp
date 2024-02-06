@@ -16,7 +16,6 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnBeforeCalloutDisplayed()
         {
-            Random random = new Random();
             List<Vector3> list = new List<Vector3>
             {
                 new(94.63f, -217.37f, 54.49f), // Shopping Center in Vinewood //
