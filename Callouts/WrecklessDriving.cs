@@ -65,7 +65,7 @@ namespace JMCalloutsRemastered.Callouts
                 End();
             }
 
-            if(Game.LocalPlayer.Character.DistanceTo(vehicle) < 30f && pursuit == null)
+            if(MainPlayer.DistanceTo(vehicle) < 30f && pursuit == null)
             {
                 pursuit = LSPD_First_Response.Mod.API.Functions.CreatePursuit();
                 LSPD_First_Response.Mod.API.Functions.AddPedToPursuit(pursuit, driver);
