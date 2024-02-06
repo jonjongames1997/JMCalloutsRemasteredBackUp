@@ -16,7 +16,7 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnBeforeCalloutDisplayed()
         {
-            List<Vector3> list = new List<Vector3>
+            List<Vector3> list = new()
             {
                 // Richard's Majestic Movie Studio //
 
@@ -40,9 +40,11 @@ namespace JMCalloutsRemastered.Callouts
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Unauthorized Access Movie Studio", "~b~Dispatch: The suspect has been spotted! Respond ~r~Code 2");
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
 
-            suspect = new Ped(spawnpoint);
-            suspect.IsPersistent = true;
-            suspect.BlockPermanentEvents = true;
+            suspect = new Ped(spawnpoint)
+            {
+                IsPersistent = true,
+                BlockPermanentEvents = true
+            };
 
             susBlip = suspect.AttachBlip();
             susBlip.Color = System.Drawing.Color.Yellow;
@@ -70,7 +72,7 @@ namespace JMCalloutsRemastered.Callouts
         {
             base.Process();
 
-            if (Game.LocalPlayer.Character.DistanceTo(suspect) <= 10f)
+            if (MainPlayer.DistanceTo(suspect) <= 10f)
             {
                 Game.DisplayHelp("Press ~y~E~w~ to interact with suspect.", false);
 
