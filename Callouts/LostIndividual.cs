@@ -10,15 +10,15 @@ namespace JMCalloutsRemastered.Callouts
     {
 
         // General Variables //
-        private Ped victim;
-        private Ped suspect;
-        private Blip vicBlip;
-        private Vector3 spawnPoint;
-        private Vector3 suspectSpawnpoint;
-        private float suspectHeading;
-        private float heading;
-        private int counter;
-        private string malefemale;
+        private static Ped victim;
+        private static Ped suspect;
+        private static Blip vicBlip;
+        private static Vector3 spawnPoint;
+        private static Vector3 suspectSpawnpoint;
+        private static float suspectHeading;
+        private static float heading;
+        private static int counter;
+        private static string malefemale;
 
 
         public override bool OnBeforeCalloutDisplayed()
