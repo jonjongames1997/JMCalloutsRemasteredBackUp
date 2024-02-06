@@ -71,7 +71,7 @@ namespace JMCalloutsRemastered.Callouts
         {
             base.Process();
 
-            if (Game.LocalPlayer.Character.DistanceTo(Suspect) <= 10f)
+            if (MainPlayer.DistanceTo(Suspect) <= 10f)
             {
 
                 Game.DisplayHelp("Press ~y~E~w~ to talk to Suspect. ~y~Approach with caution.", false);
@@ -83,7 +83,7 @@ namespace JMCalloutsRemastered.Callouts
 
                     if (counter == 1)
                     {
-                        Suspect.Face(Game.LocalPlayer.Character);
+                        Suspect.Face(MainPlayer);
                         Game.DisplaySubtitle("~b~Player~w~: Hello there " + malefemale + ", Can I talk to you for a moment?");
                     }
                     if (counter == 2)
@@ -118,13 +118,13 @@ namespace JMCalloutsRemastered.Callouts
                     if (counter == 9)
                     {
                         Game.DisplayNotification("Conversation has ended.");
-                        Suspect.Tasks.FightAgainst(Game.LocalPlayer.Character);
+                        Suspect.Tasks.FightAgainst(MainPlayer);
                         Suspect.Inventory.GiveNewWeapon(wepList[new Random().Next((int)wepList.Length)], 500, true);
                     }
                 }
             }
 
-            if (Game.LocalPlayer.Character.IsDead) End();
+            if (MainPlayer.IsDead) End();
             if (Game.IsKeyDown(Settings.EndCall)) End();
         }
 
