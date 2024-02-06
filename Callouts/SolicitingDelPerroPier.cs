@@ -7,12 +7,12 @@ namespace JMCalloutsRemastered.Callouts
 
     public class SolicitingDelPerroPier : Callout
     {
-        private Ped suspect;
-        private Blip blip;
-        private Vector3 spawnpoint;
-        private float heading;
-        private string malefemale;
-        private int counter;
+        private static Ped suspect;
+        private static Blip blip;
+        private static Vector3 spawnpoint;
+        private static float heading;
+        private static string malefemale;
+        private static int counter;
 
         public override bool OnBeforeCalloutDisplayed()
         {
