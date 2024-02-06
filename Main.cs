@@ -47,6 +47,7 @@ namespace JMCalloutsRemastered
 
                     Game.DisplayNotification("web_jonjongames", "web_jonjongames", "JM Callouts Remastered", "~g~v" + Assembly.GetExecutingAssembly().GetName().Version.ToString() + " ~r~by OfficerMorrison", "~b~successfully loaded!");
                     Game.DisplayNotification("JM Callouts Remastered 4.0 is in production. After 4.0, I'll be 10-42 for the final and maybe last time in the callout programming community.");
+                    Game.DisplayNotification("If you have InteriorsV mod installed, you need to disable Story Mode Compatibility. The 'Lost Individual' callout will break if not Disabled.");
 
                     VersionChecker.VersionChecker.isUpdateAvailable();
                     GameFiber.Wait(300);
