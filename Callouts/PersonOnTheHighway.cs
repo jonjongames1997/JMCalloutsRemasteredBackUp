@@ -1,15 +1,4 @@
 ﻿using CalloutInterfaceAPI;
-using LSPD_First_Response.Mod.Callouts;
-using Rage;
-using System;
-using System.Drawing;
-using System.Collections;
-using System.Collections.Generic;
-using JMCalloutsRemastered;
-using JMCalloutsRemastered.Stuff;
-using LSPD_First_Response.Engine.Scripting.Entities;
-using LSPD_First_Response.Engine.Scripting;
-using LSPD_First_Response.Mod.API;
 
 namespace JMCalloutsRemastered.Callouts
 {
@@ -32,14 +21,14 @@ namespace JMCalloutsRemastered.Callouts
             Random random = new Random();
             List<Vector3> list = new List<Vector3>
             {
-                new Vector3(2865.42f, 4259.82f, 50.08f), // Route 13 near Maude's House 
-                new Vector3(1707.10f, 1413.60f, 85.92f), // Route 13 going into Blaine County
-                new Vector3(2440.64f, 963.54f, 87.11f), // Near the wind farm on Route 15
-                new Vector3(-2721.99f, 8.95f, 15.55f), // Route 1 going into Chumash
-                new Vector3(1668.16f, -946.03f, 64.91f), // Polomino Freeway
-                new Vector3(1311.71f, -2292.97f, 52.39f), // ElysianFields Freeway
+                new(2865.42f, 4259.82f, 50.08f), // Route 13 near Maude's House 
+                new(1707.10f, 1413.60f, 85.92f), // Route 13 going into Blaine County
+                new(2440.64f, 963.54f, 87.11f), // Near the wind farm on Route 15
+                new(-2721.99f, 8.95f, 15.55f), // Route 1 going into Chumash
+                new(1668.16f, -946.03f, 64.91f), // Polomino Freeway
+                new(1311.71f, -2292.97f, 52.39f), // ElysianFields Freeway
             };
-            spawnpoint = LocationChooser.chooseNearestLocation(list);
+            spawnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
             CalloutInterfaceAPI.Functions.SendMessage(this, "Reports of an individual on the highway");
             CalloutMessage = "A citizen's reporting an individual on the highway. Respond Code 2.";
