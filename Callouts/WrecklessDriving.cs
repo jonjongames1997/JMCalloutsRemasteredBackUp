@@ -85,7 +85,7 @@ namespace JMCalloutsRemastered.Callouts
                 }
             }
 
-            if (Game.LocalPlayer.IsDead) End();
+            if (MainPlayer.IsDead) End();
             if (Game.IsKeyDown(Settings.EndCall)) End();
 
             base.Process();
