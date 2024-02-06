@@ -1,16 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using LSPD_First_Response.Mod.API;
-using Rage;
-using System.Runtime.InteropServices;
-using JMCalloutsRemastered;
+﻿using System.Reflection;
 using JMCalloutsRemastered.Callouts;
-using JMCalloutsRemastered.Stuff;
-using JMCalloutsRemastered.VersionChecker;
 
 [assembly: Rage.Attributes.Plugin("JMCalloutsRemastered", Description = "LSPDFR Callout Pack", Author = "OfficerMorrison")]
 namespace JMCalloutsRemastered
@@ -43,7 +32,6 @@ namespace JMCalloutsRemastered
 
 
                     Game.DisplayNotification("web_jonjongames", "web_jonjongames", "JM Callouts Remastered", "~g~v" + Assembly.GetExecutingAssembly().GetName().Version.ToString() + " ~r~by OfficerMorrison", "~b~successfully loaded!");
-                    Game.DisplayNotification("JM Callouts Remastered 4.0 is in production. After 4.0, I'll be 10-42 for the final and maybe last time in the callout programming community.");
                     Game.DisplayNotification("If you have InteriorsV mod installed, you need to disable Story Mode Compatibility. The 'Lost Individual' callout will break if not Disabled.");
 
                     VersionChecker.VersionChecker.isUpdateAvailable();
