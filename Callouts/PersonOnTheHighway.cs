@@ -18,7 +18,6 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnBeforeCalloutDisplayed()
         {
-            Random random = new Random();
             List<Vector3> list = new List<Vector3>
             {
                 new(2865.42f, 4259.82f, 50.08f), // Route 13 near Maude's House 
