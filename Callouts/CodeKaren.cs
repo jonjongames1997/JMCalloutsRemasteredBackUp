@@ -19,7 +19,7 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnBeforeCalloutDisplayed()
         {
-            List<Vector3> list = new List<Vector3>
+            List<Vector3> list = new()
             {
                 new(-624.7086f, -231.8441f, 38.05705f), // Vangelico Jewellery Store // 
                 new(4.01f, 6512.48f, 31.88f), // Discount Store in Paleto Bay
@@ -40,9 +40,11 @@ namespace JMCalloutsRemastered.Callouts
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Code Karan", "~b~Dispatch: ~w~Suspect spotted. Respond ~Code 2.");
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
 
-            Suspect = new Ped(Spawnpoint);
-            Suspect.IsPersistent = true;
-            Suspect.BlockPermanentEvents = true;
+            Suspect = new Ped(Spawnpoint)
+            {
+                IsPersistent = true,
+                BlockPermanentEvents = true
+            };
 
             SuspectBlip = Suspect.AttachBlip();
             SuspectBlip.Color = System.Drawing.Color.Coral;
@@ -62,7 +64,7 @@ namespace JMCalloutsRemastered.Callouts
         {
             base.Process();
 
-            if (Game.LocalPlayer.Character.DistanceTo(Suspect) <= 10f)
+            if (MainPlayer.DistanceTo(Suspect) <= 10f)
             {
 
                 Game.DisplayHelp("Press ~y~'E'~w~ to interact with suspect.", false);
@@ -73,7 +75,7 @@ namespace JMCalloutsRemastered.Callouts
 
                     if (counter == 1)
                     {
-                        Suspect.Face(Game.LocalPlayer.Character);
+                        Suspect.Face(MainPlayer);
                         Game.DisplaySubtitle("~b~Player~w~: Excuse me, " + malefemale + ". I'm gonna have to ask you to leave the premises cause the employee doesn't want you here.");
                     }
                     if (counter == 2)
@@ -99,13 +101,13 @@ namespace JMCalloutsRemastered.Callouts
                     if (counter == 7)
                     {
                         Game.DisplayNotification("Arrest the suspect!");
-                        Suspect.Tasks.FightAgainst(Game.LocalPlayer.Character);
-                        Suspect.Inventory.GiveNewWeapon("WEAPON_CANDYCANE", 500, true);
+                        Suspect.Tasks.FightAgainst(MainPlayer);
+                        Suspect.Inventory.GiveNewWeapon("WEAPON_SWITCHBLADE", 500, true);
                     }
                 }
             }
 
-            if (Game.LocalPlayer.Character.IsDead) End();
+            if (MainPlayer.IsDead) End();
             if (Game.IsKeyDown(Settings.EndCall)) End();
         }
 
