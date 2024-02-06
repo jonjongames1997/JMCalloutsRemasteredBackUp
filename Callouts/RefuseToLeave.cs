@@ -9,7 +9,7 @@ namespace JMCalloutsRemastered.Callouts
     {
 
         // General Variables //
-        private static string[] wepList = new string[] { "WEAPON_PISTOL", "WEAPON_BAT", "WEAPON_KNIFE", "WEPAON_HAMMER", "WEAPON_MACHETE", "WEAPON_CROWBAR", "WEAPON_CARBINERIFLE" };
+        private static readonly string[] wepList = new string[] { "WEAPON_PISTOL", "WEAPON_BAT", "WEAPON_KNIFE", "WEPAON_HAMMER", "WEAPON_MACHETE", "WEAPON_CROWBAR", "WEAPON_CARBINERIFLE" };
         private static Ped Suspect;
         private static Blip SuspectBlip;
         private static Vector3 Spawnpoint;
