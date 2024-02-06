@@ -9,12 +9,12 @@ namespace JMCalloutsRemastered.Callouts
     {
 
         // General Variables //
-        private string[] pedList = new string[] { "S_F_Y_HOOKER_01", "S_F_Y_HOOKER_02", "S_F_Y_HOOKER_03" };
-        private Ped Suspect;
-        private Blip SuspectBlip;
-        private Vector3 Spawnpoint;
-        private int counter;
-        private string malefemale;
+        private static readonly string[] pedList = new string[] { "S_F_Y_HOOKER_01", "S_F_Y_HOOKER_02", "S_F_Y_HOOKER_03" };
+        private static Ped Suspect;
+        private static Blip SuspectBlip;
+        private static Vector3 Spawnpoint;
+        private static int counter;
+        private static string malefemale;
 
         public override bool OnBeforeCalloutDisplayed()
         {
