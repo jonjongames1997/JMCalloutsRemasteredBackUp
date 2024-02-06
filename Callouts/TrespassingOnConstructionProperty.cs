@@ -39,9 +39,11 @@ namespace JMCalloutsRemastered.Callouts
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Trespassing On Construction Property", "~b~Dispatch:~w~ Suspect has been spotted. Respond ~r~Code 2.");
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
 
-            Suspect = new Ped(Spawnpoint);
-            Suspect.IsPersistent = true;
-            Suspect.BlockPermanentEvents = true;
+            Suspect = new Ped(Spawnpoint)
+            {
+                IsPersistent = true,
+                BlockPermanentEvents = true
+            };
 
             SuspectBlip = Suspect.AttachBlip();
             SuspectBlip.Color = System.Drawing.Color.Beige;
@@ -69,7 +71,7 @@ namespace JMCalloutsRemastered.Callouts
         {
             base.Process();
 
-            if (Game.LocalPlayer.Character.DistanceTo(Suspect) <= 10f)
+            if (MainPlayer.DistanceTo(Suspect) <= 10f)
             {
 
                 Game.DisplayHelp("Press ~y~E~~w~ to talk to Suspect. ~y~Approach with caution.", false);
@@ -80,7 +82,7 @@ namespace JMCalloutsRemastered.Callouts
 
                     if (counter == 1)
                     {
-                        Suspect.Face(Game.LocalPlayer.Character);
+                        Suspect.Face(MainPlayer);
                         Game.DisplaySubtitle("~b~Player~w~: Excuse me, " + malefemale + ". Can you come talk to me for a minute?");
                     }
                     if (counter == 2)
@@ -107,7 +109,7 @@ namespace JMCalloutsRemastered.Callouts
                 }
             }
 
-            if (Game.LocalPlayer.Character.IsDead) End();
+            if (MainPlayer.IsDead) End();
             if (Game.IsKeyDown(Settings.EndCall)) End();
         }
 
