@@ -1,14 +1,4 @@
 ﻿using CalloutInterfaceAPI;
-using LSPD_First_Response.Mod.Callouts;
-using Rage;
-using System;
-using System.Drawing;
-using System.Collections;
-using System.Collections.Generic;
-using JMCalloutsRemastered;
-using JMCalloutsRemastered.Stuff;
-using LSPD_First_Response.Engine.Scripting.Entities;
-using LSPD_First_Response.Engine.Scripting;
 
 namespace JMCalloutsRemastered.Callouts
 {
@@ -29,13 +19,13 @@ namespace JMCalloutsRemastered.Callouts
             Random random = new Random();
             List<Vector3> list = new List<Vector3>
             {
-                new Vector3(94.63f, -217.37f, 54.49f), // Shopping Center in Vinewood //
-                new Vector3(-1682.72f,-296.65f, 51.81f), // Vinewood Cemetery
-                new Vector3(-1392.72f, -607.95f, 30.32f), // Bahama Mamas
-                new Vector3(-47.78f, -1097.19f, 26.42f), // Simeon's Dealership
-                new Vector3(128.20f, -1285.29f, 29.28f), // Vanilla Unicorn
+                new(94.63f, -217.37f, 54.49f), // Shopping Center in Vinewood //
+                new(-1682.72f,-296.65f, 51.81f), // Vinewood Cemetery
+                new(-1392.72f, -607.95f, 30.32f), // Bahama Mamas
+                new(-47.78f, -1097.19f, 26.42f), // Simeon's Dealership
+                new(128.20f, -1285.29f, 29.28f), // Vanilla Unicorn
             };
-            Spawnnpoint = LocationChooser.chooseNearestLocation(list);
+            Spawnnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(Spawnnpoint, 100f);
             CalloutInterfaceAPI.Functions.SendMessage(this, "A business owner reported an individual being drunk on business property.");
             CalloutMessage = "Suspect refused to leave property. Owner said that suspect is possibly be drunk or under the influence of narcotics. Approach with caustion.";
