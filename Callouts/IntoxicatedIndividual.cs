@@ -16,7 +16,7 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnBeforeCalloutDisplayed()
         {
-            List<Vector3> list = new List<Vector3>
+            List<Vector3> list = new ()
             {
                 new(94.63f, -217.37f, 54.49f), // Shopping Center in Vinewood //
                 new(-1682.72f,-296.65f, 51.81f), // Vinewood Cemetery
@@ -39,9 +39,11 @@ namespace JMCalloutsRemastered.Callouts
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Intoxicated Individual", "~b~Dispatch:~w~ Suspect located. Respond ~r~Code 2.");
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
 
-            Suspect = new Ped(Spawnnpoint);
-            Suspect.IsPersistent = true;
-            Suspect.BlockPermanentEvents = true;
+            Suspect = new Ped(Spawnnpoint)
+            {
+                IsPersistent = true,
+                BlockPermanentEvents = true
+            };
 
             SuspectBlip = Suspect.AttachBlip();
             SuspectBlip.Color = System.Drawing.Color.CadetBlue;
@@ -69,7 +71,7 @@ namespace JMCalloutsRemastered.Callouts
         {
             base.Process();
 
-            if (Game.LocalPlayer.Character.DistanceTo(Suspect) <= 10f)
+            if (MainPlayer.DistanceTo(Suspect) <= 10f)
             {
 
                 Game.DisplayHelp("Press ~y~E ~w~to talk to Suspect. ~y~Approach with caution.", false);
@@ -80,7 +82,7 @@ namespace JMCalloutsRemastered.Callouts
 
                     if (counter == 1)
                     {
-                        Suspect.Face(Game.LocalPlayer.Character);
+                        Suspect.Face(MainPlayer);
                         Game.DisplaySubtitle("Player: Good Afternoon " + malefemale + ", How are you today?");
                     }
                     if (counter == 2)
@@ -110,7 +112,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                 }
             }
-            if (Game.LocalPlayer.Character.IsDead) End();
+            if (MainPlayer.IsDead) End();
             if (Game.IsKeyDown(Settings.EndCall)) End();
         }
 
