@@ -1,14 +1,4 @@
 ﻿using CalloutInterfaceAPI;
-using LSPD_First_Response.Mod.Callouts;
-using Rage;
-using System;
-using System.Drawing;
-using System.Collections;
-using System.Collections.Generic;
-using JMCalloutsRemastered;
-using JMCalloutsRemastered.Stuff;
-using LSPD_First_Response.Engine.Scripting.Entities;
-using LSPD_First_Response.Engine.Scripting;
 
 namespace JMCalloutsRemastered.Callouts
 {
@@ -32,13 +22,13 @@ namespace JMCalloutsRemastered.Callouts
             Random random = new Random();
             List<Vector3> list = new List<Vector3>
             {
-                new Vector3(-1222.80f, -907.12f, 12.33f), // Rob's Liquors near the Nightclub
-                new Vector3(-1193.68f, -768.45f, 17.32f), // Suburban near Vespucci PD HQ
-                new Vector3(-330.96f, 6081.46f, 31.45f), // Ammunation Near Paleto PD
-                new Vector3(-113.23f, 6469.90f, 31.63f), // Paleto Bank
-                new Vector3(-57.16f, 6522.26f, 31.49f), // Willie's Grocery Store
+                new(-1222.80f, -907.12f, 12.33f), // Rob's Liquors near the Nightclub
+                new(-1193.68f, -768.45f, 17.32f), // Suburban near Vespucci PD HQ
+                new(-330.96f, 6081.46f, 31.45f), // Ammunation Near Paleto PD
+                new(-113.23f, 6469.90f, 31.63f), // Paleto Bank
+                new(-57.16f, 6522.26f, 31.49f), // Willie's Grocery Store
             };
-            Spawnpoint = LocationChooser.chooseNearestLocation(list);
+            Spawnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 100f);
             CalloutInterfaceAPI.Functions.SendMessage(this, "Business employee told the individual to leave the property but refuses to. Employee suspects the individual to be under the influence.");
             CalloutMessage = "Individual refusing to leave property by business owner/employee.";
