@@ -66,11 +66,8 @@ namespace JMCalloutsRemastered.Callouts
 
         public override void Process()
         {
-            GameFiber.StartNew((ThreadStart)(() =>
-            {
-                if (Game.LocalPlayer.IsDead) End();
-                if (Game.IsKeyDown(Settings.EndCall)) End();
-            }));
+            if (MainPlayer.IsDead) End();
+            if (Game.IsKeyDown(Settings.EndCall)) End();
 
             base.Process();
         }
