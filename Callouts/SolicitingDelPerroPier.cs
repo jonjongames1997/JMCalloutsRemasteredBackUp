@@ -32,9 +32,11 @@ namespace JMCalloutsRemastered.Callouts
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Soliciting - Del Perro", "~b~Dispatch: The suspect has been spotted! Respond ~r~Code 2");
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
 
-            suspect = new Ped(spawnpoint, heading);
-            suspect.IsPersistent = true;
-            suspect.BlockPermanentEvents = true;
+            suspect = new Ped(spawnpoint, heading)
+            {
+                IsPersistent = true,
+                BlockPermanentEvents = true
+            };
 
             blip = suspect.AttachBlip();
             blip.Color = System.Drawing.Color.Aqua;
@@ -60,7 +62,7 @@ namespace JMCalloutsRemastered.Callouts
 
         public override void Process()
         {
-            if (Game.LocalPlayer.Character.DistanceTo(suspect) <= 10f)
+            if (MainPlayer.DistanceTo(suspect) <= 10f)
             {
 
                 Game.DisplayHelp("Press ~y~E~w~ to interact with ~r~Suspect~w~.", false);
@@ -71,7 +73,7 @@ namespace JMCalloutsRemastered.Callouts
 
                     if (counter == 1)
                     {
-                        suspect.Face(Game.LocalPlayer.Character);
+                        suspect.Face(MainPlayer);
                         Game.DisplaySubtitle("~b~You: Excuse me, " + malefemale + ". Can you come talk to me real quick?");
                     }
                     if (counter == 2)
@@ -93,14 +95,14 @@ namespace JMCalloutsRemastered.Callouts
                     if (counter == 6)
                     {
                         Game.DisplaySubtitle("~r~Suspect:~w~ Die, you motherfucka!");
-                        suspect.Tasks.FightAgainst(Game.LocalPlayer.Character);
+                        suspect.Tasks.FightAgainst(MainPlayer);
                         suspect.Inventory.GiveNewWeapon("WEAPON_PISTOL", 500, true);
                     }
                 }
 
             }
 
-            if (Game.LocalPlayer.Character.IsDead) End();
+            if (MainPlayer.IsDead) End();
             if (Game.IsKeyDown(Settings.EndCall)) End();
 
             base.Process();
