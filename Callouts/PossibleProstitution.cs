@@ -18,7 +18,6 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnBeforeCalloutDisplayed()
         {
-            Random random = new Random();
             List<Vector3> list = new List<Vector3>
             {
                 new(-535.76f, -849.20f, 29.44f), // Near Lucky Plucker in Little Seoul // 
