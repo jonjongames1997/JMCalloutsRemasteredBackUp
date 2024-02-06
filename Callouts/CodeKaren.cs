@@ -10,16 +10,15 @@ namespace JMCalloutsRemastered.Callouts
     {
 
         // General Variables //
-        private Ped Suspect;
-        private Blip SuspectBlip;
-        private Vector3 Spawnpoint;
-        private string malefemale;
-        private int counter;
+        private static Ped Suspect;
+        private static Blip SuspectBlip;
+        private static Vector3 Spawnpoint;
+        private static string malefemale;
+        private static int counter;
 
 
         public override bool OnBeforeCalloutDisplayed()
         {
-            Random random = new Random();
             List<Vector3> list = new List<Vector3>
             {
                 new(-624.7086f, -231.8441f, 38.05705f), // Vangelico Jewellery Store // 
