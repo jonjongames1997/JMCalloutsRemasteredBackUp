@@ -9,15 +9,14 @@ namespace JMCalloutsRemastered.Callouts
     {
 
         // General Variables //
-        private Ped Suspect;
-        private Blip SuspectBlip;
-        private Vector3 Spawnpoint;
-        private int counter;
-        private string malefemale;
+        private static Ped Suspect;
+        private static Blip SuspectBlip;
+        private static Vector3 Spawnpoint;
+        private static int counter;
+        private static string malefemale;
 
         public override bool OnBeforeCalloutDisplayed()
         {
-            Random random = new Random();
             List<Vector3> list = new List<Vector3>
             {
                 new(-1537.564f, -1214.748f, 1.887064f), // Campfire Spawns at night //
