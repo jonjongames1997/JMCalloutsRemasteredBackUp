@@ -1,15 +1,4 @@
 ﻿using CalloutInterfaceAPI;
-using LSPD_First_Response.Mod.Callouts;
-using Rage;
-using System;
-using System.Drawing;
-using System.Collections;
-using System.Collections.Generic;
-using JMCalloutsRemastered;
-using JMCalloutsRemastered.Stuff;
-using LSPD_First_Response.Engine.Scripting.Entities;
-using LSPD_First_Response.Engine.Scripting;
-using LSPD_First_Response.Mod.API;
 
 namespace JMCalloutsRemastered.Callouts
 {
@@ -32,12 +21,12 @@ namespace JMCalloutsRemastered.Callouts
             Random random = new Random();
             List<Vector3> list = new List<Vector3>
             {
-                new Vector3(154.39f, -987.48f, 30.09f), // Legion Square in Mission Row //
-                new Vector3(-330.96f, 6081.46f, 31.45f), // Ammunation Near Paleto PD
-                new Vector3(-113.23f, 6469.90f, 31.63f), // Paleto Bank
-                new Vector3(-57.16f, 6522.26f, 31.49f), // Willie's Grocery Store
+                new(154.39f, -987.48f, 30.09f), // Legion Square in Mission Row //
+                new(-330.96f, 6081.46f, 31.45f), // Ammunation Near Paleto PD
+                new(-113.23f, 6469.90f, 31.63f), // Paleto Bank
+                new(-57.16f, 6522.26f, 31.49f), // Willie's Grocery Store
             };
-            Spawnpoint = LocationChooser.chooseNearestLocation(list);
+            Spawnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 100f);
             CalloutInterfaceAPI.Functions.SendMessage(this, "An individual is asking people for money and harassing them. Deal with this, Officer.");
             CalloutMessage = "An Individual asking people for money.";
