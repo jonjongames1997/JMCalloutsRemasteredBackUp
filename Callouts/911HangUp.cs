@@ -9,23 +9,22 @@ namespace JMCalloutsRemastered.Callouts
     {
 
         // General Variables //
-        private Ped Suspect;
-        private Blip SuspectBlip;
-        private Vector3 Spawnpoint;
-        private string malefemale;
-        private int counter;
+        private static Ped Suspect;
+        private static Blip SuspectBlip;
+        private static Vector3 Spawnpoint;
+        private static string malefemale;
+        private static int counter;
 
 
         public override bool OnBeforeCalloutDisplayed()
         {
-            Random random = new Random();
             List<Vector3> list = new List<Vector3>
             {
-                new (1082.087f, -346.2961f, 67.1872f), // Mirror Park near Horny's //
-                new (-1294.99f, -1316.46f, 4.69f), // OCRP Postal 305/Vespucci Beach //
-                new (-1281.43f, -1139.24f, 6.47f), // Bean Machine in Vespucci Beach
-                new (-1335.80f, -929.51f, 11.75f), // Motel Near Rob's Liquors
-                new (-232.05f, -2055.64f, 27.62f), // Maze Bank Arena Parking 
+                new(1082.087f, -346.2961f, 67.1872f), // Mirror Park near Horny's //
+                new(-1294.99f, -1316.46f, 4.69f), // OCRP Postal 305/Vespucci Beach //
+                new(-1281.43f, -1139.24f, 6.47f), // Bean Machine in Vespucci Beach
+                new(-1335.80f, -929.51f, 11.75f), // Motel Near Rob's Liquors
+                new(-232.05f, -2055.64f, 27.62f), // Maze Bank Arena Parking 
             };
             Spawnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 100f);
