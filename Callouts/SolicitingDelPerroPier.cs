@@ -1,15 +1,4 @@
 ﻿using CalloutInterfaceAPI;
-using LSPD_First_Response.Mod.Callouts;
-using Rage;
-using System;
-using System.Drawing;
-using System.Collections;
-using System.Collections.Generic;
-using JMCalloutsRemastered;
-using JMCalloutsRemastered.Stuff;
-using LSPD_First_Response.Engine.Scripting.Entities;
-using LSPD_First_Response.Engine.Scripting;
-using JMCalloutsRemastered.Callouts;
 
 namespace JMCalloutsRemastered.Callouts
 {
@@ -27,7 +16,7 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnBeforeCalloutDisplayed()
         {
-            spawnpoint = new Vector3(-1651.26f, -1007.90f, 13.02f); // Del Perro Pier
+            spawnpoint = new(-1651.26f, -1007.90f, 13.02f); // Del Perro Pier
             heading = 214.98f;
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
             CalloutInterfaceAPI.Functions.SendMessage(this, "Reports of an individual asking people for money");
