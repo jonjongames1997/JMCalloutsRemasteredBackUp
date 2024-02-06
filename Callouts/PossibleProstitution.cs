@@ -1,15 +1,4 @@
 ﻿using CalloutInterfaceAPI;
-using LSPD_First_Response.Mod.Callouts;
-using Rage;
-using System;
-using System.Drawing;
-using System.Collections;
-using System.Collections.Generic;
-using JMCalloutsRemastered;
-using JMCalloutsRemastered.Stuff;
-using LSPD_First_Response.Engine.Scripting.Entities;
-using LSPD_First_Response.Engine.Scripting;
-using JMCalloutsRemastered.Callouts;
 
 namespace JMCalloutsRemastered.Callouts
 {
@@ -32,13 +21,13 @@ namespace JMCalloutsRemastered.Callouts
             Random random = new Random();
             List<Vector3> list = new List<Vector3>
             {
-                new Vector3(-535.76f, -849.20f, 29.44f), // Near Lucky Plucker in Little Seoul // 
-                new Vector3(-415.10f, 1172.77f, 325.81f), // Galileo Observatory
-                new Vector3(-1137.11f, 2664.79f, 18.07f), // Route 68 near Fort Zancudo
-                new Vector3(-2326.10f, 374.99f, 174.61f), // University of Los Santos
-                new Vector3(-1618.14f, 178.25f, 60.26f), // Kortz Center
+                new(-535.76f, -849.20f, 29.44f), // Near Lucky Plucker in Little Seoul // 
+                new(-415.10f, 1172.77f, 325.81f), // Galileo Observatory
+                new(-1137.11f, 2664.79f, 18.07f), // Route 68 near Fort Zancudo
+                new(-2326.10f, 374.99f, 174.61f), // University of Los Santos
+                new(-1618.14f, 178.25f, 60.26f), // Kortz Center
             };
-            Spawnpoint = LocationChooser.chooseNearestLocation(list);
+            Spawnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 100f);
             CalloutInterfaceAPI.Functions.SendMessage(this, "A citizen reported a young female selling her body for money. Talk to her and see if the claim is true. Approach with caution.");
             CalloutMessage = "Citizens reporting a young female possibly selling her body for money.";
