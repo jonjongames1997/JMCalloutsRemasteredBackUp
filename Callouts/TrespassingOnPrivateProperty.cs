@@ -25,6 +25,26 @@ namespace JMCalloutsRemastered.Callouts
                 new(980.39f, -627.39f, 59.24f), // OCRP Postal 430
                 new(-350.56f, 513.67f, 120.64f), // OCRP Postal 549
                 new(-1943.11f, 449.60f, 102.93f), // OCRP Postal 832
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
             };
             Spawnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 100f);
