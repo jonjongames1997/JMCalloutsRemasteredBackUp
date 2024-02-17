@@ -26,6 +26,26 @@ namespace JMCalloutsRemastered.Callouts
                 new(-2721.99f, 8.95f, 15.55f), // Route 1 going into Chumash
                 new(1668.16f, -946.03f, 64.91f), // Polomino Freeway
                 new(1311.71f, -2292.97f, 52.39f), // ElysianFields Freeway
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
             };
             spawnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
