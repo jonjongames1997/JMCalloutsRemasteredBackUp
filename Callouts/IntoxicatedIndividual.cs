@@ -20,9 +20,29 @@ namespace JMCalloutsRemastered.Callouts
             {
                 new(94.63f, -217.37f, 54.49f), // Shopping Center in Vinewood //
                 new(-1682.72f,-296.65f, 51.81f), // Vinewood Cemetery
-                new(-1392.72f, -607.95f, 30.32f), // Bahama Mamas
+                new(-1392.72f, -607.95f, 30.32f), // Bahama Mamas. Requires either OpenInteriors or Enable All Interiors
                 new(-47.78f, -1097.19f, 26.42f), // Simeon's Dealership
                 new(128.20f, -1285.29f, 29.28f), // Vanilla Unicorn
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
             };
             Spawnnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(Spawnnpoint, 100f);
