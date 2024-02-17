@@ -3,7 +3,7 @@
 namespace JMCalloutsRemastered.Callouts
 {
 
-    [CalloutInterface("9-1-1 Hang Up", CalloutProbability.High, "An individual hung up on 911.", "Code 1", "LSPD")]
+    [CalloutInterface("9-1-1 Hang Up", CalloutProbability.High, "An individual hung up on 911.", "Code 2", "LSPD")]
 
     public class _911HangUp : Callout
     {
@@ -25,6 +25,26 @@ namespace JMCalloutsRemastered.Callouts
                 new(-1281.43f, -1139.24f, 6.47f), // Bean Machine in Vespucci Beach
                 new(-1335.80f, -929.51f, 11.75f), // Motel Near Rob's Liquors
                 new(-232.05f, -2055.64f, 27.62f), // Maze Bank Arena Parking 
+                new(139.11f, -1635.78f, 29.30f), // Near Ron Station on Davis Ave
+                new(130.16F, -1737.21f, 30.11f), // Train Station next to Davis Mall
+                new(-1324.74f, -397.55f, 35.83f), // Ammunation in Morningwood 
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
             };
             Spawnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 100f);
@@ -38,7 +58,7 @@ namespace JMCalloutsRemastered.Callouts
         public override bool OnCalloutAccepted()
         {
             Game.LogTrivial("[JM Callouts Remastered Log]: 9-1-1 Hang Up callout accepted!");
-            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~ 9-1-1 Hang Up", "~b~Dispatch: Suspect has been spotted. Respond ~r~Code 1.");
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~ 9-1-1 Hang Up", "~b~Dispatch: Suspect has been spotted. Respond ~r~Code 2~w~.");
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
 
             Suspect = new Ped(Spawnpoint);
@@ -46,6 +66,7 @@ namespace JMCalloutsRemastered.Callouts
             Suspect.BlockPermanentEvents = true;
 
             SuspectBlip = Suspect.AttachBlip();
+            Suspect.Tasks.PutHandsUp(-1, MainPlayer);
             SuspectBlip.Color = System.Drawing.Color.BlueViolet;
             SuspectBlip.IsRouteEnabled = true;
 
@@ -57,6 +78,14 @@ namespace JMCalloutsRemastered.Callouts
             counter = 0;
 
             return base.OnCalloutAccepted();
+        }
+
+        public override void OnCalloutNotAccepted()
+        {
+            if (Suspect) Suspect.Delete();
+            if (SuspectBlip) SuspectBlip.Delete();
+
+            base.OnCalloutNotAccepted();
         }
 
         public override void Process()
