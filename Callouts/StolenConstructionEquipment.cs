@@ -9,7 +9,7 @@ namespace JMCalloutsRemastered.Callouts
 
     public class StolenConstructionEquipment : Callout
     {
-        private static readonly string[] constructionVehicles = new string[] { "BULLDOZER", "CUTTER", "DUMP", "MIXER", "MIXER2", "HANDLER", "RUBBLE", "TIPTRUCK", "TIPTRUCK2" };
+        private static readonly string[] constructionVehicles = new string[] { "BULLDOZER", "CUTTER", "DUMP", "MIXER", "MIXER2", "HANDLER", "RUBBLE", "TIPTRUCK", "TIPTRUCK2", "BISON3", "SCRAP" };
         private static Vehicle constructionVehicle;
         private static Ped suspect;
         private static Vector3 spawnpoint;
