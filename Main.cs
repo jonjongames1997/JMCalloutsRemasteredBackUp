@@ -34,7 +34,7 @@ namespace JMCalloutsRemastered
                     Game.DisplayNotification("web_jonjongames", "web_jonjongames", "JM Callouts Remastered", "~g~v" + Assembly.GetExecutingAssembly().GetName().Version.ToString() + " ~r~by OfficerMorrison", "~b~successfully loaded!");
                     Game.DisplayNotification("If you have InteriorsV mod installed, you need to disable Story Mode Compatibility. The 'Lost Individual' callout will break if not Disabled.");
 
-                    VersionChecker.VersionChecker.isUpdateAvailable();
+                    VersionChecker.VersionChecker.IsUpdateAvailable();
                     GameFiber.Wait(300);
                 });
         }
@@ -66,6 +66,7 @@ namespace JMCalloutsRemastered
             if (Settings.TrespassingOnSchoolGrounds) { Functions.RegisterCallout(typeof(TrespassingOnSchoolGrounds)); }
             if (Settings.PersonOnTheHighway) { Functions.RegisterCallout(typeof(PersonOnTheHighway)); }
             if (Settings.StolenConstructionEquipment) { Functions.RegisterCallout(typeof(StolenConstructionEquipment)); }
+            if (Settings.DomesticDisturbance) { Functions.RegisterCallout(typeof(DomesticDisturbance)); }
             Game.Console.Print("[LOG]: All callouts of the JMCalloutsRemastered.ini were loaded successfully.");
             Game.Console.Print();
             Game.Console.Print("================================================== JM Callouts Remastered ===================================================");
