@@ -26,6 +26,26 @@ namespace JMCalloutsRemastered.Callouts
                 new(-330.96f, 6081.46f, 31.45f), // Ammunation Near Paleto PD
                 new(-113.23f, 6469.90f, 31.63f), // Paleto Bank
                 new(-57.16f, 6522.26f, 31.49f), // Willie's Grocery Store
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
             };
             Spawnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 100f);
