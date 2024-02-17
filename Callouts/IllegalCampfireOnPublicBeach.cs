@@ -23,7 +23,27 @@ namespace JMCalloutsRemastered.Callouts
                 new(-1420.77f, -1536.43f, 2.12f),
                 new(-1463.18f, -1357.66f, 2.89f),
                 new(-1490.16f, -1283.89f, 2.43f),
-                new(-1571.04f, -1131.01f, 3.20f),
+                new(-1571.04f, -1131.01f, 3.20f), /// Vespucci Beach ///
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
             };
             Spawnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 1000f); // Blips the area of the callout //
@@ -57,6 +77,14 @@ namespace JMCalloutsRemastered.Callouts
             counter = 0;
 
             return base.OnCalloutAccepted();
+        }
+
+        public override void OnCalloutNotAccepted()
+        {
+            if (Suspect) Suspect.Delete();
+            if (SuspectBlip) SuspectBlip.Delete();
+
+            base.OnCalloutNotAccepted();
         }
 
         public override void Process()
