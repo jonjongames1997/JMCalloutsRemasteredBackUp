@@ -24,6 +24,26 @@ namespace JMCalloutsRemastered.Callouts
                 new(1743.83f, 3464.93f, 38.50f), // Railroad tracks on Panarama Dr/Sandy Shores Welcome sign
                 new(2609.09f, 1699.36f, 26.83f), // Near power station near Sandy Shores/Davis Quartz
                 new(2744.25f, 3888.97f, 43.94f), // See screenshot for location 
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
             };
             Spawnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 1000f);
