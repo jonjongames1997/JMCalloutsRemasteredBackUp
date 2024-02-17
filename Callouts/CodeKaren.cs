@@ -24,6 +24,26 @@ namespace JMCalloutsRemastered.Callouts
                 new(-624.7086f, -231.8441f, 38.05705f), // Vangelico Jewellery Store // 
                 new(4.01f, 6512.48f, 31.88f), // Discount Store in Paleto Bay
                 new(843.45f, -1031.66f, 28.19f), // Ammunation in Vespucci Blvd near Garment Factory
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
             };
             Spawnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 100f);
@@ -56,6 +76,14 @@ namespace JMCalloutsRemastered.Callouts
             counter = 0;
 
             return base.OnCalloutAccepted();
+        }
+
+        public override void OnCalloutNotAccepted()
+        {
+            if (Suspect) Suspect.Delete();
+            if (SuspectBlip) SuspectBlip.Delete();
+
+            base.OnCalloutNotAccepted();
         }
 
         public override void Process()
