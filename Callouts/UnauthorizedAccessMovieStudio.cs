@@ -24,6 +24,26 @@ namespace JMCalloutsRemastered.Callouts
                 new(-1116.63f, -502.75f, 35.81f), // Dressing Room Trailer near the movie set
                 new(-1135.64f, -458.73f, 35.42f), // Electricty Trailer near the movie set
                 new(-1157.02f, -563.55f, 35.78f), // Ac Units near the movie set
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
             };
             spawnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
