@@ -23,6 +23,26 @@ namespace JMCalloutsRemastered.Callouts
                 new(1693.54f, 4822.75f, 42.06f), // Clothing Shop in Grape Seed
                 new(1991.82f, 3048.46f, 47.22f), // Yellow Jack
                 new(1197.32f, 2695.93f, 37.91f), // Clothing Shop on Route 68
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
+                new(),
             };
             spawnPoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(spawnPoint, 100f);
