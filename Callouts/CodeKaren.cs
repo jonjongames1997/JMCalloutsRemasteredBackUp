@@ -24,26 +24,26 @@ namespace JMCalloutsRemastered.Callouts
                 new(-624.7086f, -231.8441f, 38.05705f), // Vangelico Jewellery Store // 
                 new(4.01f, 6512.48f, 31.88f), // Discount Store in Paleto Bay
                 new(843.45f, -1031.66f, 28.19f), // Ammunation in Vespucci Blvd near Garment Factory
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
+                new(1197.06f, 2709.98f, 38.22f), // Clothing Shop on Route 68
+                new(2675.74f, 3283.97f, 55.24f), // 24/7 on Senora Freeway near Sandy
+                new(547.30f, 2667.02f, 42.16f), // 24/7 on Route 68
+                new(1730.48f, 6417.37f, 35.04f), // 24/7 on Senora Freewat near Paleto Bay
+                new(-3170.14f, 1044.83f, 20.86f), // Suburban on Great Ocean Highway
+                new(-2968.63f, 390.61f, 15.04f), // 24/7 on Great Ocean Highway next to Fleeca Bank
+                new(-2962.58f, 482.68f, 15.70f), // Fleeca Bank on Great Ocean Highway
+                new(-162.73f, -303.62f, 39.73f), // Ponsynby's in Vinewood
+                new(148.06f, -1040.05f, 29.38f), // Fleeca Bank in Los Santos
+                new(76.46f, -1391.67f, 29.38f),  // Clothing Shop on Innocence Blvd near Strip Club
+                new(1699.80f, 4924.14f, 42.06f), // Grapeseed Gas Station //
+                new(1693.83f, 4821.21f, 42.06f), // Grapeseed clothing shop
+                new(1791.17f, 4590.48f, 37.68f), // OCRP Postal 2018 
+                new(1962.04f, 3740.62f, 32.34f), // 24/7 in Sandy Shores
+                new(-3242.32f, 1002.13f, 12.83f), // 24/7 in Chumash
+                new(-1337.89f, -1273.98f, 4.90f), // Mask Shop in Vespucci
+                new(-1272.96f, -1419.59f, 4.34f), // OCRP Postal 306
+                new(-1120.70f, -1340.96f, 5.07f), // OCRP Postal 327
+                new(-838.83f, -610.09f, 29.03f), // Bean Machine in Downtown KoreaTown
+                new(-519.88f, -677.55f, 33.67f), // Pizza Parlor in West Koreatown
             };
             Spawnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 100f);
@@ -63,6 +63,8 @@ namespace JMCalloutsRemastered.Callouts
             Suspect = new Ped(Spawnpoint);
             Suspect.IsPersistent = true;
             Suspect.BlockPermanentEvents = true;
+            Suspect.IsMeleeProof = true; // Testing Purposes //
+            Suspect.Inventory.GiveNewWeapon("WEAPON_UNARMED", 500, true);
 
             SuspectBlip = Suspect.AttachBlip();
             SuspectBlip.Color = System.Drawing.Color.Coral;
