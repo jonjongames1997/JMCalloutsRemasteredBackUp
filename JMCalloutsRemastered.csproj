@@ -122,6 +122,7 @@
     <Compile Include="Callouts\IllegalProstitution.cs" />
     <Compile Include="Callouts\IntoxicatedIndividual.cs" />
     <Compile Include="Callouts\LostIndividual.cs" />
+    <Compile Include="Callouts\MovieHopping.cs" />
     <Compile Include="Callouts\PersonOnTheHighway.cs" />
     <Compile Include="Callouts\PossibleProstitution.cs" />
     <Compile Include="Callouts\PublicDisturbance.cs" />
@@ -131,6 +132,7 @@
     <Compile Include="Callouts\SolicitingDelPerroPier.cs" />
     <Compile Include="Callouts\StolenConstructionEquipment.cs" />
     <Compile Include="Callouts\StolenEmergencyVehicle.cs" />
+    <Compile Include="Callouts\StolenMilitaryEquipment.cs" />
     <Compile Include="Callouts\TrespassingOnConstructionProperty.cs" />
     <Compile Include="Callouts\TrespassingOnPrivateProperty.cs" />
     <Compile Include="Callouts\TrespassingOnRailRoadProperty.cs" />
