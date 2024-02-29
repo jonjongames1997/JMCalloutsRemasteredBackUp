@@ -24,26 +24,9 @@ namespace JMCalloutsRemastered.Callouts
                 new(288.13f, -1267.06f, 29.44f), // Gas Station near Vanilla Unicorn on Capital Blvd
                 new(2677.34f, 3281.31f, 55.24f), // Gas Station on Senora Freeway/Route 13
                 new(2001.63f, 3779.19f, 32.18f), // Gas station on Alhambra Dr next to the 24/7 in Sandy Shores
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
+                new(-1820.98f, 792.17f, 138.12f),
+                new(-3170.89f, 1043.86f, 20.86f),
+                new(-3041.66f, 585.92f, 7.91f),
             };
             Spawnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 100f);
@@ -63,6 +46,7 @@ namespace JMCalloutsRemastered.Callouts
             Suspect = new Ped(Spawnpoint);
             Suspect.IsPersistent = true;
             Suspect.BlockPermanentEvents = true;
+            Suspect.IsMeleeProof = true;
 
             SuspectBlip = Suspect.AttachBlip();
             SuspectBlip.Color = System.Drawing.Color.HotPink;
