@@ -26,26 +26,9 @@ namespace JMCalloutsRemastered.Callouts
                 new(-330.96f, 6081.46f, 31.45f), // Ammunation Near Paleto PD
                 new(-113.23f, 6469.90f, 31.63f), // Paleto Bank
                 new(-57.16f, 6522.26f, 31.49f), // Willie's Grocery Store
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
+                new(-3170.89f, 1043.86f, 20.86f), // Suburban in Chumash
+                new(-1660.25f, -1043.75f, 13.15f),
+                new(-1276.61f, -1417.05f, 4.34f),
             };
             Spawnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 100f);
@@ -65,7 +48,7 @@ namespace JMCalloutsRemastered.Callouts
             Suspect = new Ped(Spawnpoint);
             Suspect.IsPersistent = true;
             Suspect.BlockPermanentEvents = true;
-
+            Suspect.IsMeleeProof = true;
 
             SuspectBlip = Suspect.AttachBlip();
             SuspectBlip.Color = System.Drawing.Color.BlueViolet;
