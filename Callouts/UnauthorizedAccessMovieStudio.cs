@@ -24,26 +24,9 @@ namespace JMCalloutsRemastered.Callouts
                 new(-1116.63f, -502.75f, 35.81f), // Dressing Room Trailer near the movie set
                 new(-1135.64f, -458.73f, 35.42f), // Electricty Trailer near the movie set
                 new(-1157.02f, -563.55f, 35.78f), // Ac Units near the movie set
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
+                new(-1189.71f, -537.50f, 28.75f),
+                new(-1187.39f, -496.85f, 35.57f),
+                new(-1187.11f, -457.27f, 33.92f),
             };
             spawnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
@@ -63,6 +46,7 @@ namespace JMCalloutsRemastered.Callouts
             suspect = new Ped(spawnpoint);
             suspect.IsPersistent = true;
             suspect.BlockPermanentEvents = true;
+            suspect.IsMeleeProof = true;
 
             susBlip = suspect.AttachBlip();
             susBlip.Color = System.Drawing.Color.Yellow;
