@@ -26,26 +26,26 @@ namespace JMCalloutsRemastered.Callouts
                 new(-2721.99f, 8.95f, 15.55f), // Route 1 going into Chumash
                 new(1668.16f, -946.03f, 64.91f), // Polomino Freeway
                 new(1311.71f, -2292.97f, 52.39f), // ElysianFields Freeway
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
+                new(1165.92f, 6508.53f, 20.97f), // Great Ocean Highway near Paleto Bay
+                new(1500.31f, 6443.57f, 22.48f),
+                new(2028.89f, 6091.67f, 48.02f),
+                new(2373.62f, 5778.17f, 46.05f),
+                new(2578.77f, 5191.19f, 44.72f),
+                new(2673.34f, 4825.73f, 44.58f),
+                new(2879.91f, 3705.77f, 52.63f),
+                new(2397.75f, 2928.08f, 40.24f),
+                new(1923.26f, 2495.40f, 54.73f),
+                new(1827.58f, 1998.85f, 56.74f),
+                new(2514.53f, 196.93f, 104.21f),
+                new(2419.41f, -218.85f, 86.01f),
+                new(2250.02f, -464.08f, 90.19f),
+                new(1363.15f, -1082.76f, 52.49f),
+                new(1060.88f, -1184.31f, 55.82f),
+                new(535.26f, -1186.54f, 41.97f),
+                new(-282.89f, -1193.05f, 37.08f),
+                new(-455.82f, -1584.14f, 39.17f),
+                new(-906.17f, -1824.35f, 35.34f),
+                new(-228.77f, -2455.10f, 55.88f),
             };
             spawnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
@@ -65,7 +65,7 @@ namespace JMCalloutsRemastered.Callouts
             suspect = new Ped(pedList[new Random().Next((int)pedList.Length)], spawnpoint, 0f);
             suspect.IsPersistent = true;
             suspect.BlockPermanentEvents = true;
-            
+            suspect.IsMeleeProof = true;
 
             blip = suspect.AttachBlip();
             blip.Color = System.Drawing.Color.Gold;
