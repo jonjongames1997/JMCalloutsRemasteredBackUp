@@ -28,23 +28,23 @@ namespace JMCalloutsRemastered.Callouts
                 new(139.11f, -1635.78f, 29.30f), // Near Ron Station on Davis Ave
                 new(130.16F, -1737.21f, 30.11f), // Train Station next to Davis Mall
                 new(-1324.74f, -397.55f, 35.83f), // Ammunation in Morningwood 
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
+                new(332.11f, 180.63f, 103.11f), // Oriental Theatre on Vinewood Blvd.
+                new(344.79f, -191.55f, 57.23f), // OCRP Postal 582
+                new(757.17f, -229.23f, 66.11f), // The park near Cab Depot
+                new(1316.90f, -1666.68f, 51.24f), // OCRP Postal 184
+                new(947.70f, -2112.82f, 30.56f), // Meat Factory Near Mirror Park
+                new(1072.90f, -3066.06f, 5.58f), // The docks 
+                new(501.06f, -3015.24f, 5.72f), // OCRP Postal 28
+                new(181.76f, -2996.86f, 5.42f), // OCRP postal 23
+                new(-169.38f, -2615.76f, 5.68f), // The Ports
+                new(-993.00f, -2130.90f, 10.20f), // Near LSIA
+                new(-1049.26f, -1622.02f, 3.96f), // Vespucci Beach/OCRP Postal 321
+                new(-1038.28f, -1133.90f, 1.83f), // Vespucci Canals
+                new(-1367.36f, -658.04f, 27.53f), // OCRP Postal 628
+                new(-3224.25f, 1080.55f, 10.52f), // Chumash/G.O.H.
+                new(-448.69f, 118.38f, 64.22f), // OCRP Postal 527
+                new(-9.04f, -285.22f, 46.86f), // OCRP Postal 540
+                new(470.14f, 270.12f, 102.73f), // Clinton Ave Hotel
             };
             Spawnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 100f);
