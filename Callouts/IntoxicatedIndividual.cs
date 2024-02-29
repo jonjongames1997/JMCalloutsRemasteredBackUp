@@ -16,30 +16,15 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnBeforeCalloutDisplayed()
         {
-            List<Vector3> list = new ()
+            List<Vector3> list = new()
             {
                 new(94.63f, -217.37f, 54.49f), // Shopping Center in Vinewood //
                 new(-1682.72f,-296.65f, 51.81f), // Vinewood Cemetery
                 new(-1392.72f, -607.95f, 30.32f), // Bahama Mamas. Requires either OpenInteriors or Enable All Interiors
                 new(-47.78f, -1097.19f, 26.42f), // Simeon's Dealership
                 new(128.20f, -1285.29f, 29.28f), // Vanilla Unicorn
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
+                new(-195.23f, -1125.62f, 23.02f), // Construction site near Simeon's Dealership
+                new(-37.90f, -1808.93f, 26.49f), // Grove Street
                 new(),
                 new(),
                 new(),
@@ -62,10 +47,12 @@ namespace JMCalloutsRemastered.Callouts
             Suspect = new Ped(Spawnnpoint);
             Suspect.IsPersistent = true;
             Suspect.BlockPermanentEvents = true;
+            Suspect.IsMeleeProof = true;
 
             SuspectBlip = Suspect.AttachBlip();
             SuspectBlip.Color = System.Drawing.Color.CadetBlue;
             SuspectBlip.IsRouteEnabled = true;
+            Suspect.Tasks.Wander();
 
             if (Suspect.IsMale)
                 malefemale = "sir";
