@@ -3,7 +3,7 @@
 namespace JMCalloutsRemastered.Callouts
 {
 
-    [CalloutInterface("Domestic Disturbance", CalloutProbability.Medium, "Reports of a domestic disturbance", "Code 2", "LSPD")]
+    [CalloutInterface("Domestic Disturbance", CalloutProbability.High, "Reports of a domestic disturbance", "Code 2", "LSPD")]
 
     public class DomesticDisturbance : Callout
     {
@@ -42,6 +42,7 @@ namespace JMCalloutsRemastered.Callouts
             victim = new Ped(spawnPoint, heading);
             victim.IsPersistent = true;
             victim.BlockPermanentEvents = true;
+            victim.IsMeleeProof = true;
 
             suspect = new Ped(suspectSpawnpoint, suspectHeading);
             suspect.IsPersistent = true;
@@ -50,6 +51,7 @@ namespace JMCalloutsRemastered.Callouts
             susBlip = suspect.AttachBlip();
             susBlip.Color = System.Drawing.Color.Red;
             suspect.Tasks.StandStill(500);
+            suspect.IsMeleeProof = true;
 
             vicBlip = victim.AttachBlip();
             vicBlip.Color = System.Drawing.Color.DodgerBlue;
@@ -79,7 +81,7 @@ namespace JMCalloutsRemastered.Callouts
 
             if(MainPlayer.DistanceTo(victim) <= 10f)
             {
-                Game.DisplayHelp("Press ~y~E~w~ to interact with ~r~suspect~w~.", false);
+                Game.DisplayHelp("Press ~y~E~w~ to interact with the ~r~Victim~w~.", false);
 
                 if (Game.IsKeyDown(System.Windows.Forms.Keys.E))
                 {
@@ -92,7 +94,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if(counter == 2)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: Hello, Officer. I am doing fine.... well, kinda. We are having an argument over headphones and earbuds. My buddy claims that over the head headphones is different from headphones. I told my buddy is stil headphones. I do apologize for you being called out.");
+                        Game.DisplaySubtitle("~r~Victim~w~: Hello, Officer. I am doing fine.... well, kinda. We are having an argument over headphones and earbuds. My buddy claims that over the head headphones is different from headphones. I told my buddy is stil headphones. I do apologize for you being called out.");
                     }
                     if(counter == 3)
                     {
@@ -108,15 +110,27 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if(counter == 6)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: I'm not a Gen Z, officer, my buddy is. But ok officer.");
+                        Game.DisplaySubtitle("~r~Victim~w~: I'm not a Gen Z, officer, my buddy is. But ok officer.");
                     }
                     if(counter == 7)
                     {
                         Game.DisplaySubtitle("Conversation Ended. Talk to the ~r~Suspect~w~.");
                     }
-                    if(counter == 8)
+                }
+            }
+
+            if(MainPlayer.DistanceTo(suspect) <= 10f)
+            {
+                if (Game.IsKeyDown(System.Windows.Forms.Keys.E))
+                {
+                    counter++;
+
+                    if (counter == 1)
                     {
                         Game.DisplaySubtitle("~r~Suspect~w~: Fuck you, motherfucker! I am not going back to prison and get my booty violated.");
+                    }
+                    if(counter == 2)
+                    {
                         suspect.Tasks.FightAgainst(MainPlayer);
                         suspect.Inventory.GiveNewWeapon("WEAPON_COMBATPISTOL", 500, true);
                         suspect.Armor = 500;
