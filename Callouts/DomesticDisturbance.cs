@@ -50,7 +50,6 @@ namespace JMCalloutsRemastered.Callouts
             suspect.KeepTasks = true;
             susBlip = suspect.AttachBlip();
             susBlip.Color = System.Drawing.Color.Red;
-            suspect.Tasks.StandStill(500);
             suspect.IsMeleeProof = true;
 
             vicBlip = victim.AttachBlip();
@@ -119,10 +118,14 @@ namespace JMCalloutsRemastered.Callouts
                 }
             }
 
-            if(MainPlayer.DistanceTo(suspect) <= 10f)
+            if(MainPlayer.DistanceTo(suspect) <= 20f)
             {
+
+                Game.DisplayHelp("Press ~y~E~w to interact with ~r~Suspect~w~.", false);
+
                 if (Game.IsKeyDown(System.Windows.Forms.Keys.E))
                 {
+
                     counter++;
 
                     if (counter == 1)
