@@ -3,7 +3,7 @@
 namespace JMCalloutsRemastered.Callouts
 {
 
-    [CalloutInterface("Trespassing On Private Property", CalloutProbability.Medium, "An individual spotted on private property", "Code 2", "LSPD")]
+    [CalloutInterface("Trespassing On Private Property", CalloutProbability.Low, "An individual spotted on private property", "Code 2", "LSPD")]
 
     public class TrespassingOnPrivateProperty : Callout
     {
@@ -25,26 +25,9 @@ namespace JMCalloutsRemastered.Callouts
                 new(980.39f, -627.39f, 59.24f), // OCRP Postal 430
                 new(-350.56f, 513.67f, 120.64f), // OCRP Postal 549
                 new(-1943.11f, 449.60f, 102.93f), // OCRP Postal 832
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
+                new(-817.84f, 178.33f, 72.22f),
+                new(-1039.47f, 314.27f, 66.88f),
+                new(-802.71f, 423.11f, 91.58f),
             };
             Spawnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 100f);
@@ -64,6 +47,7 @@ namespace JMCalloutsRemastered.Callouts
             Suspect = new Ped(Spawnpoint);
             Suspect.IsPersistent = true;
             Suspect.BlockPermanentEvents = true;
+            Suspect.IsMeleeProof = true;
 
             SuspectBlip = Suspect.AttachBlip();
             SuspectBlip.Color = System.Drawing.Color.Black;
@@ -116,11 +100,11 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 4)
                     {
-                        Game.DisplaySubtitle("~r~Suspect:~w~ Trying to get a girl on my lap cause I have been working hard all day and I deserve to have fun. Is that a problem?");
+                        Game.DisplaySubtitle("~r~Suspect:~w~ Trying to work things out with my ex. Is that a problem?");
                     }
                     if (counter == 5)
                     {
-                        Game.DisplaySubtitle("~b~Player~w~: Yes, the owner of this business doesn't want you here. I need you to leave the property cause the owner is requesting a restraining order against you.");
+                        Game.DisplaySubtitle("~b~Player~w~: No but you're ex doesn't want you here. I need you to leave the property cause your ex is requesting a restraining order against you.");
                     }
                     if (counter == 6)
                     {
@@ -128,18 +112,16 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 7)
                     {
-                        Game.DisplayNotification("You noticed the suspect is getting hostile.");
                         Game.DisplaySubtitle("~b~Player~w~: Leave now, " + malefemale + "! Refusing to leave the property will have you in handcuffs. You will be charged with criminal mischief and disobeying a lawful order.");
                     }
                     if (counter == 8)
                     {
-                        Game.DisplaySubtitle("~r~Suspect:~w~ Fine! I will have my revenge.");
+                        Game.DisplaySubtitle("~r~Suspect:~w~ Fine! That dick tickler is making a big mistake.");
                     }
                     if (counter == 9)
                     {
                         Game.DisplayNotification("Conversation has ended.");
-                        Suspect.Tasks.FightAgainst(MainPlayer);
-                        Suspect.Inventory.GiveNewWeapon(wepList[new Random().Next((int)wepList.Length)], 500, true);
+                        Suspect.Tasks.Wander();
                     }
                 }
             }
