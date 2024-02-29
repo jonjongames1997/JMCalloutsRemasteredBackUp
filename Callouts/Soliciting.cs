@@ -3,7 +3,7 @@
 namespace JMCalloutsRemastered.Callouts
 {
 
-    [CalloutInterface("Soliciting", CalloutProbability.High, "An individual soliciting on private property", "Code 3", "LSPD")]
+    [CalloutInterface("Soliciting", CalloutProbability.Medium, "An individual soliciting on private property", "Code 3", "LSPD")]
 
     public class Soliciting : Callout
     {
@@ -24,27 +24,9 @@ namespace JMCalloutsRemastered.Callouts
                 new(-330.96f, 6081.46f, 31.45f), // Ammunation Near Paleto PD
                 new(-113.23f, 6469.90f, 31.63f), // Paleto Bank
                 new(-57.16f, 6522.26f, 31.49f), // Willie's Grocery Store
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
+                new(-1251.52f, -1453.30f, 4.35f),
+                new(-1014.72f, -1366.83f, 5.55f),
+                new(-1181.91f, -884.12f, 13.78f),
             };
             Spawnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 100f);
@@ -64,6 +46,7 @@ namespace JMCalloutsRemastered.Callouts
             Suspect = new Ped(Spawnpoint);
             Suspect.IsPersistent = true;
             Suspect.BlockPermanentEvents = true;
+            Suspect.IsMeleeProof = true;
 
             SuspectBlip = Suspect.AttachBlip();
             SuspectBlip.Color = System.Drawing.Color.Indigo;
