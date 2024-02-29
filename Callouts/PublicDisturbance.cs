@@ -23,26 +23,26 @@ namespace JMCalloutsRemastered.Callouts
                 new(1693.54f, 4822.75f, 42.06f), // Clothing Shop in Grape Seed
                 new(1991.82f, 3048.46f, 47.22f), // Yellow Jack
                 new(1197.32f, 2695.93f, 37.91f), // Clothing Shop on Route 68
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
+                new(-2962.76f, 482.39f, 15.70f),
+                new(-1450.11f, -614.95f, 30.83f),
+                new(-817.27f, -621.98f, 29.22f),
+                new(-250.46f, -728.36f, 33.32f),
+                new(18.70f, -1122.72f, 28.95f),
+                new(233.85f, -1512.19f, 28.73f),
+                new(175.51f, -1736.56f, 28.89f),
+                new(370.55f, -1986.71f, 24.23f),
+                new(550.10f, -1772.51f, 33.44f),
+                new(488.65f, -1313.33f, 29.26f),
+                new(-163.46f, -303.08f, 39.73f),
+                new(244.34f, -389.38f, 45.87f),
+                new(225.60f, 339.84f, 105.57f),
+                new(81.13f, 274.48f, 110.21f),
+                new(-369.74f, 264.92f, 84.98f),
+                new(-638.03f, -110.30f, 37.99f),
+                new(-545.24f, -204.61f, 38.22f),
+                new(-1820.98f, 792.17f, 138.12f),
+                new(-1466.04f, -326.55f, 44.80f),
+                new(-1314.80f, -645.97f, 26.45f),
             };
             spawnPoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(spawnPoint, 100f);
@@ -62,6 +62,8 @@ namespace JMCalloutsRemastered.Callouts
             suspect = new Ped(spawnPoint);
             suspect.IsPersistent = true;
             suspect.BlockPermanentEvents = true;
+            suspect.IsMeleeProof = true;
+            suspect.IsValid(); // Testing //
 
             SuspectBlip = suspect.AttachBlip();
             SuspectBlip.Color = System.Drawing.Color.BurlyWood;
