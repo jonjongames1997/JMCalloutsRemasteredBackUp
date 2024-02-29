@@ -19,31 +19,28 @@ namespace JMCalloutsRemastered.Callouts
         {
             List<Vector3> list = new()
             {
-                new(-1537.564f, -1214.748f, 1.887064f), // Campfire Spawns at night //
+                // Campfire Spawns at night //
+                new(-1537.564f, -1214.748f, 1.887064f), /// Vespucci Beach ///
                 new(-1420.77f, -1536.43f, 2.12f),
                 new(-1463.18f, -1357.66f, 2.89f),
                 new(-1490.16f, -1283.89f, 2.43f),
-                new(-1571.04f, -1131.01f, 3.20f), /// Vespucci Beach ///
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
+                new(-1571.04f, -1131.01f, 3.20f),
+                new(-3078.07f, 532.86f, 2.36f),
+                new(-2951.33f, 3.74f, 7.43f),
+                new(-2868.12f, -28.59f, 5.34f),
+                new(-2065.61f, -548.95f, 5.52f),
+                new(-1955.56f, -658.09f, 6.51f),
+                new(-1888.42f, -731.95f, 6.71f),
+                new(-1871.27f, -771.81f, 6.07f),
+                new(-1817.46f, -905.95f, 2.76f),
+                new(-1329.29f, -1694.91f, 2.20f),
+                new(-1241.34f, -1785.47f, 2.50f),
+                new(1299.17f, 6610.68f, 2.13f), // Procorpio Beach/Blaine County
+                new(-2609.83f, 3563.55f, 4.01f),
+                new(-2320.80f, 4373.31f, 8.01f),
+                new(-1731.23f, 4941.31f, 4.15f),
+                new(-837.07f, 5903.42f, 5.11f),
+                new(-345.28f, 6502.31f, 2.91f),
             };
             Spawnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 1000f); // Blips the area of the callout //
@@ -64,6 +61,7 @@ namespace JMCalloutsRemastered.Callouts
             Suspect = new Ped(Spawnpoint);
             Suspect.IsPersistent = true;
             Suspect.BlockPermanentEvents = true;
+            Suspect.IsMeleeProof = true;
 
             SuspectBlip = Suspect.AttachBlip();
             SuspectBlip.Color = System.Drawing.Color.Chocolate;
