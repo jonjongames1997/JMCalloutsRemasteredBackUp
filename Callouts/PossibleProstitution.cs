@@ -3,13 +3,13 @@
 namespace JMCalloutsRemastered.Callouts
 {
 
-    [CalloutInterface("Possible Prostitution", CalloutProbability.High, "A female possibly selling her body for money", "Code 2", "LCSO")]
+    [CalloutInterface("Possible Prostitution", CalloutProbability.Medium, "A female possibly selling her body for money", "Code 2", "LCSO")]
 
     public class PossibleProstitution : Callout
     {
 
         // General Variables //
-        private static readonly string[] pedList = new string[] { "S_F_Y_HOOKER_01", "S_F_Y_HOOKER_02", "S_F_Y_HOOKER_03" };
+        private static readonly string[] pedList = new string[] { "S_F_Y_HOOKER_01", "S_F_Y_HOOKER_02", "S_F_Y_HOOKER_03", "IG_ABIGAIL", "IG_AMANDATOWNLEY", "G_F_Y_BALLAS_01", "S_F_Y_BARTENDER_01", "A_F_M_BEACH_01", "IG_MARYANN", "IG_MOLLY", "A_F_Y_RURMETH_01", "A_F_Y_EASTSA_03", "MP_F_MISTY_01" };
         private static Ped Suspect;
         private static Blip SuspectBlip;
         private static Vector3 Spawnpoint;
@@ -25,26 +25,26 @@ namespace JMCalloutsRemastered.Callouts
                 new(-1137.11f, 2664.79f, 18.07f), // Route 68 near Fort Zancudo
                 new(-2326.10f, 374.99f, 174.61f), // University of Los Santos
                 new(-1618.14f, 178.25f, 60.26f), // Kortz Center
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
+                new(203.46f, -2952.93f, 6.02f),
+                new(241.05f, -2631.20f, 6.02f),
+                new(277.89f, -2539.12f, 5.76f),
+                new(880.85f, -2449.57f, 28.57f),
+                new(912.89f, -2196.08f, 30.47f),
+                new(1046.61f, -2179.10f, 31.47f),
+                new(1443.83f, -1856.55f, 71.50f),
+                new(1317.76f, -1615.19f, 52.35f),
+                new(-3144.28f, 1056.61f, 20.54f),
+                new(-2937.53f, 481.45f, 15.24f),
+                new(-2074.46f, -326.96f, 13.32f),
+                new(-1544.78f, -329.74f, 46.98f),
+                new(-1327.82f, -202.22f, 43.58f),
+                new(-1182.08f, -136.73f, 40.13f),
+                new(-935.60f, -125.23f, 37.76f),
+                new(-601.90f, 120.41f, 59.81f),
+                new(-528.28f, 308.22f, 83.02f),
+                new(-374.88f, 188.17f, 80.59f),
+                new(-229.39f, 108.89f, 69.70f),
+                new(20.42f, -90.22f, 58.74f),
             };
             Spawnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 100f);
@@ -64,6 +64,7 @@ namespace JMCalloutsRemastered.Callouts
             Suspect = new Ped(pedList[new Random().Next((int)pedList.Length)], Spawnpoint, 0f);
             Suspect.IsPersistent = true;
             Suspect.BlockPermanentEvents = true;
+            Suspect.IsMeleeProof = true;
 
             Game.DisplayNotification("Tip: This callout works better at night time when other prostitutes are on the streets.");
 
