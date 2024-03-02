@@ -1,5 +1,7 @@
 ﻿using System.Net;
 
+using JMCalloutsRemastered.VersionChecker;
+
 namespace JMCalloutsRemastered.VersionChecker
 {
     public class VersionChecker
