@@ -23,9 +23,9 @@ namespace JMCalloutsRemastered.Callouts
                 new(-129.83f, -1041.61f, 27.27f), // Across from Simeon's Dealership
                 new(-1140.92f, -1405.55f, 4.44f), // Near Floyd's Apartment
                 new(-2349.65f, 3997.07f, 26.90f), // On the G.O.H near Route 68
-                new(),
-                new(),
-                new(),
+                new(-452.89f, -541.51f, 25.13f),
+                new(-59.43f, -546.32f, 31.59f),
+                new(55.14f, -710.83f, 30.84f),
             };
             Spawnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 100f);
