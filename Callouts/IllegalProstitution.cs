@@ -125,9 +125,8 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 13)
                     {
-                        Game.DisplaySubtitle("Conversation ended. Arrest the suspect.");
-                        Suspect.Tasks.FightAgainst(MainPlayer); // What the suspect will do after the conversation ends //
-                        Suspect.Inventory.GiveNewWeapon("WEAPON_PISTOL", 500, true);
+                        Game.DisplaySubtitle("Conversation ended...");
+                        Suspect.Tasks.Wander();
                     }
                 }
             }
