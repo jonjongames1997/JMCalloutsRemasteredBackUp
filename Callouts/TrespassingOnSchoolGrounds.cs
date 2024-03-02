@@ -93,10 +93,9 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if(counter == 6)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: Fuck me, they know I am not a student here. Take your last breath of fresh air, Motherfucker!");
+                        Game.DisplaySubtitle("~r~Suspect~w~: Shit! They know I am not a student here. Take your last breath of fresh air, Motherfucker!");
                         suspect.Inventory.GiveNewWeapon(wepList[new Random().Next((int)wepList.Length)], 500, true);
                         suspect.Tasks.FightAgainst(MainPlayer);
-                        suspect.Inventory.GiveNewWeapon("WEAPON_PISTOL", 500, true);
                     }
                 }
             }
