@@ -23,7 +23,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
-    <CodeAnalysisRuleSet>MixedRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
     <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -43,7 +43,7 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <DebugType>full</DebugType>
     <PlatformTarget>x86</PlatformTarget>
-    <LangVersion>7.3</LangVersion>
+    <LangVersion>preview</LangVersion>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MixedRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
@@ -125,6 +125,7 @@
     <Compile Include="Callouts\MovieHopping.cs" />
     <Compile Include="Callouts\PersonOnTheHighway.cs" />
     <Compile Include="Callouts\PossibleProstitution.cs" />
+    <Compile Include="Callouts\ProhibitedUnderageTattoo.cs" />
     <Compile Include="Callouts\PublicDisturbance.cs" />
     <Compile Include="Callouts\RefuseToLeave.cs" />
     <Compile Include="Callouts\RefuseToPay.cs" />
@@ -153,6 +154,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />
+    <AdditionalFiles Include="JMCalloutsRemastered.ini" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
