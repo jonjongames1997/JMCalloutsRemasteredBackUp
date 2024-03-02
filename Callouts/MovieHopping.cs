@@ -42,11 +42,11 @@ namespace JMCalloutsRemastered.Callouts
             suspect.IsPersistent = true;
             suspect.BlockPermanentEvents = true;
             suspect.IsMeleeProof = true;
+            suspect.IsValid();
 
             suspectBlip = suspect.AttachBlip();
             suspectBlip.Color = System.Drawing.Color.Blue;
             suspectBlip.IsRouteEnabled = true;
-            suspect.Tasks.PutHandsUp(500, MainPlayer);
 
             if (suspect.IsMale)
                 malefemale = "Sir";
@@ -81,6 +81,7 @@ namespace JMCalloutsRemastered.Callouts
 
                     if(counter == 1)
                     {
+                        suspect.Face(MainPlayer);
                         Game.DisplaySubtitle("~b~Player~w~: Excuse me, " + malefemale + ". Come here and talk to me.");
                     }
                     if(counter == 2)
@@ -117,7 +118,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if(counter == 10)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: Nope, I'm not going to jail and get my booty violated. You'll never take me alive, copper.");
+                        Game.DisplaySubtitle("~r~Suspect~w~: Nope, I'm not going to jail. I can't survive prison, they'll kill me. You'll never take me alive, copper.");
                     }
                     if(counter == 11)
                     {
@@ -125,8 +126,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if(counter == 12)
                     {
-                        suspect.Tasks.FightAgainst(MainPlayer);
-                        suspect.Inventory.GiveNewWeapon("WEAPON_COMBATPISTOL", 500, true);
+                        suspect.Tasks.ReactAndFlee(suspect);
                     }
                 }
             }
