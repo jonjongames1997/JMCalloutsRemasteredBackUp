@@ -25,9 +25,9 @@ namespace JMCalloutsRemastered.Callouts
                 new(128.20f, -1285.29f, 29.28f), // Vanilla Unicorn
                 new(-195.23f, -1125.62f, 23.02f), // Construction site near Simeon's Dealership
                 new(-37.90f, -1808.93f, 26.49f), // Grove Street
-                new(),
-                new(),
-                new(),
+                new(907.54f, -1733.49f, 30.59f),
+                new(809.17f, -1109.94f, 29.08f),
+                new(787.99f, -758.52f, 26.77f),
             };
             Spawnnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(Spawnnpoint, 100f);
