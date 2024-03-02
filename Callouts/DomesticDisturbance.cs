@@ -113,30 +113,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if(counter == 7)
                     {
-                        Game.DisplaySubtitle("Conversation Ended. Talk to the ~r~Suspect~w~.");
-                    }
-                }
-            }
-
-            if(MainPlayer.DistanceTo(suspect) <= 20f)
-            {
-
-                Game.DisplayHelp("Press ~y~E~w to interact with ~r~Suspect~w~.", false);
-
-                if (Game.IsKeyDown(System.Windows.Forms.Keys.E))
-                {
-
-                    counter++;
-
-                    if (counter == 1)
-                    {
-                        Game.DisplaySubtitle("~r~Suspect~w~: Fuck you, motherfucker! I am not going back to prison and get my booty violated.");
-                    }
-                    if(counter == 2)
-                    {
-                        suspect.Tasks.FightAgainst(MainPlayer);
-                        suspect.Inventory.GiveNewWeapon("WEAPON_COMBATPISTOL", 500, true);
-                        suspect.Armor = 500;
+                        Game.DisplaySubtitle("Conversation Ended. Talk to the ~r~Suspect~w~. Roleplay it out.");
                     }
                 }
             }
