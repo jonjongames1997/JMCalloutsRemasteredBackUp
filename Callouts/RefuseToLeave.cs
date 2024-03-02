@@ -9,7 +9,6 @@ namespace JMCalloutsRemastered.Callouts
     {
 
         // General Variables //
-        private static readonly string[] wepList = new string[] { "WEAPON_PISTOL", "WEAPON_BAT", "WEAPON_KNIFE", "WEPAON_HAMMER", "WEAPON_MACHETE", "WEAPON_CROWBAR", "WEAPON_CARBINERIFLE" };
         private static Ped Suspect;
         private static Blip SuspectBlip;
         private static Vector3 Spawnpoint;
@@ -133,8 +132,7 @@ namespace JMCalloutsRemastered.Callouts
                     if (counter == 12)
                     {
                         Game.DisplaySubtitle("Conversation ended!");
-                        Suspect.Tasks.FightAgainst(MainPlayer);
-                        Suspect.Inventory.GiveNewWeapon(wepList[new Random().Next((int)wepList.Length)], 500, true);
+                        Suspect.Tasks.ReactAndFlee(Suspect);
                     }
                 }
             }
