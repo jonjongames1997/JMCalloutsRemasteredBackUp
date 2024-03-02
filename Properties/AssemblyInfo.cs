@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System.Resources;
+using System.Reflection;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following
@@ -7,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("JMCalloutsRemastered")]
 [assembly: AssemblyDescription("LSPDFR Callout Pack for LSPDFR Police Mod")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("JonJonGamesStudiosInc")]
+[assembly: AssemblyCompany("Scary Raven Game Studios")]
 [assembly: AssemblyProduct("JMCalloutsRemastered")]
 [assembly: AssemblyCopyright("Copyright ©  2022 - 2024")]
 [assembly: AssemblyTrademark("")]
@@ -31,5 +32,6 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("4.1.0")]
-[assembly: AssemblyFileVersion("4.1.0")]
+[assembly: AssemblyVersion("4.2.1")]
+[assembly: AssemblyFileVersion("4.2.1")]
+[assembly: NeutralResourcesLanguage("en-US")]
