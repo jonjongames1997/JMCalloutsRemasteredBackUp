@@ -105,6 +105,7 @@ namespace JMCalloutsRemastered
             if (Settings.DomesticDisturbance) { Functions.RegisterCallout(typeof(DomesticDisturbance)); }
             if (Settings.StolenMilitaryEquipment) { Functions.RegisterCallout(typeof(StolenMilitaryEquipment)); }
             if (Settings.MovieHopping) { Functions.RegisterCallout(typeof(MovieHopping)); }
+            if (Settings.ProhibitedUnderageTattoo) { Functions.RegisterCallout(typeof(ProhibitedUnderageTattoo)); }
             Game.Console.Print("[LOG]: All callouts of the JMCalloutsRemastered.ini were loaded successfully.");
             Game.Console.Print();
             Game.Console.Print("================================================== JM Callouts Remastered ===================================================");
