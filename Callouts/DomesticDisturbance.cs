@@ -3,7 +3,7 @@
 namespace JMCalloutsRemastered.Callouts
 {
 
-    [CalloutInterface("Domestic Disturbance", CalloutProbability.High, "Reports of a domestic disturbance", "Code 2", "LSPD")]
+    [CalloutInterface("Domestic Disturbance", CalloutProbability.Medium, "Reports of a domestic disturbance", "Code 2", "LSPD")]
 
     public class DomesticDisturbance : Callout
     {
@@ -26,6 +26,7 @@ namespace JMCalloutsRemastered.Callouts
             suspectSpawnpoint = new(-18.09f, -1432.39f, 31.10f);
             suspectHeading = 236.09f;
             ShowCalloutAreaBlipBeforeAccepting(spawnPoint, 100f);
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudioUsingPosition("ATTENTION_ALL_UNITS_02 WE_HAVE_01 CRIME_DOMESTIC_DISTURBANCE UNITS_RESPOND_CODE_02_02", spawnPoint);
             CalloutInterfaceAPI.Functions.SendMessage(this, "A neighbor's reporting a loud argument next door.");
             CalloutMessage = "Reports of a domestic disturbance";
             CalloutPosition = spawnPoint;
@@ -36,7 +37,7 @@ namespace JMCalloutsRemastered.Callouts
         public override bool OnCalloutAccepted()
         {
             Game.LogTrivial("[JM Callouts Remastered Log]: Domestic Disturbance callout accepted!");
-            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Domestic Disturbance", "~b~Dispatch: Suspect has been spotted. Respond ~r~Code 2~w~.");
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Domestic Disturbance", "~b~Dispatch~w~: Suspect has been spotted. Respond ~r~Code 2~w~.");
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
 
             victim = new Ped(spawnPoint, heading);
@@ -124,31 +125,16 @@ namespace JMCalloutsRemastered.Callouts
 
         public override void End()
         {
-            if (victim.Exists())
-            {
-                victim.Dismiss();
-            }
-            if (vicBlip.Exists())
-            {
-                vicBlip.Delete();
-            }
-
-            if (suspect.Exists())
-            {
-                suspect.Dismiss();
-            }
-
-            if (susBlip.Exists())
-            {
-                susBlip.Delete();
-            }
-
-            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Domestic Disturbance", "~b~You:~w~ Dispatch, we are ~g~Code 4~w~. Show me back 10-8.");
+            if (victim) victim.Dismiss();
+            if (vicBlip) vicBlip.Delete();
+            if (suspect) suspect.Dismiss();
+            if (susBlip) susBlip.Delete();
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Domestic Disturbance", "~b~You~w~: Dispatch, we are ~g~Code 4~w~. Show me back 10-8.");
             LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_THIS_IS_DISPATCH_HIGH ALL_UNITS_CODE4 NO_FURTHER_UNITS_REQUIRED");
 
             base.End();
 
-            Game.LogTrivial("[JM Callouts Remastered]: Domestic Disturbance is CODE 4!");
+            Game.LogTrivial("[LOG]: JM Callouts Remastered - Domestic Disturbance is Code 4!");
         }
     }
 }

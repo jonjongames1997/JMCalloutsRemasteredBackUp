@@ -4,7 +4,7 @@ using System.Threading;
 namespace JMCalloutsRemastered.Callouts
 {
 
-    [CalloutInterface("Stolen Construction Equipment", CalloutProbability.Medium, "Reports of stolen construction equipment.", "Code 3", "LSPD")]
+    [CalloutInterface("Stolen Construction Equipment", CalloutProbability.High, "Reports of stolen construction equipment.", "Code 3", "LSPD")]
 
 
     public class StolenConstructionEquipment : Callout
@@ -21,8 +21,8 @@ namespace JMCalloutsRemastered.Callouts
         {
             spawnpoint = World.GetNextPositionOnStreet(MainPlayer.Position.Around(1000f));
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_ALL_UNITS_02 WE_HAVE_01 CRIME_STOLEN_VEHICLE_SPOTTED UNITS_RESPOND_CODE_03_02");
             CalloutInterfaceAPI.Functions.SendMessage(this, "Mulitple reports of a stolen construction equipment");
-            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_ALL_UNITS_01 WE_HAVE_01 CRIME_SUSPECT_ON_THE_RUN_01 UNITS_RESPOND_CODE_03_02");
             CalloutMessage = "Reports of stolen construction equipment";
             CalloutPosition = spawnpoint;
 

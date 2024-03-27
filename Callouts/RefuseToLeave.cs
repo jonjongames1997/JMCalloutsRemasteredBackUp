@@ -3,7 +3,7 @@
 namespace JMCalloutsRemastered.Callouts
 {
 
-    [CalloutInterface("Refuse To Leave", CalloutProbability.Medium, "An individual refuses to leave property", "Code 2", "LSPD")]
+    [CalloutInterface("Refuse To Leave", CalloutProbability.Medium, "An individual refuses to leave property", "Code 1", "LSPD")]
 
     public class RefuseToLeave : Callout
     {
@@ -31,7 +31,8 @@ namespace JMCalloutsRemastered.Callouts
             };
             Spawnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 100f);
-            CalloutInterfaceAPI.Functions.SendMessage(this, "Business employee told the individual to leave the property but refuses to. Employee suspects the individual to be under the influence.");
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_ALL_UNITS_02 WE_HAVE_01 ");
+            CalloutInterfaceAPI.Functions.SendMessage(this, "Person refusing to leave");
             CalloutMessage = "Individual refusing to leave property by business owner/employee.";
             CalloutPosition = Spawnpoint;
 
@@ -41,7 +42,7 @@ namespace JMCalloutsRemastered.Callouts
         public override bool OnCalloutAccepted()
         {
             Game.LogTrivial("[JM Callouts Remastered Log]: Refuse To Leave callout accepted!");
-            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Refuse To Leave", "~b~Dispatch: ~w~Suspect has been spotted. Respond ~r~Code 2");
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Refuse To Leave", "~b~Dispatch~w~: Suspect has been spotted. Respond ~r~Code 1~w~.");
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
 
             Suspect = new Ped(Spawnpoint);
@@ -87,11 +88,11 @@ namespace JMCalloutsRemastered.Callouts
                     if (counter == 1)
                     {
                         Suspect.Face(MainPlayer);
-                        Game.DisplaySubtitle("Player: Hello there " + malefemale + ", Can I talk to you for a second?");
+                        Game.DisplaySubtitle("~b~Player~w~: Hello there " + malefemale + ", Can I talk to you for a second?");
                     }
                     if (counter == 2)
                     {
-                        Game.DisplaySubtitle("~r~Suspect:~w~ What now donut pigs?");
+                        Game.DisplaySubtitle("~r~Suspect~w~: What now donut pigs?");
                     }
                     if (counter == 3)
                     {
@@ -99,7 +100,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 4)
                     {
-                        Game.DisplaySubtitle("~r~Suspect:~w~ That bitch over there told me I can't come in here.");
+                        Game.DisplaySubtitle("~r~Suspect~w~: That bitch over there told me I can't come in here.");
                     }
                     if (counter == 5)
                     {
@@ -107,11 +108,11 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 6)
                     {
-                        Game.DisplaySubtitle("~r~Suspect:~w~ I was outside the door asking people for money. They called the cops and they told me that I was trespassed from the property.");
+                        Game.DisplaySubtitle("~r~Suspect~w~: I was outside the door asking people for money. They called the cops and they told me that I was trespassed from the property.");
                     }
                     if (counter == 7)
                     {
-                        Game.DisplayNotification("~y~Tip~w~: ~o~If the suspect was trespassed from the property before, that's an arrestable offense.");
+                        Game.DisplayNotification("~y~Tip~w~: If the suspect was trespassed from the property before, that's an arrestable offense.");
                     }
                     if (counter == 8)
                     {
@@ -119,7 +120,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 9)
                     {
-                        Game.DisplaySubtitle("~r~Suspect:~w~ WHAT?! Are you f***ing with me?");
+                        Game.DisplaySubtitle("~r~Suspect~w~: WHAT?! Are you f***ing with me?");
                     }
                     if (counter == 10)
                     {
@@ -127,7 +128,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 11)
                     {
-                        Game.DisplaySubtitle("~r~Suspect:~w~ F**k you and f**k them! I'm outta here, playa!");
+                        Game.DisplaySubtitle("~r~Suspect~w~: F**k you and f**k them! I'm outta here, playa!");
                     }
                     if (counter == 12)
                     {
@@ -144,16 +145,9 @@ namespace JMCalloutsRemastered.Callouts
         {
             base.End();
 
-            if (Suspect.Exists())
-            {
-                Suspect.Dismiss();
-            }
-            if (SuspectBlip.Exists())
-            {
-                SuspectBlip.Delete();
-            }
-
-            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Refuse To Leave", "~b~You:~w~ Dispatch, we are ~g~Code 4~w~. Show me back 10-8.");
+            if (Suspect) Suspect.Dismiss();
+            if (SuspectBlip) SuspectBlip.Delete();
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Refuse To Leave", "~b~You~w~: Dispatch, we are ~g~Code 4~w~. Show me back 10-8.");
             LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ALL_UNITS_CODE4 NO_FURTHER_UNITS_REQUIRED");
 
             Game.LogTrivial("JM Callouts Remastered - Refuse to leave is Code 4!");

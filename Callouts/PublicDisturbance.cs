@@ -3,7 +3,7 @@
 namespace JMCalloutsRemastered.Callouts
 {
 
-    [CalloutInterface("Public Disturbance", CalloutProbability.Medium, "A individual causing a scene in public", "Code 3", "LSPD")]
+    [CalloutInterface("Public Disturbance", CalloutProbability.Medium, "A individual causing a scene in public", "Code 2", "LSPD")]
 
     public class PublicDisturbance : Callout
     {
@@ -46,6 +46,7 @@ namespace JMCalloutsRemastered.Callouts
             };
             spawnPoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(spawnPoint, 100f);
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_ALL_UNITS_02 WE_HAVE_01 CRIME_PUBLIC_DISTURBANCE UNITS_RESPOND_CODE_02_02");
             CalloutInterfaceAPI.Functions.SendMessage(this, "A citizen's reporting a public disturbance.");
             CalloutMessage = "A citizen's reporting a person threatening a victim's life with a deadly weapon.";
             CalloutPosition = spawnPoint;
@@ -62,8 +63,6 @@ namespace JMCalloutsRemastered.Callouts
             suspect = new Ped(spawnPoint);
             suspect.IsPersistent = true;
             suspect.BlockPermanentEvents = true;
-            suspect.IsMeleeProof = true;
-            suspect.IsValid(); // Testing //
 
             SuspectBlip = suspect.AttachBlip();
             SuspectBlip.Color = System.Drawing.Color.BurlyWood;
@@ -147,7 +146,6 @@ namespace JMCalloutsRemastered.Callouts
                         suspect.Tasks.Wander();
                     }
                 }
-
                 if (MainPlayer.IsDead) End();
                 if (Game.IsKeyDown(Settings.EndCall)) End();
             }
@@ -157,16 +155,9 @@ namespace JMCalloutsRemastered.Callouts
         {
             base.End();
 
-            if (suspect.Exists())
-            {
-                suspect.Dismiss();
-            }
-            if (SuspectBlip.Exists())
-            {
-                SuspectBlip.Delete();
-            }
-
-            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Public Disturbance", "~b~You:~w~ Dispatch, we are ~g~Code 4.~w~ Show me back 10-8.");
+            if (suspect) suspect.Dismiss();
+            if (SuspectBlip) SuspectBlip.Delete();
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Public Disturbance", "~b~You~w~: Dispatch, we are ~g~Code 4~w~. Show me back 10-8.");
             LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_THIS_IS_DISPATCH_HIGH ALL_UNITS_CODE4 NO_FURTHER_UNITS_REQUIRED");
 
             Game.LogTrivial("JM Callouts Remastered - Public Disturbance is Code 4!");

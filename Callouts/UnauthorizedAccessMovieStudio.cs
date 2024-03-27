@@ -31,6 +31,7 @@ namespace JMCalloutsRemastered.Callouts
             spawnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
             CalloutInterfaceAPI.Functions.SendMessage(this, "A security officer reporting an individual trespassing on private property without proper access.");
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_ALL_UNITS_02 WE_HAVE_01 CRIME_SECURITY_REQUESTING_ASSISTANCE UNITS_RESPOND_CODE_02_02");
             CalloutMessage = "An individual refusing to leave";
             CalloutPosition = spawnpoint;
 
@@ -40,7 +41,7 @@ namespace JMCalloutsRemastered.Callouts
         public override bool OnCalloutAccepted()
         {
             Game.LogTrivial("JM Callouts Remastered Log: Unauthorized Acces Movie Studio callout accepted!");
-            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Unauthorized Access Movie Studio", "~b~Dispatch: The suspect has been spotted! Respond ~r~Code 2");
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Unauthorized Access Movie Studio", "~b~Dispatch~w~: The suspect has been spotted! Respond ~r~Code 2~w~.");
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
 
             suspect = new Ped(spawnpoint);
@@ -105,7 +106,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 6)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: F**k this, I'm gonna kill everybody!");
+                        Game.DisplaySubtitle("~r~Suspect~w~: F**k this! Death to Los Santos!");
                     }
                     if (counter == 7)
                     {

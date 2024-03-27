@@ -3,7 +3,7 @@
 namespace JMCalloutsRemastered.Callouts
 {
 
-    [CalloutInterface("9-1-1 Hang Up", CalloutProbability.High, "An individual hung up on 911.", "Code 2", "LSPD")]
+    [CalloutInterface("9-1-1 Hang Up", CalloutProbability.Medium, "An individual hung up on 911.", "Code 2", "LSPD")]
 
     public class _911HangUp : Callout
     {
@@ -49,6 +49,7 @@ namespace JMCalloutsRemastered.Callouts
             Spawnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 100f);
             CalloutInterfaceAPI.Functions.SendMessage(this, "A civilian called 9-1-1 then immediately hung up. Deal with this, Officer.");
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("WE_HAVE SOS_CALL UNITS_RESPOND_CODE_02_02");
             CalloutMessage = "A citizen called 911 then hung up on dispatch"; // Brief description of callout //
             CalloutPosition = Spawnpoint;
 
@@ -58,7 +59,7 @@ namespace JMCalloutsRemastered.Callouts
         public override bool OnCalloutAccepted()
         {
             Game.LogTrivial("[JM Callouts Remastered Log]: 9-1-1 Hang Up callout accepted!");
-            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~ 9-1-1 Hang Up", "~b~Dispatch: Suspect has been spotted. Respond ~r~Code 2~w~.");
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~9-1-1 Hang Up", "~b~Dispatch~w~: Suspect has been spotted. Respond ~r~Code 2~w~.");
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
 
             Suspect = new Ped(Spawnpoint);
@@ -132,9 +133,8 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 8)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: Snitch! I'm gonna give you the ass whooping of your life, Officer, that your parents couldn't give you as a child.");
-                        Suspect.Tasks.FightAgainst(MainPlayer);
-                        Suspect.Inventory.GiveNewWeapon("WEAPON_GOLFCLUB", 500, true);
+                        Game.DisplaySubtitle("~r~Suspect~w~: Snitch! I'm outta here!");
+                        Suspect.Tasks.ReactAndFlee(Suspect);
                     }
                 }
             }
@@ -147,16 +147,9 @@ namespace JMCalloutsRemastered.Callouts
         {
             base.End();
 
-            if (Suspect.Exists())
-            {
-                Suspect.Dismiss();
-            }
-            if (SuspectBlip.Exists())
-            {
-                SuspectBlip.Delete();
-            }
-
-            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~9-1-1 Hang Up", "~b~You: ~w~Dispatch, we are ~g~Code 4! Show me back 10-8.");
+            if (Suspect) Suspect.Dismiss();
+            if (SuspectBlip) SuspectBlip.Delete();
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~9-1-1 Hang Up", "~b~You~w~: Dispatch, we are ~g~Code 4~w~! Show me back 10-8.");
             LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_THIS_IS_DISPATCH_HIGH ALL_UNITS_CODE4 NO_FURTHER_UNITS_REQUIRED");
 
             Game.LogTrivial("JM Callouts Remastered - 911 Hang Up is Code 4!");

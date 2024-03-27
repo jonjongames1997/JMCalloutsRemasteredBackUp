@@ -21,7 +21,8 @@ namespace JMCalloutsRemastered.Callouts
                 new(301.34f, 202.71f, 104.38f), // Oriental Theater on Vinewood Blvd
                 new(395.79f, -711.73f, 29.28f), // Movie theater near Mission Row PD
                 new(-1420.45f, -213.17f, 46.50f), // Movie Theater in Morningwood
-                new(-720.09f, -681.83f, 30.31f), // Valedaz Movie Theater 
+                new(-720.09f, -681.83f, 30.31f), // Valedaz Movie Theater
+                new(-1370.69f, -171.10f, 47.48f) // Movie theater next to Tennis court near Morningwood
             };
             spawnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
@@ -35,14 +36,12 @@ namespace JMCalloutsRemastered.Callouts
         public override bool OnCalloutAccepted()
         {
             Game.LogTrivial("[JM Callouts Remastered Log]: Movie Hopping callout accepted!");
-            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Movie Hopping", "~b~Dispatch:~w~ Suspect located. Respond ~r~Code 1.");
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Movie Hopping", "~b~Dispatch~w~: Suspect located. Respond ~r~Code 1~w~.");
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
 
             suspect = new Ped(spawnpoint);
             suspect.IsPersistent = true;
             suspect.BlockPermanentEvents = true;
-            suspect.IsMeleeProof = true;
-            suspect.IsValid();
 
             suspectBlip = suspect.AttachBlip();
             suspectBlip.Color = System.Drawing.Color.Blue;
@@ -110,7 +109,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if(counter == 8)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: FUCK YOU!");
+                        Game.DisplaySubtitle("~r~Suspect~w~: F**K YOU!");
                     }
                     if(counter == 9)
                     {
@@ -138,17 +137,9 @@ namespace JMCalloutsRemastered.Callouts
         {
             base.End();
 
-            if (suspect.Exists())
-            {
-                suspect.Dismiss();
-            }
-
-            if (suspectBlip.Exists())
-            {
-                suspectBlip.Delete();
-            }
-
-            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Movie Hopping", "~b~You:~w~ Dispatch, we are ~g~Code 4~w~. Show me back 10-8.");
+            if (suspect) suspect.Dismiss();
+            if (suspectBlip) suspectBlip.Delete();
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Movie Hopping", "~b~You~w~: Dispatch, we are ~g~Code 4~w~. Show me back 10-8.");
             LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_THIS_IS_DISPATCH_HIGH ALL_UNITS_CODE4 NO_FURTHER_UNITS_REQUIRED");
 
             Game.LogTrivial("JM Callouts Remastered - Movie Hopping is Code 4!");

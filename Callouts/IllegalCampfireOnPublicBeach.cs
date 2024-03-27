@@ -3,7 +3,7 @@
 namespace JMCalloutsRemastered.Callouts
 {
 
-    [CalloutInterface("Illegal Campfire On Public Beach", CalloutProbability.High, "An individual started a campfire on Vespucci Beach.", "Code 3", "LSPD")]
+    [CalloutInterface("Illegal Campfire On Public Beach", CalloutProbability.Medium, "An individual started a campfire on Vespucci Beach.", "Code 2", "LSPD")]
 
     public class IllegalCampfireOnPublicBeach : Callout
     {
@@ -44,6 +44,7 @@ namespace JMCalloutsRemastered.Callouts
             };
             Spawnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 1000f); // Blips the area of the callout //
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_ALL_UNITS_01 WE_HAVE_01 CRIME_PUBLIC_DISTURBANCE UNITS_RESPOND_CODE_02_01");
             CalloutInterfaceAPI.Functions.SendMessage(this, "Vespucci Beach Security reporting an individual starting a campfire on the beach. Suspect refused to put out the fire as requested by security.");
             CalloutMessage = "Individual started an illegal campfire on the beach!"; // Brief description of the call //
             CalloutPosition = Spawnpoint; // Gives the position of where the callout is located at //
@@ -54,9 +55,8 @@ namespace JMCalloutsRemastered.Callouts
         public override bool OnCalloutAccepted()
         {
             Game.LogTrivial("[JM Callouts Remastered Log]: Illegal Campfire On Public Beach callout accepted!");
-            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Illegal Campfire On Public Beach", "~b~Dispatch:~w~ Suspect has been spotted. Respond ~r~Code 2.");
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Illegal Campfire On Public Beach", "~b~Dispatch~w~: Suspect has been spotted. Respond ~r~Code 2~w~.");
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
-            Game.DisplayNotification("This callout works best at night time only.");
 
             Suspect = new Ped(Spawnpoint);
             Suspect.IsPersistent = true;
@@ -135,35 +135,25 @@ namespace JMCalloutsRemastered.Callouts
                     {
                         Game.DisplaySubtitle("Conversation has ended!");
                         Game.DisplayNotification("Arrest the suspect, Officer.");
-                        Suspect.Tasks.FightAgainst(MainPlayer);
-                        Suspect.Inventory.GiveNewWeapon("WEAPON_MACHETE", 500, true);
+                        Suspect.Tasks.ReactAndFlee(Suspect);
                     }
                 }
             }
 
             if (MainPlayer.IsDead) End();
             if (Game.IsKeyDown(Settings.EndCall)) End();
-
         }
 
         public override void End()
         {
             base.End();
 
-            if (Suspect.Exists())
-            {
-                Suspect.Dismiss();
-            }
-            if (SuspectBlip.Exists())
-            {
-                SuspectBlip.Delete();
-            }
-
-            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Illegal Campfire On Public Beach", "~b~You:~w~ Dispatch, we are ~g~Code 4~w~. Show me back 10-8.");
+            if (Suspect) Suspect.Dismiss();
+            if (SuspectBlip) SuspectBlip.Delete();
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Illegal Campfire On Public Beach", "~b~You~w~: Dispatch, we are ~g~Code 4~w~. Show me back 10-8.");
             LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_THIS_IS_DISPATCH_HIGH ALL_UNITS_CODE4 NO_FURTHER_UNITS_REQUIRED");
 
             Game.LogTrivial("JM Callouts Remastered - Illegal Campfire On Public Beach is Code 4!");
-
         }
     }
 }

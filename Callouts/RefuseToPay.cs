@@ -30,6 +30,7 @@ namespace JMCalloutsRemastered.Callouts
             };
             Spawnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 100f);
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_ALL_UNITS_02 WE_HAVE_01 CRIME_SHOPLIFTING UNITS_RESPOND_CODE_02_01");
             CalloutInterfaceAPI.Functions.SendMessage(this, "An Individual is refusing to pay for their gas. The individual is being little aggressive. Approach with caution");
             CalloutMessage = "Individual Refusing to pay";
             CalloutPosition = Spawnpoint;
@@ -40,7 +41,7 @@ namespace JMCalloutsRemastered.Callouts
         public override bool OnCalloutAccepted()
         {
             Game.LogTrivial("[JM Callouts Remastered Log]: Refuse To Pay callout Accepted!");
-            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Refuse To Pay", "~b~Dispatch: The suspect has been spotted with a firearm! Respond ~r~Code 3");
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Refuse To Pay", "~b~Dispatch~w~: The suspect has been spotted! Respond ~r~Code 2~w~.");
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
 
             Suspect = new Ped(Spawnpoint);
@@ -86,11 +87,11 @@ namespace JMCalloutsRemastered.Callouts
                     if (counter == 1)
                     {
                         Suspect.Face(MainPlayer);
-                        Game.DisplaySubtitle("Player: Hello there " + malefemale + ", can you come talk to me for a minute?");
+                        Game.DisplaySubtitle("~b~Player~w~: Hello there " + malefemale + ", can you come talk to me for a minute?");
                     }
                     if (counter == 2)
                     {
-                        Game.DisplaySubtitle("~r~Suspect:~w~ About fucking time you showed up, officer!");
+                        Game.DisplaySubtitle("~r~Suspect~w~: About fucking time you showed up, officer!");
                     }
                     if (counter == 3)
                     {
@@ -98,27 +99,27 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 4)
                     {
-                        Game.DisplaySubtitle("Player: " + malefemale + ", I need you to calm down and tell me what happened.");
+                        Game.DisplaySubtitle("~b~Player~w~: " + malefemale + ", I need you to calm down and tell me what happened.");
                     }
                     if (counter == 5)
                     {
-                        Game.DisplaySubtitle("~r~Suspect:~w~ I was coming to get gas and the pump had no gas in it. I came in here to talk to the cashier about it and said that I'm lying.");
+                        Game.DisplaySubtitle("~r~Suspect~w~: I was coming to get gas and the pump had no gas in it. I came in here to talk to the cashier about it and said that I'm lying.");
                     }
                     if (counter == 6)
                     {
-                        Game.DisplaySubtitle("Player: Go on.");
+                        Game.DisplaySubtitle("~b~Player~w~: Go on.");
                     }
                     if (counter == 7)
                     {
-                        Game.DisplaySubtitle("~r~Suspect:~w~ I told them, 'I'm not lying, go check it for yourself'. Then they called the cops and now I'm talking to you.");
+                        Game.DisplaySubtitle("~r~Suspect~w~: I told them, 'I'm not lying, go check it for yourself'. Then they called the cops and now I'm talking to you.");
                     }
                     if (counter == 8)
                     {
-                        Game.DisplaySubtitle("Player: Alright, I will review the CCTV footage and see what happened. Can you have a sit for me on the ground until I have more info?");
+                        Game.DisplaySubtitle("~b~Player~w~: Alright, I will review the CCTV footage and see what happened. Can you have a sit for me on the ground until I have more info?");
                     }
                     if (counter == 9)
                     {
-                        Game.DisplaySubtitle("~r~Suspect:~w~ Yeah, fine. I'm in a hurry to record my tv show called ~y~'THE DOWNFALL OF LAZLOW'~w~.");
+                        Game.DisplaySubtitle("~r~Suspect~w~: Yeah, fine. I'm in a hurry to record my tv show called ~y~'THE DOWNFALL OF LAZLOW'~w~.");
                     }
                     if (counter == 10)
                     {
@@ -130,11 +131,11 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 12)
                     {
-                        Game.DisplaySubtitle("Player: Alright " + malefemale + ", I reviewed the footage and your story DIDN'T match. The footage never lies.");
+                        Game.DisplaySubtitle("~b~Player~w~: Alright " + malefemale + ", I reviewed the footage and your story DIDN'T match. The footage never lies.");
                     }
                     if (counter == 13)
                     {
-                        Game.DisplaySubtitle("~r~Suspect:~w~ Fuck this shit, I'm outta here!");
+                        Game.DisplaySubtitle("~r~Suspect~w~: Fuck this shit, I'm outta here!");
                     }
                     if (counter == 14)
                     {
@@ -151,15 +152,9 @@ namespace JMCalloutsRemastered.Callouts
         {
             base.End();
 
-            if (Suspect.Exists())
-            {
-                Suspect.Dismiss();
-            }
-            if (SuspectBlip.Exists())
-            {
-                SuspectBlip.Delete();
-            }
-            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "Refuse To Pay", "~b~You~w~: We are ~g~Code-4!~w~ Show me back 10-8.");
+            if (Suspect) Suspect.Dismiss();
+            if (SuspectBlip) SuspectBlip.Delete();
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Refuse To Pay", "~b~You~w~: We are ~g~Code-4~w~! Show me back 10-8.");
             LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_THIS_IS_DISPATCH_HIGH ALL_UNITS_CODE4 NO_FURTHER_UNITS_REQUIRED");
             Game.LogTrivial("JM Callouts Remastered - Refuse to pay is Code 4!");
         }

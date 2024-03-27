@@ -7,8 +7,8 @@ namespace JMCalloutsRemastered.Callouts
 
     public class PersonOnTheHighway : Callout
     {
-        private static readonly string[] wepList = new string[] { "WEAPON_KNIFE", "WEAPON_BAT", "WEAPON_DAGGER", "WEAPON_GOLFCLUB", "WEAPON_HAMMER", "WEAPON_HATCHET", "WEAPON_PISTOL", "WEAPON_COMBATPISTOL", "WEAPON_AUTOSHOTGUN" };
-        private static readonly string[] pedList = new string[] { "a_m_m_afriamer_01", "ig_amandatownley", "ig_ashley", "g_f_y_ballas_01", "a_f_m_bodybuild_01", "a_f_y_eastsa_03", "ig_maryann", "ig_money", "s_m_y_baywatch_01", "a_f_y_beach_01", "a_f_m_bevhills_01", "a_f_m_fatbla_01" };
+        private static readonly string[] wepList = new string[] { "WEAPON_KNIFE", "WEAPON_BAT", "WEAPON_DAGGER", "WEAPON_GOLFCLUB", "WEAPON_HAMMER", "WEAPON_HATCHET", "WEAPON_PISTOL", "WEAPON_COMBATPISTOL", "WEAPON_AUTOSHOTGUN", "WEAPON_SWITCHBLADE", "WEAPON_PROXMINE" };
+        private static readonly string[] pedList = new string[] { "a_m_m_afriamer_01", "ig_amandatownley", "ig_ashley", "g_f_y_ballas_01", "a_f_m_bodybuild_01", "a_f_y_eastsa_03", "ig_maryann", "ig_money", "s_m_y_baywatch_01", "a_f_y_beach_01", "a_f_m_bevhills_01", "a_f_m_fatbla_01", "ig_tracydisanto", "a_f_y_tourist_02", "ig_tonya", "a_f_y_tennis_01", "u_f_y_poppymich", "ig_michelle" };
         private static Blip blip;
         private static Ped suspect;
         private static Vector3 spawnpoint;
@@ -49,6 +49,7 @@ namespace JMCalloutsRemastered.Callouts
             };
             spawnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_ALL_UNITS_02 WE_HAVE_01 SOS_02 UNITS_RESPOND_CODE_02_02");
             CalloutInterfaceAPI.Functions.SendMessage(this, "Reports of an individual on the highway");
             CalloutMessage = "A citizen's reporting an individual on the highway. Respond Code 2.";
             CalloutPosition = spawnpoint;
@@ -65,7 +66,6 @@ namespace JMCalloutsRemastered.Callouts
             suspect = new Ped(pedList[new Random().Next((int)pedList.Length)], spawnpoint, 0f);
             suspect.IsPersistent = true;
             suspect.BlockPermanentEvents = true;
-            suspect.IsMeleeProof = true;
 
             blip = suspect.AttachBlip();
             blip.Color = System.Drawing.Color.Gold;
@@ -156,18 +156,11 @@ namespace JMCalloutsRemastered.Callouts
 
         public override void End()
         {
-            if (suspect.Exists())
-            {
-                suspect.Dismiss();
-            }
-            if (blip.Exists())
-            {
-                blip.Delete();
-            }
-
             base.End();
 
-            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Person On The Highway", "~b~You~w~: Dispatch, we are ~g~Code 4.~w~ Show me back 10-8.");
+            if (suspect) suspect.Dismiss();
+            if (blip) blip.Delete();
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Person On The Highway", "~b~You~w~: Dispatch, we are ~g~Code 4~w~. Show me back 10-8.");
             LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_THIS_IS_DISPATCH_HIGH ALL_UNITS_CODE4 NO_FURTHER_UNITS_REQUIRED");
 
             Game.LogTrivial("JM Callouts Remastered [LOG]: Person On The Highway is code 4!");

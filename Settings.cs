@@ -29,7 +29,8 @@ namespace JMCalloutsRemastered
         internal static bool DomesticDisturbance = true;
         internal static bool StolenMilitaryEquipment = true;
         internal static bool MovieHopping = true;
-        internal static bool ProhibitedUnderageTattoo = true;
+        internal static bool AbandonedVehicleOnRailRoadTracks = true;
+        internal static bool Stalking = true;
         internal static bool HelpMessages = true;
         internal static Keys EndCall = Keys.End;
         internal static Keys Dialog = Keys.E;
@@ -58,7 +59,6 @@ namespace JMCalloutsRemastered
             Settings.UnauthorizedAccessMovieStudio = ini.ReadBoolean("Callouts", "UnauthorizedAccessMovieStudio", true);
             Settings.DeadBody = ini.ReadBoolean("Callouts", "DeadBody", true);
             Settings.SolicitingDelPerroPier = ini.ReadBoolean("Callouts", "SolicitingDelPerro", true);
-            Settings.WrecklessDriving = ini.ReadBoolean("Callouts", "RecklessDriving", true);
             Settings.StolenEmergencyVehicle = ini.ReadBoolean("Callouts", "StolenEmergencyVehicle", true);
             Settings.TrespassingOnSchoolGrounds = ini.ReadBoolean("Callouts", "TrespassingOnSchoolGrounds", true);
             Settings.PersonOnTheHighway = ini.ReadBoolean("Callouts", "PersonOnTheHighway", true);
@@ -66,11 +66,12 @@ namespace JMCalloutsRemastered
             Settings.DomesticDisturbance = ini.ReadBoolean("Callouts", "DomesticDisturbance", true);
             Settings.StolenMilitaryEquipment = ini.ReadBoolean("Callouts", "StolenMilitaryEquipment", true);
             Settings.MovieHopping = ini.ReadBoolean("Callouts", "MovieHopping", true);
-            Settings.ProhibitedUnderageTattoo = ini.ReadBoolean("Callouts", "ProhibitedUnderageTattoo", true);
+            Settings.AbandonedVehicleOnRailRoadTracks = ini.ReadBoolean("Callouts", "AbandonedVehicleOnRailRoadTracks", true);
+            Settings.Stalking = ini.ReadBoolean("Callouts", "Stalking", true);
             Settings.HelpMessages = ini.ReadBoolean("HelpMessages", "Help Messages", true);
             EndCall = ini.ReadEnum("Keys", "EndCall", Keys.End);
             Dialog = ini.ReadEnum("Keys", "Dialog", Keys.E);
         }
-        public static readonly string PluginVersion = "4.2.1";
+        public static readonly string PluginVersion = "4.5.3";
     }
 }

@@ -3,7 +3,7 @@
 namespace JMCalloutsRemastered.Callouts
 {
 
-    [CalloutInterface("Trespassing On Railroad Property", CalloutProbability.High, "A citizen trespassing on Railroad Property", "Code 3", "LSPD")]
+    [CalloutInterface("Trespassing On Railroad Property", CalloutProbability.Medium, "A citizen trespassing on Railroad Property", "Code 1", "LSPD")]
 
     public class TrespassingOnRailRoadProperty : Callout
     {
@@ -30,8 +30,9 @@ namespace JMCalloutsRemastered.Callouts
             };
             Spawnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 1000f);
-            CalloutInterfaceAPI.Functions.SendMessage(this, "A citizen reporting a suspicious female on the railroad tracks. Possibly high on drugs. Approach with caution.");
-            CalloutMessage = "A citizen is reporting a suspicious person on railroad tracks.";
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_ALL_UNITS_02 WE_HAVE_01 CRIME_SUSPICIOUS_ACTIVITY");
+            CalloutInterfaceAPI.Functions.SendMessage(this, "A citizen reporting a suspicious person on the railroad tracks.");
+            CalloutMessage = "A suspicious person on railroad tracks.";
             CalloutPosition = Spawnpoint;
 
             return base.OnBeforeCalloutDisplayed();
@@ -40,7 +41,7 @@ namespace JMCalloutsRemastered.Callouts
         public override bool OnCalloutAccepted()
         {
             Game.LogTrivial("[JM Callouts Remastered Log]: Trespassing On Railroad Property callout accepted!");
-            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "Trespassing On Railroad Property", "~b~Dispatch:~w~ Suspect Spotted. Respond ~r~Code 2.");
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Trespassing On Railroad Property", "~b~Dispatch~w~: Suspect Spotted. Respond ~r~Code 2~w~.");
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
 
             Suspect = new Ped(Spawnpoint);
@@ -77,7 +78,7 @@ namespace JMCalloutsRemastered.Callouts
             if (MainPlayer.DistanceTo(Suspect) <= 10f)
             {
 
-                Game.DisplayHelp("Press 'E' to interact with Suspect.", false);
+                Game.DisplayHelp("Press ~y~E~w~ to interact with Suspect.", false);
 
                 if (Game.IsKeyDown(System.Windows.Forms.Keys.E))
                 {
@@ -90,7 +91,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 2)
                     {
-                        Game.DisplaySubtitle("~r~Suspect:~w~ ALIENS! ALIENS! They're here! RUN FOR YOUR LIVES!");
+                        Game.DisplaySubtitle("~r~Suspect~w~: ALIENS! ALIENS! They're here! RUN FOR YOUR LIVES!");
                     }
                     if (counter == 3)
                     {
@@ -98,7 +99,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 4)
                     {
-                        Game.DisplaySubtitle("~r~Suspect:~w~ Oh, I thought you were an alien. Sorry, Officer. What's up? Want to smoke some crack? Smoke some weed?");
+                        Game.DisplaySubtitle("~r~Suspect~w~: Oh, I thought you were an alien. Sorry, Officer. What's up? Want to smoke some crack? Smoke some weed?");
                     }
                     if (counter == 5)
                     {
@@ -106,7 +107,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 6)
                     {
-                        Game.DisplaySubtitle("~r~Suspect:~w~ Yeah, drugs are the 2nd best medicine cause laughter is the #1 best medicine. I'm trying to record some videos of the trains coming through. Why?");
+                        Game.DisplaySubtitle("~r~Suspect~w~: Yeah, drugs are the 2nd best medicine cause laughter is the #1 best medicine. I'm trying to record some videos of the trains coming through. Why?");
                     }
                     if (counter == 7)
                     {
@@ -114,7 +115,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 8)
                     {
-                        Game.DisplaySubtitle("~r~Suspect:~w~ What's a indentification again?");
+                        Game.DisplaySubtitle("~r~Suspect~w~: What's a indentification again?");
                     }
                     if (counter == 9)
                     {
@@ -128,7 +129,7 @@ namespace JMCalloutsRemastered.Callouts
                     {
                         Game.DisplaySubtitle("Conversation ended.");
                         Suspect.Tasks.FightAgainst(MainPlayer);
-                        Suspect.Inventory.GiveNewWeapon("WEAPON_BAT", 500, true);
+                        Suspect.Inventory.GiveNewWeapon("WEAPON_PISTOL", 500, true);
                         Suspect.Armor = 500;
                     }
                 }
@@ -142,18 +143,10 @@ namespace JMCalloutsRemastered.Callouts
         {
             base.End();
 
-            if (Suspect.Exists())
-            {
-                Suspect.Dismiss();
-            }
-            if (SuspectBlip.Exists())
-            {
-                SuspectBlip.Delete();
-            }
-
-            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Trespassing On Railroad Property", "~b~You:~w~ Dispatch, we are ~g~CODE 4.~w~ Show me back 10-8. ");
+            if (Suspect) Suspect.Dismiss();
+            if (SuspectBlip) SuspectBlip.Delete();
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Trespassing On Railroad Property", "~b~You~w~: Dispatch, we are ~g~Code 4~w~. Show me back 10-8.");
             LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_THIS_IS_DISPATCH_HIGH ALL_UNITS_CODE4 NO_FURTHER_UNITS_REQUIRED");
-
             Game.LogTrivial("JM Callouts Remastered - Trespassing On Railroad Property is Code 4!");
         }
 

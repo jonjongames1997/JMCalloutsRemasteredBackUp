@@ -20,8 +20,8 @@ namespace JMCalloutsRemastered.Callouts
         {
             spawnpoint = World.GetNextPositionOnStreet(MainPlayer.Position.Around(1000f));
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_ALL_UNITS_01 WE_HAVE_01 CRIME_STOLEN_POLICE_CAR UNITS_RESPOND_CODE_03_02");
             CalloutInterfaceAPI.Functions.SendMessage(this, "Reports of a stolen emergency vehicle in the area");
-            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_ALL_UNITS_01 WE_HAVE_01 CRIME_SUSPECT_ON_THE_RUN_01 UNITS_RESPOND_CODE_03_02");
             CalloutMessage = "Multiple reports of a stolen emergency vehicle";
             CalloutPosition = spawnpoint;
 

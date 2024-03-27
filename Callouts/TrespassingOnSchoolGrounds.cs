@@ -21,6 +21,7 @@ namespace JMCalloutsRemastered.Callouts
             spawnpoint = new(-1602.71f, 206.43f, 59.28f);
             heading = 100.56f;
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_ALL_UNITS_02 WE_HAVE_01 CRIME_SUSPICIOUS_ACTIVITY UNITS_RESPOND_CODE_02_01");
             CalloutInterfaceAPI.Functions.SendMessage(this, "An unknown individual trespassing on school property");
             CalloutMessage = "Reports of an unknown person trespassing";
             CalloutPosition = spawnpoint;
@@ -108,12 +109,12 @@ namespace JMCalloutsRemastered.Callouts
 
         public override void End()
         {
+            base.End();
+
             if (suspect) suspect.Dismiss();
             if (blip) blip.Delete();
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Trespassing On School Property", "~b~You~w~: Dispatch, we are ~g~CODE 4~w~. Show me back 10-8.");
             LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_THIS_IS_DISPATCH_HIGH ALL_UNITS_CODE4 NO_FURTHER_UNITS_REQUIRED");
-            base.End();
-
             Game.LogTrivial("[JM Callouts Remastered Log]: Trespassing on School Property is code 4!");
         }
     }

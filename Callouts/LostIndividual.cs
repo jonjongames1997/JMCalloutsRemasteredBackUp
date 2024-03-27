@@ -13,6 +13,7 @@ namespace JMCalloutsRemastered.Callouts
         private static Ped victim;
         private static Ped suspect;
         private static Blip vicBlip;
+        private static Blip susBlip;
         private static Vector3 spawnPoint;
         private static Vector3 suspectSpawnpoint;
         private static float suspectHeading;
@@ -28,6 +29,7 @@ namespace JMCalloutsRemastered.Callouts
             suspectSpawnpoint = new(-623.54f, -230.25f, 38.06f); // Second Suspect will spawn at this location 
             suspectHeading = 131.09f;
             ShowCalloutAreaBlipBeforeAccepting(spawnPoint, 100f);
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_ALL_UNITS_02 WE_HAVE_01 CRIME_SUSPICIOUS_ACTIVITY UNITS_RESPOND_CODE_02_02");
             CalloutInterfaceAPI.Functions.SendMessage(this, "Michael DeSanta reported his wife missing. Locate and help her get home safely, Officer.");
             CalloutMessage = "Reports of a missing person";
             CalloutPosition = spawnPoint;
@@ -57,6 +59,9 @@ namespace JMCalloutsRemastered.Callouts
             vicBlip.Color = System.Drawing.Color.Pink;
             vicBlip.IsRouteEnabled = true;
 
+            susBlip = suspect.AttachBlip();
+            susBlip.Color = System.Drawing.Color.DarkRed;
+
             if (victim.IsMale)
                 malefemale = "Sir";
             else
@@ -72,6 +77,7 @@ namespace JMCalloutsRemastered.Callouts
             if (victim) victim.Delete();
             if (vicBlip) vicBlip.Delete();
             if (suspect) suspect.Delete();
+            if (susBlip) susBlip.Delete();
 
             base.OnCalloutNotAccepted();
         }
@@ -110,7 +116,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 6)
                     {
-                        Game.DisplaySubtitle("~r~Suspect: ~w~You motherfucker, you! DIE!!!!!");
+                        Game.DisplaySubtitle("~r~Suspect~w~: You motherfucker, you! DIE!!!!!");
                         suspect.Tasks.FightAgainst(MainPlayer);
                         suspect.Inventory.GiveNewWeapon("WEAPON_GUSENBERG", 500, true);
                     }
@@ -127,21 +133,11 @@ namespace JMCalloutsRemastered.Callouts
 
         public override void End()
         {
-            if (victim.Exists())
-            {
-                victim.Dismiss();
-            }
-            if (vicBlip.Exists())
-            {
-                vicBlip.Delete();
-            }
-
-            if (suspect.Exists())
-            {
-                suspect.Dismiss();
-            }
-
-            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Lost Individual", "~b~You:~w~ Dispatch, we are ~g~Code 4~w~. Show me back 10-8.");
+            if (victim) victim.Dismiss();
+            if (suspect) suspect.Dismiss();
+            if (vicBlip) vicBlip.Delete();
+            if (susBlip) susBlip.Delete();
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Lost Individual", "~b~You~w~: Dispatch, we are ~g~Code 4~w~. Show me back 10-8.");
             LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_THIS_IS_DISPATCH_HIGH ALL_UNITS_CODE4 NO_FURTHER_UNITS_REQUIRED");
             base.End();
 

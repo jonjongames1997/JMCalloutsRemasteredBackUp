@@ -3,7 +3,7 @@
 namespace JMCalloutsRemastered.Callouts
 {
 
-    [CalloutInterface("Dead Body", CalloutProbability.High, "Reports of a dead body", "Code 3", "LSPD")]
+    [CalloutInterface("Dead Body", CalloutProbability.Low, "Reports of a dead body", "Code 3", "LSPD")]
 
     public class DeadBody : Callout
     {
@@ -14,9 +14,14 @@ namespace JMCalloutsRemastered.Callouts
         public override bool OnBeforeCalloutDisplayed()
         {
             spawnpoint = World.GetNextPositionOnStreet(MainPlayer.Position.Around(1000f));
+            CalloutInterfaceAPI.Functions.SendMessage(this, "Reports of a deceased body found.");
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudioUsingPosition("ATTENTION_ALL_UNITS_01 WE_HAVE_01 CRIME_DEAD_BODY_FOUND UNITS_RESPOND_CODE_03_01", spawnpoint);
+            CalloutMessage = "Reports of a deceased body";
+            CalloutPosition = spawnpoint;
 
             deadBody = new Ped(spawnpoint);
             deadBody.IsPersistent = true;
+            deadBody.BlockPermanentEvents = true;
             deadBody.Kill();
 
             NativeFunction.Natives.APPLY_PED_DAMAGE_PACK(deadBody, "BigHitByVehicle", 1f, 1f);
@@ -31,7 +36,8 @@ namespace JMCalloutsRemastered.Callouts
         public override bool OnCalloutAccepted()
         {
             Game.LogTrivial("JM Callouts Remastered Log: Dead body callout accepted!");
-            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~y~Dead Body", "~b~Dispatch: The dead body has been spotted! Respond ~r~Code 3");
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~y~Dead Body", "~b~Dispatch~w~: The dead body has been spotted! Respond ~r~Code 3~w~.");
+            Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout.");
 
             deadBlip = new Blip(deadBody)
             {
@@ -56,7 +62,6 @@ namespace JMCalloutsRemastered.Callouts
         {
             if (deadBody.DistanceTo(MainPlayer) < 10f)
             {
-                Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout.");
                 Game.DisplayNotification("Call EMS to attempt CPR or Call a Coroner to pick up the deceased body.");
             }
 
@@ -69,7 +74,7 @@ namespace JMCalloutsRemastered.Callouts
         {
             if (deadBody) deadBody.Dismiss();
             if (deadBlip) deadBlip.Delete();
-            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Dead Body", "~b~You: Dispatch, We are ~g~CODE 4~w~! Show me back 10-8!");
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Dead Body", "~b~You~w~: Dispatch, We are ~g~CODE 4~w~! Show me back 10-8!");
             LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_THIS_IS_DISPATCH_HIGH ALL_UNITS_CODE4 NO_FURTHER_UNITS_REQUIRED");
             base.End();
 

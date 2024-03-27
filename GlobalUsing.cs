@@ -7,3 +7,6 @@ global using Rage;
 global using Rage.Native;
 global using JMCalloutsRemastered.Stuff;
 global using static JMCalloutsRemastered.Stuff.Helper;
+global using System.Linq;
+global using System.Text;
+global using System.Threading.Tasks;

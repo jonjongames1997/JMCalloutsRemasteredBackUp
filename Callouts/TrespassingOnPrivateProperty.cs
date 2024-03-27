@@ -3,7 +3,7 @@
 namespace JMCalloutsRemastered.Callouts
 {
 
-    [CalloutInterface("Trespassing On Private Property", CalloutProbability.Low, "An individual spotted on private property", "Code 2", "LSPD")]
+    [CalloutInterface("Trespassing On Private Property", CalloutProbability.Medium, "An individual spotted on private property", "Code 1", "LSPD")]
 
     public class TrespassingOnPrivateProperty : Callout
     {
@@ -31,6 +31,7 @@ namespace JMCalloutsRemastered.Callouts
             };
             Spawnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 100f);
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_ALL_UNITS_02 WE_HAVE_01 CRIME_SUSPICIOUS_ACTIVITY");
             CalloutInterfaceAPI.Functions.SendMessage(this, "A business owner reported an individual trespassing on their property.");
             CalloutMessage = "An individual trespassing on private property";
             CalloutPosition = Spawnpoint;
@@ -41,7 +42,7 @@ namespace JMCalloutsRemastered.Callouts
         public override bool OnCalloutAccepted()
         {
             Game.LogTrivial("[JM Callouts Remastered Log]: Trespassing On Private Property Callout accepted!");
-            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Trespassing On Private Property", "~b~Dispatch:~w~ Suspect has been spotted. Respond ~r~Code 2.");
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Trespassing On Private Property", "~b~Dispatch~w~: Suspect has been spotted. Respond ~r~Code 2~w~.");
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
 
             Suspect = new Ped(Spawnpoint);
@@ -78,7 +79,7 @@ namespace JMCalloutsRemastered.Callouts
             if (MainPlayer.DistanceTo(Suspect) <= 10f)
             {
 
-                Game.DisplayHelp("Press ~y~E~w~ to talk to Suspect. ~y~Approach with caution.", false);
+                Game.DisplayHelp("Press ~y~E~w~ to talk to Suspect. ~y~Approach with caution~w~.", false);
 
                 if (Game.IsKeyDown(System.Windows.Forms.Keys.E))
                 {
@@ -92,7 +93,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 2)
                     {
-                        Game.DisplaySubtitle("~r~Suspect:~w~ What do you want now pigs?");
+                        Game.DisplaySubtitle("~r~Suspect~w~: What do you want now pigs?");
                     }
                     if (counter == 3)
                     {
@@ -100,7 +101,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 4)
                     {
-                        Game.DisplaySubtitle("~r~Suspect:~w~ Trying to work things out with my ex. Is that a problem?");
+                        Game.DisplaySubtitle("~r~Suspect~w~: Trying to work things out with my ex. Is that a problem?");
                     }
                     if (counter == 5)
                     {
@@ -116,7 +117,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 8)
                     {
-                        Game.DisplaySubtitle("~r~Suspect:~w~ Fine! That dick tickler is making a big mistake.");
+                        Game.DisplaySubtitle("~r~Suspect~w~: Fine! That dick tickler is making a big mistake.");
                     }
                     if (counter == 9)
                     {
@@ -134,18 +135,10 @@ namespace JMCalloutsRemastered.Callouts
         {
             base.End();
 
-            if (Suspect.Exists())
-            {
-                Suspect.Dismiss();
-            }
-            if (SuspectBlip.Exists())
-            {
-                SuspectBlip.Delete();
-            }
-
-            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Trespassing On Private Property", "~b~You:~w~ Dispatch, We are ~g~Code 4!~w~ Show me back 10-8!");
+            if (Suspect) Suspect.Dismiss();
+            if (SuspectBlip) SuspectBlip.Delete();
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Trespassing On Private Property", "~b~You~w~: Dispatch, We are ~g~Code 4~w~! Show me back 10-8!");
             LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_THIS_IS_DISPATCH_HIGH ALL_UNITS_CODE4 NO_FURTHER_UNITS_REQUIRED");
-
             Game.LogTrivial("JM Callouts Remastered - Trespasing on Private Property is Code 4!");
         }
 

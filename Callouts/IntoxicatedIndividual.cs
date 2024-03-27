@@ -31,6 +31,7 @@ namespace JMCalloutsRemastered.Callouts
             };
             Spawnnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(Spawnnpoint, 100f);
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_ALL_UNITS_02 WE_HAVE_01 CRIME_11_351_01 UNITS_RESPOND_CODE_02_01");
             CalloutInterfaceAPI.Functions.SendMessage(this, "A business owner reported an individual being drunk on business property.");
             CalloutMessage = "Suspect refused to leave property. Owner said that suspect is possibly be drunk or under the influence of narcotics. Approach with caustion.";
             CalloutPosition = Spawnnpoint;
@@ -41,7 +42,7 @@ namespace JMCalloutsRemastered.Callouts
         public override bool OnCalloutAccepted()
         {
             Game.LogTrivial("[JM Callouts Remastered Log]: Intoxicated Individual callout accepted!");
-            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Intoxicated Individual", "~b~Dispatch:~w~ Suspect located. Respond ~r~Code 2.");
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Intoxicated Individual", "~b~Dispatch~w~: Suspect located. Respond ~r~Code 2~w~.");
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
 
             Suspect = new Ped(Spawnnpoint);
@@ -92,7 +93,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 2)
                     {
-                        Game.DisplaySubtitle("~r~Suspect:~w~ I'm fine, Officer. What's the problem?");
+                        Game.DisplaySubtitle("~r~Suspect~w~: I'm fine, Officer. What's the problem?");
                     }
                     if (counter == 3)
                     {
@@ -100,7 +101,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 4)
                     {
-                        Game.DisplaySubtitle("~r~Suspect:~w~ I'm not **hiccup* drunk. I'm fine.");
+                        Game.DisplaySubtitle("~r~Suspect~w~: I'm not **hiccup* drunk. I'm fine.");
                     }
                     if (counter == 5)
                     {
@@ -108,12 +109,13 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 6)
                     {
-                        Game.DisplaySubtitle("~r~Suspect:~w~ I DO NOT CONSENT TO THIS TYPE OF INTERROGATION!");
+                        Game.DisplaySubtitle("~r~Suspect~w~: whatever, *hiccup* bro.");
                     }
                     if (counter == 7)
                     {
                         Game.DisplaySubtitle("Conversation has ended!");
-                        Suspect.Tasks.ReactAndFlee(Suspect);
+                        Suspect.Tasks.PutHandsUp(500, MainPlayer);
+                        Suspect.Inventory.GiveNewWeapon("WEAPON_BOTTLE", 500, true);
                     }
                 }
             }
@@ -125,16 +127,10 @@ namespace JMCalloutsRemastered.Callouts
         {
             base.End();
 
-            if (Suspect.Exists())
-            {
-                Suspect.Dismiss();
-            }
-            if (SuspectBlip.Exists())
-            {
-                SuspectBlip.Delete();
-            }
+            if (Suspect) Suspect.Dismiss();
+            if (SuspectBlip) SuspectBlip.Delete();
 
-            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Intoxicated Individual", "~b~You:~w~ Dispatch, we are ~g~Code 4~w~. Show me back 10-8.");
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Intoxicated Individual", "~b~You~w~: Dispatch, we are ~g~Code 4~w~. Show me back 10-8.");
             LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_THIS_IS_DISPATCH_HIGH ALL_UNITS_CODE4 NO_FURTHER_UNITS_REQUIRED");
 
             Game.LogTrivial("JM Callouts Remastered - Intoxicated Individual is Code 4!");

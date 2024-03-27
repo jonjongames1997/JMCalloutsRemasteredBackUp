@@ -48,6 +48,7 @@ namespace JMCalloutsRemastered.Callouts
             };
             Spawnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 100f);
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_ALL_UNITS_02 WE_HAVE_01 CRIME_CITIZENS_REQUESTING_REMOVAL_OF_PROSTITUTES UNITS_RESPOND_CODE_02_02");
             CalloutInterfaceAPI.Functions.SendMessage(this, "A citizen reported a young female selling her body for money. Talk to her and see if the claim is true. Approach with caution.");
             CalloutMessage = "Citizens reporting a young female possibly selling her body for money.";
             CalloutPosition = Spawnpoint;
@@ -64,7 +65,6 @@ namespace JMCalloutsRemastered.Callouts
             Suspect = new Ped(pedList[new Random().Next((int)pedList.Length)], Spawnpoint, 0f);
             Suspect.IsPersistent = true;
             Suspect.BlockPermanentEvents = true;
-            Suspect.IsMeleeProof = true;
 
             Game.DisplayNotification("Tip: This callout works better at night time when other prostitutes are on the streets.");
 
@@ -106,11 +106,11 @@ namespace JMCalloutsRemastered.Callouts
                     if (counter == 1)
                     {
                         Suspect.Face(MainPlayer);
-                        Game.DisplaySubtitle("~b~You~w~: Good evening " + malefemale + ", Can I ask you some questions?");
+                        Game.DisplaySubtitle("~b~You~w~: Hello " + malefemale + ", Can I ask you some questions?");
                     }
                     if (counter == 2)
                     {
-                        Game.DisplaySubtitle("~r~Suspect:~w~ Sure. What seems to be the problem, Officer?");
+                        Game.DisplaySubtitle("~r~Suspect~w~: Sure. What seems to be the problem, Officer?");
                     }
                     if (counter == 3)
                     {
@@ -118,7 +118,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 4)
                     {
-                        Game.DisplaySubtitle("~r~Suspect:~w~ Yes. I need the money to pay off my college debt.");
+                        Game.DisplaySubtitle("~r~Suspect~w~: Yes. I need the money to pay off my college debt.");
                     }
                     if (counter == 5)
                     {
@@ -126,7 +126,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 6)
                     {
-                        Game.DisplaySubtitle("~r~Suspect:~w~ What you gonna do? I'm not going anywhere!");
+                        Game.DisplaySubtitle("~r~Suspect~w~: What you gonna do? I'm not going anywhere!");
                     }
                     if (counter == 7)
                     {
@@ -138,7 +138,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 9)
                     {
-                        Game.DisplaySubtitle("~r~Suspect:~w~ Come on, Officer. First time is free.");
+                        Game.DisplaySubtitle("~r~Suspect~w~: Come on, Officer. First time is free.");
                     }
                     if (counter == 10)
                     {
@@ -146,7 +146,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 11)
                     {
-                        Game.DisplaySubtitle("~r~Suspect:~w~ Fuck you then, pigs.");
+                        Game.DisplaySubtitle("~r~Suspect~w~: Fuck you then, pigs.");
                     }
                     if (counter == 12)
                     {
@@ -165,16 +165,9 @@ namespace JMCalloutsRemastered.Callouts
         {
             base.End();
 
-            if (Suspect.Exists())
-            {
-                Suspect.Dismiss();
-            }
-            if (SuspectBlip.Exists())
-            {
-                SuspectBlip.Delete();
-            }
-
-            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Possible Prostitution", "~b~You:~w~ Dispatch, we are ~g~Code 4~w~. Show me back 10-8.");
+            if (Suspect) Suspect.Dismiss();
+            if (SuspectBlip) SuspectBlip.Delete();
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Possible Prostitution", "~b~You~w~: Dispatch, we are ~g~Code 4~w~. Show me back 10-8.");
             LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_THIS_IS_DISPATCH_HIGH ALL_UNITS_CODE4 NO_FURTHER_UNITS_REQUIRED");
 
             Game.LogTrivial("JM Callouts Remastered - Possible Prostitution is Code 4!");
