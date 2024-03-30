@@ -1,7 +1,4 @@
-﻿using Rage;
-using System;
-
-namespace JMCalloutsRemastered.Stuff
+﻿namespace JMCalloutsRemastered.Stuff
 {
     internal static class Helper
     {

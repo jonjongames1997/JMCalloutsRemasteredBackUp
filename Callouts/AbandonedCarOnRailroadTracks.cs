@@ -22,6 +22,9 @@ namespace JMCalloutsRemastered.Callouts
                 new(456.48f, -1648.28f, 28.56f), // Innocence Blvd
                 new(547.26f, -1423.92f, 28.65f), // Capital Blvd
                 new(2719.48f, 3900.61f, 43.06f), // Near Maude's House
+                new(),
+                new(),
+                new(),
             };
             spawnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
