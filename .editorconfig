@@ -2,3 +2,6 @@
 
 # IDE0022: Use block body for methods
 dotnet_diagnostic.IDE0022.severity = none
+
+# Default severity for all analyzer diagnostics
+dotnet_analyzer_diagnostic.severity = none

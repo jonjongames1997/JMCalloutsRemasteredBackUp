@@ -1,0 +1,571 @@
+﻿Changelog:
+
+4.4.2:
+
+- Added "JMCallouts Audio" folder. (Most callouts rely on the audio in the folder)
+- Minor adjustments to "Dead Body" callout
+- More dialogue improvements
+- Added 1 new callout ("Stalking")
+- Minor adjustments
+- Minor Bug fixes
+- Changed Dead Body callout probability from "Medium" to "Low"
+- Changed Domestic Disturbance and Illegal Prostitution callout probability from "High" to "Medium"
+- Removed "Wreckless Driving" callout
+- Added 2 new weapons in "Person On The Highway" callout
+- Added 6 new peds in "Person On The Highway" callout
+- Changed the code response in "Public Disturbance" callout from "Code 3" to "Code 2"
+- More notification improvements
+- Changed the code response in "Refuse To Leave" callout from "Code 2" to "Code 1"
+- Changed the callout probability in "Illegal Campfire On Public Beach" callout from "High" to "Medium"
+- Changed the code response in "Illegal Campfire On Public Beach" from "Code 3" to "Code 2"
+- Changed the code response in "Soliciting" from "Code 3" to "Code 2"
+- Help Messages are now set to false by default
+
+Controller Support Build coming soon.
+
+4.3.2:
+
+- Fixed an issue when tow truck tries to tow the vehicle when the vehicle wheels is locked (Abandoned Vehicle on Railroad Tracks callout)
+- Added 3 new locations to "Abandoned Vehicle On Railroad Tracks" callout
+- Minor bug fixes
+- Updated Discord link (Old one no longer works)
+
+4.3.1:
+
+- Added 3 new vehicles to "Wreckless Driving" callout (Sovereign, Blazer3, and Bifta)
+- Added 1 new callout in BETA Testing ("Abandoned Vehicle On Railroad Tracks") - EXPECT UNEXPECTED BUGS. Please report any
+issues to my Discord.
+- Minor ini changes
+- Minor Improvements
+- Changed the Dead Body, 9-1-1 Hangup,  callout probability from High to Medium
+- Improvements to the Callout Notifications
+- Changed the Unauthorized Access Movie Studio callout probability from Medium to Low
+- Added 1 new location to "Movie Hopping" callout - Callout is now complete but may receive some updates.
+- Removed "Prohibited Underage Tattoo" callout permanently (Not returning).
+
+4.2.1:
+
+- Added 1 new callout ("Prohibited Underage Tattoo")
+- Fixed the ini not reading "true" or "false" when set by the player.
+
+4.1.0:
+
+- Added 20 new locations for 9-1-1 Hangup, Code Karan, Illegal Campfire On Public Beach,
+Public Disturbance and Possible Prostitution
+- Improved Version Checker
+- 3 new callouts ("Domestic Disturbance", "Stolen Military Equipment", and "Movie Hopping")
+- Added 2 new vehicles in "Stolen Construction Equipment" callout
+- Minor ini changes
+- Bug Fixes
+- Minor improvements
+- Added 10 new peds in "Possible Prostitution" callout
+- Added 3 new locations for Intoxicated Individual, Person On The Highway, Refuse To Pay, Refuse To Leave,
+Soliciting, Trespassing On Private Property, Trespassing On Construction Property, Trespassing On Railroad Property,
+and Unauthorized Access Movie Studio
+- Dialogue Improvements
+
+Note: Please delete any old versions of JM Callouts Remastered you have as it
+will not work in future versions of LSPDFR. As of v4.1,I WILL NOT BE SUPPORTING/or Providing
+support of OLD VERSIONS OF JM Callouts Remastered. Consider updating to LATEST version.
+
+v4.0.0:
+
+- MAJOR CALLOUTS OVERHAUL (OPTIMIZED)
+- Added 3 new vehicles to "Stolen Emergency Vehicle" callout (Callout Complete and Stable)
+- Added 1 new callout (Stolen Construction Equipment)
+- Minor ini changes
+- More dialogue improvements
+
+These callouts were retested and works fine and now fully STABLE!
+
+v3.14.0:
+
+- Removed 2 vehicles from "Wreckless Driving" callout
+- Added 3 new vehicles to "Wreckless Drving" callout
+- Added 5 new vehicles to "Stolen Emergency Vehicle" callout (Prison Bus, Riot, Riot2, Park Ranger, Police Transport)
+- Minor adjustments
+- Removed 2 peds from "Person On The Highway" callout
+- Added 3 new weapons to "Person On The Highway" callout
+- Added 5 new peds to "Person On The Highway" callout
+- Added 2 new locations to "Person On The Highway" callout
+- No .ini changes
+
+v3.13.3:
+
+- Removed "RocketMan" callout
+- Removed "Deranged Lover" callout
+- Removed "Person With A Weapon" Callout
+- Removed "Monkey With A Weapon" callout
+- Removed "Person With A Knife" callout
+- Major .ini changes
+- Removed JMCallouts Audio folder as it is no longer required
+
+v3.12.2:
+
+- Removed "Gang Rivalry Shootout" callout 
+- Removed "Officer Down" callout
+- Reverted back to old code for "Deranged Lover", "Monkey With A Weapon", "Person With A Weapon", and "Rocketman" callouts until a fix is made.
+- Minor .ini changes
+
+If you have any issues with "Deranged Lover", "Monkey With A Weapon", "Person With A Weapon", and "Rocketman",
+disable them in the .ini that's all I can tell you.
+
+v3.11.1:
+
+- Fixed missing code
+- Added a notification for "Illegal Campfire On Public Beach" callout
+- No .ini changes
+- No new callouts added
+- Minor adjustments
+
+v3.10.0.4:
+
+- Fixed the assembly file information
+- Added 1 new callout ("Person On The Highway")
+- Added 4 new locations for "Trespassing On Private Property" callout
+- More Dialogue Improvements
+- Minor .ini changes
+- You now have to press "END" key or radio in manually to end each callout - Suggestion by Benzo Effect
+- Improved "Deranged Lover" callout
+- Improved "Gang Rivalry Shootout" callout
+- Improved "Rocketman" callout
+- Improved "Officer Down" callout
+- Improved "Monkey With A Weapon" callout
+- Improved "Person With A Knife" callout
+- Improved "Person With A Weapon" callout
+- Improved "Stolen Emergency Vehicle" callout
+- Hopefully I fixed the game performance issue on the affected callouts
+
+v3.9.10.3:
+
+- Added 3 new locations for "Unauthorized Access Movie Studio" callout
+- Added 3 new locations for "Trespassing On Railroad Property" callout
+- Added 3 new locations for "Trespassing On Construction Property" callout
+- Added 3 new locations for "Soliciting" callout
+- Added 3 new locations for "Refuse To Leave" callout
+- Added 3 new locations for "Public Disturbance" callout
+- Added 4 new locations for "Possible Prostitution" callout
+- Added 4 new locations for "Intoxicated Individual" callout
+- Added 4 new locations for "Illegal Campfire On Public Beach" callout
+- Added 2 new locations for "Gang Rivalry Shootout" callout
+- Added 2 new locations for "Code Karen" callout
+- bug fixes
+- dialogue improvements
+
+v3.9.9.2:
+
+- Added 3 new spawn locations for "Refuse To Leave" callout
+- Added 3 new spawn locations for "Gang Rivalry Shootout" callout
+- Added 4 new spawn locations for "911 Hang Up" callout
+- minor .ini Changes 
+- Bug fixes
+- Minor Adjustments
+- Removed the notification about a conflict with Forestry Callouts
+- Disabled "Code Karen" callout as I'm working on new spawn locations for this callout.
+
+Working on new spawn locations for "Intoxicated Individual", "Code Karen", "Public Disturbance", and "Soliciting" callouts
+
+v3.9.8.2:
+
+- Added a notification about a known conflict with ForestryCallouts
+- Minor .ini changes
+- No new callouts added
+
+v3.9.8.1:
+
+- Added a new spawn location for "Trespassing On Railroad Property" callout (Must be near Sandy Shores to take this new spawn location)
+- Added 5 Random spawn locations for "Refuse To Pay" callout - Suggested by CODE3law (See "Refuse To Pay Callout Locations" file for spawn locations)
+- Added 2 new peds and 2 new weapons for "Deranged Lover" callout
+- Removed "Vehicle Fire" due to crashing issues (Perm Removal)
+- Minor Improvements
+- ini changes
+- 3 new vehicles added to "Wreckless Driver" callout (BATI2, HERMES, and TECHNICAL2)
+- Added a new setting in the ini - Code was from DynamicCallouts as a reference. 
+- Rewritten version checker (Discarded United Callouts by Sebi3's version checker code (His code is severely out of date))
+- Fixed an issue where the plugin notification will not display properly when going on duty - Reported by Hazza on Discord
+- Minor .ini changes
+- The rewritten version checker code was from DynamicCallouts on GitHub as a reference (Credit to DynamicCallouts devs Officer Jared and TheHyperBros)
+- Disabled "RocketMan" callout due to crashing issues.
+
+Shout out to SuperPyroManiac, Charlie686, and other devs for their help, tips and tricks to help me improve this pack,
+
+v3.9.7.0:
+
+- Added 1 new callout ("Trespassing On School Grounds")
+- Minor bug fixes
+- Minor Adjustments
+
+v3.9.3.1:
+
+- Added 2 new Callouts ("Amber Alert", "Reckless Driving", and "Stolen Emergency Vehicle")
+- Readded "Monkey With A Weapon" callout
+- .ini Changes
+- Minor Adjustments
+- Bug Fixes
+- Working on new locations for 9-1-1 Hang Up, Code Karen, Trespassing On Construction Property, and Intoxicated Individual
+
+v3.8.2.0:
+
+- Code clean up
+- Fixed the possible prostitution callout issue
+- Every callout will now have a notification after you accept and complete the callout so you know you have done/completed the callout (Inspired by UnitedCallouts by Sebi3.)
+- Fixed the lag issues 
+- Bug fixes
+- Removed the ActiveAIBackUp feature from certain callouts. This feature remains in a couple of callouts for its functionality.
+- Minor Adjustments.
+
+Note: 9-1-1 Hang Up, Intoxicated Individual, and Illegal Campfire On Public Beaches will have new spawn locations in the upcoming updates to keep up with the variety. 
+
+v3.8.1.6:
+
+- Removed "Monkey With A Weapon" Callout due to crashing issues - Reported by Ehren_Katze on my Discord
+- Added 1 new Callout ("Vehicle Fire")
+- Minor .ini changes
+- Bug Fixes
+
+Please report bugs, errors, suggestions to my Discord any time. 
+
+v3.8.1.5:
+
+- Minor adjustments to Gang Rivalry shootout callout
+- Added 1 new Callout ("The Candy Cane Whacker") - LIMITED TIME CALLOUT
+- Minor .ini Changes
+- Bug Fixes
+
+
+v3.8.0.4:
+
+- Added 2 new callouts ("Shots Fired" , "Officer Down", "Monkey With A Weapon")
+- Minor Adjustments
+- Minor .ini changes
+- Bug Fixes
+- Adjustments to "Illegal Campfire on Public Beach" callout
+- Major Adjustments to "Illegal Prostitution" Callout
+- Minor Adjustments to "Code Karen" Callout
+- Improvements to "Lost Individual" and "Possible Prostitution" callout
+- Fixed some improper grammar
+
+v3.7.9.3:
+
+- Removed "Clown With A Deadly Weapon" Callout temporarily due to a coding error
+- Removed the Distance Check from the callouts coding (This was the cause of the Instant Code 4 - Disregard Message)
+- Bug Fixes
+- Major Adjustments to all callouts
+- For better audio for the "RocketMan" Callout, go to https://www.mediafire.com/file/fj67e1an0csj2jr/BetterAudioForRocketManCallout.rar/file
+- Refuse To Pay callout will now spawn a random ped
+- Improvements to "RocketMan" callout
+- Improvements to "Public Disturbance" Callout
+- Minor .ini changes
+- Major Improvements
+
+NEWS: JM Callouts Remastered 2.0 is in active development.
+
+v3.7.8.2:
+ 
+- Added a new callout ("RocketMan")
+- Added a new callout ("SolicitingDavis")
+- Added new spawn locations for Gang Rivalry Shootout (See "Gang Rivalry Shootout Locations") text file for locations. Adding more locations in near future
+- Bug Fixes and Improvements
+- 911 Hangup callout should now spawn in a random location. (Report issue on Discord if issue occurred)
+- Improvements to the 911 Hang Up Callout
+
+v3.7.8.0:
+
+- Added a new callout ("Gang Rivalry Shootout")
+- Minor Improvements
+- Bug Fixes to "Possible Prostitution" Callout
+- Added an optional file to download for the Gang Rivalry Shootout callout without SWAT and NOOSE to download
+- Fixed more improper grammar
+- Updated the LSPDFR API Reference (Forgot to mention this in the last update)
+
+v3.8.0.0 is in development. This will take a while or maybe at least till Mid-February 2024. 
+
+v3.7.6.0:
+
+- Added a new callout ("Person With A Weapon")
+- Added Documentation
+- Minor Adjustments and Improvements
+
+v3.7.5.0:
+
+- Added 3 New Callouts ("Deranged Lover" , "Dead Body", "Suspicious Person")
+- Minor Adjustments
+- Fixed Some Improper Grammar
+- Minor Improvements
+
+v3.7.4.3:
+
+- Fixed "Unauthorized Access Movie Studio" Callout
+- Minor Adjustments
+- Bug Fixes 
+
+v3.7.3.2:
+
+-  Added 2 New Callouts
+-  Fixed the disbaled callouts
+-  Fixed up the version checker
+-  Cleaned up and redone some code
+-  Deleted an unnecessary function in the ini
+
+Note: Search Warrant callout has been scrapped from the project. If you want a search warrant callout,
+simply download RickyVasco's Regular Callouts pack. :-) He's already got that implemented in already.
+
+v3.7.2.2:
+
+- Updated the RagePluginHookSDK reference in the project
+- Increased the minimum distance check from 100 to 1000
+- All callouts are in the city. 
+- Working on county callouts 
+- Temporarily removed "Unauthorized Access Movie Studio" callout until further notice.
+- Disabled "Trespassing On Railroad Property" Callout
+- Disabled "Soliciting" Callout
+- Disabled "Refuse To Pay" Callout
+- Disabled "Refuse To Leave" Callout
+- Disabled "Possible Prostitution" Callout
+
+I DO NOT KNOW WHEN I'LL BE ABLE TO FIX THE DISABLED CALLOUTS. THIS REQUIRES SOME TESTING AND BUG FIXING. PLEASE DO NOT ASK ME WHEN THESE WILL BE FIXED.
+
+v3.7.1.2:
+
+- Implemented a notification to let everyone know about the fake malacious file of JM Callouts Remastered being redistributed.
+
+- No callout changes
+
+- No ini Changes
+
+v3.7.1.1:
+
+- Fixed the ini being blank.
+
+- Fixed the 911 Hang Up callout
+
+- Fixed the Trespassing on Construction Property Callout
+
+- Fixed the Lost Individual Callout 
+
+- Fixed the Person With A Knife Callout
+
+- Fixed the Code Karen Callout
+
+- Fixed the Intoxicated Individual Callout
+
+- Added "Unauthorized Access - Richard's Majestic" Callout - BETA
+
+- Callouts that are remained DISABLED:
+
+* Trespassing on RailRoad Property
+* Trespassing On Private Property
+* Refuse To Pay
+* Refuse To Leave
+* Public Disturbance - Still interfering with IG Callouts
+* Possible Prostitution
+* Illegal Prostitution
+* Illegal Campfire On Public Beach
+
+v3.7:
+
+- 1 new Callout Added
+- Fixed the code 4 Disregard Messages
+- Minor Bug Fixes
+- Minor Adjustments
+
+v3.6.7.1:
+
+- Fixed a coding error of the version checker that is telling people to update. 
+
+v3.6.7:
+
+- Deleted an unnecessary code script
+- "Person With A Knife" Callout will now spawn a random ped instead of Anita.
+
+YES, I'M STILL AWARE OF THE .INI BEING BLANK. IF YOU OR SOMEONE YOU KNOW HOW I CAN RESOLVE THIS, PLEASE HIT ME UP ON DISCORD!
+
+v3.5.6:
+
+- Minor adjustments to the setting.cs
+- Redone the version checker from scratch (Used a guide by Sebi3's United Callouts github source) 
+- Disabled "Intoxicated Individual" until further notice due to a bug
+- Disabled "Public Disturbance" until further notice due to a bug conflicting with IGCallouts.
+
+Note: Do Not Take "Public Disturbance" callout while having IGCallouts installed. I'm working on a fix for this. 
+
+v3.5.4:
+
+- Added "Trespassing on Construction Property" Callout
+- Added "Public Disturbance" Callout
+- Added "Intoxicated Individual Location 2" Callout (Must be near Chumash to accept)
+- Fixed the "CODE 4- DISREGARD" error
+- Minor Improvements
+- Minor Adjustments
+
+3.3.3:
+
+- Fixed "Soliciting Callout"
+- Added "Person With A Knife" Callout (now fucntional)
+- Minor Bug Adjustments
+
+3.2.3:
+
+- 9-1-1 Hang Up Callout is now fixed.
+
+v3.1.3:
+
+- Fixed an isssue with the file not showing the correct version (Patched)
+
+v3.1.2:
+
+- Fixed "Code Karen" callout (This requires Open All Interiors Mod)
+- Bug Fixes
+- Fixed some improper grammar
+- Fixed the "Disregard - Code 4" message. There was a coding error on my end. The callouts should be working as normal now.
+
+v3.0.1:
+
+- Fixed the file version error (Patch update)
+
+v3.0:
+
+- "Illegal Prostitution": Fixed a dialogue coding error
+- Minor Improvements to existing callouts
+- Added a version checker to check for future versions of the callout pack
+- Minor bug fixes
+- Major Improvements
+
+v2.9.3:
+
+- Removed "9-1-1 Hang Up" Callout due to a bug
+- Everything else remains the same.
+- Known Issue: "911 Hang UP", "Person With A Knife", "Public Disturbance", and "Code Karen" Callouts will pop up in the menu when they're not fully functional.
+
+
+v2.9.2:
+
+- Minor Improvements
+- NEW Callout: 9-1-1 Hang Up (More Locations Soon!)
+
+=> v2.10.2 is in the works! 
+
+News:
+
+Working on a new callout pack that is in development. 
+
+COMING SOON:
+-  .ini Config (Need assistance with this)
+-  Version Checker to check the file version if it's updated and/or is current. (Need assistance with this feature)
+
+v2.8.1:
+
+* Removed "Code Karen" callout
+
+* Removed NSFW Content
+
+* Certain Callouts will now Spawn Random Peds instead of NSFW Peds
+
+* Improvements to "Illegal Campfire on Public Beach" callout
+
+* Improvements to "Trespassing on RailRoad Property" callout
+
+* Improvements to "Possible Prostitution" callout
+
+* Improvements to "Refuse To Pay" callout
+
+* Improvements to "Illegal Prostitution" callout
+
+* Improvements to "Trespassing on Private Property" callout
+
+v2.7.1:
+
+* Improved "Refuse To Pay" callout
+
+* Improved "Trespassing On Private Property" callout
+
+* Improved "Trespassing On Railroad Property" callout
+
+* "Code Karen" callout NOW AVAILABLE!
+
+Due to recent hate about my callouts, ALL Complaints need to be submitted to MY Discord, if you got any problems with my callouts!
+
+
+v2.6:
+
+* 2 new callouts added
+
+* Bug fixes
+
+Announcement: I would like to see and react to y'all's vids of your reactions on the callout pack. You can submit them through my discord under "#submit-your-vids-here" channel.
+
+* NEW SCREENSHOTS Added!
+
+v2.5:
+
+* "Soliciting" callout is now fixed and improved!
+
+* Changed the callout radius from 900 to 2500 for to able to accept the callout anywhere if you're in the radius. 
+
+* Minor adjustments
+
+* 2 New Callouts are in development and will be released in v2.6!
+
+* JM Callouts Remastered is out of BETA. 
+
+v2.4.3:
+
+* Removed the version checker until I find a fix.
+
+Callouts are not affected by this change
+
+Soliciting callout will be fixed and released this week! 
+
+v2.4.2:
+
+* Disabled "Soliciting" callout until a fix is made
+
+* Major bug issues when messages not showing up on Callout Interface.
+
+* Improvements to "Refuse To Pay" Callout.
+
+
+v2.3.1:
+
+* Added 1 new callout
+
+* Soliciting and Refuse to Pay callouts are NOW FIXED!
+
+* Minor bug fixes
+
+* JMCalloutsRemastered is NOW OPEN SOURCE! Check description for github Link!
+
+
+v2.2.1:
+
+* Added 2 new callouts
+
+* Removed the Refuse To Pay callout until I make a fix for it
+
+* Minor Bug Fixes
+
+v2.3.1 is in the works!
+
+v2.1.1:
+
+* Fixed some grammatical errors
+
+* Added 1 new callout
+
+* Minor bug fixes
+
+* Minor Improvements to "Intoxicated Individual" callout
+
+v2.0.0:
+
+* Disabled Soliciting for now until I come up with a fix.
+
+* Minor bug fixes 
+
+* Removed High Speed Chase Callout 
+
+* Updated the callout pack to work with the latest version of Callout Interface (1.4)
+
+v1.0.0:
+
+Released!
