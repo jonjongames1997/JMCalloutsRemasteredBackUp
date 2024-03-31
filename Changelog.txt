@@ -21,8 +21,6 @@
 - Changed the code response in "Soliciting" from "Code 3" to "Code 2"
 - Help Messages are now set to false by default
 
-Controller Support Build coming soon.
-
 4.3.2:
 
 - Fixed an issue when tow truck tries to tow the vehicle when the vehicle wheels is locked (Abandoned Vehicle on Railroad Tracks callout)
