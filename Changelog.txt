@@ -1,6 +1,6 @@
 ﻿Changelog:
 
-4.4.2:
+4.4.3:
 
 - Added "JMCallouts Audio" folder. (Most callouts rely on the audio in the folder)
 - Minor adjustments to "Dead Body" callout
