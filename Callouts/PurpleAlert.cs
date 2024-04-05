@@ -92,7 +92,11 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if(counter == 4)
                     {
-                        Game.DisplaySubtitle("");
+                        Game.DisplaySubtitle("~r~Suspect~w~: My phone died and I didn't have my charger with me to go somewhere and get it charged. I'm sorry.");
+                    }
+                    if(counter == 5)
+                    {
+
                     }
                 }
             }
