@@ -84,6 +84,10 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if(counter == 2)
                     {
+                        Game.DisplaySubtitle("~r~Suspect~w~: Yeah, I'm fine. What's going on?");
+                    }
+                    if(counter == 3)
+                    {
 
                     }
                 }
