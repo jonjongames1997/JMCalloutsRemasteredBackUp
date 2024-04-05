@@ -88,8 +88,9 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if(counter == 3)
                     {
-
+                        Game.DisplaySubtitle("~b~Player~w~: We got a call from your loved one saying that you were not responding to their calls or texts. They are worried about you.");
                     }
+
                 }
             }
 
