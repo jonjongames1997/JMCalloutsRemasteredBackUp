@@ -92,7 +92,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if(counter == 4)
                     {
-
+                        Game.DisplaySubtitle("");
                     }
                 }
             }
