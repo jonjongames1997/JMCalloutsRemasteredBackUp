@@ -102,6 +102,7 @@ namespace JMCalloutsRemastered
             if (Settings.DomesticDisturbance) { Functions.RegisterCallout(typeof(DomesticDisturbance)); }
             if (Settings.AbandonedVehicleOnRailRoadTracks) { Functions.RegisterCallout(typeof(AbandonedCarOnRailroadTracks)); }
             if (Settings.Stalking) { Functions.RegisterCallout(typeof(Stalking)); }
+            if (Settings.PurpleAlert) { Functions.RegisterCallout(typeof(PurpleAlert)); }
             Game.Console.Print("[LOG]: All callouts of the JMCalloutsRemastered.ini were loaded successfully.");
             Game.Console.Print();
             Game.Console.Print("================================================== JM Callouts Remastered ===================================================");
