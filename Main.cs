@@ -1,8 +1,5 @@
 ﻿using System.Reflection;
 using JMCalloutsRemastered.Callouts;
-using System.IO;
-using System.Linq;
-using Rage.Attributes;
 
 [assembly: Rage.Attributes.Plugin("JMCalloutsRemastered", Description = "LSPDFR Callout Pack", Author = "OfficerMorrison")]
 namespace JMCalloutsRemastered
@@ -65,6 +62,7 @@ namespace JMCalloutsRemastered
             else
             {
                 Game.LogTrivial("User doe not have Stop The Ped by Bejoijo Plugins installed. Stopping integration....");
+                StopThePed = false;
             }
             if (Functions.GetAllUserPlugins().ToList().Any(a => a != null && a.FullName.Contains("UltimateBackup")) == true)
             {
