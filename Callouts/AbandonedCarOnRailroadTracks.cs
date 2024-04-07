@@ -22,9 +22,6 @@ namespace JMCalloutsRemastered.Callouts
                 new(456.48f, -1648.28f, 28.56f), // Innocence Blvd
                 new(547.26f, -1423.92f, 28.65f), // Capital Blvd
                 new(2719.48f, 3900.61f, 43.06f), // Near Maude's House
-                new(),
-                new(),
-                new(),
             };
             spawnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
@@ -75,7 +72,7 @@ namespace JMCalloutsRemastered.Callouts
         public override void End()
         {
             base.End();
-
+            if (vehicle) vehicle.Dismiss();
             if (vehicleBlip) vehicleBlip.Delete();
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Abandoned Vehicle On Railroad Tracks", "~b~You~w~: Dispatch, we are ~g~CODE 4~w~. Show me back 10-8.");
             LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_THIS_IS_DISPATCH_HIGH ALL_UNITS_CODE4 NO_FURTHER_UNITS_REQUIRED");

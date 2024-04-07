@@ -146,7 +146,7 @@ namespace JMCalloutsRemastered.Callouts
         public override void End()
         {
             base.End();
-
+            if (Suspect) Suspect.Dismiss();
             if (SuspectBlip) SuspectBlip.Delete();
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~9-1-1 Hang Up", "~b~You~w~: Dispatch, we are ~g~Code 4~w~! Show me back 10-8.");
             LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_THIS_IS_DISPATCH_HIGH ALL_UNITS_CODE4 NO_FURTHER_UNITS_REQUIRED");

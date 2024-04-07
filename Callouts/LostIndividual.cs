@@ -133,6 +133,8 @@ namespace JMCalloutsRemastered.Callouts
 
         public override void End()
         {
+            if (suspect) suspect.Dismiss();
+            if (victim) victim.Dismiss();
             if (vicBlip) vicBlip.Delete();
             if (susBlip) susBlip.Delete();
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Lost Individual", "~b~You~w~: Dispatch, we are ~g~Code 4~w~. Show me back 10-8.");
