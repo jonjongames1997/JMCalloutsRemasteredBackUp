@@ -2,7 +2,7 @@
 
 4.5.3:
 
-- Added 1 New Callout ("Purple Alert")
+- Added 2 New Callouts ("Purple Alert" and "Peeping Tom - SFW")
 - More Dialogue Improvements
 - Changed the callout probability of Dead Body callout from Low to Medium
 - Minor Improvements
