@@ -34,7 +34,27 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnCalloutAccepted()
         {
+            Game.LogTrivial("JM Callouts Remastered Log: Peeping Tom callout accepted!");
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Peeping Tom", "~b~Dispatch~w~: The suspect has been spotted! Respond ~r~Code 2~w~.");
+            Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
 
+            suspect = new Ped(pedList[new Random().Next((int)pedList.Length)], spawnpoint, 0f);
+            suspect.IsPersistent = true;
+            suspect.BlockPermanentEvents = true;
+
+            suspect.Tasks.AimWeaponAt(MainPlayer, 500);
+            suspect.Inventory.GiveNewWeapon("WEAPON_PISTOL", 500, true);
+
+            suspectBlip = suspect.AttachBlip();
+            suspectBlip.Color = System.Drawing.Color.Chocolate;
+            suspectBlip.IsRouteEnabled = true;
+
+            if (suspect.IsMale)
+                malefemale = "sir";
+            else
+                malefemale = "ma'am";
+
+            counter = 0;
 
             return base.OnCalloutAccepted();
         }
