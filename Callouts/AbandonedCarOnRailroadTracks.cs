@@ -61,7 +61,7 @@ namespace JMCalloutsRemastered.Callouts
         {
             if(MainPlayer.DistanceTo(vehicle) <= 10f)
             {
-                Game.DisplayHelp("Inspect the vehicle and call a tow.");
+                Game.DisplayHelp("Inspect the vehicle then call a tow.");
             }
 
             if (Game.IsKeyDown(Settings.EndCall)) End();
