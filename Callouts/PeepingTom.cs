@@ -19,9 +19,9 @@ namespace JMCalloutsRemastered.Callouts
         {
             List<Vector3> list = new()
             {
-                new(),
-                new(),
-                new(),
+                new(468.63f, -1779.71f, 28.69f),
+                new(1691.34f, 3857.23f, 34.91f),
+                new(-310.01f, 6327.21f, 32.49f),
             };
             spawnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
