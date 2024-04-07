@@ -127,6 +127,7 @@
     <Compile Include="Callouts\PersonOnTheHighway.cs" />
     <Compile Include="Callouts\PossibleProstitution.cs" />
     <Compile Include="Callouts\PublicDisturbance.cs" />
+    <Compile Include="Callouts\PurpleAlert.cs" />
     <Compile Include="Callouts\RefuseToLeave.cs" />
     <Compile Include="Callouts\RefuseToPay.cs" />
     <Compile Include="Callouts\Soliciting.cs" />
