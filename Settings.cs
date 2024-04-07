@@ -32,6 +32,7 @@ namespace JMCalloutsRemastered
         internal static bool AbandonedVehicleOnRailRoadTracks = true;
         internal static bool Stalking = true;
         internal static bool PurpleAlert = true;
+        internal static bool PeepingTom = true;
         internal static bool HelpMessages = false;
         internal static Keys EndCall = Keys.End;
         internal static Keys Dialog = Keys.E;
@@ -69,7 +70,8 @@ namespace JMCalloutsRemastered
             Settings.MovieHopping = ini.ReadBoolean("Callouts", "MovieHopping", true);
             Settings.AbandonedVehicleOnRailRoadTracks = ini.ReadBoolean("Callouts", "AbandonedVehicleOnRailRoadTracks", true);
             Settings.Stalking = ini.ReadBoolean("Callouts", "Stalking", true);
-            Settings.Stalking = ini.ReadBoolean("Callouts", "PurpleAlert", true);
+            Settings.PurpleAlert = ini.ReadBoolean("Callouts", "PurpleAlert", true);
+            Settings.PeepingTom = ini.ReadBoolean("Callouts", "PeepingTom", true);
             Settings.HelpMessages = ini.ReadBoolean("HelpMessages", "Help Messages", false);
             EndCall = ini.ReadEnum("Keys", "EndCall", Keys.End);
             Dialog = ini.ReadEnum("Keys", "Dialog", Keys.E);
