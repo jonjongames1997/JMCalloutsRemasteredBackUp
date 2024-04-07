@@ -124,6 +124,7 @@
     <Compile Include="Callouts\IntoxicatedIndividual.cs" />
     <Compile Include="Callouts\LostIndividual.cs" />
     <Compile Include="Callouts\MovieHopping.cs" />
+    <Compile Include="Callouts\PeepingTom.cs" />
     <Compile Include="Callouts\PersonOnTheHighway.cs" />
     <Compile Include="Callouts\PossibleProstitution.cs" />
     <Compile Include="Callouts\PublicDisturbance.cs" />
