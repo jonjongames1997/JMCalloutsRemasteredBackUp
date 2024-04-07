@@ -5,7 +5,9 @@
 - Added 1 New Callout ("Purple Alert")
 - More Dialogue Improvements
 - Changed the callout probability of Dead Body callout from Low to Medium
-- 
+- Minor Improvements
+- Minor Adjustments
+- Bug Fixes
 
 
 4.4.3:
