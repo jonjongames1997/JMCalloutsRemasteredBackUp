@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("JMCalloutsRemastered")]
 [assembly: AssemblyDescription("LSPDFR Callout Pack for LSPDFR Police Mod")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Scary Raven Game Studios")]
+[assembly: AssemblyCompany("Scary Raven Game Studios & Jon Jon Games Entertainment")]
 [assembly: AssemblyProduct("JMCalloutsRemastered")]
 [assembly: AssemblyCopyright("Copyright ©  2022 - 2024")]
 [assembly: AssemblyTrademark("")]
