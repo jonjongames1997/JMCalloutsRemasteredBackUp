@@ -42,8 +42,7 @@ namespace JMCalloutsRemastered.Callouts
             suspect.IsPersistent = true;
             suspect.BlockPermanentEvents = true;
 
-            suspect.Tasks.AimWeaponAt(MainPlayer, 500);
-            suspect.Inventory.GiveNewWeapon("WEAPON_PISTOL", 500, true);
+            suspect.Tasks.PutHandsUp(500, MainPlayer);
 
             suspectBlip = suspect.AttachBlip();
             suspectBlip.Color = System.Drawing.Color.Chocolate;
@@ -65,6 +64,41 @@ namespace JMCalloutsRemastered.Callouts
             if (suspectBlip) suspectBlip.Delete();
 
             base.OnCalloutNotAccepted();
+        }
+
+        public override void Process()
+        {
+            base.Process();
+
+            if(MainPlayer.DistanceTo(suspect)   <= 10f)
+            {
+
+                Game.DisplayHelp("Press ~y~E~w~ to interact with suspect.", false);
+
+                if (Game.IsKeyDown(System.Windows.Forms.Keys.E))
+                {
+                    counter++;
+
+                    if(counter == 1)
+                    {
+                        suspect.Face(MainPlayer);
+                        Game.DisplaySubtitle("~b~Player~w~: LSPD! Stay right where you are, motherfucker!");
+                    }
+                    if(counter == 2)
+                    {
+                        Game.DisplaySubtitle("~r~Suspect~w~: Shit, the one time!");
+                    }
+                    if(counter == 3)
+                    {
+                        Game.DisplaySubtitle("Conversation Ended!");
+                        suspect.Tasks.FightAgainst(MainPlayer);
+                        suspect.Inventory.GiveNewWeapon("WEAPON_PISTOL", 500, true);
+                    }
+                }
+            }
+
+            if (MainPlayer.IsDead) End();
+            if (Game.IsKeyDown(Settings.EndCall)) End();
         }
 
 
