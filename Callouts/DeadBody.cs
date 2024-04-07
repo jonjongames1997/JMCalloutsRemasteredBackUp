@@ -3,7 +3,7 @@
 namespace JMCalloutsRemastered.Callouts
 {
 
-    [CalloutInterface("Dead Body", CalloutProbability.Low, "Reports of a dead body", "Code 3", "LSPD")]
+    [CalloutInterface("Dead Body", CalloutProbability.Medium, "Reports of a dead body", "Code 3", "LSPD")]
 
     public class DeadBody : Callout
     {
