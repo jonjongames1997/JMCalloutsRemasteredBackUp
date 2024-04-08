@@ -39,8 +39,7 @@ namespace JMCalloutsRemastered.Callouts
             suspect.IsPersistent = true;
             suspect.BlockPermanentEvents = true;
 
-            suspect.Tasks.Wander();
-            suspect.KeepTasks = true;
+            suspect.Tasks.PutHandsUp(500, MainPlayer);
 
             blip = suspect.AttachBlip();
             blip.Color = System.Drawing.Color.DarkTurquoise;
