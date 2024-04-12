@@ -8,7 +8,6 @@ namespace JMCalloutsRemastered.Callouts
     public class PeepingTom : Callout
     {
 
-        private static readonly string[] pedList = new string[] { "s_m_m_autoshop_01", "g_f_y_ballas_01", "g_m_y_ballaorig_01", "a_m_m_beach_01", "a_f_m_bodybuild_01", "ig_claypain" };
         private static Ped suspect;
         private static Blip suspectBlip;
         private static Vector3 spawnpoint;
@@ -38,7 +37,7 @@ namespace JMCalloutsRemastered.Callouts
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Peeping Tom", "~b~Dispatch~w~: The suspect has been spotted! Respond ~r~Code 2~w~.");
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
 
-            suspect = new Ped(pedList[new Random().Next((int)pedList.Length)], spawnpoint, 0f);
+            suspect = new Ped(spawnpoint);
             suspect.IsPersistent = true;
             suspect.BlockPermanentEvents = true;
 

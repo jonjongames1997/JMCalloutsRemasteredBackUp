@@ -10,7 +10,6 @@ namespace JMCalloutsRemastered.Callouts
     public class PurpleAlert : Callout
     {
 
-        private static readonly string[] pedList = new string[] { "ig_abigail", "ig_amandatownley", "g_m_m_armgoon_01", "ig_money", "ig_barry", "a_f_m_bevhills_01" };
         private static Ped suspect;
         private static Blip blip;
         private static Vector3 spawnpoint;
@@ -35,9 +34,11 @@ namespace JMCalloutsRemastered.Callouts
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Purple Alert", "~b~Dispatch~w~: The suspect has been spotted! Respond ~r~Code 2~w~.");
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
 
-            suspect = new Ped(pedList[new Random().Next((int)pedList.Length)], spawnpoint, 0f);
+            suspect = new Ped(spawnpoint);
             suspect.IsPersistent = true;
             suspect.BlockPermanentEvents = true;
+
+            suspect.Tasks.Wander();
 
             blip = suspect.AttachBlip();
             blip.Color = System.Drawing.Color.DarkTurquoise;
