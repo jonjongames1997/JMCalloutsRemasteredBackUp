@@ -65,7 +65,7 @@ namespace JMCalloutsRemastered.Callouts
         {
             base.Process();
 
-            if(MainPlayer.DistanceTo(suspect) <= 10f)
+            if (MainPlayer.DistanceTo(suspect) <= 10f)
             {
 
                 Game.DisplayHelp("Press ~y~E~w~ to interact with suspect.", false);
@@ -74,40 +74,39 @@ namespace JMCalloutsRemastered.Callouts
                 {
                     counter++;
 
-                    if(counter == 1)
+                    if (counter == 1)
                     {
                         suspect.Face(MainPlayer);
                         Game.DisplaySubtitle("~b~Player~w~: Excuse me, " + malefemale + ". What's going on? You ok>");
                     }
-                    if(counter == 2)
+                    if (counter == 2)
                     {
                         Game.DisplaySubtitle("~r~Suspect~w~: Yeah, I'm fine. What's going on?");
                     }
-                    if(counter == 3)
+                    if (counter == 3)
                     {
                         Game.DisplaySubtitle("~b~Player~w~: We got a call from your loved one saying that you were not responding to their calls or texts. They are worried about you.");
                     }
-                    if(counter == 4)
+                    if (counter == 4)
                     {
                         Game.DisplaySubtitle("~r~Suspect~w~: My phone died and I didn't have my charger with me to go somewhere and get it charged. I'm sorry.");
                     }
-                    if(counter == 5)
+                    if (counter == 5)
                     {
                         Game.DisplaySubtitle("~b~Player~w~: Let's get you home to your loved ones, alright.");
                     }
-                    if(counter == 6)
+                    if (counter == 6)
                     {
                         Game.DisplaySubtitle("~r~Suspect~w~: Thank you, Officer.");
                     }
-                    if(counter == 7)
+                    if (counter == 7)
                     {
                         Game.DisplaySubtitle("Conversation Ended. Call a Taxi or Uber");
                     }
                 }
-
-                if (MainPlayer.IsDead) End();
-                if (Game.IsKeyDown(System.Windows.Forms.Keys.E)) End();
             }
+            if (MainPlayer.IsDead) End();
+            if (Game.IsKeyDown(Settings.EndCall)) End();
         }
 
         public override void End()
