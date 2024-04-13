@@ -13,13 +13,19 @@ namespace JMCalloutsRemastered.Callouts
         private static Blip blip;
         private static Ped suspect;
         private static int counter;
-        private static float heading;
         private static string malefemale;
 
         public override bool OnBeforeCalloutDisplayed()
         {
-            spawnpoint = new(-1602.71f, 206.43f, 59.28f);
-            heading = 100.56f;
+            List<Vector3> list = new()
+            {
+                new(-1602.71f, 206.43f, 59.28f),
+                new(),
+                new(),
+                new(),
+                new(),
+            };
+            spawnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
             LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_ALL_UNITS_02 WE_HAVE_01 CRIME_SUSPICIOUS_ACTIVITY UNITS_RESPOND_CODE_02_01");
             CalloutInterfaceAPI.Functions.SendMessage(this, "An unknown individual trespassing on school property");

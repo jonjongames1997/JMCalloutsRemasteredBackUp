@@ -43,6 +43,9 @@ namespace JMCalloutsRemastered.Callouts
                 new(-1820.98f, 792.17f, 138.12f),
                 new(-1466.04f, -326.55f, 44.80f),
                 new(-1314.80f, -645.97f, 26.45f),
+                new(),
+                new(),
+                new(),
             };
             spawnPoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(spawnPoint, 100f);
@@ -59,6 +62,7 @@ namespace JMCalloutsRemastered.Callouts
             Game.LogTrivial("[JM Callouts Remastered Log]: Public Disturbance callout accepted!");
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Public Disturbance", "~b~Dispatch:~w~ Suspect has been spotted!. Respond ~r~Code 2.");
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
+            Game.DisplayNotification("~r~WARNING~w~: Some Players may find this callout controversial or disturbing. Player Discretion is Advised.");
 
             suspect = new Ped(spawnPoint);
             suspect.IsPersistent = true;
