@@ -1,5 +1,6 @@
 ﻿using System.Reflection;
 using JMCalloutsRemastered.Callouts;
+using JMCalloutsRemastered.VersionChecker;
 
 [assembly: Rage.Attributes.Plugin("JMCalloutsRemastered", Description = "LSPDFR Callout Pack", Author = "OfficerMorrison")]
 namespace JMCalloutsRemastered
@@ -36,11 +37,9 @@ namespace JMCalloutsRemastered
                     Game.Console.Print();
 
 
-                    Game.DisplayNotification("web_jonjongames", "web_jonjongames", "JM Callouts Remastered", "~g~v" + Assembly.GetExecutingAssembly().GetName().Version.ToString() + " by ~o~OfficerMorrison", "~b~successfully loaded!");
-                    Game.DisplayNotification("~y~JM Callouts Remastered Notice~w~: If you have InteriorsV mod installed, you need to disable Story Mode Compatibility. Some callouts will break if not Disabled.");
-                    Game.DisplayNotification("JM Callouts Remastered is looking for Playtesters to playtest future versions of JM Callouts Remastered. If interested join Jon Jon Games Entertainment Discord and Apply.");
-                    Game.DisplayNotification("JM Callouts Remastered: You can enable/disable help messages in ~g~JMCalloutsRemastered.ini~w~ at any time.");
+                    Game.DisplayNotification("web_jonjongames", "web_jonjongames", "JM Callouts Remastered", "~g~v" + Assembly.GetExecutingAssembly().GetName().Version.ToString() + " ~o~by~w~ OfficerMorrison", "~b~successfully loaded!");
 
+                    VersionChecker.PluginCheck.isUpdateAvailable();
                     GameFiber.Wait(300);
                 });
         }

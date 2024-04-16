@@ -31,7 +31,7 @@
                 Game.Console.Print();
                 Game.Console.Print("===================================================== JM Callouts Remastered ===========================================");
                 Game.Console.Print();
-                Game.Console.Print("[WARNING!]: A new version of JM Callouts Remastered is NOW AVAILABLE to download! Update to latest build or play at your own risk.");
+                Game.Console.Print("[WARNING!]: A new version of JM Callouts Remastered is NOW AVAILABLE to download! Update to latest build Immediately! v4.2.1 and lower needs to be removed!");
                 Game.Console.Print("[LOG]: Current Version:" + curVersion);
                 Game.Console.Print("[LOG]: New Version:" + recievedData);
                 Game.Console.Print();
@@ -41,7 +41,7 @@
             }
             else
             {
-                Game.DisplayNotification("web_lossantospolicedept", "web_lossantospolicedept", "~w~JM Callouts Remastered", "", "Detected the ~g~latest~w~ build of ~o~JM Callouts Remastered! Thank you for downloading! :-)");
+                Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "", "Detected the ~g~latest~w~ build of ~o~JM Callouts Remastered! Thank you for downloading! :-)");
                 return false;
             }
         }
