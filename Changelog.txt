@@ -3,6 +3,7 @@
 4.5.4:
 
 - Updated LSPDFR API to the latest version of the API
+- Readded version checker
 
 4.5.3:
 
