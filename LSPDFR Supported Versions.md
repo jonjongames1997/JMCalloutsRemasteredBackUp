@@ -17,5 +17,5 @@ This is a list of Supported/Not Suppported versions for JM Callouts Remastered
 
 ## Older Verisons Support
 
-Once the callout pack upgrades to the new version of LSPDFR, I cannot support older versions of JM Callouts Remastered. You need to download
+Once the callout pack upgrades to the new version of LSPDFR API which this project relies on, I cannot support older versions of JM Callouts Remastered. You need to download
 the latest version of JM Callouts Remastered for guaranteed support. 
