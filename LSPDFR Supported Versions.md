@@ -6,8 +6,8 @@ This is a list of Supported/Not Suppported versions for JM Callouts Remastered
 
 | Build Version    | Supported          |
 | -------------    | ------------------ |
-|  Unknown version |  Unkown            |
-| 8757             | :white_check_mark: |
+| 8757.3179        |  ⚙️ In Progress    |
+| 8757.3095        | :white_check_mark: |
 
 # Legend
 
