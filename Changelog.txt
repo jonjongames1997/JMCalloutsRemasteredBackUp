@@ -5,7 +5,7 @@
 - Updated LSPDFR API to the latest version of the API
 - Readded version checker
 - Older versions 4.5.3 or lower will not be supported due to LSPDFR API Changes
-- 
+- Updated the Rage Plugin Hook SDK reference to the latest SDK version
 
 4.5.3:
 
