@@ -55,8 +55,6 @@ namespace JMCalloutsRemastered.Callouts
             Suspect.BlockPermanentEvents = true;
             Suspect.IsMeleeProof = true;
 
-            Suspect.Tasks.PlayAnimation(new AnimationDictionary("amb@world_human_bum_standing"), "drunk@idle_a", 5f, AnimationFlags.UpperBodyOnly | AnimationFlags.SecondaryTask | AnimationFlags.Loop );
-
             SuspectBlip = Suspect.AttachBlip();
             SuspectBlip.Color = System.Drawing.Color.CadetBlue;
             SuspectBlip.IsRouteEnabled = true;
