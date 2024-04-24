@@ -6,6 +6,10 @@
 - Readded version checker
 - Older versions 4.5.3 or lower will not be supported due to LSPDFR API Changes
 - Updated the Rage Plugin Hook SDK reference to the latest SDK version
+- Added 3 new locations for "Peeping Tom", "Trespassing On Private Property" and "Trespassing On Railroad Property"
+- Added 5 new locations for "Abandoned Car on RailRoad Tracks", "Stalking" and "Intoxicated Individual"
+- Added 2 new locations for "Soliciting", "Trespassing On Construction Property", and "Trespassing On School Property"
+- Added 4 new locations for "9-1-1 Hang Up"
 
 4.5.3:
 

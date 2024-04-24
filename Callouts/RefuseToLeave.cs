@@ -28,6 +28,8 @@ namespace JMCalloutsRemastered.Callouts
                 new(-3170.89f, 1043.86f, 20.86f), // Suburban in Chumash
                 new(-1660.25f, -1043.75f, 13.15f),
                 new(-1276.61f, -1417.05f, 4.34f),
+                new(),
+                new(),
             };
             Spawnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 100f);

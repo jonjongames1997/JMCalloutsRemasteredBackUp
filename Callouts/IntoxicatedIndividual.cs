@@ -28,12 +28,11 @@ namespace JMCalloutsRemastered.Callouts
                 new(907.54f, -1733.49f, 30.59f),
                 new(809.17f, -1109.94f, 29.08f),
                 new(787.99f, -758.52f, 26.77f),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
+                new(-1425.23f, -1126.91f, 3.45f),
+                new(-1746.91f, -1114.01f, 13.02f),
+                new(-1879.93f, -438.88f, 46.00f),
+                new(851.34f, -113.42f, 79.39f),
+                new(1009.09f, -563.53f, 60.20f),
             };
             Spawnnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(Spawnnpoint, 100f);
@@ -55,6 +54,8 @@ namespace JMCalloutsRemastered.Callouts
             Suspect.IsPersistent = true;
             Suspect.BlockPermanentEvents = true;
             Suspect.IsMeleeProof = true;
+
+            Suspect.Tasks.PlayAnimation(new AnimationDictionary("amb@world_human_bum_standing"), "drunk@idle_a", 5f, AnimationFlags.UpperBodyOnly | AnimationFlags.SecondaryTask | AnimationFlags.Loop );
 
             SuspectBlip = Suspect.AttachBlip();
             SuspectBlip.Color = System.Drawing.Color.CadetBlue;
