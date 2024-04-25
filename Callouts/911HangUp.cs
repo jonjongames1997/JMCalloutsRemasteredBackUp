@@ -45,10 +45,6 @@ namespace JMCalloutsRemastered.Callouts
                 new(-448.69f, 118.38f, 64.22f), // OCRP Postal 527
                 new(-9.04f, -285.22f, 46.86f), // OCRP Postal 540
                 new(470.14f, 270.12f, 102.73f), // Clinton Ave Hotel
-                new(),
-                new(),
-                new(),
-                new(),
             };
             Spawnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 100f);
