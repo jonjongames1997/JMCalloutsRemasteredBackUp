@@ -32,9 +32,36 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnCalloutAccepted()
         {
+            Game.LogTrivial("[JM Callouts Remastered Log]: The Taco Dispute callout accepted!");
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~The Taco Dispute", "~b~Dispatch~w~: Suspect has been spotted. Respond ~r~Code 2~w~.");
+            Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
 
+            suspect = new Ped(spawnnpoint);
+            suspect.IsPersistent = true;
+            suspect.BlockPermanentEvents = true;
+
+            suspectBlip = suspect.AttachBlip();
+            suspectBlip.Color = System.Drawing.Color.Coral;
+            suspectBlip.IsRouteEnabled = true;
+
+            if (suspect.IsMale)
+                malefemale = "sir";
+            else
+                malefemale = "ma'am";
+
+            counter = 0;
 
             return base.OnCalloutAccepted();
         }
+
+        public override void OnCalloutNotAccepted()
+        {
+            if (suspect) suspect.Dismiss();
+            if (suspectBlip) suspectBlip.Delete();
+
+            base.OnCalloutNotAccepted();
+        }
+
+
     }
 }
