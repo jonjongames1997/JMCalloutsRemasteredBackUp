@@ -18,7 +18,6 @@ namespace JMCalloutsRemastered.Callouts
             List<Vector3> list = new()
             {
                 new(4.41f, -1604.42f, 29.29f),
-                new(),
             };
             spawnnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(spawnnpoint, 100f);
@@ -62,6 +61,45 @@ namespace JMCalloutsRemastered.Callouts
             base.OnCalloutNotAccepted();
         }
 
+        public override void Process()
+        {
+            base.Process();
 
+            Game.DisplayHelp("Press ~y~E~w~ to interact with ~r~suspect~w~. ~y~Approach with caution~w~.", false);
+
+            if (Game.IsKeyDown(System.Windows.Forms.Keys.E))
+            {
+                counter++;
+
+                if(counter == 1)
+                {
+                    suspect.Face(MainPlayer);
+                    Game.DisplaySubtitle("~b~Player~w~: Excuse me, " + malefemale + ". What's going on here? What's the problem?");
+                }
+                if(counter == 2)
+                {
+                    Game.DisplaySubtitle("~r~Suspect~w~: You fucking seriously called the cops? Fuck this, I'm outta here, you cocksucking cock head!");
+                }
+                if(counter == 3)
+                {
+                    Game.DisplaySubtitle("Conversation ended!");
+                    suspect.Tasks.ReactAndFlee(suspect);
+                }
+            }
+
+            if (MainPlayer.IsDead) End();
+            if (Game.IsKeyDown(Settings.EndCall)) End();
+        }
+
+        public override void End()
+        {
+            if (suspect) suspect.Dismiss();
+            if (suspectBlip) suspectBlip.Delete();
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~The Taco Dispute", "~b~You~w~: Dispatch, we are ~g~Code 4~w~. Show me back 10-8.");
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ALL_UNITS_CODE4 NO_FURTHER_UNITS_REQUIRED");
+            base.End();
+
+            Game.LogTrivial("JM Callouts Remastered - The Taco Dispute is Code 4!");
+        }
     }
 }
