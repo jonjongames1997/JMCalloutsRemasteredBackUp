@@ -6,7 +6,7 @@ using CalloutInterfaceAPI;
 namespace JMCalloutsRemastered.Callouts
 {
 
-    [CalloutInterface("Abandoned Vehicle On RailRoad Tracks - BETA", CalloutProbability.Medium, "Reports of an abandoned vehicle on tracks", "Code 2", "LSPD")]
+    [CalloutInterface("Abandoned Vehicle On RailRoad Tracks", CalloutProbability.Medium, "Reports of an abandoned vehicle on tracks", "Code 2", "LSPD")]
 
     public class AbandonedCarOnRailroadTracks : Callout
     {
@@ -22,11 +22,11 @@ namespace JMCalloutsRemastered.Callouts
                 new(456.48f, -1648.28f, 28.56f), // Innocence Blvd
                 new(547.26f, -1423.92f, 28.65f), // Capital Blvd
                 new(2719.48f, 3900.61f, 43.06f), // Near Maude's House
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
+                new(2839.44f, 4436.06f, 48.93f),
+                new(3012.24f, 4154.55f, 58.57f),
+                new(1937.51f, 1971.20f, 66.44f),
+                new(2662.52f, 284.24f, 94.59f),
+                new(-231.55f, -1431.56f, 31.37f),
             };
             spawnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
