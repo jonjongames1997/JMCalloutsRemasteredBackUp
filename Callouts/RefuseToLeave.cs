@@ -28,12 +28,12 @@ namespace JMCalloutsRemastered.Callouts
                 new(-3170.89f, 1043.86f, 20.86f), // Suburban in Chumash
                 new(-1660.25f, -1043.75f, 13.15f),
                 new(-1276.61f, -1417.05f, 4.34f),
-                new(),
-                new(),
+                new(26.69f, -1343.42f, 29.50f),
+                new(4.41f, -1604.42f, 29.29f),
             };
             Spawnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 100f);
-            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_ALL_UNITS_02 WE_HAVE_01 ");
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_ALL_UNITS_02 WE_HAVE_01 CRIME_DISTURBING_THE_PEACE_01 UNITS_RESPOND_CODE_02_01");
             CalloutInterfaceAPI.Functions.SendMessage(this, "Person refusing to leave");
             CalloutMessage = "Individual refusing to leave property by business owner/employee.";
             CalloutPosition = Spawnpoint;
