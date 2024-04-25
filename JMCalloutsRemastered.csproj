@@ -137,6 +137,7 @@
     <Compile Include="Callouts\StolenConstructionEquipment.cs" />
     <Compile Include="Callouts\StolenEmergencyVehicle.cs" />
     <Compile Include="Callouts\StolenMilitaryEquipment.cs" />
+    <Compile Include="Callouts\TheTacoDispute.cs" />
     <Compile Include="Callouts\TrespassingOnConstructionProperty.cs" />
     <Compile Include="Callouts\TrespassingOnPrivateProperty.cs" />
     <Compile Include="Callouts\TrespassingOnRailRoadProperty.cs" />
