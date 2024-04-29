@@ -21,17 +21,17 @@ namespace JMCalloutsRemastered.Callouts
             {
                 new(-1106.97f, -1359.91f, 5.04f),
                 new(-1227.50f, -1446.35f, 4.19f),
-                new(),
-                new(),
-                new(),
-                new(),
-                new(),
+                new(2013.07f, 3779.35f, 32.18f),
+                new(1575.31f, 3597.65f, 35.37f),
+                new(1193.34f, 2715.13f, 38.23f),
+                new(-43.31f, 6505.73f, 31.52f),
+                new(-294.99f, 6258.98f, 31.49f),
             };
             spawnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
             CalloutInterfaceAPI.Functions.SendMessage(this, "Reports of an unknown individual harassing another citizen");
             LSPD_First_Response.Mod.API.Functions.PlayScannerAudioUsingPosition("ATTENTION_ALL_UNITS_02 CITIZENS_REPORT_01 CRIME_DISTURBING_THE_PEACE_01 UNITS_RESPOND_CODE_02_02", spawnpoint);
-            CalloutMessage = "Reports of stalking";
+            CalloutMessage = "Reports of stalking.";
             CalloutPosition = spawnpoint;
 
             return base.OnBeforeCalloutDisplayed();
