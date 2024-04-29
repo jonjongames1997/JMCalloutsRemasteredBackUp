@@ -58,7 +58,7 @@ namespace JMCalloutsRemastered.Callouts
             SuspectBlip = Suspect.AttachBlip();
             SuspectBlip.Color = System.Drawing.Color.CadetBlue;
             SuspectBlip.IsRouteEnabled = true;
-            Suspect.Tasks.Wander();
+            Suspect.Tasks.PutHandsUp(500, MainPlayer);
 
             if (Suspect.IsMale)
                 malefemale = "sir";
