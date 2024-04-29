@@ -24,8 +24,8 @@ namespace JMCalloutsRemastered.Callouts
                 new(-1623.53f, -362.89f, 46.40f),
                 new(-1532.85f, 27.17f, 56.82f),
                 new(-1713.22f, 386.81f, 89.73f),
-                new(),
-                new(),
+                new(312.86f, 468.63f, 151.27f),
+                new(-162.05f, 889.77f, 233.47f),
             };
             spawnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
