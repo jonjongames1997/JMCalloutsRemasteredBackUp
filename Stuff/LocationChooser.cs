@@ -1,7 +1,4 @@
-﻿using Rage;
-using System.Collections.Generic;
-
-namespace JMCalloutsRemastered.Stuff
+﻿namespace JMCalloutsRemastered.Stuff
 {
     public static class LocationChooser
     {
