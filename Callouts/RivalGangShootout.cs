@@ -84,10 +84,38 @@ namespace JMCalloutsRemastered.Callouts
             blip6 = LostMCPeds2.AttachBlip();
             blip7 = LostMCPeds3.AttachBlip();
             blip8 = LostMCPeds4.AttachBlip();
+            blip.EnableRoute(Color.Orange);
 
             return base.OnCalloutAccepted();
         }
 
+        public override void OnCalloutNotAccepted()
+        {
+            if (blip) blip.Delete();
+            if (blip2) blip2.Delete();
+            if (blip3) blip3.Delete();
+            if (blip4) blip4.Delete();
+            if (blip5) blip5.Delete();
+            if (blip6) blip6.Delete();
+            if (blip7) blip7.Delete();
+            if (blip8) blip8.Delete();
+            foreach (var ped in vagosPeds)
+            {
+                if (ped) ped.Delete();
+            }
+            foreach (var ped in LostMCPeds)
+            {
+                if (ped) ped.Delete();
+            }
 
+            base.OnCalloutNotAccepted();
+        }
+
+        public override void Process()
+        {
+
+
+            base.Process();
+        }
     }
 }
