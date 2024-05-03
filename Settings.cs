@@ -34,6 +34,8 @@ namespace JMCalloutsRemastered
         internal static bool PurpleAlert = true;
         internal static bool PeepingTom = true;
         internal static bool TheTacoDispute = true;
+        internal static bool SuspiciousPerson = true;
+        internal static bool RivalGangShootout = true;
         internal static bool HelpMessages = true;
         internal static Keys EndCall = Keys.End;
         internal static Keys Dialog = Keys.E;
@@ -74,10 +76,12 @@ namespace JMCalloutsRemastered
             Settings.PurpleAlert = ini.ReadBoolean("Callouts", "PurpleAlert", true);
             Settings.PeepingTom = ini.ReadBoolean("Callouts", "PeepingTom", true);
             Settings.TheTacoDispute = ini.ReadBoolean("Callouts", "TheTacoDispute", true);
+            Settings.SuspiciousPerson = ini.ReadBoolean("Callouts", "SuspiciousPerson", true);
+            Settings.RivalGangShootout = ini.ReadBoolean("Callouts", "RivalGangShootout", true);
             Settings.HelpMessages = ini.ReadBoolean("HelpMessages", "Help Messages", true);
             EndCall = ini.ReadEnum("Keys", "EndCall", Keys.End);
             Dialog = ini.ReadEnum("Keys", "Dialog", Keys.E);
         }
-        public static readonly string PluginVersion = "4.6.0";
+        public static readonly string PluginVersion = "4.6.1";
     }
 }
