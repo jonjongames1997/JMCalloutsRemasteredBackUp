@@ -29,9 +29,42 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnCalloutAccepted()
         {
+            Game.LogTrivial("[LOG]: JM Callouts Remastered - Suspicious Person callout accepted!");
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remasterd", "~w~Suspicious Person", "~b~Dispatch~w~: The suspect has been spotted! Respond ~r~Code 2~w~.");
+            Game.DisplayHelp("Press ~y~END~w~ to end the callout", false);
 
+            suspect = new Ped(pedList[new Random().Next((int)pedList.Length)], spawnpoint, 0f);
+            suspect.IsPersistent = true;
+            suspect.BlockPermanentEvents = true;
+            suspect.Inventory.GiveNewWeapon("WEAPON_UNARMED", 500, true);
+
+            susBlip = suspect.AttachBlip();
+            susBlip.Color = System.Drawing.Color.CornflowerBlue;
+            susBlip.IsRouteEnabled = true;
+
+            if (suspect.IsMale)
+                malefemale = "sir";
+            else
+                malefemale = "ma'am";
+
+            counter = 0;
 
             return base.OnCalloutAccepted();
+        }
+
+        public override void OnCalloutNotAccepted()
+        {
+            if (suspect) suspect.Delete();
+            if (susBlip) susBlip.Delete();
+
+            base.OnCalloutNotAccepted();
+        }
+
+        public override void Process()
+        {
+            base.Process();
+
+
         }
     }
 }
