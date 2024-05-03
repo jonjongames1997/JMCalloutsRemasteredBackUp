@@ -1,6 +1,5 @@
 ﻿using System.Reflection;
 using JMCalloutsRemastered.Callouts;
-using JMCalloutsRemastered.VersionChecker;
 
 [assembly: Rage.Attributes.Plugin("JMCalloutsRemastered", Description = "LSPDFR Callout Pack", Author = "OfficerMorrison")]
 namespace JMCalloutsRemastered
@@ -39,7 +38,6 @@ namespace JMCalloutsRemastered
 
                     Game.DisplayNotification("web_jonjongames", "web_jonjongames", "JM Callouts Remastered", "~g~v" + Assembly.GetExecutingAssembly().GetName().Version.ToString() + " ~o~by~w~ OfficerMorrison", "~b~successfully loaded!");
 
-                    VersionChecker.PluginCheck.isUpdateAvailable();
                     GameFiber.Wait(300);
                 });
         }
