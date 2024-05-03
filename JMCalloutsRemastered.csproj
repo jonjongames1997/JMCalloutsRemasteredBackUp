@@ -153,7 +153,6 @@
     <Compile Include="Stuff\Vector3Extension.cs" />
     <Compile Include="Utilities\VehicleColor.cs" />
     <Compile Include="Utilities\VehicleExtensions.cs" />
-    <Compile Include="VersionChecker\VersionChecker.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />
