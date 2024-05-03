@@ -112,6 +112,8 @@ namespace JMCalloutsRemastered
             if (Settings.PurpleAlert) { Functions.RegisterCallout(typeof(PurpleAlert)); }
             if (Settings.PeepingTom) { Functions.RegisterCallout(typeof(PeepingTom)); }
             if (Settings.TheTacoDispute) { Functions.RegisterCallout(typeof(TheTacoDispute)); }
+            if (Settings.SuspiciousPerson) { Functions.RegisterCallout(typeof(SuspiciousPerson)); }
+            if (Settings.RivalGangShootout) { Functions.RegisterCallout(typeof(RivalGangShootout)); }
             Game.Console.Print("[LOG]: All callouts of the JMCalloutsRemastered.ini were loaded successfully.");
             Game.Console.Print();
             Game.Console.Print("================================================== JM Callouts Remastered ===================================================");
