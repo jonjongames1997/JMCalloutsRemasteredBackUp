@@ -2,7 +2,6 @@
 
 4.6.1:
 
-- Added variety of dialogues for each callout
 - Minor Bug Fixes
 - Minor Adjustments
 - Added 2 new callouts ("Suspicious Person" and "Rival Gang Shootout")
