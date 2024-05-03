@@ -56,9 +56,36 @@ namespace JMCalloutsRemastered.Callouts
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Rival Gang Shootout", "~b~Dispatch~w~: Multiple suspects spotted! Respond ~r~Code 3~w~.");
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
 
+            for (int i = 0; i < vagosPeds.Length; i++)
+            {
+                vagosPeds[i] = new("a_f_y_eastsa_03", spawnpoint.ExtensionAround(30f), 0f);
+            }
+            for (int i = 0; i < LostMCPeds.Length; i++)
+            {
+                LostMCPeds[i] = new("g_m_y_lost_01", spawnpoint.ExtensionAround(30f), 0f);
+            }
 
+            VagosPed1.Inventory.GiveNewWeapon("WEAPON_PISTOL", 5000, true);
+            VagosPed2.Inventory.GiveNewWeapon("WEAPON_COMBATPISTOL", 5000, true);
+            VagosPed3.Inventory.GiveNewWeapon("WEAPON_TACTICALRIFLE", 5000, true);
+            VagosPed4.Inventory.GiveNewWeapon("WEAPON_CARBINERIFLE", 5000, true);
+            LostMCPeds1.Inventory.GiveNewWeapon("WEAPON_COMPACTRIFLE", 5000, true);
+            LostMCPeds2.Inventory.GiveNewWeapon("WEAPON_HEAVYRIFLE", 5000, true);
+            LostMCPeds3.Inventory.GiveNewWeapon("WEAPON_COMBATMG", 5000, true);
+            LostMCPeds4.Inventory.GiveNewWeapon("WEAPON_GUSENBERG", 5000, true);
+
+            blip = VagosPed1.AttachBlip();
+            blip = VagosPed2.AttachBlip();
+            blip = VagosPed3.AttachBlip();
+            blip = VagosPed4.AttachBlip();
+            blip = LostMCPeds1.AttachBlip();
+            blip = LostMCPeds2.AttachBlip();
+            blip = LostMCPeds3.AttachBlip();
+            blip = LostMCPeds4.AttachBlip();
 
             return base.OnCalloutAccepted();
         }
+
+
     }
 }
