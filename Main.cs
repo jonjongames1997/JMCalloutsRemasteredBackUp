@@ -39,6 +39,14 @@ namespace JMCalloutsRemastered
                     Game.DisplayNotification("web_jonjongames", "web_jonjongames", "JM Callouts Remastered", "~g~v" + Assembly.GetExecutingAssembly().GetName().Version.ToString() + " ~o~by~w~ OfficerMorrison", "~b~successfully loaded!");
 
                     GameFiber.Wait(300);
+                    if (Settings.HelpMessages)
+                    {
+                        Game.DisplayHelp("You can enable/disable Help Messages in JMCalloutsRemastered.ini at anytime.");
+                    }
+                    else
+                    {
+                        Settings.HelpMessages = false;
+                    }
                 });
         }
         private static void RegisterCallouts()
