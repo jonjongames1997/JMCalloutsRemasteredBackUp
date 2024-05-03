@@ -1,9 +1,14 @@
 ﻿Changelog:
 
+4.6.1:
+
+- Added variety of dialogues for each callout
+- Minor Bug Fixes
+- Minor Adjustments
+
 4.6.0:
 
 - Updated LSPDFR API to the latest version of the API
-- Readded version checker
 - Older versions 4.5.3 or lower will not be supported due to LSPDFR API Changes
 - Updated the Rage Plugin Hook SDK reference to the latest SDK version
 - Added 3 new locations for "Trespassing On Private Property" and "Trespassing On Railroad Property"
