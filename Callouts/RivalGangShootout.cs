@@ -113,9 +113,65 @@ namespace JMCalloutsRemastered.Callouts
 
         public override void Process()
         {
+            if(hasBegunAttacking && MainPlayer.DistanceTo(spawnpoint) < 100f)
+            {
+                hasBegunAttacking = true;
 
+                GameFiber.StartNew(() =>
+                {
+                    var vagosRelationshipGroup = new RelationshipGroup("VAGOS");
+                    var lostMCRelationshipGroup = new RelationshipGroup("LOST");
 
+                    vagosRelationshipGroup.SetRelationshipWith(lostMCRelationshipGroup, Relationship.Hate);
+                    lostMCRelationshipGroup.SetRelationshipWith(vagosRelationshipGroup, Relationship.Hate);
+                    vagosRelationshipGroup.SetRelationshipWith(lostMCRelationshipGroup, Relationship.Hate);
+                    lostMCRelationshipGroup.SetRelationshipWith(vagosRelationshipGroup, Relationship.Hate);
+                    vagosRelationshipGroup.SetRelationshipWith(lostMCRelationshipGroup, Relationship.Hate);
+                    lostMCRelationshipGroup.SetRelationshipWith(vagosRelationshipGroup, Relationship.Hate);
+                    vagosRelationshipGroup.SetRelationshipWith(lostMCRelationshipGroup, Relationship.Hate);
+                    lostMCRelationshipGroup.SetRelationshipWith(vagosRelationshipGroup, Relationship.Hate);
+                    foreach (var ped in vagosPeds)
+                    {
+                        ped.RelationshipGroup = vagosRelationshipGroup;
+                        ped.Tasks.FightAgainstClosestHatedTarget(1000f);
+                    }
+                    foreach (var ped in LostMCPeds)
+                    {
+                        ped.RelationshipGroup = lostMCRelationshipGroup;
+                        ped.Tasks.FightAgainstClosestHatedTarget(1000f);
+                    }
+                    GameFiber.Sleep(5000);
+                });
+            }
+
+            if (Game.IsKeyDown(Settings.EndCall)) End();
             base.Process();
+        }
+
+        public override void End()
+        {
+            if (blip) blip.Delete();
+            if (blip2) blip2.Delete();
+            if (blip3) blip3.Delete();
+            if (blip4) blip4.Delete();
+            if (blip5) blip5.Delete();
+            if (blip6) blip6.Delete();
+            if (blip7) blip7.Delete();
+            if (blip8) blip8.Delete();
+            if (VagosPed1) VagosPed1.Dismiss();
+            if (VagosPed2) VagosPed2.Dismiss();
+            if (VagosPed3) VagosPed3.Dismiss();
+            if (VagosPed4) VagosPed4.Dismiss();
+            if (LostMCPeds1) LostMCPeds1.Dismiss();
+            if (LostMCPeds2) LostMCPeds2.Dismiss();
+            if (LostMCPeds3) LostMCPeds3.Dismiss();
+            if (LostMCPeds4) LostMCPeds4.Dismiss();
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Rival Gang Shootout", "~b~You~w~: Dispatch, We are ~g~CODE 4~w~! Show me back 10-8!");
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_THIS_IS_DISPATCH_HIGH ALL_UNITS_CODE4 NO_FURTHER_UNITS_REQUIRED");
+
+            base.End();
+
+            Game.LogTrivial("[LOG]: JM Callouts Remastered - Rival Gang Shootout is Code 4!");
         }
     }
 }
