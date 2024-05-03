@@ -32,6 +32,8 @@ namespace JMCalloutsRemastered.Callouts
         private static Blip blip4;
         private static Blip blip5;
         private static Blip blip6;
+        private static Blip blip7;
+        private static Blip blip8;
         private static bool hasBegunAttacking;
 
         // Arrays
@@ -75,13 +77,13 @@ namespace JMCalloutsRemastered.Callouts
             LostMCPeds4.Inventory.GiveNewWeapon("WEAPON_GUSENBERG", 5000, true);
 
             blip = VagosPed1.AttachBlip();
-            blip = VagosPed2.AttachBlip();
-            blip = VagosPed3.AttachBlip();
-            blip = VagosPed4.AttachBlip();
-            blip = LostMCPeds1.AttachBlip();
-            blip = LostMCPeds2.AttachBlip();
-            blip = LostMCPeds3.AttachBlip();
-            blip = LostMCPeds4.AttachBlip();
+            blip2 = VagosPed2.AttachBlip();
+            blip3 = VagosPed3.AttachBlip();
+            blip4 = VagosPed4.AttachBlip();
+            blip5 = LostMCPeds1.AttachBlip();
+            blip6 = LostMCPeds2.AttachBlip();
+            blip7 = LostMCPeds3.AttachBlip();
+            blip8 = LostMCPeds4.AttachBlip();
 
             return base.OnCalloutAccepted();
         }
