@@ -7,8 +7,6 @@ namespace JMCalloutsRemastered.Callouts
 
     public class SuspiciousPerson : Callout
     {
-        private static readonly string[] pedList = new string[] { "ig_abigail", "csb_anita", "ig_shley", "g_m_y_ballaeast_01", "a_m_y_beach_01" };
-        private static readonly string[] wepList = new string[] { "WEAPON_BAT", "WEAPON_SWITCHBLADE", "WEAPON_PISTOL", "WEAPON_PISTOL_MK2", "WEPAON_COMBATPISTOL", "WEAPON_CARBINERIFLE", "WEAPON_TACTICALRIFLE" };
         private static Ped suspect;
         private static Vector3 spawnpoint;
         private static int counter;
@@ -33,10 +31,10 @@ namespace JMCalloutsRemastered.Callouts
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remasterd", "~w~Suspicious Person", "~b~Dispatch~w~: The suspect has been spotted! Respond ~r~Code 2~w~.");
             Game.DisplayHelp("Press ~y~END~w~ to end the callout", false);
 
-            suspect = new Ped(pedList[new Random().Next((int)pedList.Length)], spawnpoint, 0f);
+            suspect = new Ped(spawnpoint);
             suspect.IsPersistent = true;
             suspect.BlockPermanentEvents = true;
-            suspect.Inventory.GiveNewWeapon("WEAPON_UNARMED", 5000, true);
+            suspect.Inventory.GiveNewWeapon("WEAPON_UNARMED", 500, true);
 
             susBlip = suspect.AttachBlip();
             susBlip.Color = System.Drawing.Color.CornflowerBlue;
@@ -117,7 +115,7 @@ namespace JMCalloutsRemastered.Callouts
                     if(counter == 11)
                     {
                         Game.DisplaySubtitle("END OF CONVERSATION!");
-                        suspect.Inventory.GiveNewWeapon(wepList[new Random().Next((int)wepList.Length)], 5000, true);
+                        suspect.Inventory.GiveNewWeapon("WEAPON_COMBATPISTOL", 500, true);
                     }
                 }
             }
