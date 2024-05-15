@@ -131,7 +131,6 @@
     <Compile Include="Callouts\PurpleAlert.cs" />
     <Compile Include="Callouts\RefuseToLeave.cs" />
     <Compile Include="Callouts\RefuseToPay.cs" />
-    <Compile Include="Callouts\RivalGangShootout.cs" />
     <Compile Include="Callouts\Soliciting.cs" />
     <Compile Include="Callouts\SolicitingDelPerroPier.cs" />
     <Compile Include="Callouts\Stalking.cs" />
