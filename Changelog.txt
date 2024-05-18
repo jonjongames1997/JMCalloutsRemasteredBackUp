@@ -1,5 +1,11 @@
 ﻿Changelog:
 
+4.6.2:
+
+- Added 4 new locations to "Stalking" callout
+- Added 3 new locations to "Peeping Tom" callout
+- 
+
 4.6.1:
 
 - Minor Bug Fixes
