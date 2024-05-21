@@ -4,7 +4,7 @@
 
 - Added 4 new locations to "Stalking" callout
 - Added 3 new locations to "Peeping Tom" callout
-- 
+- Added 1 new callout ("First Amendment Auditor")
 
 4.6.1:
 
