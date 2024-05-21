@@ -37,8 +37,10 @@ namespace JMCalloutsRemastered
 
 
                     Game.DisplayNotification("web_jonjongames", "web_jonjongames", "JM Callouts Remastered", "~g~v" + Assembly.GetExecutingAssembly().GetName().Version.ToString() + " ~o~by~w~ OfficerMorrison", "~b~successfully loaded!");
+                    Game.DisplayNotification("~y~Note~w~: If you have JM Callouts Remastered v4.5.3 or lower installed, those are no longer being supported. ~g~Consider updating to latest version for guaranteed support~w~.");
 
                     GameFiber.Wait(300);
+
                     if (Settings.HelpMessages)
                     {
                         Game.DisplayHelp("You can enable/disable Help Messages in JMCalloutsRemastered.ini at anytime.");
@@ -113,6 +115,7 @@ namespace JMCalloutsRemastered
             if (Settings.PeepingTom) { Functions.RegisterCallout(typeof(PeepingTom)); }
             if (Settings.TheTacoDispute) { Functions.RegisterCallout(typeof(TheTacoDispute)); }
             if (Settings.SuspiciousPerson) { Functions.RegisterCallout(typeof(SuspiciousPerson)); }
+            if (Settings.FirstAmendmentAuditors) { Functions.RegisterCallout(typeof(FirstAmendmentAuditors)); }
             Game.Console.Print("[LOG]: All callouts of the JMCalloutsRemastered.ini were loaded successfully.");
             Game.Console.Print();
             Game.Console.Print("================================================== JM Callouts Remastered ===================================================");
