@@ -10,7 +10,6 @@ namespace JMCalloutsRemastered.Callouts
     {
         private static Ped suspect;
         private static Ped securityOfficer;
-        private static readonly string[] pedList = new string[] { "mp_s_m_armoured_01", "s_m_m_armoured_01", "s_m_m_armoured_02", "ig_casey", "s_m_m_chemsec_01", "csb_mweather", "s_m_m_security_01", "mp_m_securoguard_01" };
         private static Blip suspectBlip;
         private static Blip securityBlip;
         private static Vector3 spawnpoint;
@@ -49,7 +48,7 @@ namespace JMCalloutsRemastered.Callouts
             suspectBlip.Color = System.Drawing.Color.AliceBlue;
             suspectBlip.IsRouteEnabled = true;
 
-            securityOfficer = new Ped(pedList[new Random().Next((int)pedList.Length)], spawnpoint, 0f);
+            securityOfficer = new Ped("s_m_m_security_01", spawnpoint, securityHeading);
             securityOfficer.IsPersistent = true;
             securityOfficer.BlockPermanentEvents = true;
 
