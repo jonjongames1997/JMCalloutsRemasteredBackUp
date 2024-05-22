@@ -4,7 +4,7 @@
 
 - Added 4 new locations to "Stalking" callout
 - Added 3 new locations to "Peeping Tom" callout
-- Added 1 new callout ("First Amendment Auditor")
+- Added 2 new callouts ("First Amendment Auditor" and "Domestic Disturbance 2")
 - Dialogue Improvements to "The Taco Dispute" callout
 - Minor Improvements to "Domestic Disturbance" callout
 
