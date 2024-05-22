@@ -3,7 +3,7 @@
 namespace JMCalloutsRemastered.Callouts
 {
 
-    [CalloutInterface("1st Amendment Auditor", CalloutProbability.High, "Security reporting an individual refusing to leave government property", "Code 2", "LSPD")]
+    [CalloutInterface("1st Amendment Auditor - FIB Headquarters", CalloutProbability.High, "Security reporting an individual refusing to leave government property", "Code 2", "LSPD")]
 
 
     public class FirstAmendmentAuditors : Callout
@@ -14,12 +14,18 @@ namespace JMCalloutsRemastered.Callouts
         private static Blip suspectBlip;
         private static Blip securityBlip;
         private static Vector3 spawnpoint;
+        private static Vector3 securitySpawnpoint;
+        private static float suspectHeading;
+        private static float securityHeading;
         private static int counter;
         private static string malefemale;
 
         public override bool OnBeforeCalloutDisplayed()
         {
-            spawnpoint = World.GetNextPositionOnStreet(MainPlayer.Position.Around(1000f));
+            spawnpoint = new(115.31f, -748.42f, 45.75f);
+            suspectHeading = 288.71f;
+            securitySpawnpoint = new(104.70f, -739.23f, 45.76f);
+            securityHeading = 170.97f;
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
             LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_ALL_UNITS_01 WE_HAVE_01 CRIME_SECURITY_REQUESTING_ASSISTANCE UNITS_RESPOND_CODE_02_01");
             CalloutInterfaceAPI.Functions.SendMessage(this, "Security officer requiring assitance.");
@@ -35,7 +41,7 @@ namespace JMCalloutsRemastered.Callouts
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~First Amendment Auditor", "~b~Dispatch~w~: The suspect has been spotted! Respond ~r~Code 2~w~.");
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
 
-            suspect = new Ped(spawnpoint);
+            suspect = new Ped(spawnpoint, suspectHeading);
             suspect.IsPersistent = true;
             suspect.BlockPermanentEvents = true;
 
