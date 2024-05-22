@@ -49,6 +49,7 @@ namespace JMCalloutsRemastered.Callouts
             suspectBlip.IsRouteEnabled = true;
 
             securityOfficer = new Ped("s_m_m_security_01", spawnpoint, securityHeading);
+            securityOfficer.KeepTasks = true;
             securityOfficer.IsPersistent = true;
             securityOfficer.BlockPermanentEvents = true;
 
@@ -116,84 +117,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if(counter == 7)
                     {
-                        Game.DisplayHelp("Go talk to ~r~Security~w~.");
-                    }
-                }
-            }
-
-            if(MainPlayer.DistanceTo(securityOfficer) <= 10f)
-            {
-                counter++;
-
-                if (Game.IsKeyDown(System.Windows.Forms.Keys.E))
-                {
-                    if(counter == 1)
-                    {
-                        Game.DisplaySubtitle("~b~You~w: Hello, " + malefemale + ". Can I have your side of the story?");
-                    }
-                    if(counter == 2)
-                    {
-                        Game.DisplaySubtitle("~g~Security~w~: The person you were talking to came in filiming with their electronic device (1/?)");
-                    }
-                    if(counter == 3)
-                    {
-                        Game.DisplaySubtitle("~g~Security~w: I told he or she that this is a federal government building, you are not allowed to film. (2/?)");
-                    }
-                    if(counter == 4)
-                    {
-                        Game.DisplaySubtitle("~g~Security~w~: then he/she started bringing up about 'Freedom Of The Press', and I asked for some sort of identification or paperwork (3/?)");
-                    }
-                    if(counter == 5)
-                    {
-                        Game.DisplaySubtitle("~g~Security~w~: to identify that you're the press. They said that they don't need one and I said yes you do then they continue to argue then I asked them to leave the premises (4/?)");
-                    }
-                    if(counter == 6)
-                    {
-                        Game.DisplaySubtitle("~g~Security~w~: They refused to leave the property so I called y'all for assistance. We want them removed from the property and trespassed, if possible, Officer.");
-                    }
-                    if(counter == 7)
-                    {
-                        Game.DisplaySubtitle("~b~You~w~: Okay, I'll see what I can do. Thanks for your cooperation. We appreciate it.");
-                    }
-                    if(counter == 8)
-                    {
-                        Game.DisplaySubtitle("~g~Security~w~: No problem, Officer. I am just doing my job like how you're doing yours.");
-                    }
-                    if(counter == 9)
-                    {
-                        securityOfficer.Dismiss();
-                        Game.DisplayHelp("Go talk to the ~r~Suspect~w~ and deal with the situation that you may see fit");
-                    }
-                }
-            }
-
-            if(MainPlayer.DistanceTo(suspect) <= 10f)
-            {
-                counter++;
-
-                if (Game.IsKeyDown(System.Windows.Forms.Keys.E))
-                {
-                    if(counter == 1)
-                    {
-                        Game.DisplaySubtitle("~b~You~w~: Okay, " + malefemale + ", The security officer wants you to leave the premises now.");
-                    }
-                    if(counter == 2)
-                    {
-                        Game.DisplaySubtitle("~r~Suspect~w~: Are you fucking serious????");
-                    }
-                    if(counter == 3)
-                    {
-                        Game.DisplaySubtitle("~b~You~w~: Leave now or you'll be in cuffs and charged with refusing to leave. Your choice, " + malefemale + ".");
-                    }
-                    if(counter == 4)
-                    {
-                        Game.DisplaySubtitle("~b~You~w~: You're under arrest " + malefemale + ".");
-                    }
-                    if(counter == 5)
-                    {
-                        suspect.Inventory.GiveNewWeapon("WEAPON_PISTOL", 500, true);
-                        suspect.Tasks.FightAgainst(MainPlayer);
-                        Game.DisplaySubtitle("Conversation Ended! Arrest the suspect, Officer.");
+                        Game.DisplayHelp("Go talk to ~r~Security~w~. Roleplay it out.");
                     }
                 }
             }
