@@ -3,7 +3,7 @@
 namespace JMCalloutsRemastered.Callouts
 {
 
-    [CalloutInterface("1st Amendment Auditor - FIB Headquarters", CalloutProbability.High, "Security reporting an individual refusing to leave government property", "Code 2", "LSPD")]
+    [CalloutInterface("1st Amendment Auditor - Union Depository", CalloutProbability.High, "Security reporting an individual refusing to leave government property", "Code 2", "LSPD")]
 
 
     public class FirstAmendmentAuditors : Callout
@@ -48,7 +48,7 @@ namespace JMCalloutsRemastered.Callouts
             suspectBlip.Color = System.Drawing.Color.AliceBlue;
             suspectBlip.IsRouteEnabled = true;
 
-            securityOfficer = new Ped("s_m_m_security_01", spawnpoint, securityHeading);
+            securityOfficer = new Ped("s_m_m_security_01", securitySpawnpoint, securityHeading);
             securityOfficer.KeepTasks = true;
             securityOfficer.IsPersistent = true;
             securityOfficer.BlockPermanentEvents = true;
