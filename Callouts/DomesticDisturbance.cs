@@ -43,7 +43,6 @@ namespace JMCalloutsRemastered.Callouts
             victim = new Ped(spawnPoint, heading);
             victim.IsPersistent = true;
             victim.BlockPermanentEvents = true;
-            victim.IsMeleeProof = true;
 
             suspect = new Ped(suspectSpawnpoint, suspectHeading);
             suspect.IsPersistent = true;
@@ -51,7 +50,6 @@ namespace JMCalloutsRemastered.Callouts
             suspect.KeepTasks = true;
             susBlip = suspect.AttachBlip();
             susBlip.Color = System.Drawing.Color.Red;
-            suspect.IsMeleeProof = true;
 
             vicBlip = victim.AttachBlip();
             vicBlip.Color = System.Drawing.Color.DodgerBlue;
