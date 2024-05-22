@@ -4,7 +4,7 @@ namespace JMCalloutsRemastered.Callouts
 {
 
 
-    [CalloutInterface("The Taco Dispute", CalloutProbability.Medium, "A taco business requesting police assistance", "Code 2", "LSPD")]
+    [CalloutInterface("The Taco Dispute - BETA 2", CalloutProbability.Medium, "A taco business requesting police assistance", "Code 2", "LSPD")]
     public class TheTacoDispute : Callout
     {
         private static Ped suspect;
@@ -19,6 +19,7 @@ namespace JMCalloutsRemastered.Callouts
             {
                 new(4.41f, -1604.42f, 29.29f),
                 new(651.34f, 2727.58f, 42.00f),
+                new(),
             };
             spawnnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(spawnnpoint, 100f);
@@ -75,16 +76,63 @@ namespace JMCalloutsRemastered.Callouts
                 if(counter == 1)
                 {
                     suspect.Face(MainPlayer);
-                    Game.DisplaySubtitle("~b~Player~w~: Excuse me, " + malefemale + ". What's going on here? What's the problem?");
+                    Game.DisplaySubtitle("~b~You~w~: Excuse me, " + malefemale + ". What's going on here? What's the problem?");
                 }
                 if(counter == 2)
                 {
-                    Game.DisplaySubtitle("~r~Suspect~w~: You fucking seriously called the cops? Fuck this, I'm outta here, you cocksucking cock head!");
+                    Game.DisplaySubtitle("~r~Suspect~w~: About time! These people are not letting me buy my tacos. It's my right to eat my American made tacos.");
                 }
                 if(counter == 3)
                 {
-                    Game.DisplaySubtitle("Conversation ended!");
-                    suspect.Tasks.ReactAndFlee(suspect);
+                    Game.DisplaySubtitle("~b~You~w~: What exactly was said?");
+                }
+                if(counter == 4)
+                {
+                    Game.DisplaySubtitle("~r~Suspect~w~: Are you for real?");
+                }
+                if(counter == 5)
+                {
+                    Game.DisplaySubtitle("~b~You~w~: Yes. I need more information on the situation. I wasn't here, I don't know what happened. Just explain to me what happened so I understand the situation.");
+                }
+                if(counter == 6)
+                {
+                    Game.DisplaySubtitle("~r~Suspect~w~: Oh, Jesus fucking Christ. Okay fine. I was hungry, I decided to go to the taco stand and get me some tacos, I stepped aside to make sure I have money to pay for my food.");
+                }
+                if(counter == 7)
+                {
+                    Game.DisplaySubtitle("~b~You~w~: Okay, go on.");
+                }
+                if(counter == 8)
+                {
+                    Game.DisplaySubtitle("~r~Suspect~w~: I went up to the window and started ordering but the manager told me that I need to leave and I asked why.");
+                }
+                if(counter == 9)
+                {
+                    Game.DisplaySubtitle("~b~You~w~: Did they give you a reason why they told you to leave?");
+                }
+                if(counter == 10)
+                {
+                    Game.DisplaySubtitle("~r~Suspect~w~: No. I didn't do anything wrong. I have my 'Murican right to eat tacos, I'm hangry, I need food in me.....Pause. I'm just hangry.");
+                }
+                if(counter == 11)
+                {
+                    Game.DisplaySubtitle("~b~You~w~: Okay, I'll talk to the manager and see what they say. Sit tight for me.");
+                }
+                if(counter == 12)
+                {
+                    Game.DisplaySubtitle("~r~Suspect~w~: Okay.");
+                }
+                if(counter == 13)
+                {
+                    Game.DisplayHelp("Talk to the manager. *Roleplay it out*");
+                }
+                if(counter == 14)
+                {
+                    Game.DisplaySubtitle("~b~You~w~: Okay, " + malefemale + ". I talked to the manager and they said you've made that story up and they said, you were pan handling outside of their store.");
+                }
+                if(counter == 15)
+                {
+                    Game.DisplaySubtitle("~r~Suspect~w~: ~o~BULLSHIT~w~! I call bullshit!");
                 }
             }
 
