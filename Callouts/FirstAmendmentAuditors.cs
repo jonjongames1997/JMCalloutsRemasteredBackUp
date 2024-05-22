@@ -21,10 +21,10 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnBeforeCalloutDisplayed()
         {
-            spawnpoint = new(115.31f, -748.42f, 45.75f);
-            suspectHeading = 288.71f;
-            securitySpawnpoint = new(123.61f, -756.40f, 45.75f);
-            securityHeading = 95.14f;
+            spawnpoint = new(4.64f, -725.84f, 44.22f);
+            suspectHeading = 11.96f;
+            securitySpawnpoint = new(2.71f, -708.50f, 45.97f);
+            securityHeading = 203.73f;
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
             LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_ALL_UNITS_01 WE_HAVE_01 CRIME_SECURITY_REQUESTING_ASSISTANCE UNITS_RESPOND_CODE_02_01");
             CalloutInterfaceAPI.Functions.SendMessage(this, "Security officer requiring assitance.");
@@ -101,7 +101,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if(counter == 3)
                     {
-                        Game.DisplaySubtitle("~b~You~w~: You know you are in a federal government building, right?");
+                        Game.DisplaySubtitle("~b~You~w~: You know you are on federal government property, right?");
                     }
                     if(counter == 4)
                     {
@@ -121,7 +121,29 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if(counter == 8)
                     {
-
+                        Game.DisplaySubtitle("~b~You~w~: Okay, " + malefemale + ", The security officer wants you to leave the premises now.");
+                    }
+                    if(counter == 9)
+                    {
+                        Game.DisplaySubtitle("~r~Suspect~w~: Are you fucking serious????");
+                    }
+                    if(counter == 10)
+                    {
+                        Game.DisplaySubtitle("~b~You~w~: Leave now or you'll be in cuffs and charged with refusing to leave. Your choice, " + malefemale + ".");
+                    }
+                    if(counter == 11)
+                    {
+                        Game.DisplaySubtitle("~r~Suspect~w~: I'm not leaving.");
+                    }
+                    if(counter == 12)
+                    {
+                        Game.DisplaySubtitle("~b~You~w~: You're under arrest " + malefemale + ".");
+                    }
+                    if(counter == 13)
+                    {
+                        suspect.Inventory.GiveNewWeapon("WEAPON_PISTOL", 500, true);
+                        suspect.Tasks.FightAgainst(MainPlayer);
+                        Game.DisplaySubtitle("Conversation Ended! Arrest the suspect, Officer.");
                     }
                 }
             }
