@@ -20,10 +20,10 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnBeforeCalloutDisplayed()
         {
-            spawnPoint = new();
-            heading = 178.95f;
-            suspectSpawnpoint = new();
-            suspectHeading = 205.89f;
+            spawnPoint = new(1112.87f, 2651.00f, 38.00f);
+            heading = 161.52f;
+            suspectSpawnpoint = new(152.36f, -1003.18f, -99.00f);
+            suspectHeading = 168.14f;
             ShowCalloutAreaBlipBeforeAccepting(spawnPoint, 100);
             LSPD_First_Response.Mod.API.Functions.PlayScannerAudioUsingPosition("ATTENTION_ALL_UNITS_02 WE_HAVE_01 CRIME_DOMESTIC_DISTURBANCE UNITS_RESPOND_CODE_03_01", spawnPoint);
             CalloutInterfaceAPI.Functions.SendMessage(this, "Reports of 2 individuals having an argument.");
