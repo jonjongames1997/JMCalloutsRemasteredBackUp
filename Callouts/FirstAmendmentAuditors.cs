@@ -117,7 +117,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if(counter == 7)
                     {
-                        Game.DisplayHelp("Go talk to ~r~Security~w~. Roleplay it out then talk to the suspect again.");
+                        Game.DisplaySubtitle("Go talk to ~r~Security~w~. Roleplay it out then talk to the suspect again.");
                     }
                     if(counter == 8)
                     {
