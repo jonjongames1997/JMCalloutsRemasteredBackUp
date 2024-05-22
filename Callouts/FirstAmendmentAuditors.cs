@@ -21,8 +21,8 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnBeforeCalloutDisplayed()
         {
-            spawnpoint = new(4.64f, -725.84f, 44.22f);
-            suspectHeading = 11.96f;
+            spawnpoint = new(15.28f, -673.21f, 47.73f);
+            suspectHeading = 166.38f;
             securitySpawnpoint = new(2.71f, -708.50f, 45.97f);
             securityHeading = 203.73f;
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
