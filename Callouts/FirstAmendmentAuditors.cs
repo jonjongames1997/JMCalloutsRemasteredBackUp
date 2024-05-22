@@ -23,8 +23,8 @@ namespace JMCalloutsRemastered.Callouts
         {
             spawnpoint = new(115.31f, -748.42f, 45.75f);
             suspectHeading = 288.71f;
-            securitySpawnpoint = new(104.70f, -739.23f, 45.76f);
-            securityHeading = 170.97f;
+            securitySpawnpoint = new(123.61f, -756.40f, 45.75f);
+            securityHeading = 95.14f;
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
             LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_ALL_UNITS_01 WE_HAVE_01 CRIME_SECURITY_REQUESTING_ASSISTANCE UNITS_RESPOND_CODE_02_01");
             CalloutInterfaceAPI.Functions.SendMessage(this, "Security officer requiring assitance.");
@@ -117,7 +117,11 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if(counter == 7)
                     {
-                        Game.DisplayHelp("Go talk to ~r~Security~w~. Roleplay it out.");
+                        Game.DisplayHelp("Go talk to ~r~Security~w~. Roleplay it out then talk to the suspect again.");
+                    }
+                    if(counter == 8)
+                    {
+
                     }
                 }
             }
