@@ -78,8 +78,7 @@ namespace JMCalloutsRemastered
             Settings.PeepingTom = ini.ReadBoolean("Callouts", "PeepingTom", true);
             Settings.TheTacoDispute = ini.ReadBoolean("Callouts", "TheTacoDispute", true);
             Settings.SuspiciousPerson = ini.ReadBoolean("Callouts", "SuspiciousPerson", true);
-            Settings.FirstAmendmentAuditors = ini.ReadBoolean("Callouts", "FirstAmendmentAuditors", true);
-            Settings.DomesticDisturbance2 = ini.ReadBoolean("Callouts", "DomesticDisturbance2", true);
+            Settings.FirstAmendmentAuditors = ini.ReadBoolean("Callouts", "FirstAmendmentAuditors", true);;
             Settings.HelpMessages = ini.ReadBoolean("HelpMessages", "Help Messages", true);
             EndCall = ini.ReadEnum("Keys", "EndCall", Keys.End);
             Dialog = ini.ReadEnum("Keys", "Dialog", Keys.E);
