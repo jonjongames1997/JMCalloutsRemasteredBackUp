@@ -19,7 +19,7 @@ namespace JMCalloutsRemastered.Callouts
             {
                 new(4.41f, -1604.42f, 29.29f),
                 new(651.34f, 2727.58f, 42.00f),
-                new(),
+                new(447.91f, -1244.57f, 30.29f),
             };
             spawnnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(spawnnpoint, 100f);
@@ -133,6 +133,12 @@ namespace JMCalloutsRemastered.Callouts
                 if(counter == 15)
                 {
                     Game.DisplaySubtitle("~r~Suspect~w~: ~o~BULLSHIT~w~! I call bullshit!");
+                }
+                if(counter == 16)
+                {
+                    Game.DisplaySubtitle("Conversation Ended!");
+                    suspect.Tasks.FightAgainst(MainPlayer);
+                    suspect.Inventory.GiveNewWeapon("WEAPON_KNIFE", 500, true);
                 }
             }
 
