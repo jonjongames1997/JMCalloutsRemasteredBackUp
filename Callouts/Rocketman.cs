@@ -38,8 +38,6 @@ namespace JMCalloutsRemastered.Callouts
             suspect.IsPersistent = true;
             suspect.BlockPermanentEvents = true;
 
-            suspect.Tasks.Wander();
-
             susBlip = suspect.AttachBlip();
             susBlip.Color = System.Drawing.Color.Red;
             susBlip.IsRouteEnabled = true;
@@ -77,13 +75,61 @@ namespace JMCalloutsRemastered.Callouts
 
                     if (counter == 1)
                     {
-
+                        suspect.Face(MainPlayer);
+                        Game.DisplaySubtitle("~b~You~w~: POLICE! Drop the weapon or you'll be fucking shot!");
                     }
-
+                    if (counter == 2)
+                    {
+                        Game.DisplaySubtitle("~r~Suspect~w~: What goin' on?");
+                    }
+                    if (counter == 3)
+                    {
+                        Game.DisplaySubtitle("~b~You~w~: DROP THE WEAPON, NOW " + malefemale + "!");
+                    }
+                    if (counter == 4)
+                    {
+                        Game.DisplaySubtitle("~r~Suspect~w~: Not until you tell me what's goin' on.");
+                    }
+                    if (counter == 5)
+                    {
+                        Game.DisplaySubtitle("~b~You~w~: We've gotten reports of you threatening people with that explosive weapon. Drop it now, I'm not gonna say it again, " + malefemale + ".");
+                    }
+                    if(counter == 6)
+                    {
+                        Game.DisplaySubtitle("~r~Suspect~w~: Go fuck yourself, PO PO!");
+                    }
+                    if(counter == 7)
+                    {
+                        Game.DisplaySubtitle("~b~You~w~: Chief, suspect is not complying with commands and not dropping the weapon.");
+                    }
+                    if(counter == 8)
+                    {
+                        LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("LETHALFORCEISAUTHORIZED");
+                        suspect.Tasks.FightAgainst(MainPlayer);
+                        suspect.KeepTasks = true;
+                        suspect.Inventory.GiveNewWeapon(wepList[new Random().Next((int)wepList.Length)], 500, true);
+                        suspect.Armor = 500;
+                    }
                 }
-
             }
 
+            if (MainPlayer.IsDead) End();
+            if (Game.IsKeyDown(Settings.EndCall)) End();
+
         }
+
+
+        public override void End()
+        {
+            if (suspect) suspect.Dismiss();
+            if (susBlip) susBlip.Delete();
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Rocketman", "~b~You~w~: Dispatch, we are ~g~Code 4~w~. Show me back 10-8.");
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_THIS_IS_DISPATCH_HIGH ALL_UNITS_CODE4 NO_FURTHER_UNITS_REQUIRED");
+
+            base.End();
+
+            Game.LogTrivial("JM Callouts Remastered [LOG]: Rocketman callout is Code 4!");
+        }
+
     }
 }
