@@ -102,7 +102,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 3)
                     {
-                        Game.DisplaySubtitle("~b~Player~w~: We've gotten reports from this business behind you that you were intoxicated. Did you have anything to drink today?");
+                        Game.DisplaySubtitle("~b~Player~w~: We've gotten reports that you are intoxicated. Did you have anything to drink today?");
                     }
                     if (counter == 4)
                     {
