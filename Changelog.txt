@@ -8,6 +8,7 @@
 - Dialogue Improvements to "The Taco Dispute" callout
 - Minor Improvements to "Domestic Disturbance" callout
 - Dialogue Improvements to "Intoxicated Individual" callout
+- Added "Rocketman" callout *REVAMPED* 
 
 4.6.1:
 
