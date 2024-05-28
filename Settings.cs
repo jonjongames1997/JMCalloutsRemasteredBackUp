@@ -36,7 +36,7 @@ namespace JMCalloutsRemastered
         internal static bool TheTacoDispute = true;
         internal static bool SuspiciousPerson = true;
         internal static bool FirstAmendmentAuditors = true;
-        internal static bool DomesticDisturbance2 = true;
+        internal static bool Rocketman = true;
         internal static bool HelpMessages = true;
         internal static Keys EndCall = Keys.End;
         internal static Keys Dialog = Keys.E;
@@ -78,11 +78,11 @@ namespace JMCalloutsRemastered
             Settings.PeepingTom = ini.ReadBoolean("Callouts", "PeepingTom", true);
             Settings.TheTacoDispute = ini.ReadBoolean("Callouts", "TheTacoDispute", true);
             Settings.SuspiciousPerson = ini.ReadBoolean("Callouts", "SuspiciousPerson", true);
-            Settings.FirstAmendmentAuditors = ini.ReadBoolean("Callouts", "FirstAmendmentAuditors", true);;
+            Settings.Rocketman = ini.ReadBoolean("Callouts", "Rocketman", true);;
             Settings.HelpMessages = ini.ReadBoolean("HelpMessages", "Help Messages", true);
             EndCall = ini.ReadEnum("Keys", "EndCall", Keys.End);
             Dialog = ini.ReadEnum("Keys", "Dialog", Keys.E);
         }
-        public static readonly string PluginVersion = "4.6.2";
+        public static readonly string PluginVersion = "4.7.2";
     }
 }
