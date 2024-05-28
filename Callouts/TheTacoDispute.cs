@@ -9,7 +9,7 @@ namespace JMCalloutsRemastered.Callouts
     {
         private static Ped suspect;
         private static Blip suspectBlip;
-        private static Vector3 spawnnpoint;
+        private static Vector3 spawnpoint;
         private static int counter;
         private static string malefemale;
 
@@ -21,12 +21,12 @@ namespace JMCalloutsRemastered.Callouts
                 new(651.34f, 2727.58f, 42.00f),
                 new(447.91f, -1244.57f, 30.29f),
             };
-            spawnnpoint = LocationChooser.ChooseNearestLocation(list);
-            ShowCalloutAreaBlipBeforeAccepting(spawnnpoint, 100f);
+            spawnpoint = LocationChooser.ChooseNearestLocation(list);
+            ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
             LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_ALL_UNITS_02 WE_HAVE_01 CRIME_PUBLIC_DISTURBANCE UNITS_RESPOND_CODE_02_02");
             CalloutInterfaceAPI.Functions.SendMessage(this, "An individual causing a scene at a local taco shop.");
             CalloutMessage = "Owner requesting them to be removed from property.";
-            CalloutPosition = spawnnpoint;
+            CalloutPosition = spawnpoint;
 
             return base.OnBeforeCalloutDisplayed();
         }
@@ -37,7 +37,7 @@ namespace JMCalloutsRemastered.Callouts
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~The Taco Dispute", "~b~Dispatch~w~: Suspect has been spotted. Respond ~r~Code 2~w~.");
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
 
-            suspect = new Ped(spawnnpoint);
+            suspect = new Ped(spawnpoint);
             suspect.IsPersistent = true;
             suspect.BlockPermanentEvents = true;
 
@@ -51,6 +51,16 @@ namespace JMCalloutsRemastered.Callouts
                 malefemale = "ma'am";
 
             counter = 0;
+
+            if (Settings.ActivateAIBackup)
+            {
+                LSPD_First_Response.Mod.API.Functions.RequestBackup(spawnpoint, LSPD_First_Response.EBackupResponseType.Code2, LSPD_First_Response.EBackupUnitType.LocalUnit);
+                LSPD_First_Response.Mod.API.Functions.RequestBackup(spawnpoint, LSPD_First_Response.EBackupResponseType.Code2, LSPD_First_Response.EBackupUnitType.LocalUnit);
+            }
+            else
+            {
+                Settings.ActivateAIBackup = false;
+            }
 
             return base.OnCalloutAccepted();
         }
