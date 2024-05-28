@@ -7,8 +7,7 @@ namespace JMCalloutsRemastered.Callouts
     [CalloutInterface("Rocketman", CalloutProbability.High, "Reports of a civilian carrying an explosive weapon", "Code 3", "SWAT")]
 
     public class Rocketman : Callout
-    {
-        private static readonly string[] wepList = new string[] { "WEAPON_RPG", "WEAPON_HOMINGLAUNCHER", "WEAPON_FIREWORK" };
+    { 
         private static Ped suspect;
         private static Blip susBlip;
         private static Vector3 spawnpoint;
@@ -37,6 +36,8 @@ namespace JMCalloutsRemastered.Callouts
             suspect = new Ped(spawnpoint);
             suspect.IsPersistent = true;
             suspect.BlockPermanentEvents = true;
+
+            suspect.Inventory.GiveNewWeapon("WEAPON_RPG", 500, true);
 
             susBlip = suspect.AttachBlip();
             susBlip.Color = System.Drawing.Color.Red;
@@ -107,7 +108,6 @@ namespace JMCalloutsRemastered.Callouts
                         LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("LETHALFORCEISAUTHORIZED");
                         suspect.Tasks.FightAgainst(MainPlayer);
                         suspect.KeepTasks = true;
-                        suspect.Inventory.GiveNewWeapon(wepList[new Random().Next((int)wepList.Length)], 500, true);
                         suspect.Armor = 500;
                     }
                 }
