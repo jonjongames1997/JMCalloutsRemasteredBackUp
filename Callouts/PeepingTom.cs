@@ -26,9 +26,6 @@ namespace JMCalloutsRemastered.Callouts
                 new(-1713.22f, 386.81f, 89.73f),
                 new(312.86f, 468.63f, 151.27f),
                 new(-162.05f, 889.77f, 233.47f),
-                new(),
-                new(),
-                new(),
             };
             spawnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
@@ -61,6 +58,16 @@ namespace JMCalloutsRemastered.Callouts
                 malefemale = "ma'am";
 
             counter = 0;
+
+            if (Settings.ActivateAIBackup)
+            {
+                LSPD_First_Response.Mod.API.Functions.RequestBackup(spawnpoint, LSPD_First_Response.EBackupResponseType.Code2, LSPD_First_Response.EBackupUnitType.LocalUnit);
+                LSPD_First_Response.Mod.API.Functions.RequestBackup(spawnpoint, LSPD_First_Response.EBackupResponseType.Code2, LSPD_First_Response.EBackupUnitType.LocalUnit);
+            }
+            else
+            {
+                Settings.ActivateAIBackup = false;
+            }
 
             return base.OnCalloutAccepted();
         }
