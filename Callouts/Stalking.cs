@@ -26,10 +26,6 @@ namespace JMCalloutsRemastered.Callouts
                 new(1193.34f, 2715.13f, 38.23f),
                 new(-43.31f, 6505.73f, 31.52f),
                 new(-294.99f, 6258.98f, 31.49f),
-                new(),
-                new(),
-                new(),
-                new(),
             };
             spawnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
@@ -62,6 +58,16 @@ namespace JMCalloutsRemastered.Callouts
                 malefemale = "Ma'am";
 
             counter = 0;
+
+            if (Settings.ActivateAIBackup)
+            {
+                LSPD_First_Response.Mod.API.Functions.RequestBackup(spawnpoint, LSPD_First_Response.EBackupResponseType.Code2, LSPD_First_Response.EBackupUnitType.LocalUnit);
+                LSPD_First_Response.Mod.API.Functions.RequestBackup(spawnpoint, LSPD_First_Response.EBackupResponseType.Code2, LSPD_First_Response.EBackupUnitType.LocalUnit);
+            }
+            else
+            {
+                Settings.ActivateAIBackup = false;
+            }
 
             return base.OnCalloutAccepted();
         }
@@ -116,6 +122,7 @@ namespace JMCalloutsRemastered.Callouts
                         Game.DisplaySubtitle("Convo ended.");
                         suspect.Tasks.FightAgainst(MainPlayer);
                         suspect.Inventory.GiveNewWeapon("WEAPON_PISTOL", 500, true);
+                        suspect.Armor = 500;
                     }
                 }
             }
