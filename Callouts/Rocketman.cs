@@ -7,7 +7,8 @@ namespace JMCalloutsRemastered.Callouts
     [CalloutInterface("Rocketman", CalloutProbability.High, "Reports of a civilian carrying an explosive weapon", "Code 3", "SWAT")]
 
     public class Rocketman : Callout
-    { 
+    {
+        private static readonly string[] wepList = new string[] { "WEAPON_RPG", "WEAPON_HOMINGLAUNCHER", "WEAPON_FIREWORK" };
         private static Ped suspect;
         private static Blip susBlip;
         private static Vector3 spawnpoint;
@@ -105,8 +106,21 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if(counter == 8)
                     {
-                        LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("LETHALFORCEISAUTHORIZED");
+                        Game.DisplaySubtitle("~b~Chief~w~: If he/she points the weapon at you, ~r~LETHAL FORCE~w~ is authorized.");
+                    }
+                    if(counter == 9)
+                    {
+                        Game.DisplaySubtitle("~b~You~w~: 10-4, Chief.");
+                    }
+                    if(counter == 10)
+                    {
+                        Game.DisplaySubtitle("~b~You~w~: " + malefemale + ", Just drop the weapon, we don't want to shoot you. It's not worth it. Do you have kids?");
+                    }
+                    if(counter == 11)
+                    {
+                        Game.DisplaySubtitle("~r~Suspect~w~: Fuck you! Take your last breath of fresh air, motherfuckers!");
                         suspect.Tasks.FightAgainst(MainPlayer);
+                        suspect.Inventory.GiveNewWeapon(wepList[new Random().Next((int)wepList.Length)], 500, true);
                         suspect.KeepTasks = true;
                         suspect.Armor = 500;
                     }
