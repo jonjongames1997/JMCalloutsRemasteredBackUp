@@ -45,8 +45,6 @@ namespace JMCalloutsRemastered.Callouts
                 new(-448.69f, 118.38f, 64.22f), // OCRP Postal 527
                 new(-9.04f, -285.22f, 46.86f), // OCRP Postal 540
                 new(470.14f, 270.12f, 102.73f), // Clinton Ave Hotel
-                new(),
-                new(),
             };
             Spawnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 100f);
@@ -79,6 +77,15 @@ namespace JMCalloutsRemastered.Callouts
                 malefemale = "Ma'am";
 
             counter = 0;
+
+            if (Settings.ActivateAIBackup)
+            {
+                LSPD_First_Response.Mod.API.Functions.RequestBackup(Spawnpoint, LSPD_First_Response.EBackupResponseType.Code2, LSPD_First_Response.EBackupUnitType.LocalUnit);
+            }
+            else
+            {
+                Settings.ActivateAIBackup = false;
+            }
 
             return base.OnCalloutAccepted();
         }
