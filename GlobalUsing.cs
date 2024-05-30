@@ -11,3 +11,7 @@ global using System.Linq;
 global using System.Text;
 global using System.Threading.Tasks;
 global using System.Net;
+global using RAGENativeUI;
+global using RAGENativeUI.Elements;
+global using RAGENativeUI.PauseMenu;
+global using Rage.Attributes;
