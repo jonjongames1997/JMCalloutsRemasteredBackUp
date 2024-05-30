@@ -1,5 +1,6 @@
 ﻿using CalloutInterfaceAPI;
-
+using Rage;
+using Rage.Native;
 namespace JMCalloutsRemastered.Callouts
 {
 
