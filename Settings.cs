@@ -41,7 +41,6 @@ namespace JMCalloutsRemastered
         internal static Keys EndCall = Keys.End;
         internal static Keys Dialog = Keys.E;
         internal static bool ActivateAIBackup = true;
-        internal static Keys JMCalloutsMenu = Keys.F5;
         internal static InitializationFile ini;
         internal static string inipath = "Plugins/LSPDFR/JMCalloutsRemastered.ini";
 
@@ -84,9 +83,8 @@ namespace JMCalloutsRemastered
             Settings.HelpMessages = ini.ReadBoolean("HelpMessages", "Help Messages", true);
             EndCall = ini.ReadEnum("Keys", "EndCall", Keys.End);
             Dialog = ini.ReadEnum("Keys", "Dialog", Keys.E);
-            JMCalloutsMenu = ini.ReadEnum("Menu", "JMCalloutsMenu", Keys.F5);
             Settings.ActivateAIBackup = ini.ReadBoolean("GeneralSettings", "ActivateAIBackup", true);
         }
-        public static readonly string PluginVersion = "4.7.2";
+        public static readonly string PluginVersion = "4.8.2.1";
     }
 }
