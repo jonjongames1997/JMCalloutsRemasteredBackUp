@@ -49,6 +49,15 @@ namespace JMCalloutsRemastered
                     {
                         Settings.HelpMessages = false;
                     }
+
+                    if (Settings.ActivateAIBackup)
+                    {
+                        Game.DisplayNotification("~o~JM Callouts Remastered~w~: You can disable Activate AI Back up anytime in the .ini config");
+                    }
+                    else
+                    {
+                        Settings.ActivateAIBackup = false;
+                    }
                 });
         }
         private static void RegisterCallouts()
