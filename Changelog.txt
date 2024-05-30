@@ -1,6 +1,6 @@
 ﻿Changelog:
 
-4.7.2:
+4.8.2.1:
 
 - Added 4 new locations to "Stalking" callout
 - Added 3 new locations to "Peeping Tom" callout
@@ -9,6 +9,7 @@
 - Minor Improvements to "Domestic Disturbance" callout
 - Dialogue Improvements to "Intoxicated Individual" callout
 - "Rocketman" callout has returned and *REVAMPED*
+- JM Callouts Remastered has it's own console command :-)
 
 4.6.1:
 
