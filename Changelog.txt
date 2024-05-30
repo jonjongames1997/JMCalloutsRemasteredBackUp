@@ -1,6 +1,6 @@
 ﻿Changelog:
 
-4.6.2:
+4.7.2:
 
 - Added 4 new locations to "Stalking" callout
 - Added 3 new locations to "Peeping Tom" callout
@@ -8,7 +8,8 @@
 - Dialogue Improvements to "The Taco Dispute" callout
 - Minor Improvements to "Domestic Disturbance" callout
 - Dialogue Improvements to "Intoxicated Individual" callout
-- Added "Rocketman" callout *REVAMPED* 
+- "Rocketman" callout has returned and *REVAMPED*
+- JM Callouts Remastered has now it's own menu (BETA)
 
 4.6.1:
 
