@@ -3,7 +3,7 @@
 namespace JMCalloutsRemastered.Callouts
 {
 
-    [CalloutInterface("Public Disturbance", CalloutProbability.Medium, "A individual causing a scene in public", "Code 2", "LSPD")]
+    [CalloutInterface("[JM Callouts] Public Disturbance", CalloutProbability.Medium, "A individual causing a scene in public", "Code 2", "LSPD")]
 
     public class PublicDisturbance : Callout
     {
