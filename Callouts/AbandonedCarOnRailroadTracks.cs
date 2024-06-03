@@ -3,7 +3,7 @@
 namespace JMCalloutsRemastered.Callouts
 {
 
-    [CalloutInterface("Abandoned Vehicle On RailRoad Tracks", CalloutProbability.Medium, "Reports of an abandoned vehicle on tracks", "Code 2", "LSPD")]
+    [CalloutInterface("[JM Callouts] Abandoned Vehicle On RailRoad Tracks", CalloutProbability.Medium, "Reports of an abandoned vehicle on tracks", "Code 2", "LSPD")]
 
     public class AbandonedCarOnRailroadTracks : Callout
     {
