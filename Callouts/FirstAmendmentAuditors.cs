@@ -4,7 +4,7 @@ using Rage;
 namespace JMCalloutsRemastered.Callouts
 {
 
-    [CalloutInterface("1st Amendment Auditor - Union Depository", CalloutProbability.High, "Security reporting an individual refusing to leave government property", "Code 2", "LSPD")]
+    [CalloutInterface("[JM Callouts] 1st Amendment Auditor - Union Depository", CalloutProbability.High, "Security reporting an individual refusing to leave government property", "Code 2", "LSPD")]
 
 
     public class FirstAmendmentAuditors : Callout
