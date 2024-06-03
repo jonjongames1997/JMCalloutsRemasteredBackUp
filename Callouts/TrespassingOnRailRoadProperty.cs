@@ -3,7 +3,7 @@
 namespace JMCalloutsRemastered.Callouts
 {
 
-    [CalloutInterface("Trespassing On Railroad Property", CalloutProbability.Medium, "A citizen trespassing on Railroad Property", "Code 1", "LSPD")]
+    [CalloutInterface("[JM Callouts] Trespassing On Railroad Property", CalloutProbability.Medium, "A citizen trespassing on Railroad Property", "Code 1", "LSPD")]
 
     public class TrespassingOnRailRoadProperty : Callout
     {
