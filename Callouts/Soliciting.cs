@@ -3,7 +3,7 @@
 namespace JMCalloutsRemastered.Callouts
 {
 
-    [CalloutInterface("Soliciting", CalloutProbability.Medium, "An individual soliciting on private property", "Code 2", "LSPD")]
+    [CalloutInterface("[JM Callouts] Soliciting", CalloutProbability.Medium, "An individual soliciting on private property", "Code 2", "LSPD")]
 
     public class Soliciting : Callout
     {
