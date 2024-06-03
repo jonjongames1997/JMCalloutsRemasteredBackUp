@@ -4,7 +4,7 @@ namespace JMCalloutsRemastered.Callouts
 {
 
 
-    [CalloutInterface("The Taco Dispute - BETA 2", CalloutProbability.Medium, "A taco business requesting police assistance", "Code 2", "LSPD")]
+    [CalloutInterface("[JM Callouts] The Taco Dispute - BETA 2", CalloutProbability.Medium, "A taco business requesting police assistance", "Code 2", "LSPD")]
     public class TheTacoDispute : Callout
     {
         private static Ped suspect;
