@@ -3,7 +3,7 @@
 namespace JMCalloutsRemastered.Callouts
 {
 
-    [CalloutInterface("Movie Hopping", CalloutProbability.Medium, "Reports of a movie goer sneaking into the movies without a ticket", "Code 1", "LSPD")]
+    [CalloutInterface("[JM Callouts] Movie Hopping", CalloutProbability.Medium, "Reports of a movie goer sneaking into the movies without a ticket", "Code 1", "LSPD")]
 
 
     public class MovieHopping : Callout
