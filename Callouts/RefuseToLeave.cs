@@ -3,7 +3,7 @@
 namespace JMCalloutsRemastered.Callouts
 {
 
-    [CalloutInterface("Refuse To Leave", CalloutProbability.Medium, "An individual refuses to leave property", "Code 1", "LSPD")]
+    [CalloutInterface("[JM Callouts] Refuse To Leave", CalloutProbability.Medium, "An individual refuses to leave property", "Code 1", "LSPD")]
 
     public class RefuseToLeave : Callout
     {
