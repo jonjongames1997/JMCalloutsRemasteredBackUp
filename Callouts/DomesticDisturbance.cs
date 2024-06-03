@@ -4,7 +4,7 @@ using Rage;
 namespace JMCalloutsRemastered.Callouts
 {
 
-    [CalloutInterface("Domestic Disturbance - Franklin's Old Crib", CalloutProbability.Medium, "Reports of a domestic disturbance", "Code 2", "LSPD")]
+    [CalloutInterface("[JM Callouts] Domestic Disturbance - Franklin's Old Crib", CalloutProbability.Medium, "Reports of a domestic disturbance", "Code 2", "LSPD")]
 
     public class DomesticDisturbance : Callout
     {
