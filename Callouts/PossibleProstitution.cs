@@ -3,7 +3,7 @@
 namespace JMCalloutsRemastered.Callouts
 {
 
-    [CalloutInterface("Possible Prostitution", CalloutProbability.Medium, "A female possibly selling her body for money", "Code 2", "LCSO")]
+    [CalloutInterface("[JM Callouts] Possible Prostitution", CalloutProbability.Medium, "A female possibly selling her body for money", "Code 2", "LCSO")]
 
     public class PossibleProstitution : Callout
     {
