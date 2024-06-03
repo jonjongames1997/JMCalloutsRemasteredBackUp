@@ -37,6 +37,7 @@ namespace JMCalloutsRemastered
         internal static bool SuspiciousPerson = true;
         internal static bool FirstAmendmentAuditors = true;
         internal static bool Rocketman = true;
+        internal static bool PrankCall = true;
         internal static bool HelpMessages = true;
         internal static Keys EndCall = Keys.End;
         internal static Keys Dialog = Keys.E;
@@ -80,6 +81,7 @@ namespace JMCalloutsRemastered
             Settings.TheTacoDispute = ini.ReadBoolean("Callouts", "TheTacoDispute", true);
             Settings.SuspiciousPerson = ini.ReadBoolean("Callouts", "SuspiciousPerson", true);
             Settings.Rocketman = ini.ReadBoolean("Callouts", "Rocketman", true);;
+            Settings.PrankCall = ini.ReadBoolean("Callouts", "PrankCall", true);
             Settings.HelpMessages = ini.ReadBoolean("HelpMessages", "Help Messages", true);
             EndCall = ini.ReadEnum("Keys", "EndCall", Keys.End);
             Dialog = ini.ReadEnum("Keys", "Dialog", Keys.E);
