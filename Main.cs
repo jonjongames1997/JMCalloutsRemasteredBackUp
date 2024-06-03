@@ -126,6 +126,7 @@ namespace JMCalloutsRemastered
             if (Settings.SuspiciousPerson) { Functions.RegisterCallout(typeof(SuspiciousPerson)); }
             if (Settings.FirstAmendmentAuditors) { Functions.RegisterCallout(typeof(FirstAmendmentAuditors)); }
             if (Settings.Rocketman) { Functions.RegisterCallout(typeof(Rocketman)); }
+            if (Settings.PrankCall) { Functions.RegisterCallout(typeof(PrankCall)); }
             Game.Console.Print("[LOG]: All callouts of the JMCalloutsRemastered.ini were loaded successfully.");
             Game.Console.Print();
             Game.Console.Print("================================================== JM Callouts Remastered ===================================================");
