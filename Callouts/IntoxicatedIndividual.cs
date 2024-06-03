@@ -2,7 +2,7 @@
 
 namespace JMCalloutsRemastered.Callouts
 {
-    [CalloutInterface("Intoxicated Individual", CalloutProbability.Medium, "An individual causing a scene possibly drunk or high", "Code 2", "LSPD")]
+    [CalloutInterface("[JM Callouts] Intoxicated Individual", CalloutProbability.Medium, "An individual causing a scene possibly drunk or high", "Code 2", "LSPD")]
 
 
     public class IntoxicatedIndividual : Callout
