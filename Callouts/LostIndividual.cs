@@ -4,7 +4,7 @@
 namespace JMCalloutsRemastered.Callouts
 {
 
-    [CalloutInterface("Lost Individual", CalloutProbability.Medium, "A citizen's report of a lost person", "Code 2", "LSPD")]
+    [CalloutInterface("[JM Callouts] Lost Individual", CalloutProbability.Medium, "A citizen's report of a lost person", "Code 2", "LSPD")]
 
     public class LostIndividual : Callout
     {
