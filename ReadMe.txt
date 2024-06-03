@@ -19,4 +19,8 @@ For additional Information, Click the "Information" folder for additional text f
 
 These files include Intoxicated Individual fix, Refuse to pay spawn locations, and more!
 
+NOTE:
+
+The JM Callouts Remastered Logo was made with Adobe FireFly
+
 // JM Callouts ReadMe version 1.7 
