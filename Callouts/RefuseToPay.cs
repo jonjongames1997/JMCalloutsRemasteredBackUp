@@ -2,7 +2,7 @@
 
 namespace JMCalloutsRemastered.Callouts
 {
-    [CalloutInterface("Refuse To Pay", CalloutProbability.Medium, "An Individual refusing to pay", "Code 2", "LSPD")]
+    [CalloutInterface("[JM Callouts] Refuse To Pay", CalloutProbability.Medium, "An Individual refusing to pay", "Code 2", "LSPD")]
 
     public class RefuseToPay : Callout
     {
