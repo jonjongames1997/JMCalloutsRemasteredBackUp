@@ -3,7 +3,7 @@
 namespace JMCalloutsRemastered.Callouts
 {
 
-    [CalloutInterface("Trespassing On Private Property", CalloutProbability.Medium, "An individual spotted on private property", "Code 1", "LSPD")]
+    [CalloutInterface("[JM Callouts] Trespassing On Private Property", CalloutProbability.Medium, "An individual spotted on private property", "Code 1", "LSPD")]
 
     public class TrespassingOnPrivateProperty : Callout
     {
