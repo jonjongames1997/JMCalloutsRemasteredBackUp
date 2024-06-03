@@ -3,7 +3,7 @@
 namespace JMCalloutsRemastered.Callouts
 {
 
-    [CalloutInterface("Stalking", CalloutProbability.Medium, "Reports of stalking by an unknown suspect", "Code 2", "LSPD")]
+    [CalloutInterface("[JM Callouts] Stalking", CalloutProbability.Medium, "Reports of stalking by an unknown suspect", "Code 2", "LSPD")]
 
     public class Stalking : Callout
     {
