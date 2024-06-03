@@ -5,7 +5,7 @@ using Rage.Native;
 namespace JMCalloutsRemastered.Callouts
 {
 
-    [CalloutInterface("9-1-1 Hang Up", CalloutProbability.Medium, "An individual hung up on 911.", "Code 2", "LSPD")]
+    [CalloutInterface("[JM Callouts] 9-1-1 Hang Up", CalloutProbability.Medium, "An individual hung up on 911.", "Code 2", "LSPD")]
 
     public class _911HangUp : Callout
     {
