@@ -4,7 +4,7 @@ namespace JMCalloutsRemastered.Callouts
 {
 
 
-    [CalloutInterface("Purple Alert", CalloutProbability.High, "Reports of a missing person with disability", "Code 2", "LSPD")]
+    [CalloutInterface("[JM Callouts] Purple Alert", CalloutProbability.High, "Reports of a missing person with disability", "Code 2", "LSPD")]
 
 
     public class PurpleAlert : Callout
