@@ -85,6 +85,6 @@ namespace JMCalloutsRemastered
             Dialog = ini.ReadEnum("Keys", "Dialog", Keys.E);
             Settings.ActivateAIBackup = ini.ReadBoolean("GeneralSettings", "ActivateAIBackup", true);
         }
-        public static readonly string PluginVersion = "4.8.2.1";
+        public static readonly string PluginVersion = "5.0.0";
     }
 }
