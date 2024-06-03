@@ -3,7 +3,7 @@
 namespace JMCalloutsRemastered.Callouts
 {
 
-    [CalloutInterface("Code Karen", CalloutProbability.Medium, "An individual causing a scene", "Code 2", "LSPD")]
+    [CalloutInterface("[JM Callouts] Code Karen", CalloutProbability.Medium, "An individual causing a scene", "Code 2", "LSPD")]
 
 
     public class CodeKaren : Callout
