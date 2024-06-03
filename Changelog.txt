@@ -8,7 +8,9 @@
 - Minor Improvements to "Domestic Disturbance" callout
 - Dialogue Improvements to "Intoxicated Individual" callout
 - "Rocketman" callout has returned and *REVAMPED*
-- Added 5 new callouts ("First Amendment Auditors", "")
+- Added 5 new callouts ("First Amendment Auditors", "Prank Call", "Injured Person", "")
+- Updated ReadMe
+- New texture for web_jonjongames.ytd
 
 4.6.1:
 
