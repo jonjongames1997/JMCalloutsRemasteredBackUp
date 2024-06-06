@@ -38,10 +38,11 @@ namespace JMCalloutsRemastered
         internal static bool FirstAmendmentAuditors = true;
         internal static bool Rocketman = true;
         internal static bool PrankCall = true;
+        internal static bool InjuredPerson = true;
+        internal static bool UnknownTrouble = true;
         internal static bool HelpMessages = true;
         internal static Keys EndCall = Keys.End;
         internal static Keys Dialog = Keys.E;
-        internal static bool ActivateAIBackup = true;
         internal static InitializationFile ini;
         internal static string inipath = "Plugins/LSPDFR/JMCalloutsRemastered.ini";
 
@@ -82,10 +83,11 @@ namespace JMCalloutsRemastered
             Settings.SuspiciousPerson = ini.ReadBoolean("Callouts", "SuspiciousPerson", true);
             Settings.Rocketman = ini.ReadBoolean("Callouts", "Rocketman", true);;
             Settings.PrankCall = ini.ReadBoolean("Callouts", "PrankCall", true);
+            Settings.InjuredPerson = ini.ReadBoolean("Callouts", "InjuredPerson", true);
+            Settings.UnknownTrouble = ini.ReadBoolean("Callouts", "UnknownTrouble", true);
             Settings.HelpMessages = ini.ReadBoolean("HelpMessages", "Help Messages", true);
             EndCall = ini.ReadEnum("Keys", "EndCall", Keys.End);
             Dialog = ini.ReadEnum("Keys", "Dialog", Keys.E);
-            Settings.ActivateAIBackup = ini.ReadBoolean("GeneralSettings", "ActivateAIBackup", true);
         }
         public static readonly string PluginVersion = "5.0.0";
     }
