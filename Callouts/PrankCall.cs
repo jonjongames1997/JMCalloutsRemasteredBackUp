@@ -35,8 +35,7 @@ namespace JMCalloutsRemastered.Callouts
             suspect = new Ped(spawnpoint);
             suspect.IsPersistent = true;
             suspect.BlockPermanentEvents = true;
-            suspect.Tasks.Wander();
-            suspect.KeepTasks = true;
+            suspect.Tasks.PutHandsUp(500, MainPlayer);
 
             susBlip = suspect.AttachBlip();
             susBlip.Color = System.Drawing.Color.Red;
@@ -48,16 +47,6 @@ namespace JMCalloutsRemastered.Callouts
                 malefemale = "Ma'am";
 
             counter = 0;
-
-            if (Settings.ActivateAIBackup)
-            {
-                LSPD_First_Response.Mod.API.Functions.RequestBackup(spawnpoint, LSPD_First_Response.EBackupResponseType.Code2, LSPD_First_Response.EBackupUnitType.LocalUnit);
-            }
-            else
-            {
-                Settings.ActivateAIBackup = false;
-            }
-
 
             return base.OnCalloutAccepted();
         }
