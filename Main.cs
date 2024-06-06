@@ -1,5 +1,6 @@
 ﻿using System.Reflection;
 using JMCalloutsRemastered.Callouts;
+using JMCalloutsRemastered.VersionChecker;
 
 [assembly: Rage.Attributes.Plugin("JMCalloutsRemastered", Description = "LSPDFR Callout Pack", Author = "OfficerMorrison")]
 namespace JMCalloutsRemastered
@@ -36,8 +37,9 @@ namespace JMCalloutsRemastered
                     Game.Console.Print();
 
 
-                    Game.DisplayNotification("web_jonjongames", "web_jonjongames", "JM Callouts Remastered", "~g~v" + Assembly.GetExecutingAssembly().GetName().Version.ToString() + " ~o~by~w~ OfficerMorrison", "~b~successfully loaded!");
-                    Game.DisplayNotification("~y~Note~w~: If you have JM Callouts Remastered v4.5.3 or lower installed, those are no longer being supported. ~g~Consider updating to latest version for guaranteed support~w~.");
+                    Game.DisplayNotification("web_jonjongames", "web_jonjongames", "JM Callouts Remastered", "~g~v" + Assembly.GetExecutingAssembly().GetName().Version.ToString() + " ~r~by OfficerMorrison", "~b~successfully loaded!");
+
+                    VersionChecker.PluginCheck.isUpdateAvailable();
 
                     GameFiber.Wait(300);
 
