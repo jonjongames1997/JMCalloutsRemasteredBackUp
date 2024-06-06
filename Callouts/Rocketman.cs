@@ -1,6 +1,4 @@
 ﻿using CalloutInterfaceAPI;
-using Rage;
-using Rage.Native;
 
 namespace JMCalloutsRemastered.Callouts
 {
@@ -36,7 +34,7 @@ namespace JMCalloutsRemastered.Callouts
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Rocketman", "~b~Dispatch~w~: The suspect has been spotted! Respond ~r~Code 3~w~.");
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
 
-            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("Here Comes Rocketman");
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("Here_Comes_Rocketman");
 
             suspect = new Ped(spawnpoint);
             suspect.IsPersistent = true;
