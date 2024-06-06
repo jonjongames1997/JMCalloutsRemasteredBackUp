@@ -36,6 +36,8 @@ namespace JMCalloutsRemastered.Callouts
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Rocketman", "~b~Dispatch~w~: The suspect has been spotted! Respond ~r~Code 3~w~.");
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
 
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("Here Comes Rocketman");
+
             suspect = new Ped(spawnpoint);
             suspect.IsPersistent = true;
             suspect.BlockPermanentEvents = true;
@@ -52,17 +54,6 @@ namespace JMCalloutsRemastered.Callouts
                 malefemale = "Ma'am";
 
             counter = 0;
-
-            if (Settings.ActivateAIBackup)
-            {
-                LSPD_First_Response.Mod.API.Functions.RequestBackup(spawnpoint, LSPD_First_Response.EBackupResponseType.Code3, LSPD_First_Response.EBackupUnitType.LocalUnit);
-                LSPD_First_Response.Mod.API.Functions.RequestBackup(spawnpoint, LSPD_First_Response.EBackupResponseType.Code3, LSPD_First_Response.EBackupUnitType.SwatTeam);
-                LSPD_First_Response.Mod.API.Functions.RequestBackup(spawnpoint, LSPD_First_Response.EBackupResponseType.Code3, LSPD_First_Response.EBackupUnitType.NooseTeam);
-            }
-            else
-            {
-                Settings.ActivateAIBackup = false;
-            }
 
             return base.OnCalloutAccepted();
         }
