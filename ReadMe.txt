@@ -11,7 +11,7 @@ Drag and drop "Plugins" and "lspdfr" folders into your main GTA Directory!
 
 This is required otherwise you'll get an "IMGR" icon.
 
-For "web_jonjongames.ytd", There are two different textures, choose 1 of them then follow the pathway:
+For "web_jonjongames.ytd", follow the pathway:
 
 Go to Grand Theft Auto V\mods\update\update.rpf\x64\data\cdimages\scaleform_generic.rpf\ then drag and drop the .ytd file in there.
 
