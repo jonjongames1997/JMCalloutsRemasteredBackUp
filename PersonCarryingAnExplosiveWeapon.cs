@@ -19,9 +19,25 @@ namespace JMCalloutsRemastered
 
         public override bool OnBeforeCalloutDisplayed()
         {
-
+            spawnpoint = World.GetNextPositionOnStreet(MainPlayer.Position.Around(1000f));
+            ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudioUsingPosition("ATTENTION_ALL_SWAT_UNITS_01 WE_HAVE_01 CRIME_ASSAULT_WITH_A_DEADLY_WEAPON UNITS_RESPOND_CODE_03_02", spawnpoint);
+            CalloutInterfaceAPI.Functions.SendMessage(this, "Multiple reports of an explosive device");
+            CalloutMessage = "An idividual with a deadly weapon reported by civilian";
+            CalloutPosition = spawnpoint;
 
             return base.OnBeforeCalloutDisplayed();
+        }
+
+        public override bool OnCalloutAccepted()
+        {
+            Game.LogTrivial("JM Callouts Remastered [LOG]: Person Carrying An Explosive Weapon has been accepted!");
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Person Carrying An Explosive Weapon", "~b~Dispatch~w~: Suspect has been spotted! Respond ~r~Code 3~w~.");
+            Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout");
+
+
+
+            return base.OnCalloutAccepted();
         }
     }
 }
