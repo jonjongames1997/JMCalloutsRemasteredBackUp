@@ -43,20 +43,11 @@ namespace JMCalloutsRemastered
 
                     if (Settings.HelpMessages)
                     {
-                        Game.DisplayHelp("You can enable/disable Help Messages in JMCalloutsRemastered.ini at anytime.");
+                        Game.DisplayNotification("You can enable/disable Help Messages in JMCalloutsRemastered.ini at anytime.");
                     }
                     else
                     {
                         Settings.HelpMessages = false;
-                    }
-
-                    if (Settings.ActivateAIBackup)
-                    {
-                        Game.DisplayNotification("~o~JM Callouts Remastered~w~: You can disable Activate AI Back up anytime in the .ini config");
-                    }
-                    else
-                    {
-                        Settings.ActivateAIBackup = false;
                     }
                 });
         }
@@ -127,6 +118,8 @@ namespace JMCalloutsRemastered
             if (Settings.FirstAmendmentAuditors) { Functions.RegisterCallout(typeof(FirstAmendmentAuditors)); }
             if (Settings.Rocketman) { Functions.RegisterCallout(typeof(Rocketman)); }
             if (Settings.PrankCall) { Functions.RegisterCallout(typeof(PrankCall)); }
+            if (Settings.InjuredPerson) { Functions.RegisterCallout(typeof(InjuredPerson)); }
+            if (Settings.UnknownTrouble) { Functions.RegisterCallout(typeof(UnknownTrouble)); }
             Game.Console.Print("[LOG]: All callouts of the JMCalloutsRemastered.ini were loaded successfully.");
             Game.Console.Print();
             Game.Console.Print("================================================== JM Callouts Remastered ===================================================");
