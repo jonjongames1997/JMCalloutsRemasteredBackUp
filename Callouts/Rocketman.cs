@@ -40,7 +40,7 @@ namespace JMCalloutsRemastered.Callouts
             suspect.IsPersistent = true;
             suspect.BlockPermanentEvents = true;
 
-            suspect.Inventory.GiveNewWeapon("WEAPON_RPG", 500, true);
+            suspect.Inventory.GiveNewWeapon(wepList[new Random().Next((int)wepList.Length)], 500, true);
 
             susBlip = suspect.AttachBlip();
             susBlip.Color = System.Drawing.Color.Red;
