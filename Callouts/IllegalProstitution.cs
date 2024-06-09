@@ -38,6 +38,8 @@ namespace JMCalloutsRemastered.Callouts
             Suspect.IsPersistent = true;
             Suspect.BlockPermanentEvents = true;
 
+            Suspect.Tasks.PlayAnimation(new AnimationDictionary("switch@michael@prostitute"), "base_hooker", -1f, AnimationFlags.Loop);
+
             Game.DisplayNotification("Tip: This callout works best at night time.");
 
             SuspectBlip = Suspect.AttachBlip();
@@ -90,6 +92,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 4)
                     {
+                        Suspect.Tasks.PlayAnimation(new AnimationDictionary("oddjobs@taxi@argument"), "hooker_loop_a_hooker_b", -1f, AnimationFlags.Loop);
                         Game.DisplaySubtitle("~r~Suspect~w~: Well, cutie.....");
                     }
                     if (counter == 5)
