@@ -1,4 +1,5 @@
 ﻿using CalloutInterfaceAPI;
+using StopThePed.API;
 
 namespace JMCalloutsRemastered.Callouts
 {
@@ -53,17 +54,17 @@ namespace JMCalloutsRemastered.Callouts
             Suspect = new Ped(Spawnnpoint);
             Suspect.IsPersistent = true;
             Suspect.BlockPermanentEvents = true;
-            Suspect.IsMeleeProof = true;
+
+            Suspect.Tasks.PlayAnimation(new AnimationDictionary("random@drunk_driver_1"), "drunk_driver_stand_loop_dd1", 1f, AnimationFlags.Loop);
 
             SuspectBlip = Suspect.AttachBlip();
             SuspectBlip.Color = System.Drawing.Color.CadetBlue;
             SuspectBlip.IsRouteEnabled = true;
-            Suspect.Tasks.PutHandsUp(500, MainPlayer);
 
             if (Suspect.IsMale)
-                malefemale = "sir";
+                malefemale = "Sir";
             else
-                malefemale = "ma'am";
+                malefemale = "Ma'am";
 
             counter = 0;
 
