@@ -118,7 +118,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 6)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: whatever, *hiccup* bro.");
+                        Game.DisplaySubtitle("~r~Suspect~w~: whatever, *burp* bro.");
                     }
                     if (counter == 7)
                     {
