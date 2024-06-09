@@ -56,6 +56,9 @@ namespace JMCalloutsRemastered.Callouts
             Suspect.BlockPermanentEvents = true;
 
             Suspect.Tasks.PlayAnimation(new AnimationDictionary("random@drunk_driver_1"), "drunk_driver_stand_loop_dd1", 1f, AnimationFlags.Loop);
+            Suspect.KeepTasks = true;
+
+            StopThePed.API.Functions.isPedAlcoholOverLimit(Suspect);
 
             SuspectBlip = Suspect.AttachBlip();
             SuspectBlip.Color = System.Drawing.Color.CadetBlue;
@@ -120,11 +123,11 @@ namespace JMCalloutsRemastered.Callouts
                     if (counter == 7)
                     {
                         Game.DisplaySubtitle("Conversation has ended!");
-                        Suspect.Tasks.PutHandsUp(500, MainPlayer);
-                        Suspect.Inventory.GiveNewWeapon("WEAPON_BOTTLE", 500, true);
+                        Suspect.Tasks.PlayAnimation(new AnimationDictionary("random@drunk_driver_1"), "drunk_driver_stand_loop_dd2", 1f, AnimationFlags.Loop);
                     }
                 }
             }
+            if (Suspect.Exists()) End();
             if (MainPlayer.IsDead) End();
             if (Game.IsKeyDown(Settings.EndCall)) End();
         }
