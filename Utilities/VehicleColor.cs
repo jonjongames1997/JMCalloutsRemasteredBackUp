@@ -1,6 +1,4 @@
-﻿using System;
-
-//Credit to Stealth22 for this struct
+﻿//Credit to Stealth22 for this struct
 /// <summary>
 /// Struct for vehicles primary and secondary colors
 /// </summary>
