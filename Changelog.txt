@@ -12,6 +12,7 @@
 - Updated ReadMe
 - New texture for web_jonjongames.ytd
 - Updated Documentation
+- Intoxicated Individual callout, the ped will be over the legal limit as intended.
 
 4.6.1:
 
