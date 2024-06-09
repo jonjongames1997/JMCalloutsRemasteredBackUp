@@ -1,6 +1,8 @@
 ﻿using System.Reflection;
 using JMCalloutsRemastered.Callouts;
 using JMCalloutsRemastered.VersionChecker;
+using StopThePed;
+using UltimateBackup;
 
 [assembly: Rage.Attributes.Plugin("JMCalloutsRemastered", Description = "LSPDFR Callout Pack", Author = "OfficerMorrison")]
 namespace JMCalloutsRemastered
