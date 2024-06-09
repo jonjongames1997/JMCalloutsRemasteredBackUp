@@ -58,7 +58,7 @@ namespace JMCalloutsRemastered.Callouts
             Suspect.Tasks.PlayAnimation(new AnimationDictionary("random@drunk_driver_1"), "drunk_driver_stand_loop_dd1", 1f, AnimationFlags.Loop);
             Suspect.KeepTasks = true;
 
-            StopThePed.API.Functions.isPedAlcoholOverLimit(Suspect);
+            StopThePed.API.Functions.setPedAlcoholOverLimit(Suspect, true);
 
             SuspectBlip = Suspect.AttachBlip();
             SuspectBlip.Color = System.Drawing.Color.CadetBlue;
