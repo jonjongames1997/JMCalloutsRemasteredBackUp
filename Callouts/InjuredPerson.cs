@@ -64,6 +64,11 @@ namespace JMCalloutsRemastered.Callouts
             suspect.IsPersistent = true;
             suspect.BlockPermanentEvents = true;
 
+            victim.Tasks.PlayAnimation(new AnimationDictionary("misschinese2_crystalmaze"), "2int_loop_a_taocheng", -1f, AnimationFlags.Loop);
+
+            suspect.Tasks.PlayAnimation(new AnimationDictionary("random@drunk_driver_1"), "drunk_driver_stand_loop_dd2", -1f, AnimationFlags.Loop);
+            StopThePed.API.Functions.setPedAlcoholOverLimit(suspect, true);
+
             suspectBlip = new Blip(suspect);
             suspect.AttachBlip();
             suspectBlip.Color = System.Drawing.Color.DarkRed;
