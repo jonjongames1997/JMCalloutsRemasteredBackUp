@@ -84,6 +84,9 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BasicParkingEnforcement">
+      <HintPath>..\Steam_Games\steamapps\common\Grand Theft Auto V\plugins\LSPDFR\BasicParkingEnforcement.dll</HintPath>
+    </Reference>
     <Reference Include="CalloutInterfaceAPI, Version=1.0.3.0, Culture=neutral, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\JMCalloutsRemasteredReferences\CalloutInterfaceAPI.dll</HintPath>
@@ -101,6 +104,9 @@
     <Reference Include="SceneManager">
       <HintPath>..\JMCalloutsRemasteredReferences\SceneManager.dll</HintPath>
     </Reference>
+    <Reference Include="StopThePed">
+      <HintPath>..\Steam_Games\steamapps\common\Grand Theft Auto V\plugins\LSPDFR\StopThePed.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -111,6 +117,9 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="UltimateBackup">
+      <HintPath>..\Steam_Games\steamapps\common\Grand Theft Auto V\plugins\LSPDFR\UltimateBackup.dll</HintPath>
+    </Reference>
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
