@@ -14,6 +14,7 @@
 - Updated Documentation
 - Intoxicated Individual callout, the ped will be over the legal limit as intended.
 - Some dialogue adjustments
+- Certain peds in certain callouts will play the desired animation
 
 4.6.1:
 
