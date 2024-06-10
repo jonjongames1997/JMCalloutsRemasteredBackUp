@@ -3,7 +3,7 @@
 namespace JMCalloutsRemastered.Callouts
 {
 
-    [CalloutInterface("[JM Callouts] Prank Call", CalloutProbability.Medium, "A person called 9-1-1 to prank dispatch", "Code 2", "LSPD")]
+    [CalloutInterface("[JM Callouts] Prank Call {BETA} ", CalloutProbability.Medium, "A person called 9-1-1 to prank dispatch", "Code 2", "LSPD")]
 
     public class PrankCall : Callout
     {
@@ -108,8 +108,7 @@ namespace JMCalloutsRemastered.Callouts
                     if(counter == 9)
                     {
                         Game.DisplaySubtitle("Conversation Ended. Deal with the situation as you see fit.");
-                        suspect.Tasks.Cower(500);
-                        suspect.KeepTasks = true;
+                        suspect.Tasks.Cower(900);
                     }
                 }
             }
