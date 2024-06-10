@@ -72,6 +72,8 @@ namespace JMCalloutsRemastered.Callouts
             SuspectBlip.Color = System.Drawing.Color.Cyan;
             SuspectBlip.IsRouteEnabled = true;
 
+            Suspect.Tasks.PlayAnimation(new AnimationDictionary("switch@michael@prostitute"), "base_hooker", -1f, AnimationFlags.Loop);
+
             if (Suspect.IsMale)
                 malefemale = "Sir";
             else
@@ -138,6 +140,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 9)
                     {
+                        Suspect.Tasks.PlayAnimation(new AnimationDictionary("mini@strip_club@idles@stripper"), "stripper_idle_06", -1f, AnimationFlags.Loop);
                         Game.DisplaySubtitle("~r~Suspect~w~: Come on, Officer. First time is free.");
                     }
                     if (counter == 10)
@@ -152,7 +155,7 @@ namespace JMCalloutsRemastered.Callouts
                     {
                         Game.DisplaySubtitle("Conversation ended.");
                         Suspect.Tasks.FightAgainst(MainPlayer);
-                        Suspect.Inventory.GiveNewWeapon("WEAPON_PISTOL", 500, true);
+                        Suspect.Inventory.GiveNewWeapon("WEAPON_COMBATPISTOL", 500, true);
                     }
                 }
             }
