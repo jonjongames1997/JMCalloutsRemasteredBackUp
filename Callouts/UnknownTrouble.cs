@@ -50,7 +50,6 @@ namespace JMCalloutsRemastered.Callouts
 
             counter = 0;
 
-
             return base.OnCalloutAccepted();
         }
 
