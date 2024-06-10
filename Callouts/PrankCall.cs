@@ -3,7 +3,7 @@
 namespace JMCalloutsRemastered.Callouts
 {
 
-    [CalloutInterface("[JM Callouts] Prank Call {BETA} ", CalloutProbability.Medium, "A person called 9-1-1 to prank dispatch", "Code 2", "LSPD")]
+    [CalloutInterface("[JM Callouts] Prank Call {BETA}", CalloutProbability.Medium, "A person called 9-1-1 to prank dispatch", "Code 2", "LSPD")]
 
     public class PrankCall : Callout
     {
