@@ -82,7 +82,6 @@ namespace JMCalloutsRemastered.Callouts
 
                     if(counter == 1)
                     {
-                        suspect.Face(MainPlayer);
                         Game.DisplaySubtitle("~b~Player~w~: Excuse me, " + malefemale + ". Come here and talk to me.");
                     }
                     if(counter == 2)
@@ -124,9 +123,6 @@ namespace JMCalloutsRemastered.Callouts
                     if(counter == 11)
                     {
                         Game.DisplaySubtitle("Conversation Ended!");
-                    }
-                    if(counter == 12)
-                    {
                         suspect.Tasks.ReactAndFlee(suspect);
                     }
                 }
