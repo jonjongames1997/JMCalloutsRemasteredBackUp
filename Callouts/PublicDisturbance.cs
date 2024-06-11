@@ -107,7 +107,7 @@ namespace JMCalloutsRemastered.Callouts
                     if (counter == 1)
                     {
                         suspect.Face(MainPlayer);
-                        Game.DisplaySubtitle("~b~You (Officier)~w~: Excuse me, " + malefemale + ", Can you come talk to me for a second?");
+                        Game.DisplaySubtitle("~b~You~w~: Excuse me, " + malefemale + ", Can you come talk to me for a second?");
                     }
                     if (counter == 2)
                     {
@@ -115,7 +115,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 3)
                     {
-                        Game.DisplaySubtitle("~b~You (Officer):~w~ Can you explain to me on what's to be the problem?");
+                        Game.DisplaySubtitle("~b~You~w~: Can you explain to me on what's to be the problem?");
                     }
                     if (counter == 4)
                     {
@@ -123,7 +123,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 5)
                     {
-                        Game.DisplaySubtitle("~b~You (Officer)~w~: Do you take any type of medication for your disorder?");
+                        Game.DisplaySubtitle("~b~You~w~: Do you take any type of medication for your disorder?");
                     }
                     if (counter == 6)
                     {
@@ -131,7 +131,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 7)
                     {
-                        Game.DisplaySubtitle("~b~You (Officer)~w~: Why did threat someone's life for when they didn't do anything to you?");
+                        Game.DisplaySubtitle("~b~You~w~: Why did threat someone's life for when they didn't do anything to you?");
                     }
                     if (counter == 8)
                     {
@@ -139,7 +139,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 9)
                     {
-                        Game.DisplaySubtitle("~b~You (Officer)~w~: Next time, take your medicine when you are supposed to take it, " + malefemale + ".");
+                        Game.DisplaySubtitle("~b~You~w~: Next time, take your medicine when you are supposed to take it, " + malefemale + ".");
                     }
                     if (counter == 10)
                     {
