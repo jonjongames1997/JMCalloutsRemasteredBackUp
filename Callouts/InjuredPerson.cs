@@ -4,7 +4,7 @@ namespace JMCalloutsRemastered.Callouts
 {
 
 
-    [CalloutInterface("[JM Callouts] Injured Person", CalloutProbability.High, "Reports of an injured civilian", "CODE 2", "LSPD")]
+    [CalloutInterface("[JM Callouts] Injured Person", CalloutProbability.High, "Reports of an injured civilian", "CODE 3", "LSPD")]
 
     public class InjuredPerson : Callout
     {
@@ -19,7 +19,6 @@ namespace JMCalloutsRemastered.Callouts
         private static int counter;
         private static float vicHeading;
         private static float suspectHeading;
-        private static readonly string[] vehicleList = new string[] { "BULLET", "SANDKING", "BODHI2", "INFERNUS" };
         private static Vector3 vehicleSpawn;
         private static Vehicle suspectVehicle;
 
@@ -31,7 +30,7 @@ namespace JMCalloutsRemastered.Callouts
             suspectHeading = 126.79f;
             vehicleSpawn = new(105.19f, -1345.49f, 29.31f);
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
-            LSPD_First_Response.Mod.API.Functions.PlayScannerAudioUsingPosition("", spawnpoint);
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudioUsingPosition("ATTENTION_ALL_UNITS_01 WE_HAVE_01 CRIME_VEHICLE_CRASH UNITS_RESPOND_CODE_03_01", spawnpoint);
             CalloutInterfaceAPI.Functions.SendMessage(this, "A civilian injured by a attacker.");
             CalloutMessage = "Civilian injured requiring assistance";
             CalloutPosition = spawnpoint;
@@ -45,6 +44,9 @@ namespace JMCalloutsRemastered.Callouts
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Injured Person", "~b~Dispatch~w~: Victim and Suspect has been spotted. Respond Code 2.");
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout.");
 
+            Settings.CallsAccepted++;
+            Settings.Stats.SelectSingleNode("Stats/CallsAccepted").InnerText = Settings.CallsAccepted.ToString();
+            Settings.Stats.Save(Settings.xmlpath);
             victim = new Ped(spawnpoint, vicHeading);
             victim.IsPersistent = true;
             victim.BlockPermanentEvents = true;
@@ -73,13 +75,8 @@ namespace JMCalloutsRemastered.Callouts
             suspect.AttachBlip();
             suspectBlip.Color = System.Drawing.Color.DarkRed;
 
-            suspectVehicle = new Vehicle(vehicleList[new Random().Next((int)vehicleList.Length)], vehicleSpawn, 0f);
-            suspectVehicle.EngineHealth = 0;
+            suspectVehicle = new Vehicle(vehicleSpawn);
             suspectVehicle.IsPersistent = true;
-            suspectVehicle.IsDriveable = false;
-            suspectVehicle.IsStolen = true;
-
-            LSPD_First_Response.Mod.API.Functions.DisplayVehicleRecord(suspectVehicle, true);
 
             if (suspect.IsMale)
                 malefemale = "Sir";
@@ -138,69 +135,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if(counter == 6)
                     {
-                        Game.DisplaySubtitle("Conversation Ended. Talk to the victim");
-                    }
-                }
-
-            }
-
-            if(MainPlayer.DistanceTo(victim) <= 10f)
-            {
-                if (Game.IsKeyDown(System.Windows.Forms.Keys.E))
-                {
-                    counter++;
-
-                    if (counter == 1)
-                    {
-                        Game.DisplaySubtitle("~b~You~w~: " + malefemale + ", you alright? Need medical attention?");
-                    }
-                    if (counter == 2)
-                    {
-                        Game.DisplaySubtitle("~g~Victime~w~: Yes, I got distracted by my phone when crossing the road.");
-                    }
-                    if (counter == 3)
-                    {
-                        Game.DisplaySubtitle("~b~You~w~: Ok, I will call an ambulance to have them check you out. I need to ask you some questions.");
-                    }
-                    if (counter == 4)
-                    {
-                        Game.DisplaySubtitle("~g~Victime~w~: Ok, officer.");
-                    }
-                    if (counter == 5)
-                    {
-                        Game.DisplaySubtitle("~b~You~w~: What were you doing before the accident?");
-                    }
-                    if (counter == 6)
-                    {
-                        Game.DisplaySubtitle("~g~Victim~w~: I was on my phone texting then I started crossing the street. I thought I had the right of way.");
-                    }
-                    if (counter == 7)
-                    {
-                        Game.DisplaySubtitle("~b~You~w~: So you weren't paying attention?");
-                    }
-                    if (counter == 8)
-                    {
-                        Game.DisplaySubtitle("~g~Victim~w~: No I wasn't, officer.");
-                    }
-                    if (counter == 9)
-                    {
-                        Game.DisplaySubtitle("~b~You~w~: Well, I'm gonna have to issue you a citation for jaywalking.");
-                    }
-                    if (counter == 10)
-                    {
-                        Game.DisplaySubtitle("~g~Victim~w~: WHAT THE SIGMA?! ARE YOU CEREAL?");
-                    }
-                    if(counter == 11)
-                    {
-                        Game.DisplaySubtitle("~b~You~w~: Yes, " + malefemale + ". You are at fault of an accident. That's why the push buttons are there for a reason.");
-                    }
-                    if(counter == 12)
-                    {
-                        Game.DisplaySubtitle("~g~Victim~w~: Well, I am fucked.");
-                    }
-                    if(counter == 13)
-                    {
-                        Game.DisplaySubtitle("Conversation Ended. Deal the situation you may see fit.");
+                        Game.DisplaySubtitle("Conversation Ended. Talk to the victim *RP it out*");
                     }
                 }
 
