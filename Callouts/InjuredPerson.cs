@@ -44,14 +44,9 @@ namespace JMCalloutsRemastered.Callouts
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Injured Person", "~b~Dispatch~w~: Victim and Suspect has been spotted. Respond Code 2.");
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout.");
 
-            Settings.CallsAccepted++;
-            Settings.Stats.SelectSingleNode("Stats/CallsAccepted").InnerText = Settings.CallsAccepted.ToString();
-            Settings.Stats.SelectSingleNode("Stats/Arrests").InnerText = Settings.Arrests.ToString();
-            Settings.Stats.Save(Settings.xmlpath);
             victim = new Ped(spawnpoint, vicHeading);
             victim.IsPersistent = true;
             victim.BlockPermanentEvents = true;
-            victim.IsInjured.ToString();
 
             NativeFunction.Natives.APPLY_PED_DAMAGE_PACK(victim, "LightHitByVehicle", 1f, 1f);
 
