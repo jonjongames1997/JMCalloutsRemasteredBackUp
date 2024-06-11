@@ -36,6 +36,7 @@ namespace JMCalloutsRemastered.Callouts
 
             Settings.CallsAccepted++;
             Settings.Stats.SelectSingleNode("Stats/CallsAccepted").InnerText = Settings.CallsAccepted.ToString();
+            Settings.Stats.SelectSingleNode("Stats/Arrests").InnerText = Settings.Arrests.ToString();
             Settings.Stats.Save(Settings.xmlpath);
 
             Suspect = new Ped(pedList[new Random().Next((int)pedList.Length)], Spawnpoint, 0f);
@@ -44,7 +45,7 @@ namespace JMCalloutsRemastered.Callouts
 
             Suspect.Tasks.PlayAnimation(new AnimationDictionary("switch@michael@prostitute"), "base_hooker", -1f, AnimationFlags.Loop);
 
-            Game.DisplayNotification("Tip: This callout works best at night time.");
+            Game.DisplayHelp("Tip: This callout works best at night time.");
 
             SuspectBlip = Suspect.AttachBlip();
             SuspectBlip.Color = System.Drawing.Color.DeepPink;
@@ -133,8 +134,8 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 13)
                     {
-                        Game.DisplaySubtitle("Conversation ended...");
-                        Suspect.Tasks.Wander();
+                        Game.DisplaySubtitle("Conversation ended. Deal with the situation you may see fit.");
+                        Suspect.Tasks.PutHandsUp(500, MainPlayer);
                     }
                 }
             }
