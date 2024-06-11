@@ -37,6 +37,11 @@ namespace JMCalloutsRemastered.Callouts
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~The Taco Dispute", "~b~Dispatch~w~: Suspect has been spotted. Respond ~r~Code 2~w~.");
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
 
+            Settings.CallsAccepted++;
+            Settings.Stats.SelectSingleNode("Stats/CallsAccepted").InnerText = Settings.CallsAccepted.ToString();
+            Settings.Stats.SelectSingleNode("Stats/FightsInvolvedIn").InnerText = Settings.FightsInvolved.ToString();
+            Settings.Stats.Save(Settings.xmlpath);
+
             suspect = new Ped(spawnpoint);
             suspect.IsPersistent = true;
             suspect.BlockPermanentEvents = true;
@@ -138,7 +143,6 @@ namespace JMCalloutsRemastered.Callouts
                 {
                     Game.DisplaySubtitle("Conversation Ended!");
                     suspect.Tasks.FightAgainst(MainPlayer);
-                    suspect.Inventory.GiveNewWeapon("WEAPON_KNIFE", 500, true);
                 }
             }
 
