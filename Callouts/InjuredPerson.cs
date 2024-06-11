@@ -25,11 +25,11 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnBeforeCalloutDisplayed()
         {
-            spawnpoint = new();
-            vicHeading = 175.69f;
-            suspectSpawn = new();
-            suspectHeading = 359.79f;
-            vehicleSpawn = new();
+            spawnpoint = new(98.48f, -1331.91f, 29.31f);
+            vicHeading = 93.56f;
+            suspectSpawn = new(113.21f, -1343.09f, 29.25f);
+            suspectHeading = 126.79f;
+            vehicleSpawn = new(105.19f, -1345.49f, 29.31f);
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
             LSPD_First_Response.Mod.API.Functions.PlayScannerAudioUsingPosition("", spawnpoint);
             CalloutInterfaceAPI.Functions.SendMessage(this, "A civilian injured by a attacker.");
