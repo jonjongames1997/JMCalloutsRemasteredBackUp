@@ -46,6 +46,7 @@ namespace JMCalloutsRemastered.Callouts
             Settings.CallsAccepted++;
             Settings.Stats.SelectSingleNode("Stats/CallsAccepted").InnerText = Settings.CallsAccepted.ToString();
             Settings.Stats.SelectSingleNode("Stats/Shootouts").InnerText = Settings.Shootouts.ToString();
+            Settings.Stats.SelectSingleNode("Stats/Arrests").InnerText = Settings.Arrests.ToString();
             Settings.Stats.Save(Settings.xmlpath);
 
             maleSuspect = new(malePedList[new Random().Next((int)malePedList.Length)], spawnpoint, 0f);
