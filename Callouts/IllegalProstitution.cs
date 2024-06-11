@@ -34,6 +34,10 @@ namespace JMCalloutsRemastered.Callouts
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Illegal Prostitution", "~b~Dispatch~w~: The suspect has been spotted! Respond ~r~Code 2~w~.");
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
 
+            Settings.CallsAccepted++;
+            Settings.Stats.SelectSingleNode("Stats/CallsAccepted").InnerText = Settings.CallsAccepted.ToString();
+            Settings.Stats.Save(Settings.xmlpath);
+
             Suspect = new Ped(pedList[new Random().Next((int)pedList.Length)], Spawnpoint, 0f);
             Suspect.IsPersistent = true;
             Suspect.BlockPermanentEvents = true;
