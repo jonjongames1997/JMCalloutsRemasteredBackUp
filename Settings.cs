@@ -41,6 +41,7 @@ namespace JMCalloutsRemastered
         internal static bool InjuredPerson = true;
         internal static bool UnknownTrouble = true;
         internal static bool PersonCarryingAnExplosiveWeapon = true;
+        internal static bool SexyTimeInPublicNSFW = true;
         internal static bool HelpMessages = true;
         internal static Keys EndCall = Keys.End;
         internal static Keys Dialog = Keys.E;
@@ -87,6 +88,7 @@ namespace JMCalloutsRemastered
             Settings.InjuredPerson = ini.ReadBoolean("Callouts", "InjuredPerson", true);
             Settings.UnknownTrouble = ini.ReadBoolean("Callouts", "UnknownTrouble", true);
             Settings.PersonCarryingAnExplosiveWeapon = ini.ReadBoolean("Callouts", "PersonCarryingAnExplosiveWeapon", true);
+            Settings.SexyTimeInPublicNSFW = ini.ReadBoolean("Callouts", "SexyTimeInPublicNSFW", true);
             Settings.HelpMessages = ini.ReadBoolean("HelpMessages", "Help Messages", true);
             EndCall = ini.ReadEnum("Keys", "EndCall", Keys.End);
             Dialog = ini.ReadEnum("Keys", "Dialog", Keys.E);
