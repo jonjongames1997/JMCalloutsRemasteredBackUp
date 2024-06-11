@@ -42,6 +42,11 @@ namespace JMCalloutsRemastered.Callouts
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Peeping Tom", "~b~Dispatch~w~: The suspect has been spotted! Respond ~r~Code 2~w~.");
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
 
+            Settings.CallsAccepted++;
+            Settings.Stats.SelectSingleNode("Stats/CallsAccepted").InnerText = Settings.CallsAccepted.ToString();
+            Settings.Stats.SelectSingleNode("Stats/Pursuits").InnerText = Settings.Pursuits.ToString();
+            Settings.Stats.Save(Settings.xmlpath);
+
             suspect = new Ped(spawnpoint);
             suspect.IsPersistent = true;
             suspect.BlockPermanentEvents = true;
