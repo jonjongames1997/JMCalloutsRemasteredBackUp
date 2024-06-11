@@ -43,12 +43,6 @@ namespace JMCalloutsRemastered.Callouts
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Sexy Time In Public", "~b~Dispatch~w~: Suspects has been spotted. Respond Code 2.");
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
 
-            Settings.CallsAccepted++;
-            Settings.Stats.SelectSingleNode("Stats/CallsAccepted").InnerText = Settings.CallsAccepted.ToString();
-            Settings.Stats.SelectSingleNode("Stats/Shootouts").InnerText = Settings.Shootouts.ToString();
-            Settings.Stats.SelectSingleNode("Stats/Arrests").InnerText = Settings.Arrests.ToString();
-            Settings.Stats.Save(Settings.xmlpath);
-
             maleSuspect = new(malePedList[new Random().Next((int)malePedList.Length)], spawnpoint, 0f);
             maleSuspect.IsPersistent = true;
             maleSuspect.BlockPermanentEvents = true;
