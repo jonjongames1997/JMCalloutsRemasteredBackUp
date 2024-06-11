@@ -39,6 +39,10 @@ namespace JMCalloutsRemastered.Callouts
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~y~Dead Body", "~b~Dispatch~w~: The dead body has been spotted! Respond ~r~Code 3~w~.");
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout.");
 
+            Settings.CallsAccepted++;
+            Settings.Stats.SelectSingleNode("Stats/CallsAccepted").InnerText = Settings.CallsAccepted.ToString();
+            Settings.Stats.Save(Settings.xmlpath);
+
             deadBlip = new Blip(deadBody)
             {
                 Color = Color.Red,
