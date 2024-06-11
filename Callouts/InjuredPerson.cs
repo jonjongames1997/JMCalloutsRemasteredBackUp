@@ -46,6 +46,7 @@ namespace JMCalloutsRemastered.Callouts
 
             Settings.CallsAccepted++;
             Settings.Stats.SelectSingleNode("Stats/CallsAccepted").InnerText = Settings.CallsAccepted.ToString();
+            Settings.Stats.SelectSingleNode("Stats/Arrests").InnerText = Settings.Arrests.ToString();
             Settings.Stats.Save(Settings.xmlpath);
             victim = new Ped(spawnpoint, vicHeading);
             victim.IsPersistent = true;
