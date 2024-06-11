@@ -42,6 +42,7 @@ namespace JMCalloutsRemastered.Callouts
             Settings.CallsAccepted++;
             Settings.Stats.SelectSingleNode("Stats/CallsAccepted").InnerText = Settings.CallsAccepted.ToString();
             Settings.Stats.SelectSingleNode("Stats/Pursuits").InnerText = Settings.Pursuits.ToString();
+            Settings.Stats.SelectSingleNode("Stats/Arrests").InnerText = Settings.Arrests.ToString();
             Settings.Stats.Save(Settings.xmlpath);
 
             suspect = new Ped(spawnpoint);
@@ -92,52 +93,42 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if(counter == 2)
                     {
-                        suspect.Tasks.PlayAnimation(new AnimationDictionary("misscarsteal4@actor"), "actor_berating_loop", -1f, AnimationFlags.UpperBodyOnly);
                         Game.DisplaySubtitle("~r~Suspect~w~: I didn't do anything wrong, Officer. I wanted to see a movie so bad.");
                     }
                     if(counter == 3)
                     {
-                        suspect.Tasks.PlayAnimation(new AnimationDictionary("random@countrysiderobbery"), "idle_a", -1f, AnimationFlags.Loop);
                         Game.DisplaySubtitle("~b~Player~w~: Where is your movie ticket? May I see it please?");
                     }
                     if(counter == 4)
                     {
-                        suspect.Tasks.PlayAnimation(new AnimationDictionary("misscarsteal4@actor"), "actor_berating_loop", -1f, AnimationFlags.UpperBodyOnly);
                         Game.DisplaySubtitle("~r~Suspect~w~: I don't have one, I'm broke. Tickets are f***ing almost $15 per person.");
                     }
                     if(counter == 5)
                     {
-                        suspect.Tasks.PlayAnimation(new AnimationDictionary("random@countrysiderobbery"), "idle_a", -1f, AnimationFlags.Loop);
                         Game.DisplaySubtitle("~b~Player~w~: You know you can be charged with a misdemeanor, right?");
                     }
                     if(counter == 6)
                     {
-                        suspect.Tasks.PlayAnimation(new AnimationDictionary("misscarsteal4@actor"), "actor_berating_loop", -1f, AnimationFlags.UpperBodyOnly);
                         Game.DisplaySubtitle("~r~Suspect~w~: WHAT?!!!! HOW? That's bullsh*t! I'm not leaving until I see that film");
                     }
                     if(counter == 7)
-                    {
-                        suspect.Tasks.PlayAnimation(new AnimationDictionary("random@countrysiderobbery"), "idle_a", -1f, AnimationFlags.Loop);
+                    { 
                         Game.DisplaySubtitle("~b~Player~w~: " + malefemale + ". You either leave now or be put in cuffs. It's your choice.");
                     }
                     if(counter == 8)
                     {
-                        suspect.Tasks.PlayAnimation(new AnimationDictionary("misscarsteal4@actor"), "actor_berating_loop", -1f, AnimationFlags.UpperBodyOnly);
                         Game.DisplaySubtitle("~r~Suspect~w~: F**K YOU!");
                     }
                     if(counter == 9)
                     {
-                        suspect.Tasks.PlayAnimation(new AnimationDictionary("random@countrysiderobbery"), "idle_a", -1f, AnimationFlags.Loop);
                         Game.DisplaySubtitle("~b~Player~w~: You are under arrest. Put your hands behind your back.");
                     }
                     if(counter == 10)
                     {
-                        suspect.Tasks.PlayAnimation(new AnimationDictionary("misscarsteal4@actor"), "actor_berating_loop", -1f, AnimationFlags.UpperBodyOnly);
                         Game.DisplaySubtitle("~r~Suspect~w~: Nope, I'm not going to jail. I can't survive prison, they'll kill me. You'll never take me alive, copper.");
                     }
                     if(counter == 11)
                     {
-                        suspect.Tasks.PlayAnimation(new AnimationDictionary("random@countrysiderobbery"), "idle_a", -1f, AnimationFlags.Loop);
                         Game.DisplaySubtitle("Conversation Ended!");
                     }
                     if(counter == 12)
