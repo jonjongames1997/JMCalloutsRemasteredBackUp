@@ -11,13 +11,11 @@ namespace JMCalloutsRemastered.Callouts
         private static readonly string[] femalePedList = new string[] { "ig_abigail", "ig_amandatownley", "csb_anita", "ig_ashley", "s_f_y_bartender_01", "u_f_y_corpse_02", "u_f_m_corpse_01", "s_f_y_scrubs_01", "a_f_y_topless_01", "ig_traceydisanto", "mp_f_cocaine_01", "a_f_y_beach_02" };
         private static Ped maleSuspect;
         private static Ped femaleSuspect;
-        private static Vehicle motorVehicle;
         private static Vector3 spawnpoint;
         private static Vector3 maleSpawnpoint;
         private static Vector3 femaleSpawnpoint;
         private static Blip maleBlip;
         private static Blip femaleBlip;
-        private static Blip vehBlip;
         private static int counter;
         private static string malefemale;
         private static float maleHeading;
@@ -45,18 +43,28 @@ namespace JMCalloutsRemastered.Callouts
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Sexy Time In Public", "~b~Dispatch~w~: Suspects has been spotted. Respond Code 2.");
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
 
+            Settings.CallsAccepted++;
+            Settings.Stats.SelectSingleNode("Stats/CallsAccepted").InnerText = Settings.CallsAccepted.ToString();
+            Settings.Stats.SelectSingleNode("Stats/Shootouts").InnerText = Settings.Shootouts.ToString();
+            Settings.Stats.Save(Settings.xmlpath);
+
             maleSuspect = new(malePedList[new Random().Next((int)malePedList.Length)], spawnpoint, 0f);
             maleSuspect.IsPersistent = true;
             maleSuspect.BlockPermanentEvents = true;
 
-            motorVehicle = new(spawnpoint);
-
             femaleSuspect = new(femalePedList[new Random().Next((int)femalePedList.Length)], spawnpoint, 0f);
             femaleSuspect.IsPersistent = true;
-            femaleSuspect.BlockPermanentEvents = true;
 
             maleSuspect.Tasks.PlayAnimation(new AnimationDictionary("rcmpaparazzo_2"), "shag_action_a", -1f, AnimationFlags.Loop);
             femaleSuspect.Tasks.PlayAnimation(new AnimationDictionary("rcmpaparazzo_2"), "shag_action_poppy", -1f, AnimationFlags.Loop);
+
+            maleBlip = maleSuspect.AttachBlip();
+            femaleBlip = femaleSuspect.AttachBlip();
+
+            femaleBlip.Color = System.Drawing.Color.Pink;
+
+            maleBlip.Color = System.Drawing.Color.Red;
+            maleBlip.IsRouteEnabled = true;
 
             if (maleSuspect.IsMale)
                 malefemale = "Sir";
@@ -72,10 +80,8 @@ namespace JMCalloutsRemastered.Callouts
         {
             if (maleSuspect) maleSuspect.Delete();
             if (femaleSuspect) femaleSuspect.Delete();
-            if (motorVehicle) motorVehicle.Delete();
             if (maleBlip) maleBlip.Delete();
             if (femaleBlip) femaleBlip.Delete();
-            if (vehBlip) vehBlip.Delete();
 
             base.OnCalloutNotAccepted();
         }
@@ -108,7 +114,7 @@ namespace JMCalloutsRemastered.Callouts
                     {
                         maleSuspect.Tasks.FightAgainst(MainPlayer);
                         maleSuspect.Inventory.GiveNewWeapon("WEAPON_COMBATPISTOL", 500, true);
-                        femaleSuspect.Inventory.GiveNewWeapon("WEAPON_ASSAULTSHOTGUN", 500, true);
+                        femaleSuspect.Tasks.PutHandsUp(500, MainPlayer);
                     }
                 }
             }
@@ -124,8 +130,6 @@ namespace JMCalloutsRemastered.Callouts
             if (femaleSuspect) femaleSuspect.Dismiss();
             if (maleBlip) maleBlip.Delete();
             if (femaleBlip) femaleBlip.Delete();
-            if (motorVehicle) motorVehicle.Delete();
-            if (vehBlip) vehBlip.Delete();
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Sexy Time In Public", "~b~You~w~: Dispatch, we are ~g~CODE 4~w~. Show me back 10-8.");
             LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_THIS_IS_DISPATCH_HIGH ALL_UNITS_CODE4 NO_FURHTER_UNITS_REQUIRED");
 
