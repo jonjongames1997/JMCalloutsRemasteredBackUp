@@ -35,7 +35,6 @@ namespace JMCalloutsRemastered.Callouts
             suspect = new Ped(spawnpoint);
             suspect.IsPersistent = true;
             suspect.BlockPermanentEvents = true;
-            suspect.Tasks.PutHandsUp(500, MainPlayer);
 
             susBlip = suspect.AttachBlip();
             susBlip.Color = System.Drawing.Color.Red;
@@ -74,7 +73,6 @@ namespace JMCalloutsRemastered.Callouts
 
                     if(counter == 1)
                     {
-                        suspect.Face(MainPlayer);
                         Game.DisplaySubtitle("~b~You~w~: Excuse me, " + malefemale + ". Did you call 9-1-1?");
                     }
                     if(counter == 2)
