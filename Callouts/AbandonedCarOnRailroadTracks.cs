@@ -41,6 +41,10 @@ namespace JMCalloutsRemastered.Callouts
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "Abandoned Vehicle On Railroad Tracks", "~b~Dispatch~w~: Vehicle Spotted. Respond ~r~Code 2~w~.");
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
 
+            Settings.CallsAccepted++;
+            Settings.Stats.SelectSingleNode("Stats/CallsAccepted").InnerText = Settings.CallsAccepted.ToString();
+            Settings.Stats.Save(Settings.xmlpath);
+
             vehicle = new Vehicle(spawnpoint);
             vehicle.IsPersistent = true;
 
