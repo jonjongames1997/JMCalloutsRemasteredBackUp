@@ -36,6 +36,11 @@ namespace JMCalloutsRemastered.Callouts
 
             LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("Here_Comes_Rocketman");
 
+            Settings.CallsAccepted++;
+            Settings.Stats.SelectSingleNode("Stats/CallsAccepted").InnerText = Settings.CallsAccepted.ToString();
+            Settings.Stats.SelectSingleNode("Stats/Shootouts").InnerText = Settings.Shootouts.ToString();
+            Settings.Stats.Save(Settings.xmlpath);
+
             suspect = new Ped(spawnpoint);
             suspect.IsPersistent = true;
             suspect.BlockPermanentEvents = true;
