@@ -35,6 +35,11 @@ namespace JMCalloutsRemastered
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Person Carrying An Explosive Weapon", "~b~Dispatch~w~: Suspect has been spotted! Respond ~r~Code 3~w~.");
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout");
 
+            Settings.CallsAccepted++;
+            Settings.Stats.SelectSingleNode("Stats/CallsAccepted").InnerText = Settings.CallsAccepted.ToString();
+            Settings.Stats.SelectSingleNode("Stats/Shootouts").InnerText = Settings.Shootouts.ToString();
+            Settings.Stats.Save(Settings.xmlpath);
+
             suspect = new Ped(spawnpoint);
             suspect.IsPersistent = true;
             suspect.BlockPermanentEvents = true;
@@ -100,6 +105,7 @@ namespace JMCalloutsRemastered
                     {
                         Game.DisplaySubtitle("~r~Suspect~w~: I said, 'BET!'. What part of that don't you understand? You speak English?");
                         suspect.Tasks.FightAgainst(MainPlayer);
+                        suspect.Inventory.GiveNewWeapon(wepList[new Random().Next((int)wepList.Length)], 500, true);
                         suspect.Armor = 500;
                     }
                 }
