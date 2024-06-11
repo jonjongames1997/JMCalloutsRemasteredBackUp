@@ -61,10 +61,6 @@ namespace JMCalloutsRemastered.Callouts
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
             Game.DisplayNotification("~r~WARNING~w~: Some Players may find this callout controversial or disturbing. Player Discretion is Advised.");
 
-            Settings.CallsAccepted++;
-            Settings.Stats.SelectSingleNode("Stats/CallsAccepted").InnerText = Settings.CallsAccepted.ToString();
-            Settings.Stats.Save(Settings.xmlpath);
-
             suspect = new Ped(spawnPoint);
             suspect.IsPersistent = true;
             suspect.BlockPermanentEvents = true;
