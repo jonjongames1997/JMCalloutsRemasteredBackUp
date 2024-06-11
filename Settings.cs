@@ -48,8 +48,9 @@ namespace JMCalloutsRemastered
         internal static int Pursuits = 0;
         internal static int Arrests = 0;
         internal static int FightsInvolved = 0;
+        internal static int Shootouts = 0;
         internal static XmlDocument Stats = new XmlDocument();
-        internal static string xmlpath = "plugins/LSPDFR/JMCalloutsRemastered/Stats.xml";
+        internal static string xmlpath = "Plugins/LSPDFR/JMCalloutsRemastered/Stats.xml";
         internal static Keys EndCall = Keys.End;
         internal static Keys Dialog = Keys.E;
         internal static InitializationFile ini;
@@ -102,6 +103,7 @@ namespace JMCalloutsRemastered
             Settings.FightsInvolved = Convert.ToInt32(Settings.Stats.SelectSingleNode("Stats/FightsInvolved").InnerText);
             Settings.Arrests = Convert.ToInt32(Settings.Stats.SelectSingleNode("Stats/Arrests").InnerText);
             Settings.Pursuits = Convert.ToInt32(Settings.Stats.SelectSingleNode("Stats/Pursuits").InnerText);
+            Settings.Shootouts = Convert.ToInt32(Settings.Stats.SelectSingleNode("Stats/Shootouts").InnerText);
             EndCall = ini.ReadEnum("Keys", "EndCall", Keys.End);
             Dialog = ini.ReadEnum("Keys", "Dialog", Keys.E);
         }
