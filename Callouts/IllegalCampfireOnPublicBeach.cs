@@ -58,16 +58,9 @@ namespace JMCalloutsRemastered.Callouts
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Illegal Campfire On Public Beach", "~b~Dispatch~w~: Suspect has been spotted. Respond ~r~Code 2~w~.");
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
 
-            Settings.CallsAccepted++;
-            Settings.Stats.SelectSingleNode("Stats/CallsAccepted").InnerText = Settings.CallsAccepted.ToString();
-            Settings.Stats.SelectSingleNode("Stats/Pursuits").InnerText = Settings.Pursuits.ToString();
-            Settings.Stats.SelectSingleNode("Stats/Arrests").InnerText = Settings.Arrests.ToString();
-            Settings.Stats.Save(Settings.xmlpath);
-
             Suspect = new Ped(Spawnpoint);
             Suspect.IsPersistent = true;
             Suspect.BlockPermanentEvents = true;
-            Suspect.IsMeleeProof = true;
 
             SuspectBlip = Suspect.AttachBlip();
             SuspectBlip.Color = System.Drawing.Color.Chocolate;
