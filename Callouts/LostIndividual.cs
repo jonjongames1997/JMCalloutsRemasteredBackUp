@@ -43,11 +43,6 @@ namespace JMCalloutsRemastered.Callouts
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Lost Individual", "~b~Dispatch: ~w~Victim has been spotted. Respond ~r~Code 2.");
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
 
-            Settings.CallsAccepted++;
-            Settings.Stats.SelectSingleNode("Stats/CallsAccepted").InnerText = Settings.CallsAccepted.ToString();
-            Settings.Stats.SelectSingleNode("Stats/Shootouts").InnerText = Settings.Shootouts.ToString();
-            Settings.Stats.Save(Settings.xmlpath);
-
             // Amanda is a decoy in this situation //
             victim = new Ped("IG_AMANDATOWNLEY", spawnPoint, heading);
             victim.IsPersistent = true;
