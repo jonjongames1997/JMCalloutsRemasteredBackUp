@@ -1,6 +1,4 @@
 ﻿using CalloutInterfaceAPI;
-using Rage;
-using Rage.Native;
 
 namespace JMCalloutsRemastered.Callouts
 {
@@ -67,6 +65,7 @@ namespace JMCalloutsRemastered.Callouts
             Settings.CallsAccepted++;
             Settings.Stats.SelectSingleNode("Stats/CallsAccepted").InnerText = Settings.CallsAccepted.ToString();
             Settings.Stats.SelectSingleNode("Stats/Pursuits").InnerText = Settings.Pursuits.ToString();
+            Settings.Stats.SelectSingleNode("Stats/Arrests").InnerText = Settings.Arrests.ToString();
             Settings.Stats.Save(Settings.xmlpath);
 
             Suspect = new Ped(Spawnpoint);
