@@ -48,8 +48,6 @@ namespace JMCalloutsRemastered.Callouts
             victim.IsPersistent = true;
             victim.BlockPermanentEvents = true;
 
-            NativeFunction.Natives.APPLY_PED_DAMAGE_PACK(victim, "LightHitByVehicle", 1f, 1f);
-
             vicBlip = new Blip(victim);
             vicBlip = victim.AttachBlip();
             vicBlip.Color = System.Drawing.Color.Red;
