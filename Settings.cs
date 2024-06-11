@@ -1,4 +1,5 @@
 ﻿using System.Windows.Forms;
+using System.Xml;
 
 namespace JMCalloutsRemastered
 {
@@ -43,6 +44,12 @@ namespace JMCalloutsRemastered
         internal static bool PersonCarryingAnExplosiveWeapon = true;
         internal static bool SexyTimeInPublicNSFW = true;
         internal static bool HelpMessages = true;
+        internal static int CallsAccepted = 0;
+        internal static int Pursuits = 0;
+        internal static int Arrests = 0;
+        internal static int FightsInvolved = 0;
+        internal static XmlDocument Stats = new XmlDocument();
+        internal static string xmlpath = "plugins/LSPDFR/JMCalloutsRemastered/Stats.xml";
         internal static Keys EndCall = Keys.End;
         internal static Keys Dialog = Keys.E;
         internal static InitializationFile ini;
@@ -90,6 +97,11 @@ namespace JMCalloutsRemastered
             Settings.PersonCarryingAnExplosiveWeapon = ini.ReadBoolean("Callouts", "PersonCarryingAnExplosiveWeapon", true);
             Settings.SexyTimeInPublicNSFW = ini.ReadBoolean("Callouts", "SexyTimeInPublicNSFW", true);
             Settings.HelpMessages = ini.ReadBoolean("HelpMessages", "Help Messages", true);
+            Settings.Stats.Load(Settings.xmlpath);
+            Settings.CallsAccepted = Convert.ToInt32(Settings.Stats.SelectSingleNode("Stats/CallsAccepted").InnerText);
+            Settings.FightsInvolved = Convert.ToInt32(Settings.Stats.SelectSingleNode("Stats/FightsInvolved").InnerText);
+            Settings.Arrests = Convert.ToInt32(Settings.Stats.SelectSingleNode("Stats/Arrests").InnerText);
+            Settings.Pursuits = Convert.ToInt32(Settings.Stats.SelectSingleNode("Stats/Pursuits").InnerText);
             EndCall = ini.ReadEnum("Keys", "EndCall", Keys.End);
             Dialog = ini.ReadEnum("Keys", "Dialog", Keys.E);
         }
