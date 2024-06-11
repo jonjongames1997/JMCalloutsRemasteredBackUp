@@ -50,13 +50,10 @@ namespace JMCalloutsRemastered.Callouts
 
             NativeFunction.Natives.APPLY_PED_DAMAGE_PACK(victim, "LightHitByVehicle", 1f, 1f);
 
-            vicBlip = new Blip(victim)
-            {
-                Color = Color.Red,
-                IsRouteEnabled = true,
-                Scale = 0.8f,
-                Name = "Injured Ped",
-            };
+            vicBlip = new Blip(victim);
+            vicBlip = victim.AttachBlip();
+            vicBlip.Color = System.Drawing.Color.Red;
+            vicBlip.IsRouteEnabled = true;
 
             suspect = new Ped(suspectSpawn, suspectHeading);
             suspect.IsPersistent = true;
@@ -110,7 +107,6 @@ namespace JMCalloutsRemastered.Callouts
 
                     if(counter == 1)
                     {
-                        suspect.Face(MainPlayer);
                         Game.DisplaySubtitle("~b~You~w~: " + malefemale + ", tell me what happened and how did this occurred.");
                     }
                     if(counter == 2)
