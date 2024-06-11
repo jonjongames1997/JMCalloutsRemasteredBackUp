@@ -14,21 +14,21 @@ namespace JMCalloutsRemastered.Callouts
         private static Vector3 spawnpoint;
         private static Vector3 maleSpawnpoint;
         private static Vector3 femaleSpawnpoint;
-        private static Blip maleBlip;
-        private static Blip femaleBlip;
+        private static Blip susBlip;
+        private static Blip ladyBlip;
         private static int counter;
         private static string malefemale;
-        private static float maleHeading;
-        private static float femaleHeading;
+        private static float susHeading;
+        private static float ladyHeading;
 
 
         public override bool OnBeforeCalloutDisplayed()
         {
             spawnpoint = new(-770.19f, 1856.03f, 161.41f);
             maleSpawnpoint = new(-801.87f, 1909.88f, 168.91f);
-            maleHeading = 207.90f;
+            susHeading = 207.90f;
             femaleSpawnpoint = new(-801.30f, 1909.04f, 168.88f);
-            femaleHeading = 207.69f;
+            ladyHeading = 207.69f;
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
             CalloutInterfaceAPI.Functions.SendMessage(this, "Citizen's report of a couple having sexy time.");
             CalloutMessage = "A couple fucking in the forest";
@@ -53,13 +53,13 @@ namespace JMCalloutsRemastered.Callouts
             maleSuspect.Tasks.PlayAnimation(new AnimationDictionary("rcmpaparazzo_2"), "shag_action_a", -1f, AnimationFlags.Loop);
             femaleSuspect.Tasks.PlayAnimation(new AnimationDictionary("rcmpaparazzo_2"), "shag_action_poppy", -1f, AnimationFlags.Loop);
 
-            maleBlip = maleSuspect.AttachBlip();
-            femaleBlip = femaleSuspect.AttachBlip();
+            susBlip = maleSuspect.AttachBlip();
+            ladyBlip = femaleSuspect.AttachBlip();
 
-            femaleBlip.Color = System.Drawing.Color.Pink;
+            ladyBlip.Color = System.Drawing.Color.Pink;
 
-            maleBlip.Color = System.Drawing.Color.Red;
-            maleBlip.IsRouteEnabled = true;
+            susBlip.Color = System.Drawing.Color.Red;
+            susBlip.IsRouteEnabled = true;
 
             if (maleSuspect.IsMale)
                 malefemale = "Sir";
@@ -75,8 +75,8 @@ namespace JMCalloutsRemastered.Callouts
         {
             if (maleSuspect) maleSuspect.Delete();
             if (femaleSuspect) femaleSuspect.Delete();
-            if (maleBlip) maleBlip.Delete();
-            if (femaleBlip) femaleBlip.Delete();
+            if (susBlip) susBlip.Delete();
+            if (ladyBlip) ladyBlip.Delete();
 
             base.OnCalloutNotAccepted();
         }
@@ -123,8 +123,8 @@ namespace JMCalloutsRemastered.Callouts
         {
             if (maleSuspect) maleSuspect.Dismiss();
             if (femaleSuspect) femaleSuspect.Dismiss();
-            if (maleBlip) maleBlip.Delete();
-            if (femaleBlip) femaleBlip.Delete();
+            if (susBlip) susBlip.Delete();
+            if (ladyBlip) ladyBlip.Delete();
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Sexy Time In Public", "~b~You~w~: Dispatch, we are ~g~CODE 4~w~. Show me back 10-8.");
             LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_THIS_IS_DISPATCH_HIGH ALL_UNITS_CODE4 NO_FURHTER_UNITS_REQUIRED");
 
