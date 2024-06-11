@@ -35,6 +35,12 @@ namespace JMCalloutsRemastered.Callouts
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Stolen Military Equipment", "~b~Dispatch~w~: The suspect has been spotted! Respond ~r~Code 3~w~.");
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
 
+            Settings.CallsAccepted++;
+            Settings.Stats.SelectSingleNode("Stats/CallsAccepted").InnerText = Settings.CallsAccepted.ToString();
+            Settings.Stats.SelectSingleNode("Stats/Shootouts").InnerText = Settings.Shootouts.ToString();
+            Settings.Stats.SelectSingleNode("Stats/Pursuits").InnerText = Settings.Pursuits.ToString();
+            Settings.Stats.Save(Settings.xmlpath);
+
             militaryVehicle = new Vehicle(militaryVehicles[new Random().Next((int)militaryVehicles.Length)], spawnpoint);
             militaryVehicle.IsPersistent = true;
 
