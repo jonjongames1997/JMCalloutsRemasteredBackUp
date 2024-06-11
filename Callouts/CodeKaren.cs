@@ -63,7 +63,8 @@ namespace JMCalloutsRemastered.Callouts
 
             Settings.CallsAccepted++;
             Settings.Stats.SelectSingleNode("Stats/CallsAccepted").InnerText = Settings.CallsAccepted.ToString();
-            Settings.Stats.SelectSingleNode("Stats/Shootouts").InnerText = Settings.Shootouts.ToString();
+            Settings.Stats.SelectSingleNode("Stats/Pursuits").InnerText = Settings.Pursuits.ToString();
+            Settings.Stats.SelectSingleNode("Stats/Arrests").InnerText = Settings.Arrests.ToString();
             Settings.Stats.Save(Settings.xmlpath);
 
             Suspect = new Ped(Spawnpoint);
@@ -134,8 +135,7 @@ namespace JMCalloutsRemastered.Callouts
                     if (counter == 7)
                     {
                         Game.DisplayNotification("Arrest the suspect!");
-                        Suspect.Tasks.FightAgainst(MainPlayer);
-                        Suspect.Inventory.GiveNewWeapon("WEAPON_SWITCHBLADE", 500, true);
+                        Suspect.Tasks.ReactAndFlee(Suspect);
                     }
                 }
             }
