@@ -1,6 +1,5 @@
 ﻿using System.Reflection;
 using JMCalloutsRemastered.Callouts;
-using JMCalloutsRemastered.VersionChecker;
 using StopThePed;
 using UltimateBackup;
 
@@ -40,8 +39,6 @@ namespace JMCalloutsRemastered
 
 
                     Game.DisplayNotification("web_jonjongames", "web_jonjongames", "JM Callouts Remastered", "~g~v" + Assembly.GetExecutingAssembly().GetName().Version.ToString() + " ~r~by OfficerMorrison", "~b~successfully loaded!");
-
-                    VersionChecker.PluginCheck.isUpdateAvailable();
 
                     GameFiber.Wait(300);
 
