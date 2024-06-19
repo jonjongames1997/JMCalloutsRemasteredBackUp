@@ -1,9 +1,10 @@
 ﻿using CalloutInterfaceAPI;
+using StopThePed;
 
 namespace JMCalloutsRemastered.Callouts
 {
 
-    [CalloutInterface("[JM Callouts] Movie Hopping", CalloutProbability.Medium, "Reports of a movie goer sneaking into the movies without a ticket", "Code 1", "LSPD")]
+    [CalloutInterface("[JM Callouts] Movie Hopping", CalloutProbability.Medium, "Reports of a movie goer sneaking into the movies without a ticket", "CODE 1", "LSPD")]
 
 
     public class MovieHopping : Callout
@@ -42,6 +43,8 @@ namespace JMCalloutsRemastered.Callouts
             suspect = new Ped(spawnpoint);
             suspect.IsPersistent = true;
             suspect.BlockPermanentEvents = true;
+            suspect.IsValid();
+            StopThePed.API.Functions.injectPedSearchItems(suspect);
 
             suspectBlip = suspect.AttachBlip();
             suspectBlip.Color = System.Drawing.Color.Blue;
