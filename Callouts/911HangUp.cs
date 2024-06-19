@@ -67,7 +67,7 @@ namespace JMCalloutsRemastered.Callouts
             Suspect.BlockPermanentEvents = true;
 
             SuspectBlip = Suspect.AttachBlip();
-            Suspect.Tasks.PutHandsUp(-1, MainPlayer);
+            Suspect.Tasks.PutHandsUp(500, MainPlayer);
             SuspectBlip.Color = System.Drawing.Color.BlueViolet;
             SuspectBlip.IsRouteEnabled = true;
 
