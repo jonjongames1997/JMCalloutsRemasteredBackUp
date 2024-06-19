@@ -2,6 +2,7 @@
 using JMCalloutsRemastered.Callouts;
 using StopThePed;
 using UltimateBackup;
+using SceneManager;
 
 [assembly: Rage.Attributes.Plugin("JMCalloutsRemastered", Description = "LSPDFR Callout Pack", Author = "OfficerMorrison")]
 namespace JMCalloutsRemastered
@@ -12,6 +13,7 @@ namespace JMCalloutsRemastered
         public static bool CalloutInterface;
         public static bool StopThePed;
         public static bool UltimateBackup;
+        public static bool SceneManager;
 
         public override void Finally() { }
 
@@ -84,6 +86,16 @@ namespace JMCalloutsRemastered
             {
                 Game.LogTrivial("User does not have Ultimate Backup by Bejoijo Plugins installed. Stopping integration....");
                 UltimateBackup = false;
+            }
+            if(Functions.GetAllUserPlugins().ToList().Any(a => a != null && a.FullName.Contains("SceneManager")) == true)
+            {
+                Game.LogTrivial("User has Scene Manager by Rich installed. Starting integration.....");
+                SceneManager = true;
+            }
+            else
+            {
+                Game.LogTrivial("User does not have Scene Manager by Rich installed. Stopping integration.....");
+                SceneManager = false;
             }
             Game.Console.Print();
             Game.Console.Print();
