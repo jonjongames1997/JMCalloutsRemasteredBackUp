@@ -43,8 +43,6 @@ namespace JMCalloutsRemastered.Callouts
             suspect.IsPersistent = true;
             suspect.BlockPermanentEvents = true;
 
-            suspect.Tasks.PlayAnimation(new AnimationDictionary("random@countrysiderobbery"), "idle_a", -1f, AnimationFlags.Loop);
-
             suspectBlip = suspect.AttachBlip();
             suspectBlip.Color = System.Drawing.Color.Blue;
             suspectBlip.IsRouteEnabled = true;
