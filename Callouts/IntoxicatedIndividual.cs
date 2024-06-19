@@ -55,9 +55,6 @@ namespace JMCalloutsRemastered.Callouts
             Suspect.IsPersistent = true;
             Suspect.BlockPermanentEvents = true;
 
-            Suspect.Tasks.PlayAnimation(new AnimationDictionary("random@drunk_driver_1"), "drunk_driver_stand_loop_dd1", 1f, AnimationFlags.Loop);
-            Suspect.KeepTasks = true;
-
             StopThePed.API.Functions.setPedAlcoholOverLimit(Suspect, true);
 
             SuspectBlip = Suspect.AttachBlip();
