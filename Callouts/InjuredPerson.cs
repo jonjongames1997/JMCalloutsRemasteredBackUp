@@ -1,4 +1,5 @@
 ﻿using CalloutInterfaceAPI;
+using SceneManager.API;
 
 namespace JMCalloutsRemastered.Callouts
 {
@@ -47,6 +48,7 @@ namespace JMCalloutsRemastered.Callouts
             victim = new Ped(spawnpoint, vicHeading);
             victim.IsPersistent = true;
             victim.BlockPermanentEvents = true;
+            victim.IsValid();
 
             vicBlip = new Blip(victim);
             vicBlip = victim.AttachBlip();
@@ -56,6 +58,7 @@ namespace JMCalloutsRemastered.Callouts
             suspect = new Ped(suspectSpawn, suspectHeading);
             suspect.IsPersistent = true;
             suspect.BlockPermanentEvents = true;
+            suspect.IsValid();
 
             victim.Tasks.PlayAnimation(new AnimationDictionary("misschinese2_crystalmaze"), "2int_loop_a_taocheng", -1f, AnimationFlags.Loop);
 
