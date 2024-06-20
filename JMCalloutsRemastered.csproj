@@ -84,9 +84,6 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="BasicParkingEnforcement">
-      <HintPath>..\Steam_Games\steamapps\common\Grand Theft Auto V\plugins\LSPDFR\BasicParkingEnforcement.dll</HintPath>
-    </Reference>
     <Reference Include="CalloutInterfaceAPI, Version=1.0.3.0, Culture=neutral, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\JMCalloutsRemasteredReferences\CalloutInterfaceAPI.dll</HintPath>
