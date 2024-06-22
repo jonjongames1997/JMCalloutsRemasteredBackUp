@@ -19,7 +19,7 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnBeforeCalloutDisplayed()
         {
-            spawnpoint = World.GetNextPositionOnStreet(MainPlayer.Position.Around(1000f));
+            spawnpoint = World.GetRandomPositionOnStreet();
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
             LSPD_First_Response.Mod.API.Functions.PlayScannerAudioUsingPosition("ATTENTION_ALL_UNITS_01 WE_HAVE_01 CRIME_SUSPICIOUS_ACTIVITY UNITS_RESPOND_CODE_03_01", spawnpoint);
             CalloutInterfaceAPI.Functions.SendMessage(this, "Multiple reports of an unknown trouble.");
@@ -38,6 +38,7 @@ namespace JMCalloutsRemastered.Callouts
             suspect = new Ped(spawnpoint);
             suspect.IsPersistent = true;
             suspect.BlockPermanentEvents = true;
+            suspect.IsValid();
 
             suspect.AttachBlip();
             suspectBlip.Color = System.Drawing.Color.Red;
