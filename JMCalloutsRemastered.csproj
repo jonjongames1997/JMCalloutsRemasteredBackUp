@@ -171,6 +171,7 @@
   <ItemGroup>
     <None Include=".editorconfig" />
     <AdditionalFiles Include="JMCalloutsRemastered.ini" />
+    <None Include="SupportedLSPDFRVersions.md" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Changelog.txt" />
