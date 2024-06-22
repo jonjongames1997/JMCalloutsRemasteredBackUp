@@ -60,6 +60,8 @@ namespace JMCalloutsRemastered.Callouts
             suspect.BlockPermanentEvents = true;
             suspect.IsValid();
 
+            SceneManager.API.Functions.LoadPathsFromFile("RedirectTraffic", "Plugins/SceneManager/SavedPaths/RedirectTraffic");
+
             victim.Tasks.PlayAnimation(new AnimationDictionary("misschinese2_crystalmaze"), "2int_loop_a_taocheng", -1f, AnimationFlags.Loop);
 
             suspect.Tasks.PlayAnimation(new AnimationDictionary("random@drunk_driver_1"), "drunk_driver_stand_loop_dd2", -1f, AnimationFlags.Loop);
@@ -144,6 +146,7 @@ namespace JMCalloutsRemastered.Callouts
             if (suspectVehicle) suspectVehicle.Delete();
             if (suspectBlip) suspectBlip.Delete();
             if (vicBlip) vicBlip.Delete();
+            SceneManager.API.Functions.DeleteLoadedPaths();
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Injured Person", "~b~you~w~: Dispatch, we are ~g~CODE 4~w~. Show me back 10-8.");
             LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_THIS_IS_DISPATCH_HIGH ALL_UNITS_CODE4 NO_FURHTER_UNITS_REQUIRED");
 
