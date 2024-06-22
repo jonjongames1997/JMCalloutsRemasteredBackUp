@@ -45,6 +45,8 @@ namespace JMCalloutsRemastered.Callouts
             suspect.BlockPermanentEvents = true;
             suspect.IsValid();
             StopThePed.API.Functions.injectPedSearchItems(suspect);
+            StopThePed.API.Functions.setPedUnderDrugsInfluence(suspect, false);
+            StopThePed.API.Functions.setPedAlcoholOverLimit(suspect, false);
 
             suspectBlip = suspect.AttachBlip();
             suspectBlip.Color = System.Drawing.Color.Blue;
