@@ -15,6 +15,7 @@
 - Intoxicated Individual callout, the ped will be over the legal limit as intended.
 - Some dialogue adjustments
 - Certain peds in certain callouts will play the desired animation
+- Certain callouts will require SceneManager for traffic diversion.xml files I have put together for realism.
 
 4.6.1:
 
