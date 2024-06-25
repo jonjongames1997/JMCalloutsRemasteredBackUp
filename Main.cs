@@ -133,7 +133,6 @@ namespace JMCalloutsRemastered
             if (Settings.Rocketman) { Functions.RegisterCallout(typeof(Rocketman)); }
             if (Settings.PrankCall) { Functions.RegisterCallout(typeof(PrankCall)); }
             if (Settings.InjuredPerson) { Functions.RegisterCallout(typeof(InjuredPerson)); }
-            if (Settings.UnknownTrouble) { Functions.RegisterCallout(typeof(UnknownTrouble)); }
             if (Settings.PersonCarryingAnExplosiveWeapon) { Functions.RegisterCallout(typeof(PersonCarryingAnExplosiveWeapon)); }
             Game.Console.Print("[LOG]: All callouts of the JMCalloutsRemastered.ini were loaded successfully.");
             Game.Console.Print();
