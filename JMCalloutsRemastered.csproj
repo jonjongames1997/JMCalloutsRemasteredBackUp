@@ -154,7 +154,6 @@
     <Compile Include="Callouts\TrespassingOnRailRoadProperty.cs" />
     <Compile Include="Callouts\TrespassingOnSchoolGrounds.cs" />
     <Compile Include="Callouts\UnauthorizedAccessMovieStudio.cs" />
-    <Compile Include="Callouts\UnknownTrouble.cs" />
     <Compile Include="GlobalUsing.cs" />
     <Compile Include="IniFile.cs" />
     <Compile Include="Main.cs" />
