@@ -29,7 +29,7 @@ namespace JMCalloutsRemastered
         internal static bool StolenConstructionEquipment = true;
         internal static bool DomesticDisturbance = true;
         internal static bool StolenMilitaryEquipment = true;
-        internal static bool MovieHopping = true;
+        internal static bool MovieHopping = false;
         internal static bool AbandonedVehicleOnRailRoadTracks = true;
         internal static bool Stalking = true;
         internal static bool PurpleAlert = true;
@@ -40,7 +40,6 @@ namespace JMCalloutsRemastered
         internal static bool Rocketman = true;
         internal static bool PrankCall = true;
         internal static bool InjuredPerson = true;
-        internal static bool UnknownTrouble = true;
         internal static bool PersonCarryingAnExplosiveWeapon = true;
         internal static bool HelpMessages = true;
         internal static Keys EndCall = Keys.End;
@@ -76,7 +75,7 @@ namespace JMCalloutsRemastered
             Settings.StolenConstructionEquipment = ini.ReadBoolean("Callouts", "StolenConstructionEquipment", true);
             Settings.DomesticDisturbance = ini.ReadBoolean("Callouts", "DomesticDisturbance", true);
             Settings.StolenMilitaryEquipment = ini.ReadBoolean("Callouts", "StolenMilitaryEquipment", true);
-            Settings.MovieHopping = ini.ReadBoolean("Callouts", "MovieHopping", true);
+            Settings.MovieHopping = ini.ReadBoolean("Callouts", "MovieHopping", false);
             Settings.AbandonedVehicleOnRailRoadTracks = ini.ReadBoolean("Callouts", "AbandonedVehicleOnRailRoadTracks", true);
             Settings.Stalking = ini.ReadBoolean("Callouts", "Stalking", true);
             Settings.PurpleAlert = ini.ReadBoolean("Callouts", "PurpleAlert", true);
@@ -86,7 +85,6 @@ namespace JMCalloutsRemastered
             Settings.Rocketman = ini.ReadBoolean("Callouts", "Rocketman", true);;
             Settings.PrankCall = ini.ReadBoolean("Callouts", "PrankCall", true);
             Settings.InjuredPerson = ini.ReadBoolean("Callouts", "InjuredPerson", true);
-            Settings.UnknownTrouble = ini.ReadBoolean("Callouts", "UnknownTrouble", true);
             Settings.PersonCarryingAnExplosiveWeapon = ini.ReadBoolean("Callouts", "PersonCarryingAnExplosiveWeapon", true);
             Settings.HelpMessages = ini.ReadBoolean("HelpMessages", "Help Messages", true);
             EndCall = ini.ReadEnum("Keys", "EndCall", Keys.End);
