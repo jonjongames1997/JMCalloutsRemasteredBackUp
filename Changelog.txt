@@ -2,13 +2,14 @@
 
 5.0:
 
+- Updated LSPDFR API to the newest verison
 - Added 4 new locations to "Stalking" callout
 - Added 3 new locations to "Peeping Tom" callout
 - Dialogue Improvements to "The Taco Dispute" callout
 - Minor Improvements to "Domestic Disturbance" callout
 - Dialogue Improvements to "Intoxicated Individual" callout
 - "Rocketman" callout has returned and *REVAMPED*
-- Added 5 new callouts ("First Amendment Auditors", "Prank Call", "Injured Person", "Uknown Trouble", "Person Carrying an Explosive Device")
+- Added 4 new callouts ("First Amendment Auditors", "Prank Call", "Injured Person", and "Person Carrying an Explosive Device")
 - Updated ReadMe
 - New texture for web_jonjongames.ytd
 - Updated Documentation
