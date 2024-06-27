@@ -139,7 +139,7 @@ namespace JMCalloutsRemastered.Callouts
             }
 
             if (MainPlayer.IsDead) End();
-            if (Game.IsKeyDown(Settings.EndCall)) End();
+            if (Game.IsKeyDown(System.Windows.Forms.Keys.End)) End();
         }
 
         public override void End()
