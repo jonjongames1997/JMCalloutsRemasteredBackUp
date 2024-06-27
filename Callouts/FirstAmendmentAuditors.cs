@@ -116,7 +116,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if(counter == 7)
                     {
-                        Game.DisplaySubtitle("Go talk to ~r~Security~w~. Roleplay it out then talk to the suspect again.");
+                        Game.DisplaySubtitle("Go talk to ~r~Security~w~ then talk to the suspect again.");
                     }
                     if(counter == 8)
                     {
@@ -143,6 +143,39 @@ namespace JMCalloutsRemastered.Callouts
                         suspect.Inventory.GiveNewWeapon("WEAPON_PISTOL", 500, true);
                         suspect.Tasks.FightAgainst(MainPlayer);
                         Game.DisplaySubtitle("Conversation Ended! Arrest the suspect, Officer.");
+                    }
+                }
+            }
+
+            if(MainPlayer.DistanceTo(securityOfficer) <= 10f)
+            {
+
+                Game.DisplayHelp("YOU ARE ~r~NOT~w~ AUTHORIZED TO DETAIN A SECURITY OFFICER FOR ANY REASON.", false);
+
+                if (Game.IsKeyDown(System.Windows.Forms.Keys.E))
+                {
+                    counter++;
+
+                    if(counter == 1)
+                    {
+                        Game.DisplaySubtitle("~b~You~w~: Hey there, " + malefemale + ". Can you exlain what's going on?");
+                    }
+                    if(counter == 2)
+                    {
+                        LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("SecurityOfficerDialogue");
+                    }
+                    if(counter == 3)
+                    {
+                        Game.DisplaySubtitle("~b~You~w~: Ok, we'll take care of it from here.");
+                    }
+                    if(counter == 4)
+                    {
+                        Game.DisplaySubtitle("~g~Security~w~: Thank you for your time.");
+                    }
+                    if(counter == 5)
+                    {
+                        Game.DisplaySubtitle("Convo ended. Go back and finish talking to the suspect.");
+                        securityOfficer.Tasks.Wander();
                     }
                 }
             }
