@@ -1,4 +1,5 @@
 ﻿using CalloutInterfaceAPI;
+using StopThePed;
 
 namespace JMCalloutsRemastered.Callouts
 {
@@ -66,8 +67,7 @@ namespace JMCalloutsRemastered.Callouts
             suspect = new Ped(pedList[new Random().Next((int)pedList.Length)], spawnpoint, 0f);
             suspect.IsPersistent = true;
             suspect.BlockPermanentEvents = true;
-
-            suspect.Tasks.PlayAnimation(new AnimationDictionary("amb@world_human_hiker_standing@male@idle_a"), "idle_b", -1f, AnimationFlags.UpperBodyOnly);
+            suspect.Tasks.PlayAnimation(new AnimationDictionary("anim@amb@nightclub_island@dancers@club@"), "hi_idle_b_m03", -1, AnimationFlags.Loop);
 
             blip = suspect.AttachBlip();
             blip.Color = System.Drawing.Color.Gold;
@@ -109,12 +109,10 @@ namespace JMCalloutsRemastered.Callouts
 
                     if(counter == 1)
                     {
-                        suspect.Face(MainPlayer);
                         Game.DisplaySubtitle("~b~Officer (You)~w~: Hey there, " + malefemale + ". What goin' on? Come talk to me real quick.");
                     }
                     if(counter == 2)
                     {
-                        suspect.Tasks.PlayAnimation(new AnimationDictionary("amb@world_human_stand_impatient@female@no_sign@base"), "base", -1f, AnimationFlags.Loop);
                         Game.DisplaySubtitle("~r~Suspect~w~: Hi, Officer, My Uber driver kicked me out his car for no reason.");
                     }
                     if(counter == 3)
