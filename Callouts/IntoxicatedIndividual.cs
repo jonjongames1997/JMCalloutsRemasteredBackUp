@@ -57,6 +57,8 @@ namespace JMCalloutsRemastered.Callouts
 
             StopThePed.API.Functions.setPedAlcoholOverLimit(Suspect, true);
 
+            Suspect.Tasks.PlayAnimation(new AnimationDictionary("random@drunk_driver_1"), "drunk_driver_stand_loop_dd2", 1f, AnimationFlags.Loop);
+
             SuspectBlip = Suspect.AttachBlip();
             SuspectBlip.Color = System.Drawing.Color.CadetBlue;
             SuspectBlip.IsRouteEnabled = true;
@@ -94,7 +96,6 @@ namespace JMCalloutsRemastered.Callouts
 
                     if (counter == 1)
                     {
-                        Suspect.Face(MainPlayer);
                         Game.DisplaySubtitle("~b~Player~w~: Good Afternoon " + malefemale + ", How are you today?");
                     }
                     if (counter == 2)
@@ -120,12 +121,12 @@ namespace JMCalloutsRemastered.Callouts
                     if (counter == 7)
                     {
                         Game.DisplaySubtitle("Conversation has ended!");
-                        Suspect.Tasks.PlayAnimation(new AnimationDictionary("random@drunk_driver_1"), "drunk_driver_stand_loop_dd2", 1f, AnimationFlags.Loop);
                     }
                 }
             }
+
             if (MainPlayer.IsDead) End();
-            if (Game.IsKeyDown(Settings.EndCall)) End();
+            if (Game.IsKeyDown(System.Windows.Forms.Keys.End)) End();
         }
 
         public override void End()
