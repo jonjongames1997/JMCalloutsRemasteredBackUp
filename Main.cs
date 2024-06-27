@@ -3,6 +3,8 @@ using JMCalloutsRemastered.Callouts;
 using StopThePed;
 using UltimateBackup;
 using SceneManager;
+using LSPD_First_Response.Engine.Scripting.Entities;
+using LSPD_First_Response.Tooling;
 
 [assembly: Rage.Attributes.Plugin("JMCalloutsRemastered", Description = "LSPDFR Callout Pack", Author = "OfficerMorrison")]
 namespace JMCalloutsRemastered
@@ -42,9 +44,8 @@ namespace JMCalloutsRemastered
 
                     Game.DisplayNotification("web_jonjongames", "web_jonjongames", "JM Callouts Remastered", "~g~v" + Assembly.GetExecutingAssembly().GetName().Version.ToString() + " ~r~by OfficerMorrison", "~b~successfully loaded!");
 
-                    GameFiber.Wait(300);
+                    GameFiber.Yield();
 
-                    
                     if (Settings.HelpMessages)
                     {
                         Game.DisplayHelp("You can disable the help messages in JMCalloutsRemastered.ini at any time.");
