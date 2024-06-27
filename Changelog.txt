@@ -17,6 +17,7 @@
 - Some dialogue adjustments
 - Certain peds in certain callouts will play the desired animation
 - Certain callouts will require SceneManager for traffic diversion.xml files I have put together for realism.
+- Disabled "Movie Hopping" Callout until further notice.
 
 4.6.1:
 
