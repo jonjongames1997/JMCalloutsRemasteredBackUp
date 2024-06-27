@@ -11,3 +11,6 @@ global using System.Threading.Tasks;
 global using System.Net;
 global using Rage;
 global using Rage.Native;
+global using Rage.ConsoleCommands;
+global using RAGENativeUI.Elements;
+global using RAGENativeUI.PauseMenu;
