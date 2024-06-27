@@ -62,6 +62,8 @@ namespace JMCalloutsRemastered.Callouts
             Suspect.IsPersistent = true;
             Suspect.BlockPermanentEvents = true;
 
+            Suspect.Tasks.PlayAnimation(new AnimationDictionary("anim@amb@nightclub@djs@black_madonna@"), "dance_b_idle_a_blamadon", -1, AnimationFlags.Loop);
+
             SuspectBlip = Suspect.AttachBlip();
             SuspectBlip.Color = System.Drawing.Color.Chocolate;
             SuspectBlip.IsRouteEnabled = true;
