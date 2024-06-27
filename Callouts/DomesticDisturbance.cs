@@ -1,5 +1,6 @@
 ﻿using CalloutInterfaceAPI;
-using Rage;
+using StopThePed.API;
+using StopThePed;
 
 namespace JMCalloutsRemastered.Callouts
 {
@@ -44,12 +45,22 @@ namespace JMCalloutsRemastered.Callouts
 
             victim = new Ped(spawnPoint, heading);
             victim.IsPersistent = true;
+            victim.IsValid();
             victim.BlockPermanentEvents = true;
+
+            StopThePed.API.Functions.setPedUnderDrugsInfluence(suspect, true);
+            StopThePed.API.Functions.injectPedSearchItems(suspect);
+            StopThePed.API.Functions.isPedAlcoholOverLimit(suspect);
+
+            StopThePed.API.Functions.isPedUnderDrugsInfluence(victim);
+            StopThePed.API.Functions.injectPedSearchItems(victim);
+            StopThePed.API.Functions.isPedUnderDrugsInfluence(victim);
 
             suspect = new Ped(suspectSpawnpoint, suspectHeading);
             suspect.IsPersistent = true;
             suspect.BlockPermanentEvents = true;
             suspect.KeepTasks = true;
+            suspect.IsValid();
             susBlip = suspect.AttachBlip();
             susBlip.Color = System.Drawing.Color.Red;
 
