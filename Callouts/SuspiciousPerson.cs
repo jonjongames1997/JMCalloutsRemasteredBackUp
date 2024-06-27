@@ -33,6 +33,7 @@ namespace JMCalloutsRemastered.Callouts
 
             suspect = new Ped(spawnpoint);
             suspect.IsPersistent = true;
+            suspect.IsValid();
             suspect.BlockPermanentEvents = true;
             suspect.Inventory.GiveNewWeapon("WEAPON_UNARMED", 500, true);
 
@@ -72,12 +73,10 @@ namespace JMCalloutsRemastered.Callouts
 
                     if(counter == 1)
                     {
-                        suspect.Face(MainPlayer);
                         Game.DisplaySubtitle("~b~You~w~: Police! Stop right there, " + malefemale + ". Better not reach for anything.");
                     }
                     if(counter == 2)
                     {
-                        suspect.Tasks.PutHandsUp(500, MainPlayer);
                         Game.DisplaySubtitle("~r~Suspect~w~: Oh, Shit. What's going on here, officer?");
                     }
                     if(counter == 3)
@@ -121,6 +120,7 @@ namespace JMCalloutsRemastered.Callouts
                 }
             }
 
+            if (MainPlayer.IsDead) End();
             if (Game.IsKeyDown(Settings.EndCall)) End();
         }
 
