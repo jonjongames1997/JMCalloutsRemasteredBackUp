@@ -1,5 +1,9 @@
 ﻿Changelog:
 
+5.0.2.1:
+
+-
+
 5.0.1.1:
 
 - Fixed an error that caused the plugin to not read the right plugin version correctly
