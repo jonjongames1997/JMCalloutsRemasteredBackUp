@@ -1,5 +1,9 @@
 ﻿Changelog:
 
+5.0.1:
+
+- Added 5 new vehicles to "Stolen Emergency Vehicles" callout 
+
 5.0:
 
 - Updated LSPDFR API to the newest verison
