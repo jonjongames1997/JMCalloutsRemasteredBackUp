@@ -136,6 +136,7 @@ namespace JMCalloutsRemastered
             if (Settings.PrankCall) { Functions.RegisterCallout(typeof(PrankCall)); }
             if (Settings.InjuredPerson) { Functions.RegisterCallout(typeof(InjuredPerson)); }
             if (Settings.PersonCarryingAnExplosiveWeapon) { Functions.RegisterCallout(typeof(PersonCarryingAnExplosiveWeapon)); }
+            if (Settings.BountyHunterRequiringAssistanceLosSantos) { Functions.RegisterCallout(typeof(BountyHunterRequiringAssistance_LosSantos)); }
             Game.Console.Print("[LOG]: All callouts of the JMCalloutsRemastered.ini were loaded successfully.");
             Game.Console.Print();
             Game.Console.Print("================================================== JM Callouts Remastered ===================================================");
