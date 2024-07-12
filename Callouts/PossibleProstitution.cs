@@ -154,8 +154,7 @@ namespace JMCalloutsRemastered.Callouts
                     if (counter == 12)
                     {
                         Game.DisplaySubtitle("Conversation ended.");
-                        Suspect.Tasks.FightAgainst(MainPlayer);
-                        Suspect.Inventory.GiveNewWeapon("WEAPON_COMBATPISTOL", 500, true);
+                        Suspect.Tasks.ReactAndFlee(Suspect);
                     }
                 }
             }
