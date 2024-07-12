@@ -90,6 +90,6 @@ namespace JMCalloutsRemastered
             EndCall = ini.ReadEnum("Keys", "EndCall", Keys.End);
             Dialog = ini.ReadEnum("Keys", "Dialog", Keys.E);
         }
-        public static readonly string PluginVersion = "5.0.1";
+        public static readonly string PluginVersion = "5.0.1.1";
     }
 }
