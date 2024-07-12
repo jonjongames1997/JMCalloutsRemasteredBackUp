@@ -8,7 +8,7 @@ namespace JMCalloutsRemastered.Callouts
 
     public class StolenEmergencyVehicle : Callout
     {
-        private static readonly string[] emergencyVehicles = new string[] { "POLICE", "POLICE2", "POLICE3", "SHERIFF", "SHERIFF2", "POLICE4", "FBI", "FBI2", "AMBULANCE", "FIRETRUK", "POLICEB", "PBUS", "PRANGER", "POLICET", "RIOT", "RIOT2", "LGUARD", "POLICEOLD1", "POLICEOLD2" };
+        private static readonly string[] emergencyVehicles = new string[] { "POLICE", "POLICE2", "POLICE3", "SHERIFF", "SHERIFF2", "POLICE4", "FBI", "FBI2", "AMBULANCE", "FIRETRUK", "POLICEB", "PBUS", "PRANGER", "POLICET", "RIOT", "RIOT2", "LGUARD", "POLICEOLD1", "POLICEOLD2", "POLICET3", "POLIMPALER5", "POLIMAPLER6", "POLGAUNTLET", "POLICE5" };
         private static Vehicle emergencyVehicle;
         private static Ped suspect;
         private static Vector3 spawnpoint;
