@@ -2,7 +2,7 @@
 
 5.0.2.1:
 
--
+- Added 1 new callout (Bounty Hunter Requiring Assistance - Los Santos)
 
 5.0.1.1:
 
