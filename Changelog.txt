@@ -1,5 +1,12 @@
 ﻿Changelog:
 
+5.0.3.1:
+
+- Updated the LSPDFR API to the latest version to work with GTA V 3274 update.
+- Added 1 new callout (Bounty Hunter Requiring Assistance)
+- Minor bug fixes
+- Minor Adjustments
+
 5.0.2.1:
 
 - Added 1 new callout (Bounty Hunter Requiring Assistance - Los Santos)
