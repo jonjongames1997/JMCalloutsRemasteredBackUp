@@ -88,7 +88,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\JMCalloutsRemasteredReferences\CalloutInterfaceAPI.dll</HintPath>
     </Reference>
-    <Reference Include="LSPD First Response, Version=0.4.8757.33971, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="LSPD First Response, Version=0.4.8943.27879, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\JMCalloutsRemasteredReferences\LSPD First Response.dll</HintPath>
     </Reference>
