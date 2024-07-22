@@ -77,7 +77,7 @@ namespace JMCalloutsRemastered.Callouts
 
                     if(counter == 1)
                     {
-                        Game.DisplaySubtitle("~b~You~w~: SWAT Police! Stop right where you are and surrender carefully! Reach for anything, you'll be shot graveyard dead.");
+                        Game.DisplaySubtitle("~b~You~w~: Police! Stop right where you are and surrender carefully! Reach for anything, you'll be shot graveyard dead.");
                     }
                     if(counter == 2)
                     {
