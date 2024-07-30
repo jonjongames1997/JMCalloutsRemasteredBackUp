@@ -14,3 +14,5 @@ global using Rage.Native;
 global using Rage.ConsoleCommands;
 global using RAGENativeUI.Elements;
 global using RAGENativeUI.PauseMenu;
+global using System.IO;
+global using System.Reflection;
