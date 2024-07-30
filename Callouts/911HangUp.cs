@@ -14,6 +14,7 @@ namespace JMCalloutsRemastered.Callouts
         private static Vector3 Spawnpoint;
         private static string malefemale;
         private static int counter;
+        private readonly string[] _pedDialogue = new string[] { ""};
 
 
         public override bool OnBeforeCalloutDisplayed()
@@ -139,7 +140,7 @@ namespace JMCalloutsRemastered.Callouts
             }
 
             if (MainPlayer.IsDead) End();
-            if (Game.IsKeyDown(System.Windows.Forms.Keys.End)) End();
+            if (Game.IsKeyDown(Settings.EndCall)) End();
         }
 
         public override void End()
