@@ -14,7 +14,6 @@ namespace JMCalloutsRemastered.Callouts
         private static Vector3 Spawnpoint;
         private static string malefemale;
         private static int counter;
-        private readonly string[] _pedDialogue = new string[] { ""};
 
 
         public override bool OnBeforeCalloutDisplayed()
@@ -133,8 +132,9 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 8)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: Snitch! I'm outta here!");
-                        Suspect.Tasks.ReactAndFlee(Suspect);
+                        Game.DisplaySubtitle("~r~Suspect~w~: Take your last breath of fresh air, motherfucker.");
+                        Suspect.Tasks.FightAgainst(MainPlayer);
+                        Suspect.Armor = 500;
                     }
                 }
             }
