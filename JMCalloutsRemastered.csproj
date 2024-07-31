@@ -92,6 +92,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\JMCalloutsRemasteredReferences\LSPD First Response.dll</HintPath>
     </Reference>
+    <Reference Include="NativeUI">
+      <HintPath>..\Steam_Games\steamapps\common\Grand Theft Auto V\scripts\NativeUI.dll</HintPath>
+    </Reference>
     <Reference Include="RAGENativeUI">
       <HintPath>..\JMCalloutsRemasteredReferences\RAGENativeUI.dll</HintPath>
     </Reference>
@@ -100,6 +103,9 @@
     </Reference>
     <Reference Include="SceneManager">
       <HintPath>..\JMCalloutsRemasteredReferences\SceneManager.dll</HintPath>
+    </Reference>
+    <Reference Include="ScriptHookVDotNet3">
+      <HintPath>..\GTA Scripts\references\ScriptHookVDotNet3.dll</HintPath>
     </Reference>
     <Reference Include="StopThePed">
       <HintPath>..\Steam_Games\steamapps\common\Grand Theft Auto V\plugins\LSPDFR\StopThePed.dll</HintPath>
@@ -155,12 +161,14 @@
     <Compile Include="Callouts\TrespassingOnRailRoadProperty.cs" />
     <Compile Include="Callouts\TrespassingOnSchoolGrounds.cs" />
     <Compile Include="Callouts\UnauthorizedAccessMovieStudio.cs" />
+    <Compile Include="Engine\ConsoleCommand.cs" />
     <Compile Include="GlobalUsing.cs" />
     <Compile Include="IniFile.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Callouts\PersonCarryingAnExplosiveWeapon.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings.cs" />
+    <Compile Include="Stuff\Arrays.cs" />
     <Compile Include="Stuff\Helper.cs" />
     <Compile Include="Stuff\LocationChooser.cs" />
     <Compile Include="Stuff\Vector3Extension.cs" />
@@ -177,5 +185,6 @@
     <Content Include="Changelog.txt" />
     <Content Include="ReadMe.txt" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
