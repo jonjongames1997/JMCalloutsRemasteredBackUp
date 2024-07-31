@@ -1,10 +1,9 @@
 ﻿using CalloutInterfaceAPI;
-using StopThePed;
 
 namespace JMCalloutsRemastered.Callouts
 {
 
-    [CalloutInterface("[JM Callouts] Movie Hopping", CalloutProbability.Medium, "Reports of a movie goer sneaking into the movies without a ticket", "CODE 1", "LSPD")]
+    [CalloutInterface("[JM Callouts] Movie Hopping", CalloutProbability.Medium, "Reports of a movie goer sneaking into the movies without a ticket", "CODE 2", "LSPD")]
 
 
     public class MovieHopping : Callout
@@ -45,8 +44,6 @@ namespace JMCalloutsRemastered.Callouts
             suspect.BlockPermanentEvents = true;
             suspect.IsValid();
             StopThePed.API.Functions.injectPedSearchItems(suspect);
-            StopThePed.API.Functions.setPedUnderDrugsInfluence(suspect, false);
-            StopThePed.API.Functions.setPedAlcoholOverLimit(suspect, false);
 
             suspectBlip = suspect.AttachBlip();
             suspectBlip.Color = System.Drawing.Color.Blue;
@@ -74,7 +71,7 @@ namespace JMCalloutsRemastered.Callouts
         {
             base.Process();
 
-            if(MainPlayer.DistanceTo(suspect) <= 10f)
+            if(MainPlayer.DistanceTo(suspect) <= 5f)
             {
 
                 Game.DisplayHelp("Press ~y~E~w~ to interact with suspect.", false);
