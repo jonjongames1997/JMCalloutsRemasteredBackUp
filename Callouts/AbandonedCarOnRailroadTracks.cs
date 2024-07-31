@@ -65,7 +65,7 @@ namespace JMCalloutsRemastered.Callouts
 
         public override void Process()
         {
-            if(MainPlayer.DistanceTo(vehicle) <= 10f)
+            if(MainPlayer.DistanceTo(vehicle) <= 5f)
             {
                 Game.DisplayHelp("Inspect the vehicle then call a tow.");
             }
