@@ -4,6 +4,7 @@ using UltimateBackup;
 using SceneManager;
 using LSPD_First_Response.Engine.Scripting.Entities;
 using LSPD_First_Response.Tooling;
+using JMCalloutsRemastered.Stuff;
 
 [assembly: Rage.Attributes.Plugin("JMCalloutsRemastered", Description = "LSPDFR Callout Pack", Author = "OfficerMorrison")]
 namespace JMCalloutsRemastered
@@ -20,6 +21,7 @@ namespace JMCalloutsRemastered
 
         public override void Initialize()
         {
+
             Functions.OnOnDutyStateChanged += Functions_OnOnDutyStateChanged;
             JMCalloutsRemastered.Settings.LoadSettings();
         }
@@ -43,6 +45,7 @@ namespace JMCalloutsRemastered
 
                     Game.DisplayNotification("web_jonjongames", "web_jonjongames", "JM Callouts Remastered", "~g~v" + Assembly.GetExecutingAssembly().GetName().Version.ToString() + " ~r~by OfficerMorrison", "~b~successfully loaded!");
                     Game.DisplayNotification("~y~JM Callouts Remastered WARNING Notice~w~: If this callout pack is found on other websites that are NOT authorized by the developer. A DMCA Takedown Notice will be sent to the unauthorized uploader for Copyright Infringement. Fuck Around and Find Out.");
+                    Game.DisplayNotification("web_jonjongames", "web_jonjongames", "JM Callouts Remastered", "Callout Successfully Loaded!", "Patrol Objective: Don't get shot at.");
 
                     GameFiber.Wait(300);
 
