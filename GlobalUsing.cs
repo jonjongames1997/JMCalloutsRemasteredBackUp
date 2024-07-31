@@ -16,3 +16,4 @@ global using RAGENativeUI.Elements;
 global using RAGENativeUI.PauseMenu;
 global using System.IO;
 global using System.Reflection;
+global using StopThePed;
