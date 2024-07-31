@@ -29,7 +29,7 @@ namespace JMCalloutsRemastered
         internal static bool StolenConstructionEquipment = true;
         internal static bool DomesticDisturbance = true;
         internal static bool StolenMilitaryEquipment = true;
-        internal static bool MovieHopping = false;
+        internal static bool MovieHopping = true;
         internal static bool AbandonedVehicleOnRailRoadTracks = true;
         internal static bool Stalking = true;
         internal static bool PurpleAlert = true;
@@ -41,7 +41,8 @@ namespace JMCalloutsRemastered
         internal static bool PrankCall = true;
         internal static bool InjuredPerson = true;
         internal static bool PersonCarryingAnExplosiveWeapon = true;
-        internal static bool BountyHunterRequiringAssistance = true;
+        internal static bool BountyHunterRequiringAssistance = false;
+        internal static bool HomelessPerson = true;
         internal static bool HelpMessages = true;
         internal static Keys EndCall = Keys.End;
         internal static Keys Dialog = Keys.E;
@@ -51,7 +52,8 @@ namespace JMCalloutsRemastered
         internal static void LoadSettings()
         {
             Game.Console.Print("[LOG]: Loading config file from JM Callouts Remastered.");
-            ini = new InitializationFile(inipath);
+            var path = "Plugins/LSPDFR/JMCalloutsRemastered.ini";
+            var ini = new InitializationFile(path);
             ini.Create();
             Game.LogTrivial("Initializing Config for JMCalloutsRemastered....");
             Settings.CodeKaren = ini.ReadBoolean("Callouts", "CodeKaren", true);
@@ -76,7 +78,7 @@ namespace JMCalloutsRemastered
             Settings.StolenConstructionEquipment = ini.ReadBoolean("Callouts", "StolenConstructionEquipment", true);
             Settings.DomesticDisturbance = ini.ReadBoolean("Callouts", "DomesticDisturbance", true);
             Settings.StolenMilitaryEquipment = ini.ReadBoolean("Callouts", "StolenMilitaryEquipment", true);
-            Settings.MovieHopping = ini.ReadBoolean("Callouts", "MovieHopping", false);
+            Settings.MovieHopping = ini.ReadBoolean("Callouts", "MovieHopping", true);
             Settings.AbandonedVehicleOnRailRoadTracks = ini.ReadBoolean("Callouts", "AbandonedVehicleOnRailRoadTracks", true);
             Settings.Stalking = ini.ReadBoolean("Callouts", "Stalking", true);
             Settings.PurpleAlert = ini.ReadBoolean("Callouts", "PurpleAlert", true);
@@ -87,11 +89,12 @@ namespace JMCalloutsRemastered
             Settings.PrankCall = ini.ReadBoolean("Callouts", "PrankCall", true);
             Settings.InjuredPerson = ini.ReadBoolean("Callouts", "InjuredPerson", true);
             Settings.PersonCarryingAnExplosiveWeapon = ini.ReadBoolean("Callouts", "PersonCarryingAnExplosiveWeapon", true);
-            Settings.BountyHunterRequiringAssistance = ini.ReadBoolean("Callouts", "BountyHunterRequiringAssistance", true);
+            Settings.BountyHunterRequiringAssistance = ini.ReadBoolean("Callouts", "BountyHunterRequiringAssistance", false);
+            Settings.HomelessPerson = ini.ReadBoolean("Callouts", "HomelessPerson", true);
             Settings.HelpMessages = ini.ReadBoolean("HelpMessages", "Help Messages", true);
             EndCall = ini.ReadEnum("Keys", "EndCall", Keys.End);
             Dialog = ini.ReadEnum("Keys", "Dialog", Keys.E);
         }
-        public static readonly string PluginVersion = "5.1.0";
+        public static readonly string PluginVersion = "5.0.4.2";
     }
 }
