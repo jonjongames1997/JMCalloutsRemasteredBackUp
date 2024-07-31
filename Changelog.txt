@@ -1,8 +1,10 @@
 ﻿Changelog:
 
-5.1.0:
+5.0.3.2:
 
--
+- Bug fixes
+- Minor Improvements
+- Disabled 'Bounty Hunter Requiring Assistance' callout for a revamp.
 
 5.0.3.1:
 
