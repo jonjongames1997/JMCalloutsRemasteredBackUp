@@ -19,7 +19,7 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnBeforeCalloutDisplayed()
         {
-            spawnpoint = World.GetNextPositionOnStreet(MainPlayer.Position.Around(1000f));
+            spawnpoint = World.GetNextPositionOnStreet(MainPlayer.Position.Around(100f));
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
             CalloutInterfaceAPI.Functions.SendMessage(this, "A bounty hunter requiring asssitance");
             CalloutMessage = "A bounty hunter needing assistance with bringing a suspect into custody";
@@ -66,7 +66,7 @@ namespace JMCalloutsRemastered.Callouts
         {
             base.Process();
 
-            if(MainPlayer.DistanceTo(suspect) <= 10f)
+            if(MainPlayer.DistanceTo(suspect) <= 5f)
             {
 
                 Game.DisplayHelp("Press ~y~E~w~ to interact with ~r~suspect~w~.", false);
