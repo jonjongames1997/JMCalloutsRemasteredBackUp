@@ -133,6 +133,7 @@
     <Compile Include="Callouts\DeadBody.cs" />
     <Compile Include="Callouts\DomesticDisturbance.cs" />
     <Compile Include="Callouts\FirstAmendmentAuditors.cs" />
+    <Compile Include="Callouts\HomelessPerson.cs" />
     <Compile Include="Callouts\IllegalCampfireOnPublicBeach.cs" />
     <Compile Include="Callouts\IllegalProstitution.cs" />
     <Compile Include="Callouts\InjuredPerson.cs" />
