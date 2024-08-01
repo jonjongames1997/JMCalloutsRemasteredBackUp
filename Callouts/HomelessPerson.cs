@@ -89,13 +89,19 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if(counter == 3)
                     {
-                        Game.DisplaySubtitle("");
+                        Game.DisplaySubtitle("~b~You~w~: We have gotten reports of you loitering. You know it's against the law to loiter, right?");
+                    }
+                    if(counter == 4)
+                    {
+                        Game.DisplaySubtitle("~y~Suspect~w~: Not that I'm aware of, Officer.");
+                    }
+                    if(counter == 5)
+                    {
+                        Game.DisplaySubtitle("~b~You~w~: ");
                     }
                 }
             }
 
         }
-
-
     }
 }
