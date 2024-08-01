@@ -39,6 +39,11 @@ namespace JMCalloutsRemastered
                     Game.Console.Print("[VERSION]: Detected Version: " + Assembly.GetExecutingAssembly().GetName().Version.ToString());
                     Game.Console.Print("[LOG]: Checking for a new JM Callouts Remastered version...");
                     Game.Console.Print();
+                    Game.Console.Print();
+                    Game.Console.Print("For support, Join the official Jon Jon Games Discord: https://discord.gg/N9KgZx4KUn");
+                    Game.Console.Print();
+                    Game.Console.Print();
+                    Game.Console.Print();
                     Game.Console.Print("=============================================== JM Callouts Remastered by OfficerMorrison ================================================");
                     Game.Console.Print();
 
