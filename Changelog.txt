@@ -5,6 +5,7 @@
 - Bug fixes
 - Minor Improvements
 - Disabled 'Bounty Hunter Requiring Assistance' callout for a revamp.
+- Every callout probability has been set to Medium for better experience.
 - 
 
 5.0.3.1:
