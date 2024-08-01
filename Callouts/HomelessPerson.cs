@@ -70,7 +70,29 @@ namespace JMCalloutsRemastered.Callouts
             base.Process();
 
 
+            if(MainPlayer.DistanceTo(suspect) <= 5f)
+            {
 
+                Game.DisplayHelp("Press ~y~E~w~ to speak with the ~r~suspect~w~.", false);
+
+                if(Game.IsKeyDown(System.Windows.Forms.Keys.E))
+                {
+                    counter++;
+
+                    if(counter == 1)
+                    {
+                        Game.DisplaySubtitle("~b~You~w~: " + malefemale + ", Come talk to me for a minute.");
+                    }
+                    if(counter == 2)
+                    {
+                        Game.DisplaySubtitle("~y~Suspect~w~: Why? I didn't do anything illegal.");
+                    }
+                    if(counter == 3)
+                    {
+                        Game.DisplaySubtitle("");
+                    }
+                }
+            }
 
         }
 
