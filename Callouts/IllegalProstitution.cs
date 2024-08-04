@@ -84,7 +84,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 2)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: Sure. What seems to be the problem, Officer?");
+                        Game.DisplaySubtitle("~y~Suspect~w~: Sure. What seems to be the problem, Officer?");
                     }
                     if (counter == 3)
                     {
@@ -93,7 +93,7 @@ namespace JMCalloutsRemastered.Callouts
                     if (counter == 4)
                     {
                         Suspect.Tasks.PlayAnimation(new AnimationDictionary("oddjobs@taxi@argument"), "hooker_loop_a_hooker_b", -1f, AnimationFlags.Loop);
-                        Game.DisplaySubtitle("~r~Suspect~w~: Well, cutie.....");
+                        Game.DisplaySubtitle("~y~Suspect~w~: Well, cutie.....");
                     }
                     if (counter == 5)
                     {
@@ -101,7 +101,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 6)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: Sorry, Officer. I need money for food. You know, with inflation being out of control. I can't afford like a box of Cap'n Crunch which is $4.95 a box. Nobody is hiring and this is my only option.");
+                        Game.DisplaySubtitle("~y~Suspect~w~: Sorry, Officer. I need money for food. You know, with inflation being out of control. I can't afford like a box of Cap'n Crunch which is $4.95 a box. Nobody is hiring and this is my only option.");
                     }
                     if (counter == 7)
                     {
@@ -113,7 +113,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 9)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: I see where you're coming from.");
+                        Game.DisplaySubtitle("~y~Suspect~w~: I see where you're coming from.");
                     }
                     if (counter == 10)
                     {
@@ -125,7 +125,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 12)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: Yes, Officer. I promise I won't be back here again.");
+                        Game.DisplaySubtitle("~y~Suspect~w~: Yes, Officer. I promise I won't be back here again.");
                     }
                     if (counter == 13)
                     {
