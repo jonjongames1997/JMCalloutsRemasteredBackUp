@@ -5,7 +5,7 @@ namespace JMCalloutsRemastered.Callouts
 {
 
 
-    [CalloutInterface("[JM Callouts] Injured Person - BETA", CalloutProbability.High, "Reports of an injured civilian", "CODE 3", "LSPD")]
+    [CalloutInterface("[JM Callouts] Injured Person - BETA", CalloutProbability.Medium, "Reports of an injured civilian", "CODE 3", "LSPD")]
 
     public class InjuredPerson : Callout
     {
