@@ -77,7 +77,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if(counter == 2)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: Oh, Shit. What's going on here, officer?");
+                        Game.DisplaySubtitle("~y~Suspect~w~: Oh, Shit. What's going on here, officer?");
                     }
                     if(counter == 3)
                     {
@@ -85,7 +85,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if(counter == 4)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: Fucking your mother, what does it look like I'm doing?");
+                        Game.DisplaySubtitle("~y~Suspect~w~: Fucking your mother, what does it look like I'm doing?");
                     }
                     if(counter == 5)
                     {
@@ -93,7 +93,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if(counter == 6)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: None of your fucking business, bitch!");
+                        Game.DisplaySubtitle("~y~Suspect~w~: None of your fucking business, bitch!");
                     }
                     if(counter == 7)
                     {
@@ -101,7 +101,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if(counter == 8)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: KISS MY MIGHTY BUNGHOLE!");
+                        Game.DisplaySubtitle("~y~Suspect~w~: KISS MY MIGHTY BUNGHOLE!");
                     }
                     if(counter == 9)
                     {
@@ -109,7 +109,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if(counter == 10)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: I'm not going back to that hell hole. KIFFLOM!!!!!");
+                        Game.DisplaySubtitle("~y~Suspect~w~: I'm not going back to that hell hole. KIFFLOM!!!!!");
                     }
                     if(counter == 11)
                     {
