@@ -4,7 +4,7 @@ namespace JMCalloutsRemastered
 {
 
 
-    [CalloutInterface("[JM Callouts] Person Carrying An Explosive Weapon", CalloutProbability.High, "Citizen's report of an individual carrying an explosive weapon", "CODE 3", "SWAT")]
+    [CalloutInterface("[JM Callouts] Person Carrying An Explosive Weapon", CalloutProbability.Medium, "Citizen's report of an individual carrying an explosive weapon", "CODE 3", "SWAT")]
 
     public class PersonCarryingAnExplosiveWeapon : Callout
     {
