@@ -95,7 +95,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 2)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: What now donut pigs?");
+                        Game.DisplaySubtitle("~y~Suspect~w~: What now donut pigs?");
                     }
                     if (counter == 3)
                     {
@@ -103,7 +103,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 4)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: That bitch over there told me I can't come in here.");
+                        Game.DisplaySubtitle("~y~Suspect~w~: That bitch over there told me I can't come in here.");
                     }
                     if (counter == 5)
                     {
@@ -111,7 +111,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 6)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: I was outside the door asking people for money. They called the cops and they told me that I was trespassed from the property.");
+                        Game.DisplaySubtitle("~y~Suspect~w~: I was outside the door asking people for money. They called the cops and they told me that I was trespassed from the property.");
                     }
                     if (counter == 7)
                     {
@@ -123,7 +123,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 9)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: WHAT?! Are you f***ing with me?");
+                        Game.DisplaySubtitle("~y~Suspect~w~: WHAT?! Are you f***ing with me?");
                     }
                     if (counter == 10)
                     {
@@ -131,7 +131,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 11)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: F**k you and f**k them! I'm outta here, playa!");
+                        Game.DisplaySubtitle("~y~Suspect~w~: F**k you and f**k them! I'm outta here, playa!");
                     }
                     if (counter == 12)
                     {
