@@ -86,7 +86,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if(counter == 2)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: I didn't do anything wrong, Officer. I wanted to see a movie so bad.");
+                        Game.DisplaySubtitle("~y~Suspect~w~: I didn't do anything wrong, Officer. I wanted to see a movie so bad.");
                     }
                     if(counter == 3)
                     {
@@ -94,7 +94,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if(counter == 4)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: I don't have one, I'm broke. Tickets are f***ing almost $15 per person.");
+                        Game.DisplaySubtitle("~y~Suspect~w~: I don't have one, I'm broke. Tickets are f***ing almost $15 per person.");
                     }
                     if(counter == 5)
                     {
@@ -102,7 +102,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if(counter == 6)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: WHAT?!!!! HOW? That's bullsh*t! I'm not leaving until I see that film");
+                        Game.DisplaySubtitle("~y~Suspect~w~: WHAT?!!!! HOW? That's bullsh*t! I'm not leaving until I see that film");
                     }
                     if(counter == 7)
                     { 
@@ -110,7 +110,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if(counter == 8)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: F**K YOU!");
+                        Game.DisplaySubtitle("~y~Suspect~w~: F**K YOU!");
                     }
                     if(counter == 9)
                     {
@@ -118,7 +118,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if(counter == 10)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: Nope, I'm not going to jail. I can't survive prison, they'll kill me. You'll never take me alive, copper.");
+                        Game.DisplaySubtitle("~y~Suspect~w~: Nope, I'm not going to jail. I can't survive prison, they'll kill me. You'll never take me alive, copper.");
                     }
                     if(counter == 11)
                     {
