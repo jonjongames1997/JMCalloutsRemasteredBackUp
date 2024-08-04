@@ -82,7 +82,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 2)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: Yeah, I'm fine. What's going on?");
+                        Game.DisplaySubtitle("~o~Suspect~w~: Yeah, I'm fine. What's going on?");
                     }
                     if (counter == 3)
                     {
@@ -90,7 +90,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 4)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: My phone died and I didn't have my charger with me to go somewhere and get it charged. I'm sorry.");
+                        Game.DisplaySubtitle("~o~Suspect~w~: My phone died and I didn't have my charger with me to go somewhere and get it charged. I'm sorry.");
                     }
                     if (counter == 5)
                     {
@@ -98,7 +98,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 6)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: Thank you, Officer.");
+                        Game.DisplaySubtitle("~o~Suspect~w~: Thank you, Officer.");
                     }
                     if (counter == 7)
                     {
