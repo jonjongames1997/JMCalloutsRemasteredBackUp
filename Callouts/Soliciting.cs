@@ -91,7 +91,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 2)
                     {
-                        Game.DisplaySubtitle("~r~Suspect:~w~ Oh, Shit. The one time!");
+                        Game.DisplaySubtitle("~y~Suspect:~w~ Oh, Shit. The one time!");
                     }
                     if (counter == 3)
                     {
