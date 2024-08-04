@@ -107,7 +107,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if(counter == 2)
                     {
-                        Game.DisplaySubtitle("~r~Victim~w~: Hello, Officer. I am doing fine.... well, kinda. We are having an argument over headphones and earbuds. My buddy claims that over the head headphones is different from headphones. I told my buddy is stil headphones. I do apologize for you being called out.");
+                        Game.DisplaySubtitle("~o~Victim~w~: Hello, Officer. I am doing fine.... well, kinda. We are having an argument over headphones and earbuds. My buddy claims that over the head headphones is different from headphones. I told my buddy is stil headphones. I do apologize for you being called out.");
                     }
                     if(counter == 3)
                     {
@@ -123,7 +123,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if(counter == 6)
                     {
-                        Game.DisplaySubtitle("~r~Victim~w~: I'm not a Gen Z, officer, my buddy is. But ok officer.");
+                        Game.DisplaySubtitle("~o~Victim~w~: I'm not a Gen Z, officer, my buddy is. But ok officer.");
                     }
                     if(counter == 7)
                     {
