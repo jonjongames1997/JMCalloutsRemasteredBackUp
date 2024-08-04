@@ -108,7 +108,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 2)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: Sure, Officer. What seems to be the problem?");
+                        Game.DisplaySubtitle("~y~Suspect~w~: Sure, Officer. What seems to be the problem?");
                     }
                     if (counter == 3)
                     {
@@ -116,7 +116,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 4)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: Oh, shit. I think Siri misheard what I've said. Oh, my lord, I do apologize about thi... Am I getting arrested?");
+                        Game.DisplaySubtitle("~y~Suspect~w~: Oh, shit. I think Siri misheard what I've said. Oh, my lord, I do apologize about thi... Am I getting arrested?");
                     }
                     if (counter == 5)
                     {
@@ -124,7 +124,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 6)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: Sure, here's my ID and no, officer, no warrants. I never been arrested before.");
+                        Game.DisplaySubtitle("~y~Suspect~w~: Sure, here's my ID and no, officer, no warrants. I never been arrested before.");
                     }
                     if (counter == 7)
                     {
@@ -132,7 +132,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 8)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: Take your last breath of fresh air, motherfucker.");
+                        Game.DisplaySubtitle("~y~Suspect~w~: Take your last breath of fresh air, motherfucker.");
                         Suspect.Tasks.FightAgainst(MainPlayer);
                         Suspect.Armor = 500;
                     }
