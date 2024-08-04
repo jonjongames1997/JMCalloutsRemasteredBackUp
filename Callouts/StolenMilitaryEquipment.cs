@@ -4,7 +4,7 @@ using System.Threading;
 namespace JMCalloutsRemastered.Callouts
 {
 
-    [CalloutInterface("[JM Callouts] Stolen Military Equipment", CalloutProbability.High, "Reports of stolen Military Equipment", "Code 3", "SWAT")]
+    [CalloutInterface("[JM Callouts] Stolen Military Equipment", CalloutProbability.Medium, "Reports of stolen Military Equipment", "Code 3", "SWAT")]
 
 
     public class StolenMilitaryEquipment : Callout
