@@ -28,7 +28,7 @@ namespace JMCalloutsRemastered.Engine
             var PluginName = Assembly.GetExecutingAssembly().FullName.Split('.').First();
             var missingDepend = string.Empty;
             var OutdatedDependency = string.Empty;
-            var pluginDepends = _depends.Where(depend =>  depend.PluginName == PluginName).ToList();
+            var pluginDepends = _depends.Where(depend => depend.PluginName == PluginName).ToList();
 
             foreach (var depend in pluginDepends)
                 if (!File.Exists(depend.PluginName)) missingDepend += $"{depend.DependName}~n~";
