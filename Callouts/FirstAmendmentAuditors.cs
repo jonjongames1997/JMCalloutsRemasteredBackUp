@@ -96,7 +96,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if(counter == 2)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: This security officer is not letting me film. I have the right of ~y~'Freedom of the Press'~w~ to film anywhere I want.");
+                        Game.DisplaySubtitle("~y~Suspect~w~: This security officer is not letting me film. I have the right of ~y~'Freedom of the Press'~w~ to film anywhere I want.");
                     }
                     if(counter == 3)
                     {
@@ -104,7 +104,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if(counter == 4)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: Yeah, so what? I have the right to film. It's called 'Freedom Of The Press', you dumb fuck.");
+                        Game.DisplaySubtitle("~y~Suspect~w~: Yeah, so what? I have the right to film. It's called 'Freedom Of The Press', you dumb fuck.");
                     }
                     if(counter == 5)
                     {
@@ -112,11 +112,11 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if(counter == 6)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: Fine!!!");
+                        Game.DisplaySubtitle("~y~Suspect~w~: Fine!!!");
                     }
                     if(counter == 7)
                     {
-                        Game.DisplaySubtitle("Go talk to ~r~Security~w~ then talk to the suspect again.");
+                        Game.DisplaySubtitle("Go talk to ~g~Security~w~ then talk to the suspect again.");
                     }
                     if(counter == 8)
                     {
@@ -124,7 +124,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if(counter == 9)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: Are you fucking serious????");
+                        Game.DisplaySubtitle("~y~Suspect~w~: Are you fucking serious????");
                     }
                     if(counter == 10)
                     {
@@ -132,7 +132,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if(counter == 11)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: I'm not leaving.");
+                        Game.DisplaySubtitle("~y~Suspect~w~: I'm not leaving.");
                     }
                     if(counter == 12)
                     {
