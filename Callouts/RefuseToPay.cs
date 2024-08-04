@@ -91,7 +91,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 2)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: About fucking time you showed up, officer!");
+                        Game.DisplaySubtitle("~y~Suspect~w~: About fucking time you showed up, officer!");
                     }
                     if (counter == 3)
                     {
@@ -103,7 +103,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 5)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: I was coming to get gas and the pump had no gas in it. I came in here to talk to the cashier about it and said that I'm lying.");
+                        Game.DisplaySubtitle("~y~Suspect~w~: I was coming to get gas and the pump had no gas in it. I came in here to talk to the cashier about it and said that I'm lying.");
                     }
                     if (counter == 6)
                     {
@@ -111,7 +111,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 7)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: I told them, 'I'm not lying, go check it for yourself'. Then they called the cops and now I'm talking to you.");
+                        Game.DisplaySubtitle("~y~Suspect~w~: I told them, 'I'm not lying, go check it for yourself'. Then they called the cops and now I'm talking to you.");
                     }
                     if (counter == 8)
                     {
@@ -119,7 +119,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 9)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: Yeah, fine. I'm in a hurry to record my tv show called ~y~'THE DOWNFALL OF LAZLOW'~w~.");
+                        Game.DisplaySubtitle("~y~Suspect~w~: Yeah, fine. I'm in a hurry to record my tv show called ~y~'THE DOWNFALL OF LAZLOW'~w~.");
                     }
                     if (counter == 10)
                     {
@@ -135,7 +135,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 13)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: Fuck this shit, I'm outta here!");
+                        Game.DisplaySubtitle("~y~Suspect~w~: Fuck this shit, I'm outta here!");
                     }
                     if (counter == 14)
                     {
