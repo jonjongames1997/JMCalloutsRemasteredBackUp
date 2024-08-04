@@ -93,7 +93,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 2)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: ALIENS! ALIENS! They're here! RUN FOR YOUR LIVES!");
+                        Game.DisplaySubtitle("~y~Suspect~w~: ALIENS! ALIENS! They're here! RUN FOR YOUR LIVES!");
                     }
                     if (counter == 3)
                     {
@@ -101,7 +101,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 4)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: Oh, I thought you were an alien. Sorry, Officer. What's up? Want to smoke some crack? Smoke some weed?");
+                        Game.DisplaySubtitle("~y~Suspect~w~: Oh, I thought you were an alien. Sorry, Officer. What's up? Want to smoke some crack? Smoke some weed?");
                     }
                     if (counter == 5)
                     {
@@ -109,7 +109,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 6)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: Yeah, drugs are the 2nd best medicine cause laughter is the #1 best medicine. I'm trying to record some videos of the trains coming through. Why?");
+                        Game.DisplaySubtitle("~y~Suspect~w~: Yeah, drugs are the 2nd best medicine cause laughter is the #1 best medicine. I'm trying to record some videos of the trains coming through. Why?");
                     }
                     if (counter == 7)
                     {
@@ -117,7 +117,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 8)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: What's a indentification again?");
+                        Game.DisplaySubtitle("~y~Suspect~w~: What's a indentification again?");
                     }
                     if (counter == 9)
                     {
@@ -125,12 +125,13 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 10)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: I'm not going back to prison to drop the soap!");
+                        Game.DisplaySubtitle("~y~Suspect~w~: I'm not going back to prison to drop the soap!");
                     }
                     if (counter == 11)
                     {
                         Game.DisplaySubtitle("Conversation ended.");
                         Suspect.Tasks.FightAgainst(MainPlayer);
+                        Suspect.Inventory.GiveNewWeapon("WEAPON_KNFIE", 500, true);
                     }
                 }
             }
