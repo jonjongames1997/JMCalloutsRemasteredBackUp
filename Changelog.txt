@@ -6,7 +6,13 @@
 - Minor Improvements
 - Disabled 'Bounty Hunter Requiring Assistance' callout for a revamp.
 - Every callout probability has been set to Medium for better experience.
-- 
+- Added dependency checker to see if a user has a specific dependency installed (Thanks to SuperPyroManiac's and Yobbin's Open Source code for guidance.)
+- Added EndCalloutManager functionality to check whether the callouts are still running and not ending after the suspect is taken into custody. (used Yobbin's Open Source as a guide.)
+- Ini update
+- Suspects/Victims/etc. have now have their proper blip colors.
+- All callouts probabilities are now permanently set to Medium for better gameplay experience.
+- Added 1 new callout (Homeless Person)
+- Dialogue System coming very soon. (If anyone can assist me on this, DM me on Discord: jonjongamesyt)
 
 5.0.3.1:
 
