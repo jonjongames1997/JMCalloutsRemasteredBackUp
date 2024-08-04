@@ -3,7 +3,7 @@
 namespace JMCalloutsRemastered.Callouts
 {
 
-    [CalloutInterface("[JM Callouts] Peeping Tom - SFW", CalloutProbability.High, "A citizen's report of a peeping tom", "Code 3", "LSPD")]
+    [CalloutInterface("[JM Callouts] Peeping Tom - SFW", CalloutProbability.Medium, "A citizen's report of a peeping tom", "Code 3", "LSPD")]
 
     public class PeepingTom : Callout
     {
