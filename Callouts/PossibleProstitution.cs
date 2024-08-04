@@ -112,7 +112,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 2)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: Sure. What seems to be the problem, Officer?");
+                        Game.DisplaySubtitle("~y~Suspect~w~: Sure. What seems to be the problem, Officer?");
                     }
                     if (counter == 3)
                     {
@@ -120,7 +120,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 4)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: Yes. I need the money to pay off my college debt.");
+                        Game.DisplaySubtitle("~y~Suspect~w~: Yes. I need the money to pay off my college debt.");
                     }
                     if (counter == 5)
                     {
@@ -128,7 +128,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 6)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: What you gonna do? I'm not going anywhere!");
+                        Game.DisplaySubtitle("~y~Suspect~w~: What you gonna do? I'm not going anywhere!");
                     }
                     if (counter == 7)
                     {
@@ -141,7 +141,7 @@ namespace JMCalloutsRemastered.Callouts
                     if (counter == 9)
                     {
                         Suspect.Tasks.PlayAnimation(new AnimationDictionary("mini@strip_club@idles@stripper"), "stripper_idle_06", -1f, AnimationFlags.Loop);
-                        Game.DisplaySubtitle("~r~Suspect~w~: Come on, Officer. First time is free.");
+                        Game.DisplaySubtitle("~y~Suspect~w~: Come on, Officer. First time is free.");
                     }
                     if (counter == 10)
                     {
@@ -149,7 +149,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 11)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: Fuck you then, pigs.");
+                        Game.DisplaySubtitle("~y~Suspect~w~: Fuck you then, pigs.");
                     }
                     if (counter == 12)
                     {
