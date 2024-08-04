@@ -97,11 +97,36 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if(counter == 5)
                     {
-                        Game.DisplaySubtitle("~b~You~w~: ");
+                        Game.DisplaySubtitle("~b~You~w~: Well, it is the law and can lead to a citation and/or an arrest.");
+                    }
+                    if(counter == 6)
+                    {
+                        Game.DisplaySubtitle("~y~Suspect~w~: I call bullshit on that. *spits on you*");
+                    }
+                    if(counter == 7)
+                    {
+                        suspect.Tasks.ReactAndFlee(suspect);
+                        Game.DisplaySubtitle("~b~You~: Dispatch, suspect is on foot. He's fleeing from me. Show me in pursuit of that suspect.");
+                        UltimateBackup.API.Functions.callPursuitBackup(suspect);
                     }
                 }
             }
 
+            if (MainPlayer.IsDead) End();
+            if (Game.IsKeyDown(Settings.EndCall)) End();
+        }
+
+        public override void End()
+        {
+            base.End();
+
+            if (suspect) suspect.Dismiss();
+            if (susBlip) susBlip.Delete();
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Homeless Person", "~b~You~w~: Dispatch, we are ~g~Code 4~w~! Show me back 10-8.");
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_THIS_IS_DISPATCH_HIGH ALL_UNITS_CODE4 NO_FURTHER_UNITS_REQUIRED");
+
+
+            Game.LogTrivial("JM Callouts Remastered - Homeless Person is Code 4!");
         }
     }
 }
