@@ -113,7 +113,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if(counter == 2)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: Hi, Officer, My Uber driver kicked me out his car for no reason.");
+                        Game.DisplaySubtitle("~y~Suspect~w~: Hi, Officer, My Uber driver kicked me out his car for no reason.");
                     }
                     if(counter == 3)
                     {
@@ -121,7 +121,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if(counter == 4)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: The driver is very picky on who they pick up. I find that as discrimination.");
+                        Game.DisplaySubtitle("~y~Suspect~w~: The driver is very picky on who they pick up. I find that as discrimination.");
                     }
                     if(counter == 5)
                     {
@@ -129,7 +129,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if(counter == 6)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: No I didn't call a taxi. I prefer to walk. I know it's against the law to do that but nobody will stop and help me.");
+                        Game.DisplaySubtitle("~y~Suspect~w~: No I didn't call a taxi. I prefer to walk. I know it's against the law to do that but nobody will stop and help me.");
                     }
                     if(counter == 7)
                     {
@@ -137,11 +137,11 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if(counter == 8)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: Thank you, officer.");
+                        Game.DisplaySubtitle("~y~Suspect~w~: Thank you, officer.");
                     }
                     if(counter == 9)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: Death to Los Santos, Motherfucka!");
+                        Game.DisplaySubtitle("~y~Suspect~w~: Death to Los Santos, Motherfucka!");
                         suspect.Tasks.FightAgainst(MainPlayer);
                         suspect.KeepTasks = true;
                         suspect.Inventory.GiveNewWeapon(wepList[new Random().Next((int)wepList.Length)], 500, true);
