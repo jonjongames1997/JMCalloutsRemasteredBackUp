@@ -107,7 +107,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 2)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: Fuck no! I can come into this business anytime I want. It's public property!");
+                        Game.DisplaySubtitle("~y~Suspect~w~: Fuck no! I can come into this business anytime I want. It's public property!");
                     }
                     if (counter == 3)
                     {
@@ -115,7 +115,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 4)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: I'm not talking you until I receive my fucking merchandise that I paid for! I want to speak with the Manager!!!");
+                        Game.DisplaySubtitle("~y~Suspect~w~: I'm not talking you until I receive my fucking merchandise that I paid for! I want to speak with the Manager!!!");
                     }
                     if (counter == 5)
                     {
@@ -123,7 +123,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 6)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: FUCK YOU AND FUCK THIS STORE! I'll be back with 'my little friend' I'll show y'all.");
+                        Game.DisplaySubtitle("~y~Suspect~w~: FUCK YOU AND FUCK THIS STORE! I'll be back with 'my little friend' I'll show y'all.");
                     }
                     if (counter == 7)
                     {
