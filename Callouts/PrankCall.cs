@@ -77,7 +77,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if(counter == 2)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: Oh, shit. I thought you guys weren't actually gonna respond.");
+                        Game.DisplaySubtitle("~o~Suspect~w~: Oh, shit. I thought you guys weren't actually gonna respond.");
                     }
                     if(counter == 3)
                     {
@@ -85,7 +85,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if(counter == 4)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: It was only a joke. I didn't mean no harm, Officer.");
+                        Game.DisplaySubtitle("~o~Suspect~w~: It was only a joke. I didn't mean no harm, Officer.");
                     }
                     if(counter == 5)
                     {
@@ -93,7 +93,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if(counter == 6)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: *Crying and begging* PLEASE! DON'T ARREST ME! I HAVE 2 KIDS AT HOME I NEED TO FEED. I can't afford to lose my job.");
+                        Game.DisplaySubtitle("~o~Suspect~w~: *Crying and begging* PLEASE! DON'T ARREST ME! I HAVE 2 KIDS AT HOME I NEED TO FEED. I can't afford to lose my job.");
                     }
                     if(counter == 7)
                     {
@@ -101,7 +101,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if(counter == 8)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: *attempts to stop crying* Ok.");
+                        Game.DisplaySubtitle("~o~Suspect~w~: *attempts to stop crying* Ok.");
                     }
                     if(counter == 9)
                     {
