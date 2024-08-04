@@ -106,7 +106,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 2)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: Good evening to you as well officer. What seems to be the problem?");
+                        Game.DisplaySubtitle("~y~Suspect~w~: Good evening to you as well officer. What seems to be the problem?");
                     }
                     if (counter == 3)
                     {
@@ -114,7 +114,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 4)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: No, officer. Is there really a ban on campfires on beaches?");
+                        Game.DisplaySubtitle("~y~Suspect~w~: No, officer. Is there really a ban on campfires on beaches?");
                     }
                     if (counter == 5)
                     {
@@ -122,7 +122,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 6)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: RISK OF WILDFI.... That's asinine! This is sand. Are they mentally retarded? They need to go back to science class.");
+                        Game.DisplaySubtitle("~y~Suspect~w~: RISK OF WILDFI.... That's asinine! This is sand. Are they mentally retarded? They need to go back to science class.");
                     }
                     if (counter == 7)
                     {
@@ -130,7 +130,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 8)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: Fuck you, Dick Tickler! I'll do my campfires any time anywhere I want. It's my right as a US Citizen.");
+                        Game.DisplaySubtitle("~y~Suspect~w~: Fuck you, Dick Tickler! I'll do my campfires any time anywhere I want. It's my right as a US Citizen.");
                     }
                     if (counter == 9)
                     {
