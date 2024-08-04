@@ -66,15 +66,6 @@ namespace JMCalloutsRemastered
                     {
                         Settings.HelpMessages = false;
                     }
-
-                    if (Settings.EnableDependencyChecker)
-                    {
-                        Game.DisplayHelp("You can disable the dependency checker in ~y~JMCalloutsRemastered.ini~w~ at anytime.");
-                    }
-                    else
-                    {
-                        Settings.EnableDependencyChecker = false;
-                    }
                 });
         }
         private static void RegisterCallouts()
