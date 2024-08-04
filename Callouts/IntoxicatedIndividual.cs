@@ -100,7 +100,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 2)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: I'm fine, Officer. What's the problem?");
+                        Game.DisplaySubtitle("~y~Suspect~w~: I'm fine, Officer. What's the problem?");
                     }
                     if (counter == 3)
                     {
@@ -108,7 +108,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 4)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: I'm not **hiccup* drunk. I'm fine.");
+                        Game.DisplaySubtitle("~y~Suspect~w~: I'm not **hiccup* drunk. I'm fine.");
                     }
                     if (counter == 5)
                     {
@@ -116,7 +116,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 6)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: whatever, *burp* bro.");
+                        Game.DisplaySubtitle("~y~Suspect~w~: whatever, *burp* bro.");
                     }
                     if (counter == 7)
                     {
@@ -126,7 +126,7 @@ namespace JMCalloutsRemastered.Callouts
             }
 
             if (MainPlayer.IsDead) End();
-            if (Game.IsKeyDown(System.Windows.Forms.Keys.End)) End();
+            if (Game.IsKeyDown(Settings.EndCall)) End();
         }
 
         public override void End()
