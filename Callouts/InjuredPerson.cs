@@ -114,11 +114,11 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if(counter == 2)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: I was driving to Jon Boy's Towing Services to apply for a job. (1/2)");
+                        Game.DisplaySubtitle("~y~Suspect~w~: I was driving to Jon Boy's Towing Services to apply for a job. (1/2)");
                     }
                     if(counter == 3)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: The light was green in my favor then this jackass decided to cross the street. They even have the right of way. I have witnesses. (2/2)");
+                        Game.DisplaySubtitle("~y~Suspect~w~: The light was green in my favor then this jackass decided to cross the street. They even have the right of way. I have witnesses. (2/2)");
                     }
                     if(counter == 4)
                     {
@@ -126,7 +126,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if(counter == 5)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: Ok.");
+                        Game.DisplaySubtitle("~y~Suspect~w~: Ok.");
                     }
                     if(counter == 6)
                     {
