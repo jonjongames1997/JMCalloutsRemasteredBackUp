@@ -3,7 +3,7 @@
 namespace JMCalloutsRemastered.Callouts
 {
 
-    [CalloutInterface("[JM Callouts] Trespassing On Construction Property", CalloutProbability.High, "A individual trespassing on construction property", "Code 1", "LSPD")]
+    [CalloutInterface("[JM Callouts] Trespassing On Construction Property", CalloutProbability.Medium, "A individual trespassing on construction property", "Code 1", "LSPD")]
 
     public class TrespassingOnConstructionProperty : Callout
     {
@@ -92,7 +92,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 2)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: What do you want? I'm filming here.");
+                        Game.DisplaySubtitle("~y~Suspect~w~: What do you want? I'm filming here.");
                     }
                     if (counter == 3)
                     {
@@ -100,7 +100,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 4)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: Yes. I'm surveying the site to write down important information for the mayor. Is that a problem?");
+                        Game.DisplaySubtitle("~y~Suspect~w~: Yes. I'm surveying the site to write down important information for the mayor. Is that a problem?");
                     }
                     if (counter == 5)
                     {
@@ -108,7 +108,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 6)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: Oh, shit! They know!");
+                        Game.DisplaySubtitle("~y~Suspect~w~: Oh, shit! They know!");
                         Suspect.Tasks.ReactAndFlee(Suspect);
                     }
                 }
