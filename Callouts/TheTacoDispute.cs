@@ -79,7 +79,7 @@ namespace JMCalloutsRemastered.Callouts
                 }
                 if(counter == 2)
                 {
-                    Game.DisplaySubtitle("~r~Suspect~w~: About time! These people are not letting me buy my tacos. It's my right to eat my American made tacos.");
+                    Game.DisplaySubtitle("~y~Suspect~w~: About time! These people are not letting me buy my tacos. It's my right to eat my American made tacos.");
                 }
                 if(counter == 3)
                 {
@@ -87,7 +87,7 @@ namespace JMCalloutsRemastered.Callouts
                 }
                 if(counter == 4)
                 {
-                    Game.DisplaySubtitle("~r~Suspect~w~: Are you for real?");
+                    Game.DisplaySubtitle("~y~Suspect~w~: Are you for real?");
                 }
                 if(counter == 5)
                 {
@@ -95,7 +95,7 @@ namespace JMCalloutsRemastered.Callouts
                 }
                 if(counter == 6)
                 {
-                    Game.DisplaySubtitle("~r~Suspect~w~: Oh, Jesus fucking Christ. Okay fine. I was hungry, I decided to go to the taco stand and get me some tacos, I stepped aside to make sure I have money to pay for my food.");
+                    Game.DisplaySubtitle("~y~Suspect~w~: Oh, Jesus fucking Christ. Okay fine. I was hungry, I decided to go to the taco stand and get me some tacos, I stepped aside to make sure I have money to pay for my food.");
                 }
                 if(counter == 7)
                 {
@@ -103,7 +103,7 @@ namespace JMCalloutsRemastered.Callouts
                 }
                 if(counter == 8)
                 {
-                    Game.DisplaySubtitle("~r~Suspect~w~: I went up to the window and started ordering but the manager told me that I need to leave and I asked why.");
+                    Game.DisplaySubtitle("~y~Suspect~w~: I went up to the window and started ordering but the manager told me that I need to leave and I asked why.");
                 }
                 if(counter == 9)
                 {
@@ -111,7 +111,7 @@ namespace JMCalloutsRemastered.Callouts
                 }
                 if(counter == 10)
                 {
-                    Game.DisplaySubtitle("~r~Suspect~w~: No. I didn't do anything wrong. I have my 'Murican right to eat tacos, I'm hangry, I need food in me.....Pause. I'm just hangry.");
+                    Game.DisplaySubtitle("~y~Suspect~w~: No. I didn't do anything wrong. I have my 'Murican right to eat tacos, I'm hangry, I need food in me.....Pause. I'm just hangry.");
                 }
                 if(counter == 11)
                 {
@@ -119,7 +119,7 @@ namespace JMCalloutsRemastered.Callouts
                 }
                 if(counter == 12)
                 {
-                    Game.DisplaySubtitle("~r~Suspect~w~: Okay.");
+                    Game.DisplaySubtitle("~y~Suspect~w~: Okay.");
                 }
                 if(counter == 13)
                 {
@@ -131,7 +131,7 @@ namespace JMCalloutsRemastered.Callouts
                 }
                 if(counter == 15)
                 {
-                    Game.DisplaySubtitle("~r~Suspect~w~: ~o~BULLSHIT~w~! I call bullshit!");
+                    Game.DisplaySubtitle("~y~Suspect~w~: ~o~BULLSHIT~w~! I call bullshit!");
                 }
                 if(counter == 16)
                 {
