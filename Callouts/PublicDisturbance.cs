@@ -106,7 +106,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 2)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: What do you want now, you donut eaters?");
+                        Game.DisplaySubtitle("~o~Suspect~w~: What do you want now, you donut eaters?");
                     }
                     if (counter == 3)
                     {
@@ -114,7 +114,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 4)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: I have a bipolar disorder which I can't control and it makes me say offensive things.");
+                        Game.DisplaySubtitle("~o~Suspect~w~: I have a bipolar disorder which I can't control and it makes me say offensive things.");
                     }
                     if (counter == 5)
                     {
@@ -122,7 +122,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 6)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: Yes, I have forget about it. I do apologize for y'all to be called out here.");
+                        Game.DisplaySubtitle("~o~Suspect~w~: Yes, I have forget about it. I do apologize for y'all to be called out here.");
                     }
                     if (counter == 7)
                     {
@@ -130,7 +130,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 8)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: I didn't mean anything by it. I do apologize about it.");
+                        Game.DisplaySubtitle("~o~Suspect~w~: I didn't mean anything by it. I do apologize about it.");
                     }
                     if (counter == 9)
                     {
@@ -138,7 +138,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 10)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: I understand that loud and clear, Officer.");
+                        Game.DisplaySubtitle("~o~Suspect~w~: I understand that loud and clear, Officer.");
                     }
                     if (counter == 11)
                     {
