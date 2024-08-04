@@ -5,6 +5,8 @@ using SceneManager;
 using LSPD_First_Response.Engine.Scripting.Entities;
 using LSPD_First_Response.Tooling;
 using JMCalloutsRemastered.Stuff;
+using JMCalloutsRemastered.API;
+using JMCalloutsRemastered.Engine;
 
 [assembly: Rage.Attributes.Plugin("JMCalloutsRemastered", Description = "LSPDFR Callout Pack", Author = "OfficerMorrison")]
 namespace JMCalloutsRemastered
@@ -24,7 +26,9 @@ namespace JMCalloutsRemastered
 
             Functions.OnOnDutyStateChanged += Functions_OnOnDutyStateChanged;
             JMCalloutsRemastered.Settings.LoadSettings();
+            JMCalloutsRemasteredAPI.AddDepend("SceneManager.dll", "2.3.3.0");
         }
+
         static void Functions_OnOnDutyStateChanged(bool onDuty)
         {
             if (onDuty)
