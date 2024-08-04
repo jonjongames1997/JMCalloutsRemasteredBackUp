@@ -4,7 +4,7 @@ namespace JMCalloutsRemastered.Callouts
 {
 
 
-    [CalloutInterface("[JM Callouts] Rocketman", CalloutProbability.High, "Reports of a civilian carrying an explosive weapon", "Code 3", "SWAT")]
+    [CalloutInterface("[JM Callouts] Rocketman", CalloutProbability.Medium, "Reports of a civilian carrying an explosive weapon", "Code 3", "SWAT")]
 
     public class Rocketman : Callout
     {
