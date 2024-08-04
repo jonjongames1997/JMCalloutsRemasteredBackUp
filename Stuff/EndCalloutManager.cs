@@ -16,7 +16,7 @@ namespace JMCalloutsRemastered.Stuff
             {
                 GameFiber.Wait(2000);
                 Game.DisplayHelp("Press ~o~" + Settings.EndCall + " ~w~to ~g~Finish~w~ the Callout.");
-                Game.LogTrivial("YOBBINCALLOUTS: ENDCALLOUTHANDLER - Player Will Manually End the Callout");
+                Game.LogTrivial("JMCALLOUTSREMASTERED: ENDCALLOUTMANAGER - Player manually Ends the Callout");
                 while (!Game.IsKeyDown(Settings.EndCall)) GameFiber.Wait(0);
                 //End the Callout
             }
