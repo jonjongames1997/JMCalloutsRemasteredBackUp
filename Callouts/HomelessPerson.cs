@@ -16,12 +16,7 @@ namespace JMCalloutsRemastered.Callouts
 
         public override void OnCalloutDisplayed()
         {
-            List<Vector3> list = new()
-            {
-                new(130.16f, -1737.21f, 30.11f),
-                new(94.63f, -217.37f, 54.49f),
-            };
-            spawnpoint = LocationChooser.ChooseNearestLocation(list);
+            spawnpoint = World.GetNextPositionOnStreet(MainPlayer.Position.Around(100f));
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
             CalloutInterfaceAPI.Functions.SendMessage(this, "A homeless person loitering");
             LSPD_First_Response.Mod.API.Functions.PlayScannerAudioUsingPosition("ATTENTION_ALL_UNITS_02 WE_HAVE_01 CRIME_CITIZEN_REQUESTING_REMOVAL_OF_BEGGARS UNITS_RESPOND_CODE_02_01", spawnpoint);
