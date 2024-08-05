@@ -108,6 +108,7 @@ namespace JMCalloutsRemastered
             else
             {
                 Game.LogTrivial("User does not have Scene Manager by Rich installed. Stopping integration.....");
+                Game.LogTrivial("Injured Person callout relies on Scene Manager to redirect traffic.... Callout will crash.");
                 SceneManager = false;
             }
             Game.Console.Print();
