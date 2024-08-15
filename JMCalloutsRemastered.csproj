@@ -95,6 +95,9 @@
     <Reference Include="NativeUI">
       <HintPath>..\Steam_Games\steamapps\common\Grand Theft Auto V\scripts\NativeUI.dll</HintPath>
     </Reference>
+    <Reference Include="PreEmptive.Attributes, Version=2.0.0.0, Culture=neutral, PublicKeyToken=0a50e0ef4ca013fe">
+      <HintPath>packages\PreEmptive.Protection.Checks.Attributes.2.0.0\lib\net11\PreEmptive.Attributes.dll</HintPath>
+    </Reference>
     <Reference Include="RAGENativeUI">
       <HintPath>..\JMCalloutsRemasteredReferences\RAGENativeUI.dll</HintPath>
     </Reference>
@@ -184,6 +187,7 @@
   <ItemGroup>
     <None Include=".editorconfig" />
     <AdditionalFiles Include="JMCalloutsRemastered.ini" />
+    <None Include="packages.config" />
     <None Include="SupportedLSPDFRVersions.md" />
   </ItemGroup>
   <ItemGroup>
