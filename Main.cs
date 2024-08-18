@@ -54,7 +54,7 @@ namespace JMCalloutsRemastered
 
                     Game.DisplayNotification("web_jonjongames", "web_jonjongames", "JM Callouts Remastered", "~g~v" + Assembly.GetExecutingAssembly().GetName().Version.ToString() + " ~r~by OfficerMorrison", "~b~successfully loaded!");
                     Game.DisplayNotification("~y~JM Callouts Remastered WARNING Notice~w~: If this callout pack is found on other websites that are NOT authorized by the developer. A DMCA Takedown Notice will be sent to the unauthorized uploader for Copyright Infringement. Fuck Around and Find Out.");
-                    Game.DisplayNotification("web_jonjongames", "web_jonjongames", "JM Callouts Remastered", "Callout Successfully Loaded!", "Patrol Objective: Don't get shot at.");
+                    Game.DisplayNotification("web_jonjongames", "web_jonjongames", "JM Callouts Remastered", "Callouts Successfully Loaded!", "Patrol Objective: Don't get shot at.");
 
                     GameFiber.Wait(300);
 
