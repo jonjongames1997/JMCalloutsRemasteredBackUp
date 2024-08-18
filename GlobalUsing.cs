@@ -1,4 +1,6 @@
-﻿global using System;
+﻿# region GlobalUsings
+
+global using System;
 global using System.Collections.Generic;
 global using System.Drawing;
 global using LSPD_First_Response.Mod.API;
@@ -17,3 +19,5 @@ global using RAGENativeUI.PauseMenu;
 global using System.IO;
 global using System.Reflection;
 global using StopThePed;
+
+#endregion
