@@ -60,7 +60,7 @@ namespace JMCalloutsRemastered.Callouts
             suspect.BlockPermanentEvents = true;
             suspect.IsValid();
 
-            SceneManager.API.Functions.LoadPathsFromFile("Plugins/SceneManager/Saved Paths/RedirectTraffic");
+            SceneManager.API.Functions.LoadPathsFromFile("Plugins/SceneManager/Saved Paths/RedirectTraffic.xml");
 
             victim.Tasks.PlayAnimation(new AnimationDictionary("misschinese2_crystalmaze"), "2int_loop_a_taocheng", -1f, AnimationFlags.Loop);
 
