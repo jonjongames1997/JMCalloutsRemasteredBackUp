@@ -129,6 +129,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="API\CIHandler.cs" />
     <Compile Include="API\Dependency.cs" />
     <Compile Include="API\Logger.cs" />
     <Compile Include="Callouts\911HangUp.cs" />
