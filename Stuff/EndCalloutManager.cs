@@ -7,7 +7,7 @@ using Rage;
 
 namespace JMCalloutsRemastered.Stuff
 {
-    class EndCalloutManager
+    public class EndCalloutManager
     {
         public static bool CalloutForcedEnd = false;
         public static void EndCallout()
