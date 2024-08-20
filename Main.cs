@@ -25,8 +25,12 @@ namespace JMCalloutsRemastered
         {
 
             Functions.OnOnDutyStateChanged += Functions_OnOnDutyStateChanged;
-            JMCalloutsRemastered.Settings.LoadSettings();
+            Settings.LoadSettings();
             JMCalloutsRemasteredAPI.AddDepend("SceneManager.dll", "2.3.3.0");
+            
+            if (!JMCalloutsRemasteredAPI.CheckDepends()) return;
+
+
         }
 
         static void Functions_OnOnDutyStateChanged(bool onDuty)
