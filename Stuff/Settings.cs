@@ -94,7 +94,7 @@ namespace JMCalloutsRemastered
             Settings.BountyHunterRequiringAssistance = ini.ReadBoolean("Callouts", "BountyHunterRequiringAssistance", false);
             Settings.HomelessPerson = ini.ReadBoolean("Callouts", "HomelessPerson", true);
             Settings.HelpMessages = ini.ReadBoolean("HelpMessages", "Help Messages", true);
-            Settings.LeaveCalloutsRunning = ini.ReadBoolean("Miscellaneous", "LeaveCalloutsRunning", true);
+            Settings.LeaveCalloutsRunning = ini.ReadBoolean("[Miscellaneous", "LeaveCalloutsRunning", true);
             Settings.EnableDependencyChecker = ini.ReadBoolean("Miscellaneous", "EnableDependencyChecker", true);
             EndCall = ini.ReadEnum("Keys", "EndCall", Keys.End);
             Dialog = ini.ReadEnum("Keys", "Dialog", Keys.E);
