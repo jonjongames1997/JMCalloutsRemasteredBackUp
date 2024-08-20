@@ -129,7 +129,6 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="API\CIHandler.cs" />
     <Compile Include="API\Dependency.cs" />
     <Compile Include="API\Logger.cs" />
     <Compile Include="Callouts\911HangUp.cs" />
@@ -180,6 +179,8 @@
     <Compile Include="Stuff\EndCalloutManager.cs" />
     <Compile Include="Stuff\Helper.cs" />
     <Compile Include="Stuff\LocationChooser.cs" />
+    <Compile Include="Stuff\STPHelper.cs" />
+    <Compile Include="Stuff\UBHelper.cs" />
     <Compile Include="Stuff\Vector3Extension.cs" />
     <Compile Include="Utilities\VehicleColor.cs" />
     <Compile Include="Utilities\VehicleExtensions.cs" />
