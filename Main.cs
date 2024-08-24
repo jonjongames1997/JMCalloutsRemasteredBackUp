@@ -77,6 +77,15 @@ namespace JMCalloutsRemastered
                     "JM Callouts Remastered",
                     "~r~by OfficerMorrison",
                     $"{PluginLoadText.PickRandom()}");
+
+                if (DebugMode)
+                {
+                    Game.DisplayNotification("web_jonjongames",
+                        "web_jonjongames",
+                        "JM Callouts Remastered",
+                        "~r~by OfficerMorrison",
+                        $"Debug Mode has been enabled! Please notify me ASAP!");
+                }
             });
         }
         private static void RegisterCallouts()
