@@ -21,8 +21,6 @@ namespace JMCalloutsRemastered
         public static bool UltimateBackup;
         public static bool SceneManager;
 
-        public override void Finally() { }
-
         public override void Initialize()
         {
 
@@ -163,5 +161,11 @@ namespace JMCalloutsRemastered
             Game.Console.Print("================================================== JM Callouts Remastered ===================================================");
             Game.Console.Print();
         }
+
+        public override void Finally()
+        {
+
+        }
     }
+
 }
