@@ -30,5 +30,7 @@ global using static JMCalloutsRemastered.API.Dependency;
 global using static JMCalloutsRemastered.Settings;
 global using static JMCalloutsRemastered.Stuff.Vector3Extension;
 global using static JMCalloutsRemastered.Engine.EnumExtensionManager;
+global using static JMCalloutsRemastered.IniFile;
+global using JMCalloutsRemastered.API;
 
 #endregion
