@@ -35,8 +35,8 @@ namespace JMCalloutsRemastered
         static void Functions_OnOnDutyStateChanged(bool onDuty)
         {
             if (onDuty)
-                GameFiber.StartNew(delegate
-                {
+            GameFiber.StartNew(delegate
+            {
                     RegisterCallouts();
                     Game.Console.Print();
                     Game.Console.Print("=============================================== JM Callouts Remastered by OfficerMorrison ================================================");
@@ -71,7 +71,13 @@ namespace JMCalloutsRemastered
                     VersionChecker.PluginCheck.isUpdateAvailable();
 
                     GameFiber.Wait(300);
-                });
+
+                    Game.DisplayNotification("web_jonjongames",
+                    "web_jonjongames",
+                    "JM Callouts Remastered",
+                    "~r~by OfficerMorrison",
+                    $"{PluginLoadText.PickRandom()}");
+            });
         }
         private static void RegisterCallouts()
         {
