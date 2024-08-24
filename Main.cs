@@ -57,7 +57,6 @@ namespace JMCalloutsRemastered
 
                     Game.DisplayNotification("web_jonjongames", "web_jonjongames", "JM Callouts Remastered", "~g~v" + Assembly.GetExecutingAssembly().GetName().Version.ToString() + " ~r~by OfficerMorrison", "~b~successfully loaded!");
                     Game.DisplayNotification("~y~JM Callouts Remastered WARNING Notice~w~: If this callout pack is found on other websites that are NOT authorized by the developer. A DMCA Takedown Notice will be sent to the unauthorized uploader for Copyright Infringement. Fuck Around and Find Out.");
-                    Game.DisplayNotification("web_jonjongames", "web_jonjongames", "JM Callouts Remastered", "Callouts Successfully Loaded!", "Patrol Objective: Don't get shot at.");
 
 
                     if (Settings.HelpMessages)
@@ -160,6 +159,22 @@ namespace JMCalloutsRemastered
             Game.Console.Print();
             Game.Console.Print("================================================== JM Callouts Remastered ===================================================");
             Game.Console.Print();
+        }
+
+        private static void CleanUp(object sender, EventArgs e)
+        {
+            try
+            {
+                Game.DisplayNotification("web_jonjongames",
+                    "web_jonjongames",
+                    "JM Callouts Remastered",
+                    "~o~By~w~ OfficerMorrison",
+                    $"{PluginUnloadText.PickRandom()}");
+            }
+            catch (Exception ex)
+            {
+                Error(ex, nameof(CleanUp));
+            }
         }
 
         public override void Finally()
