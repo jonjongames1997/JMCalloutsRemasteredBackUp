@@ -3,7 +3,7 @@
 namespace JMCalloutsRemastered.Callouts
 {
 
-    [CalloutInterface("[JM Callouts] Homeless Man Loitering", CalloutProbability.Medium, "A homeless person loitering and refusing to leave", "CODE 2", "LSPD")]
+    [CalloutInterface("[JM Callouts] Homeless Person Loitering", CalloutProbability.Medium, "A homeless person loitering and refusing to leave", "CODE 2", "LSPD")]
 
     public class HomelessPerson : Callout
     {
@@ -107,8 +107,8 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if(counter == 7)
                     {
-                        suspect.Tasks.ReactAndFlee(suspect);
                         Game.DisplaySubtitle("~b~You~: Dispatch, suspect is on foot. He's fleeing from me. Show me in pursuit of that suspect.");
+                        suspect.Tasks.ReactAndFlee(suspect);
                         UltimateBackup.API.Functions.callPursuitBackup(suspect);
                     }
                 }
