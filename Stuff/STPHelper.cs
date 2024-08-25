@@ -6,6 +6,8 @@ using System;
 
 namespace JMCalloutsRemastered.Stuff
 {
+    // Credit to Yobbin for his Open Source code as a reference. github.com/YobB1n/YobbinCallouts/blob/master/StopThePedHelper.cs
+
     internal class StopThePedFunctions
     {
         internal static void SetPedUnderTheInfluence(Ped ped, bool underInfluence)
