@@ -39,8 +39,7 @@ namespace JMCalloutsRemastered.Callouts
             Suspect.BlockPermanentEvents = true;
 
             Suspect.Tasks.PlayAnimation(new AnimationDictionary("switch@michael@prostitute"), "base_hooker", -1f, AnimationFlags.Loop);
-
-            Game.DisplayHelp("Tip: This callout works best at night time.");
+            StopThePed.API.Functions.injectPedSearchItems(Suspect);
 
             SuspectBlip = Suspect.AttachBlip();
             SuspectBlip.Color = System.Drawing.Color.DeepPink;
@@ -79,7 +78,6 @@ namespace JMCalloutsRemastered.Callouts
 
                     if (counter == 1)
                     {
-                        Suspect.Face(MainPlayer);
                         Game.DisplaySubtitle("~b~Player~w~: Excuse me, " + malefemale + ". Can you talk to me for a minute?");
                     }
                     if (counter == 2)
@@ -130,7 +128,7 @@ namespace JMCalloutsRemastered.Callouts
                     if (counter == 13)
                     {
                         Game.DisplaySubtitle("Conversation ended. Deal with the situation you may see fit.");
-                        Suspect.Tasks.PutHandsUp(500, MainPlayer);
+                        Suspect.Tasks.Cower(500);
                     }
                 }
             }
