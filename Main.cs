@@ -71,21 +71,15 @@ namespace JMCalloutsRemastered
                     VersionChecker.PluginCheck.isUpdateAvailable();
 
                     GameFiber.Wait(300);
-
-                    Game.DisplayNotification("web_jonjongames",
-                    "web_jonjongames",
-                    "JM Callouts Remastered",
-                    "~r~by OfficerMorrison",
-                    $"{PluginLoadText.PickRandom()}");
-
-                if (DebugMode)
-                {
-                    Game.DisplayNotification("web_jonjongames",
-                        "web_jonjongames",
-                        "JM Callouts Remastered",
-                        "~r~by OfficerMorrison",
-                        $"Debug Mode has been enabled! Please notify me ASAP!");
-                }
+                /////////////////////////////
+                // Credit to AstroBurgers for his opensource code as a guide reference. github.com/AstroBurgers/RiskierTrafficStops/blob/master/RiskierTrafficStops/Main.cs
+                
+                Game.DisplayNotification("web_jonjongames",
+                "web_jonjongames",
+                "JM Callouts Remastered",
+                "~r~by OfficerMorrison",
+                $"{PluginLoadText.PickRandom()}");
+                ////////////////////////////////////////
             });
         }
         private static void RegisterCallouts()
@@ -174,22 +168,6 @@ namespace JMCalloutsRemastered
             Game.Console.Print();
             Game.Console.Print("================================================== JM Callouts Remastered ===================================================");
             Game.Console.Print();
-        }
-
-        private static void CleanUp(object sender, EventArgs e)
-        {
-            try
-            {
-                Game.DisplayNotification("web_jonjongames",
-                    "web_jonjongames",
-                    "JM Callouts Remastered",
-                    "~o~By~w~ OfficerMorrison",
-                    $"{PluginUnloadText.PickRandom()}");
-            }
-            catch (Exception ex)
-            {
-                Error(ex, nameof(CleanUp));
-            }
         }
 
         public override void Finally()
