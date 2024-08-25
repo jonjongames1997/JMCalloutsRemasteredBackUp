@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace JMCalloutsRemastered.Stuff
 {
+    // Credit to Yobbin for his Open Source code as a reference. github.com/YobB1n/YobbinCallouts/blob/master/UltimateBackupHelper.cs
+
     internal class UltimateBackupFunctions
     {
         internal static void CallPursuitBackup()
