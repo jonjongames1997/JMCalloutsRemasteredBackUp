@@ -34,7 +34,7 @@ namespace JMCalloutsRemastered.Engine
                 if (!File.Exists(depend.PluginName)) missingDepend += $"{depend.DependName}~n~";
             if(missingDepend.Length > 0)
             {
-                Logger.Error($"You are missing a dependency that JM Callouts Remastered relies on!\r\n{missingDepend.Replace("~n~", "\r\n")}{PluginName} could not load!");
+                Logger.Debug($"You are missing a dependency that JM Callouts Remastered relies on!\r\n{missingDepend.Replace("~n~", "\r\n")}{PluginName} could not load!");
                 Game.DisplayNotification("new_editor", "warningtriangle", $"~r~{PluginName}", "~r~Not Loaded!", "Plugin is installed incorrectly! Please see the RagePluginHook.log! Get support here: https://discord.gg/N9KgZx4KUn");
                 return false;
             }
@@ -47,7 +47,7 @@ namespace JMCalloutsRemastered.Engine
 
             if(OutdatedDependency.Length > 0)
             {
-                Logger.Error($"There are dependencies which are outdated! Please update as soon as possible.\r\n{OutdatedDependency.Replace("~n~", "\r\n")}{PluginName} could not load!");
+                Logger.Debug($"There are dependencies which are outdated! Please update as soon as possible.\r\n{OutdatedDependency.Replace("~n~", "\r\n")}{PluginName} could not load!");
                 Game.DisplayNotification("new_editor", "warningtriangle", $"~r~{PluginName}", "~r~Not Loaded!", "Plugin is installed incorrectly!Please see the RagePluginHook.log! Get support here: https://discord.gg/N9KgZx4KUn");
                 return false;
             }
