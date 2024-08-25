@@ -4,6 +4,7 @@ namespace JMCalloutsRemastered.Stuff
 {
     internal class Arrays
     {
+        // Credit to Astroburgers for his code as a reference. github.com/AstroBurgers/RiskierTrafficStops/blob/master/RiskierTrafficStops/Engine/Data/Arrays.cs
 
         internal static readonly string[] PluginLoadText =
         {
@@ -12,18 +13,9 @@ namespace JMCalloutsRemastered.Stuff
             "Patrol Objective: Protect Kifflom!",
             "Patrol Objective: Don't be a douchebag to the homeless.",
             "Patrol Tip: Always Watch Your Six.",
-        };
-
-        internal static readonly string[] PluginUnloadText =
-        {
-            "Error Code: KaR3nMoD3",
+            "Error Code: KaR3nMoD3. *JK*",
             "Is that you Venoxity? 0_0",
-            "You fucked up, didn't you?",
-            "You getting that promotion, Officer.",
-            "I'm shocked that you made it alive?",
-            "Go treat yourself with a beer or something.",
+            "You fucked up the JMCalloutsRemastered.ini. *Just Kidding*.",
         };
-
-
     }
 }
