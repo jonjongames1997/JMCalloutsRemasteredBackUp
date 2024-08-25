@@ -169,6 +169,7 @@
     <Compile Include="Callouts\UnauthorizedAccessMovieStudio.cs" />
     <Compile Include="Engine\ConsoleCommand.cs" />
     <Compile Include="API\JMCalloutsRemasteredAPI.cs" />
+    <Compile Include="Engine\EnumExtensionManager.cs" />
     <Compile Include="GlobalUsing.cs" />
     <Compile Include="IniFile.cs" />
     <Compile Include="Main.cs" />
