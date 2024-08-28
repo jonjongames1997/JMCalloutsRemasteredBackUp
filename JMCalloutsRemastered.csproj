@@ -137,6 +137,10 @@
     <Compile Include="Callouts\CodeKaren.cs" />
     <Compile Include="Callouts\DeadBody.cs" />
     <Compile Include="Callouts\DomesticDisturbance.cs" />
+    <Compile Include="Callouts\DomesticDisturbanceGrapeSeed.cs" />
+    <Compile Include="Callouts\DomesticDisturbanceHarmony.cs" />
+    <Compile Include="Callouts\DomesticDisturbancePaletoBay.cs" />
+    <Compile Include="Callouts\DomesticDisturbanceSandyShores.cs" />
     <Compile Include="Callouts\FirstAmendmentAuditors.cs" />
     <Compile Include="Callouts\HomelessPerson.cs" />
     <Compile Include="Callouts\IllegalCampfireOnPublicBeach.cs" />
