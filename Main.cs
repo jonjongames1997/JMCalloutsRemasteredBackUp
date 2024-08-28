@@ -68,6 +68,15 @@ namespace JMCalloutsRemastered
                         Settings.HelpMessages = false;
                     }
 
+                    if (Settings.EnableDependencyChecker)
+                    {
+                        Game.DisplayHelp("You can disable the 'Dependency Checker' in the ini.");
+                    }
+                    else
+                    {
+                        Settings.EnableDependencyChecker = false;
+                    }
+
                     VersionChecker.PluginCheck.isUpdateAvailable();
 
                     GameFiber.Wait(300);
