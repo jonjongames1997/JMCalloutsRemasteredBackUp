@@ -52,6 +52,7 @@ namespace JMCalloutsRemastered.Callouts
             LSPD_First_Response.Mod.API.Functions.AddPedToPursuit(pursuit, suspect);
             LSPD_First_Response.Mod.API.Functions.SetPursuitIsActiveForPlayer(pursuit, true);
             pursuitCreated = true;
+            UltimateBackup.API.Functions.callPursuitBackup();
 
             return base.OnCalloutAccepted();
         }
@@ -80,6 +81,7 @@ namespace JMCalloutsRemastered.Callouts
             if (blip) blip.Delete();
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Stolen Construction Equipment", "~b~You~w~: Dispatch, we are ~g~CODE 4~w~. Show me back 10-8.");
             LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_THIS_IS_DISPATCH_HIGH ALL_UNITS_CODE4 NO_FURHTER_UNITS_REQUIRED");
+            UltimateBackup.API.Functions.dismissAllBackupUnits();
             base.End();
 
             Game.LogTrivial("[JM Callouts Remastered Log]: Stolen Police Vehicle is Code 4!");
