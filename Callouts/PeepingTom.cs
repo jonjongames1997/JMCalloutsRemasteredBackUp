@@ -26,6 +26,9 @@ namespace JMCalloutsRemastered.Callouts
                 new(-1713.22f, 386.81f, 89.73f),
                 new(312.86f, 468.63f, 151.27f),
                 new(-162.05f, 889.77f, 233.47f),
+                new(),
+                new(),
+                new(),
             };
             spawnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
@@ -46,7 +49,8 @@ namespace JMCalloutsRemastered.Callouts
             suspect.IsPersistent = true;
             suspect.BlockPermanentEvents = true;
 
-            suspect.Tasks.PutHandsUp(500, MainPlayer);
+            suspect.Tasks.PlayAnimation(new AnimationDictionary("missarmenian2"), "standing_idle_loop_drunk", -1f, AnimationFlags.Loop);
+            StopThePed.API.Functions.setPedAlcoholOverLimit(suspect, true);
 
             suspectBlip = suspect.AttachBlip();
             suspectBlip.Color = System.Drawing.Color.Chocolate;
@@ -90,12 +94,11 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if(counter == 2)
                     {
-                        Game.DisplaySubtitle("~y~Suspect~w~: Shit, the one time!");
+                        Game.DisplaySubtitle("~y~Suspect~w~: Oh, shit!");
                     }
                     if(counter == 3)
                     {
                         Game.DisplaySubtitle("Conversation Ended!");
-                        suspect.Tasks.ReactAndFlee(suspect);
                     }
                 }
             }
