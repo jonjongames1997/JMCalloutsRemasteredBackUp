@@ -60,7 +60,7 @@ namespace JMCalloutsRemastered.Callouts
             suspect.BlockPermanentEvents = true;
             suspect.IsValid();
 
-            SceneManager.API.Functions.LoadPathsFromFile("Plugins/SceneManager/Saved Paths/RedirectTraffic.xml");
+            SceneManager.API.Functions.LoadPathsFromFile(@"Plugins\SceneManager\Saved Paths\RedirectTraffic.xml");
 
             victim.Tasks.PlayAnimation(new AnimationDictionary("misschinese2_crystalmaze"), "2int_loop_a_taocheng", -1f, AnimationFlags.Loop);
 
@@ -90,6 +90,8 @@ namespace JMCalloutsRemastered.Callouts
             if (vicBlip) vicBlip.Delete();
             if (suspect) suspect.Delete();
             if (suspectBlip) suspectBlip.Delete();
+
+            SceneManager.API.Functions.DeleteLoadedPaths();
 
             base.OnCalloutNotAccepted();
         }
