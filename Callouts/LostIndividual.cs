@@ -1,4 +1,5 @@
 ﻿using CalloutInterfaceAPI;
+using System.Windows.Forms;
 
 
 namespace JMCalloutsRemastered.Callouts
@@ -48,6 +49,10 @@ namespace JMCalloutsRemastered.Callouts
             victim.IsPersistent = true;
             victim.BlockPermanentEvents = true;
 
+            victim.Tasks.PlayAnimation(new AnimationDictionary("anim_heist@arcade@fortune@male@"), "reaction_confused", -1f, AnimationFlags.Loop);
+
+            suspect.Tasks.PlayAnimation(new AnimationDictionary("weapons@first_person@aim_rng@p_m_zero@shotgun@assault_shotgun@fidgets@c"), "fidget_med_loop", -1f, AnimationFlags.UpperBodyOnly);
+
             // Michael Spawns and equips a gun //
             suspect = new Ped("PLAYER_ZERO", suspectSpawnpoint, suspectHeading);
             suspect.IsPersistent = true;
@@ -96,22 +101,27 @@ namespace JMCalloutsRemastered.Callouts
                     if (counter == 1)
                     {
                         suspect.Face(MainPlayer);
+                        victim.Tasks.PlayAnimation(new AnimationDictionary("special_ped@mani@trevor_1@trevor_1d"), "convo_trevor_whahellholaamigo_3", -1f, AnimationFlags.Loop);
                         Game.DisplaySubtitle("~b~Player~w~: Excuse me, " + malefemale + ". Can you tell me what happened?");
                     }
                     if (counter == 2)
                     {
+                        victim.Tasks.PlayAnimation(new AnimationDictionary("anim@amb@casino@hangout@ped_female@stand_withdrink@01a@idles_convo"), "idle_a", -1f, AnimationFlags.Loop);
                         Game.DisplaySubtitle("~y~Victim~w~: Well, I was doing my grocery shopping for my family, somehow I managed to hit my head on a pole. I was knocked out for a few minutes. I don't remember the rest");
                     }
                     if (counter == 3)
                     {
+                        victim.Tasks.PlayAnimation(new AnimationDictionary("special_ped@mani@trevor_1@trevor_1d"), "convo_trevor_whahellholaamigo_3", -1f, AnimationFlags.Loop);
                         Game.DisplaySubtitle("~b~Player~w~: Okay, " + malefemale + ". Do you need any medical attention?");
                     }
                     if (counter == 4)
                     {
+                        victim.Tasks.PlayAnimation(new AnimationDictionary("anim@amb@casino@hangout@ped_female@stand_withdrink@01a@idles_convo"), "idle_a", -1f, AnimationFlags.Loop);
                         Game.DisplaySubtitle("~y~Victim~w~: No, I'll be fine. I'll just take some Tylenol and get some rest. I'll be okay.");
                     }
                     if (counter == 5)
                     {
+                        victim.Tasks.PlayAnimation(new AnimationDictionary("special_ped@mani@trevor_1@trevor_1d"), "convo_trevor_whahellholaamigo_3", -1f, AnimationFlags.Loop);
                         Game.DisplaySubtitle("Conversation Ended! Call her an Uber.");
                     }
                     if (counter == 6)
@@ -119,6 +129,7 @@ namespace JMCalloutsRemastered.Callouts
                         Game.DisplaySubtitle("~r~Suspect~w~: You motherfucker, you! DIE!!!!!");
                         suspect.Tasks.FightAgainst(MainPlayer);
                         suspect.Inventory.GiveNewWeapon("WEAPON_GUSENBERG", 500, true);
+                        UltimateBackup.API.Functions.callPursuitBackup();
                     }
 
                 }
@@ -126,7 +137,7 @@ namespace JMCalloutsRemastered.Callouts
             }
 
             if (MainPlayer.IsDead) End();
-            if (Game.IsKeyDown(System.Windows.Forms.Keys.End)) End();
+            if (Game.IsKeyDown(Settings.EndCall)) End();
 
             base.Process();
         }
