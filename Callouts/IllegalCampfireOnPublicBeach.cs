@@ -43,7 +43,7 @@ namespace JMCalloutsRemastered.Callouts
                 new(-345.28f, 6502.31f, 2.91f),
             };
             Spawnpoint = LocationChooser.ChooseNearestLocation(list);
-            ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 1000f); // Blips the area of the callout //
+            ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 500f); // Blips the area of the callout //
             LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_ALL_UNITS_01 WE_HAVE_01 CRIME_PUBLIC_DISTURBANCE UNITS_RESPOND_CODE_02_01");
             CalloutInterfaceAPI.Functions.SendMessage(this, "Vespucci Beach Security reporting an individual starting a campfire on the beach. Suspect refused to put out the fire as requested by security.");
             CalloutMessage = "Individual started an illegal campfire on the beach!"; // Brief description of the call //
@@ -62,7 +62,7 @@ namespace JMCalloutsRemastered.Callouts
             Suspect.IsPersistent = true;
             Suspect.BlockPermanentEvents = true;
 
-            Suspect.Tasks.PlayAnimation(new AnimationDictionary("anim@amb@nightclub@djs@black_madonna@"), "dance_b_idle_a_blamadon", -1, AnimationFlags.Loop);
+            Suspect.Tasks.PlayAnimation(new AnimationDictionary("amb@world_human_strip_watch_stand@male_c@base"), "base", -1, AnimationFlags.Loop);
 
             SuspectBlip = Suspect.AttachBlip();
             SuspectBlip.Color = System.Drawing.Color.Chocolate;
@@ -93,7 +93,7 @@ namespace JMCalloutsRemastered.Callouts
             if (MainPlayer.DistanceTo(Suspect) <= 10f)
             {
 
-                Game.DisplayHelp("Press 'E' to speak with the ~r~suspect.", false);
+                Game.DisplayHelp("Press ~y~E~w~ to speak with the ~r~suspect~w~.", false);
 
                 if (Game.IsKeyDown(System.Windows.Forms.Keys.E))
                 {
@@ -101,7 +101,6 @@ namespace JMCalloutsRemastered.Callouts
 
                     if (counter == 1)
                     {
-                        Suspect.Face(MainPlayer);
                         Game.DisplaySubtitle("~b~Player~w~: Good evening " + malefemale + ", May I speak with you for a moment?");
                     }
                     if (counter == 2)
@@ -135,7 +134,7 @@ namespace JMCalloutsRemastered.Callouts
                     if (counter == 9)
                     {
                         Game.DisplaySubtitle("Conversation has ended!");
-                        Game.DisplayNotification("Arrest the suspect, Officer.");
+                        Game.DisplaySubtitle("Arrest the suspect, Officer.");
                         Suspect.Tasks.ReactAndFlee(Suspect);
                     }
                 }
