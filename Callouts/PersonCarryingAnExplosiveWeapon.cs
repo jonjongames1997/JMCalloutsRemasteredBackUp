@@ -9,7 +9,7 @@ namespace JMCalloutsRemastered
     public class PersonCarryingAnExplosiveWeapon : Callout
     {
 
-        private static readonly string[] wepList = new string[] { "WEAPON_RPG", "WEAPON_GRENADELAUNCHER", "WEAPON_GRENADELAUNCHER_SMOKE", "WEAPON_FIREWORK", "WEAPON_HOMINGLAUNCHER", "WEAPON_COMPACTLAUNCHER", "WEAPON_GRENADE", "WEAPON_MOLOTOV", "WEAPON_STICKYBOMB", "WEAPON_PROXMINE", "WEAPON_PIPEBOMB" };
+        private static readonly string[] wepList = new string[] { "WEAPON_RPG", "WEAPON_GRENADELAUNCHER", "WEAPON_GRENADELAUNCHER_SMOKE", "WEAPON_HOMINGLAUNCHER", "WEAPON_COMPACTLAUNCHER", "WEAPON_GRENADE", "WEAPON_MOLOTOV", "WEAPON_STICKYBOMB", "WEAPON_PROXMINE", "WEAPON_PIPEBOMB" };
         private static Ped suspect;
         private static Vector3 spawnpoint;
         private static Blip suspectBlip;
@@ -71,13 +71,15 @@ namespace JMCalloutsRemastered
             {
                 Game.DisplayHelp("Press ~y~E~w~ to interact with the suspect.", false);
 
+                UltimateBackup.API.Functions.callCode3Backup(MainPlayer);
+                UltimateBackup.API.Functions.callFemaleBackup();
+
                 if (Game.IsKeyDown(System.Windows.Forms.Keys.E))
                 {
                     counter++;
 
                     if(counter == 1)
                     {
-                        suspect.Face(MainPlayer);
                         Game.DisplaySubtitle("~b~You~w~: Police! Drop that weapon right now!");
                     }
                     if(counter == 2)
@@ -99,6 +101,9 @@ namespace JMCalloutsRemastered
                     if(counter == 6)
                     {
                         Game.DisplaySubtitle("~r~Suspect~w~: I said, 'BET!'. What part of that don't you understand? You speak English?");
+                    }
+                    if(counter == 7)
+                    {
                         suspect.Tasks.FightAgainst(MainPlayer);
                         suspect.Inventory.GiveNewWeapon(wepList[new Random().Next((int)wepList.Length)], 500, true);
                         suspect.Armor = 500;
@@ -116,6 +121,7 @@ namespace JMCalloutsRemastered
             if (suspectBlip) suspectBlip.Delete();
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Person Carrying An Explosive Weapon", "~b~You~w~: Dispatch, we are ~g~CODE 4~w~. Show me back 10-8.");
             LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_THIS_IS_DISPATCH_HIGH ALL_UNITS_CODE4 NO_FURTHER_UNITS_REQUIRED");
+            UltimateBackup.API.Functions.dismissAllBackupUnits();
             base.End();
 
             Game.LogTrivial("JM Callouts Remastered [LOG]: Person Carrying An Explosive Weapon callout is Code 4!");
