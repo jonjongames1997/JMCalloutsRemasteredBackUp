@@ -4,6 +4,7 @@
 
 - Added 4 new locations for 9-1-1 Hang Up callout for Blaine County
 - Added 3 new locations for Code Karen callout for Blaine County
+- Fixed an issue with Scene Manager not loading the 'RedirectTraffic' xml file in when accepting InjuredPerson callout.
 - 
 
 5.0.4.2:
