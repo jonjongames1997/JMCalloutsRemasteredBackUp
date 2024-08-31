@@ -69,6 +69,8 @@ namespace JMCalloutsRemastered.Callouts
             Suspect.BlockPermanentEvents = true;
             Suspect.Inventory.GiveNewWeapon("WEAPON_UNARMED", 500, true);
 
+            Suspect.Tasks.PlayAnimation(new AnimationDictionary("anim@amb@casino@brawl@fights@argue@"), "arguement_loop_mp_m_brawler_01", -1f, AnimationFlags.Loop);
+
             SuspectBlip = Suspect.AttachBlip();
             SuspectBlip.Color = System.Drawing.Color.Coral;
             SuspectBlip.IsRouteEnabled = true;
@@ -110,28 +112,35 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 2)
                     {
+                        Suspect.Face(MainPlayer);
+                        Suspect.Tasks.PlayAnimation(new AnimationDictionary("anim@amb@casino@brawl@fights@argue@"), "arguement_loop_mp_m_brawler_02", -1f, AnimationFlags.Loop);
                         Game.DisplaySubtitle("~y~Suspect~w~: Fuck no! I can come into this business anytime I want. It's public property!");
                     }
                     if (counter == 3)
                     {
+                        Suspect.Tasks.PlayAnimation(new AnimationDictionary("random@shop_tattoo"), "_idle_a", -1f, AnimationFlags.UpperBodyOnly);
                         Game.DisplaySubtitle("~b~Player~w~: No it's not, " + malefemale + ". It's private property and they can trespass you anytime they want. Come talk to me real quick.");
                     }
                     if (counter == 4)
                     {
+                        Suspect.Tasks.PlayAnimation(new AnimationDictionary("anim@amb@casino@brawl@fights@argue@"), "arguement_loop_mp_m_brawler_02", -1f, AnimationFlags.Loop);
                         Game.DisplaySubtitle("~y~Suspect~w~: I'm not talking you until I receive my fucking merchandise that I paid for! I want to speak with the Manager!!!");
                     }
                     if (counter == 5)
                     {
+                        Suspect.Tasks.PlayAnimation(new AnimationDictionary("random@shop_tattoo"), "_idle_a", -1f, AnimationFlags.UpperBodyOnly);
                         Game.DisplaySubtitle("~b~Player~w~: " + malefemale + ", I need you to calm down and please don't cuss, there's children in the store.");
                     }
                     if (counter == 6)
                     {
+                        Suspect.Tasks.PlayAnimation(new AnimationDictionary("anim@amb@casino@brawl@fights@argue@"), "arguement_loop_mp_m_brawler_02", -1f, AnimationFlags.Loop);
                         Game.DisplaySubtitle("~y~Suspect~w~: FUCK YOU AND FUCK THIS STORE! I'll be back with 'my little friend' I'll show y'all.");
                     }
                     if (counter == 7)
                     {
                         Game.DisplayNotification("Arrest the suspect!");
                         Suspect.Tasks.ReactAndFlee(Suspect);
+                        UltimateBackup.API.Functions.callPursuitBackup(Suspect);
                     }
                 }
             }
