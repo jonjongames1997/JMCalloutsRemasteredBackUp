@@ -1,6 +1,4 @@
 ﻿using CalloutInterfaceAPI;
-using StopThePed.API;
-using StopThePed;
 
 namespace JMCalloutsRemastered.Callouts
 {
@@ -47,6 +45,10 @@ namespace JMCalloutsRemastered.Callouts
             victim.IsPersistent = true;
             victim.IsValid();
             victim.BlockPermanentEvents = true;
+
+            suspect.Tasks.PlayAnimation(new AnimationDictionary("random@shop_tattoo"), "_idle_a", -1f, AnimationFlags.UpperBodyOnly);
+
+            victim.Tasks.PlayAnimation(new AnimationDictionary("friends@frj@ig_1"), "wave_a", -1f, AnimationFlags.Loop);
 
             StopThePed.API.Functions.setPedUnderDrugsInfluence(suspect, true);
             StopThePed.API.Functions.injectPedSearchItems(suspect);
@@ -107,10 +109,12 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if(counter == 2)
                     {
+                        victim.Tasks.PlayAnimation(new AnimationDictionary("anim@amb@casino@hangout@ped_female@stand_withdrink@01a@idles_convo"), "idle_a", -1f, AnimationFlags.Loop);
                         Game.DisplaySubtitle("~o~Victim~w~: Hello, Officer. I am doing fine.... well, kinda. We are having an argument over headphones and earbuds. My buddy claims that over the head headphones is different from headphones. I told my buddy is stil headphones. I do apologize for you being called out.");
                     }
                     if(counter == 3)
                     {
+                        victim.Tasks.PlayAnimation(new AnimationDictionary("rcmjosh1"), "idle",  1f, AnimationFlags.Loop);
                         Game.DisplaySubtitle("~b~You~w~: Is that why I was being called out here over headphones and earbuds?");
                     }
                     if(counter == 4)
@@ -123,11 +127,22 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if(counter == 6)
                     {
+                        victim.Tasks.PlayAnimation(new AnimationDictionary("anim@amb@casino@hangout@ped_female@stand_withdrink@01a@idles_convo"), "idle_a", -1f, AnimationFlags.Loop);
                         Game.DisplaySubtitle("~o~Victim~w~: I'm not a Gen Z, officer, my buddy is. But ok officer.");
                     }
                     if(counter == 7)
                     {
+                        victim.Tasks.PlayAnimation(new AnimationDictionary("rcmjosh1"), "idle", 1f, AnimationFlags.Loop);
                         Game.DisplaySubtitle("Conversation Ended. Talk to the ~r~Suspect~w~. Roleplay it out.");
+                    }
+                    if(counter == 8)
+                    {
+                        suspect.Tasks.FightAgainst(MainPlayer);
+                        suspect.Inventory.GiveNewWeapon("WEAPON_CROWBAR", 500, true);
+                        suspect.Armor = 100;
+                        victim.Tasks.Cower(500);
+
+                        UltimateBackup.API.Functions.callPanicButtonBackup(MainPlayer);
                     }
                 }
             }
