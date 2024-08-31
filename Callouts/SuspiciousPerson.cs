@@ -15,7 +15,7 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnBeforeCalloutDisplayed()
         {
-            spawnpoint = World.GetNextPositionOnStreet(MainPlayer.Position.Around(1000f));
+            spawnpoint = World.GetNextPositionOnStreet(MainPlayer.Position.Around(500f));
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
             LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_ALL_UNITS_02 WE_HAVE_01 CRIME_SUSPICIOUS_ACTIVITY UNITS_RESPOND_CODE_02_02");
             CalloutInterfaceAPI.Functions.SendMessage(this, "Multiple reports of a suspicous person in the area.");
@@ -36,6 +36,8 @@ namespace JMCalloutsRemastered.Callouts
             suspect.IsValid();
             suspect.BlockPermanentEvents = true;
             suspect.Inventory.GiveNewWeapon("WEAPON_UNARMED", 500, true);
+
+            suspect.Tasks.PlayAnimation(new AnimationDictionary("oddjobs@assassinate@vice@hooker"), "argue_a", -1f, AnimationFlags.Loop);
 
             susBlip = suspect.AttachBlip();
             susBlip.Color = System.Drawing.Color.CornflowerBlue;
@@ -77,6 +79,8 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if(counter == 2)
                     {
+                        suspect.Face(MainPlayer);
+                        suspect.Tasks.PlayAnimation(new AnimationDictionary("anim@amb@casino@brawl@fights@argue@"), "arguement_loop_mp_m_brawler_02", -1f, AnimationFlags.Loop);
                         Game.DisplaySubtitle("~y~Suspect~w~: Oh, Shit. What's going on here, officer?");
                     }
                     if(counter == 3)
@@ -85,6 +89,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if(counter == 4)
                     {
+                        suspect.Tasks.PlayAnimation(new AnimationDictionary("oddjobs@assassinate@vice@hooker"), "argue_b", -1f, AnimationFlags.Loop);
                         Game.DisplaySubtitle("~y~Suspect~w~: Fucking your mother, what does it look like I'm doing?");
                     }
                     if(counter == 5)
@@ -93,6 +98,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if(counter == 6)
                     {
+                        suspect.Tasks.PlayAnimation(new AnimationDictionary("anim@amb@casino@brawl@fights@argue@"), "arguement_loop_mp_m_brawler_01", -1f, AnimationFlags.Loop);
                         Game.DisplaySubtitle("~y~Suspect~w~: None of your fucking business, bitch!");
                     }
                     if(counter == 7)
@@ -101,6 +107,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if(counter == 8)
                     {
+                        suspect.Tasks.PlayAnimation(new AnimationDictionary("anim@mp_player_intupperfinger"), "idle_a_fp", -1f, AnimationFlags.Loop);
                         Game.DisplaySubtitle("~y~Suspect~w~: KISS MY MIGHTY BUNGHOLE!");
                     }
                     if(counter == 9)
@@ -109,6 +116,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if(counter == 10)
                     {
+                        suspect.Tasks.PlayAnimation(new AnimationDictionary("anim@mp_player_intcelebrationmale@finger"), "finger", -1f, AnimationFlags.UpperBodyOnly);
                         Game.DisplaySubtitle("~y~Suspect~w~: I'm not going back to that hell hole. KIFFLOM!!!!!");
                     }
                     if(counter == 11)
