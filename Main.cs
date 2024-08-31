@@ -26,9 +26,6 @@ namespace JMCalloutsRemastered
 
             Functions.OnOnDutyStateChanged += Functions_OnOnDutyStateChanged;
             Settings.LoadSettings();
-            JMCalloutsRemasteredAPI.AddDepend("SceneManager.dll", "2.3.3.0");
-            
-            if (!JMCalloutsRemasteredAPI.CheckDepends()) return;
             Game.AddConsoleCommands([typeof(ConsoleCommands)]);
         }
 
@@ -68,15 +65,6 @@ namespace JMCalloutsRemastered
                         Settings.HelpMessages = false;
                     }
 
-                    if (Settings.EnableDependencyChecker)
-                    {
-                        Game.DisplayHelp("You can disable the 'Dependency Checker' in the ini.");
-                    }
-                    else
-                    {
-                        Settings.EnableDependencyChecker = false;
-                    }
-
                     VersionChecker.PluginCheck.isUpdateAvailable();
 
                     GameFiber.Wait(300);
@@ -86,7 +74,7 @@ namespace JMCalloutsRemastered
                 Game.DisplayNotification("web_jonjongames",
                 "web_jonjongames",
                 "JM Callouts Remastered",
-                "~r~by OfficerMorrison",
+                "~r~by ~o~OfficerMorrison",
                 $"{PluginLoadText.PickRandom()}");
                 ////////////////////////////////////////
             });
