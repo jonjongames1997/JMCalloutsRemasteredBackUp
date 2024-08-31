@@ -44,8 +44,6 @@ namespace JMCalloutsRemastered
         internal static bool BountyHunterRequiringAssistance = false;
         internal static bool HomelessPerson = true;
         internal static bool HelpMessages = true;
-        internal static bool LeaveCalloutsRunning = true;
-        internal static bool EnableDependencyChecker = true;
         internal static Keys EndCall = Keys.End;
         internal static Keys Dialog = Keys.E;
         internal static InitializationFile ini;
