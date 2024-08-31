@@ -20,7 +20,6 @@ global using System.IO;
 global using System.Reflection;
 global using StopThePed;
 global using static JMCalloutsRemastered.Stuff.Arrays;
-global using static JMCalloutsRemastered.Stuff.EndCalloutManager;
 global using static JMCalloutsRemastered.Stuff.LocationChooser;
 global using static JMCalloutsRemastered.Stuff.StopThePedFunctions;
 global using static JMCalloutsRemastered.Stuff.UltimateBackupFunctions;
