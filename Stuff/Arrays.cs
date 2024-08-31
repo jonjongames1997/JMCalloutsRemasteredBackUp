@@ -8,7 +8,6 @@ namespace JMCalloutsRemastered.Stuff
 
         internal static readonly string[] PluginLoadText =
         {
-            "Patrol Objective: Don't get shot at.",
             "Patrol Objective: Protect the citizens.",
             "Patrol Objective: Protect Kifflom!",
             "Patrol Objective: Don't be a douchebag to the homeless.",
@@ -16,6 +15,14 @@ namespace JMCalloutsRemastered.Stuff
             "Error Code: KaR3nMoD3. *JK*",
             "Is that you Venoxity? 0_0",
             "You fucked up the JMCalloutsRemastered.ini. *Just Kidding*.",
+            "Is that you Dale?",
+            "Hey Rookie, don't be a Corrupt Cop.",
+            "Hey rookie, don't be a Karen",
+            "Don't be a Darren",
+            "Your LSPDFR Crashed. *JK*",
+            "POCKET METH!",
+            "POCKET SAND!",
+            "Error Code: Your plugins folder is corrupted! *JK*",
         };
     }
 }
