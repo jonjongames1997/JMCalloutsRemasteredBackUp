@@ -1,14 +1,7 @@
 ﻿using JMCalloutsRemastered.Callouts;
-using StopThePed;
-using UltimateBackup;
-using SceneManager;
-using LSPD_First_Response.Engine.Scripting.Entities;
-using LSPD_First_Response.Tooling;
-using JMCalloutsRemastered.Stuff;
-using JMCalloutsRemastered.API;
 using JMCalloutsRemastered.Engine;
-using JMCalloutsRemastered.VersionChecker;
 using LSPD_First_Response.Mod.Utils;
+using static JMCalloutsRemastered.Stuff.DependencyHelperManager;
 
 [assembly: Rage.Attributes.Plugin("JMCalloutsRemastered", Description = "LSPDFR Callout Pack", Author = "OfficerMorrison")]
 namespace JMCalloutsRemastered
@@ -176,6 +169,24 @@ namespace JMCalloutsRemastered
             }
 
             return null;
+        }
+
+        private static void Cleanup(object sender, EventArgs e)
+        {
+            try
+            {
+                Game.DisplayNotification("3dtextures",
+                    "mpgroundlogo_cops",
+                    "Riskier Traffic Stops",
+                    "~b~By Astro",
+                    $"{UnloadPluginText.PickRandom()}");
+
+                Normal("Unloaded successfully");
+            }
+            catch (Exception ex)
+            {
+                Error(ex);
+            }
         }
 
         public override void Finally()
