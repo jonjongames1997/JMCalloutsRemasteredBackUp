@@ -1,10 +1,14 @@
-﻿namespace JMCalloutsRemastered.API
+﻿using System.Runtime.CompilerServices;
+
+namespace JMCalloutsRemastered.API
 {
     // Credit to Rohit for the code. github.com/Rohit685/MysteriousCallouts/blob/master/HelperSystems/Logger.cs
 
     internal static class Logger
     {
-        internal static void Error(Exception ex, string location) => Game.LogTrivial($"[ERROR] JM Callouts Remastered: {ex}");
+        // Thanks Khori
+        internal static void Error(Exception ex, [CallerFilePath] string p = "", [CallerMemberName] string m = "", [CallerLineNumber] int l = 0) =>
+            Game.LogTrivial($"[ERROR] JM Callouts Remastered: An error occured at '{p} {m} line {l}' - {ex}");
 
         internal static void Debug(string msg)
         {
