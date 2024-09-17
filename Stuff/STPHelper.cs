@@ -82,6 +82,21 @@ namespace JMCalloutsRemastered.Stuff
             }
             catch (Exception)
             {
+                
+            }
+        }
+        internal static void callAnimalControl()
+        {
+            try
+            {
+                StopThePed.API.Functions.callAnimalControl();
+            }
+            catch (FileNotFoundException)
+            {
+
+            }
+            catch (Exception)
+            {
 
             }
         }
