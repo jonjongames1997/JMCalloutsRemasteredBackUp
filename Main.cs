@@ -61,15 +61,17 @@ namespace JMCalloutsRemastered
                     VersionChecker.PluginCheck.isUpdateAvailable();
 
                     GameFiber.Wait(300);
+                #region
                 /////////////////////////////
                 // Credit to AstroBurgers for his opensource code as a guide reference. github.com/AstroBurgers/RiskierTrafficStops/blob/master/RiskierTrafficStops/Main.cs
-                
+
                 Game.DisplayNotification("web_jonjongames",
                 "web_jonjongames",
                 "JM Callouts Remastered",
                 "~r~by ~o~OfficerMorrison",
                 $"{PluginLoadText.PickRandom()}");
                 ////////////////////////////////////////
+                #endregion
             });
         }
         private static void RegisterCallouts()
@@ -170,7 +172,7 @@ namespace JMCalloutsRemastered
 
             return null;
         }
-
+        #region
         private static void Cleanup(object sender, EventArgs e)
         {
             try
@@ -188,7 +190,7 @@ namespace JMCalloutsRemastered
                 Error(ex);
             }
         }
-
+        #endregion
         public override void Finally()
         {
 
