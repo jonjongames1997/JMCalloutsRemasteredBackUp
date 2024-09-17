@@ -97,6 +97,70 @@ namespace JMCalloutsRemastered.Stuff
             }
             catch (Exception)
             {
+               
+            }
+        }
+
+        internal static void callCoronerService()
+        {
+            try
+            {
+                StopThePed.API.Functions.callCoroner();
+            }
+            catch (FileNotFoundException)
+            {
+
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+
+        internal static void callInsurance()
+        {
+            try
+            {
+                StopThePed.API.Functions.callInsuranceService();
+            }
+            catch (FileNotFoundException)
+            {
+
+            }
+            catch (Exception)
+            {
+                
+            }
+        }
+
+        internal static void callPoliceTransport()
+        {
+            try
+            {
+                StopThePed.API.Functions.callPoliceTransport();
+            }
+            catch (FileNotFoundException)
+            {
+
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+
+        internal static void requestPIT()
+        {
+            try
+            {
+                StopThePed.API.Functions.requestPIT();
+            }
+            catch (FileNotFoundException)
+            {
+
+            }
+            catch (Exception)
+            {
 
             }
         }
