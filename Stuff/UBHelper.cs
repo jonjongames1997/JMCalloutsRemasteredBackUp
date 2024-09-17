@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace JMCalloutsRemastered.Stuff
 {
@@ -87,6 +88,134 @@ namespace JMCalloutsRemastered.Stuff
             catch (Exception)
             {
 
+            }
+        }
+
+        internal static void callPanicBackup(bool radio = false, bool isLocalPatrol = false)
+        {
+            try
+            {
+                UltimateBackup.API.Functions.callPanicButtonBackup(true);
+            }
+            catch (FileNotFoundException)
+            {
+
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+
+        internal static void callGroupBackup(bool radio = false, bool isLocalPatrol = false)
+        {
+            try
+            {
+                UltimateBackup.API.Functions.callGroupBackup(true);
+            }
+            catch (FileNotFoundException)
+            {
+
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+
+        internal static void callK9BackUp()
+        {
+            try
+            {
+                UltimateBackup.API.Functions.callK9Backup();
+            }
+            catch (FileNotFoundException)
+            {
+
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+
+        internal static void callFelonyBackUp()
+        {
+            try
+            {
+                UltimateBackup.API.Functions.callFelonyStopBackup();
+            }
+            catch (FileNotFoundException)
+            {
+
+            }
+            catch (Exception)
+            {
+                
+            }
+        }
+
+        internal static void callSpikeStripBackup()
+        {
+            try
+            {
+                UltimateBackup.API.Functions.callSpikeStripsBackup();
+            }
+            catch (FileNotFoundException)
+            {
+
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+
+        internal static void callFemaleBackup()
+        {
+            try
+            {
+                UltimateBackup.API.Functions.callFemaleBackup();
+            }
+            catch (FileNotFoundException)
+            {
+
+            }
+            catch (Exception)
+            {
+                
+            }
+        }
+
+        internal static void callCode2Backup(bool radio = false, bool isLocalPatrol = false)
+        {
+            try
+            {
+                UltimateBackup.API.Functions.callCode2Backup(radio, isLocalPatrol);
+            }
+            catch (FileNotFoundException)
+            {
+
+            }
+            catch (Exception)
+            {
+                
+            }
+        }
+
+        internal static void callRoadBlockBackup()
+        {
+            try
+            {
+                UltimateBackup.API.Functions.callRoadBlockBackup();
+            }
+            catch (FileNotFoundException)
+            {
+
+            }
+            catch (Exception)
+            {
+                
             }
         }
     }
