@@ -53,7 +53,7 @@ namespace JMCalloutsRemastered.Callouts
             Spawnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 100f);
             CalloutInterfaceAPI.Functions.SendMessage(this, "A civilian called 9-1-1 then immediately hung up. Deal with this, Officer.");
-            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("WE_HAVE SOS_CALL UNITS_RESPOND_CODE_02_02");
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_911HangUp_Callout_Audio_1");
             CalloutMessage = "A citizen called 911 then hung up on dispatch"; // Brief description of callout //
             CalloutPosition = Spawnpoint;
 
@@ -65,6 +65,8 @@ namespace JMCalloutsRemastered.Callouts
             Game.LogTrivial("[JM Callouts Remastered Log]: 9-1-1 Hang Up callout accepted!");
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~9-1-1 Hang Up", "~b~Dispatch~w~: Suspect has been spotted. Respond ~r~Code 2~w~.");
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
+
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_911HangUp_Callout_Audio_2");
 
             Suspect = new Ped(Spawnpoint);
             Suspect.IsPersistent = true;
