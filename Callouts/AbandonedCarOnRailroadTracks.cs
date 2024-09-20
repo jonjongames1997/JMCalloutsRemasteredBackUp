@@ -33,7 +33,7 @@ namespace JMCalloutsRemastered.Callouts
             spawnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
             CalloutInterfaceAPI.Functions.SendMessage(this, "Reports of an abandoned vehicle on train tracks.");
-            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("WE_HAVE CRIME_CAR_STUCK_ON_RAILROAD_TRACKS UNITS_RESPOND_CODE_02_02");
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_AbandonedVehicleOnRailroadTracks_Callout_Audio_1");
             CalloutMessage = "Abandoned Vehicle";
             CalloutPosition = spawnpoint;
 
@@ -46,6 +46,8 @@ namespace JMCalloutsRemastered.Callouts
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "Abandoned Vehicle On Railroad Tracks", "~b~Dispatch~w~: Vehicle Spotted. Respond ~r~Code 2~w~.");
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
 
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_AbandonedVehicleOnRailroadTracks_Callout_Audio_2");
+
             vehicle = new Vehicle(spawnpoint);
             vehicle.IsPersistent = true;
             vehicle.IsValid();
@@ -53,8 +55,6 @@ namespace JMCalloutsRemastered.Callouts
             vehicleBlip = vehicle.AttachBlip();
             vehicleBlip.Color = System.Drawing.Color.Chocolate;
             vehicleBlip.IsRouteEnabled = true;
-
-            StopThePed.API.Functions.requestDispatchVehiclePlateCheck(true);
 
             return base.OnCalloutAccepted();
         }
