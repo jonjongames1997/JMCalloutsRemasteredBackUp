@@ -26,7 +26,7 @@ namespace JMCalloutsRemastered.Callouts
             securitySpawnpoint = new(2.71f, -708.50f, 45.97f);
             securityHeading = 203.73f;
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
-            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_ALL_UNITS_01 WE_HAVE_01 CRIME_SECURITY_REQUESTING_ASSISTANCE UNITS_RESPOND_CODE_02_01");
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_First_Amendment_Auditor_Callout_Audio_1");
             CalloutInterfaceAPI.Functions.SendMessage(this, "Security officer requiring assitance.");
             CalloutMessage = "An individual claiming to be 'The Press' refusing to leave government building.";
             CalloutPosition = spawnpoint;
@@ -39,6 +39,8 @@ namespace JMCalloutsRemastered.Callouts
             Game.LogTrivial("JM Callouts Remastered Log: First Amendment Auditor callout accepted!");
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~First Amendment Auditor", "~b~Dispatch~w~: The suspect has been spotted! Respond ~r~Code 2~w~.");
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
+
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_First_Amendment_Auditor_Callout_Audio_2");
 
             suspect = new Ped(spawnpoint, suspectHeading);
             suspect.IsPersistent = true;
@@ -193,7 +195,7 @@ namespace JMCalloutsRemastered.Callouts
             if (suspectBlip) suspectBlip.Delete();
             if (securityBlip) securityBlip.Delete();
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~First Amendment Auditor", "~b~You~w~: Dispatch, We are ~g~CODE 4~w~! Show me back 10-8!");
-            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_THIS_IS_DISPATCH_HIGH ALL_UNITS_CODE4 NO_FURTHER_UNITS_REQUIRED");
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_Code_4_Audio");
 
 
             Game.LogTrivial("[LOG]: JM Callouts Remastered - First Amendment Auditor is Code 4!");
