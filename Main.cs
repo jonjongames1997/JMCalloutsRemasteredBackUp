@@ -58,7 +58,16 @@ namespace JMCalloutsRemastered
                         Settings.HelpMessages = false;
                     }
 
-                    GameFiber.Wait(300);
+                    if (Settings.WarningMessages)
+                    {
+                       Game.DisplayHelp("You can disable the warning messages in JMCalloutsRemastered.ini at any time.");
+                    }
+                    else
+                    {
+                       Settings.WarningMessages = false;
+                    }
+
+                GameFiber.Wait(300);
                 #region
                 /////////////////////////////
                 // Credit to AstroBurgers for his opensource code as a guide reference. github.com/AstroBurgers/RiskierTrafficStops/blob/master/RiskierTrafficStops/Main.cs
@@ -175,10 +184,10 @@ namespace JMCalloutsRemastered
         {
             try
             {
-                Game.DisplayNotification("3dtextures",
-                    "mpgroundlogo_cops",
-                    "Riskier Traffic Stops",
-                    "~b~By Astro",
+                Game.DisplayNotification("web_jonjongames",
+                    "web_jonjongames",
+                    "JM Callouts Remastered",
+                    "~b~By OfficerMorrison",
                     $"{UnloadPluginText.PickRandom()}");
 
                 Normal("Unloaded successfully");
