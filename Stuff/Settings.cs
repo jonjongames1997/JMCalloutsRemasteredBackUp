@@ -45,6 +45,7 @@ namespace JMCalloutsRemastered
         internal static bool HomelessPerson = true;
         internal static bool DomesticDisturbanceGrapeseed = true;
         internal static bool HelpMessages = true;
+        internal static bool WarningMessages = true;
         internal static Keys EndCall = Keys.End;
         internal static Keys Dialog = Keys.E;
         internal static InitializationFile ini;
@@ -94,6 +95,7 @@ namespace JMCalloutsRemastered
             Settings.HomelessPerson = ini.ReadBoolean("Callouts", "HomelessPerson", true);
             Settings.DomesticDisturbanceGrapeseed = ini.ReadBoolean("Callouts", "DomesticDisturbanceGrapeseed", true);
             Settings.HelpMessages = ini.ReadBoolean("HelpMessages", "HelpMessages", true);
+            Settings.WarningMessages = ini.ReadBoolean("Misc", "WarningMessages", true);
             EndCall = ini.ReadEnum("Keys", "EndCall", Keys.End);
             Dialog = ini.ReadEnum("Keys", "Dialog", Keys.E);
         }
