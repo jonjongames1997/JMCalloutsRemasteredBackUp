@@ -15,7 +15,7 @@ namespace JMCalloutsRemastered.Callouts
         {
             spawnpoint = World.GetNextPositionOnStreet(MainPlayer.Position.Around(1000f));
             CalloutInterfaceAPI.Functions.SendMessage(this, "Reports of a deceased body found.");
-            LSPD_First_Response.Mod.API.Functions.PlayScannerAudioUsingPosition("ATTENTION_ALL_UNITS_01 WE_HAVE_01 CRIME_DEAD_BODY_FOUND UNITS_RESPOND_CODE_03_01", spawnpoint);
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudioUsingPosition("JMCallotus_DeadBody_Callout_Audio_1", spawnpoint);
             CalloutMessage = "Reports of a deceased body";
             CalloutPosition = spawnpoint;
 
@@ -38,6 +38,8 @@ namespace JMCalloutsRemastered.Callouts
             Game.LogTrivial("JM Callouts Remastered Log: Dead body callout accepted!");
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~y~Dead Body", "~b~Dispatch~w~: The dead body has been spotted! Respond ~r~Code 3~w~.");
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout.");
+
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallotus_DeadBody_Callout_Audio_2");
 
             deadBlip = new Blip(deadBody)
             {
@@ -75,7 +77,7 @@ namespace JMCalloutsRemastered.Callouts
             if (deadBody) deadBody.Dismiss();
             if (deadBlip) deadBlip.Delete();
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Dead Body", "~b~You~w~: Dispatch, We are ~g~CODE 4~w~! Show me back 10-8!");
-            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_THIS_IS_DISPATCH_HIGH ALL_UNITS_CODE4 NO_FURTHER_UNITS_REQUIRED");
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_Code_4_Audio");
             
             base.End();
 
