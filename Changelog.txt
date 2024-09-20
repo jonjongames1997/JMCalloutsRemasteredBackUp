@@ -10,7 +10,10 @@
 - Added reworked callout audio.
 - Removed used dispatch audio.
 - Added Domestic Distrubance Callouts for GrapeSeed, Harmony, Paleto Bay, and Sandy Shores
-- 
+- Added an option to enable/disable warning messages in the ini.
+- ini update
+- Minor bug fixes
+- Minor adjustments
 
 5.0.4.2:
 
