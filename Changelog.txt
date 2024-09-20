@@ -8,7 +8,6 @@
 - Temporarily removed version checker until December 1, 2024!
 - Updated LSPDFR API reference.
 - Reworking on the audio in the audio folder to work with my callouts. Some of the audio used by JM Callouts Remastered is from Dispatcher Revamp & Mod Resource by NamelessNewGuy
-- 
 
 5.0.4.2:
 
