@@ -24,7 +24,7 @@ namespace JMCalloutsRemastered
 
         static void Functions_OnOnDutyStateChanged(bool onDuty)
         {
-            if (onDuty)
+            if (onDuty && VerifyDependencies())
             GameFiber.StartNew(delegate
             {
                     RegisterCallouts();
@@ -57,8 +57,6 @@ namespace JMCalloutsRemastered
                     {
                         Settings.HelpMessages = false;
                     }
-
-                    VersionChecker.PluginCheck.isUpdateAvailable();
 
                     GameFiber.Wait(300);
                 #region
