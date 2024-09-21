@@ -140,10 +140,9 @@ namespace JMCalloutsRemastered.Callouts
                     {
                         suspect.Tasks.FightAgainst(MainPlayer);
                         suspect.Inventory.GiveNewWeapon("WEAPON_CROWBAR", 500, true);
-                        suspect.Armor = 100;
+                        suspect.Armor = 500;
+                        MainPlayer.Armor = 500;
                         victim.Tasks.Cower(500);
-
-                        UltimateBackup.API.Functions.callPanicButtonBackup(MainPlayer);
                     }
                 }
             }
