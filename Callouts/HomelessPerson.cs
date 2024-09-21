@@ -112,12 +112,10 @@ namespace JMCalloutsRemastered.Callouts
                     {
                         Game.DisplaySubtitle("~b~You~: Dispatch, suspect is on foot. He's fleeing from me. Show me in pursuit of that suspect.");
                         suspect.Tasks.ReactAndFlee(suspect);
-                        UltimateBackup.API.Functions.callPursuitBackup(suspect);
                     }
                 }
             }
 
-            if (MainPlayer.IsDead) End();
             if (Game.IsKeyDown(Settings.EndCall)) End();
         }
 
