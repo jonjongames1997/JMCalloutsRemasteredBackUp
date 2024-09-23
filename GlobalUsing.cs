@@ -25,7 +25,6 @@ global using static JMCalloutsRemastered.Stuff.StopThePedFunctions;
 global using static JMCalloutsRemastered.Stuff.UltimateBackupFunctions;
 global using static JMCalloutsRemastered.Engine.ConsoleCommand;
 global using static JMCalloutsRemastered.API.Logger;
-global using static JMCalloutsRemastered.API.Dependency;
 global using static JMCalloutsRemastered.Settings;
 global using static JMCalloutsRemastered.Stuff.Vector3Extension;
 global using static JMCalloutsRemastered.Engine.EnumExtensionManager;
