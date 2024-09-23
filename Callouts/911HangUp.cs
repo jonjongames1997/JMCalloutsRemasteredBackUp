@@ -45,10 +45,10 @@ namespace JMCalloutsRemastered.Callouts
                 new(-448.69f, 118.38f, 64.22f), // OCRP Postal 527
                 new(-9.04f, -285.22f, 46.86f), // OCRP Postal 540
                 new(470.14f, 270.12f, 102.73f), // Clinton Ave Hotel
-                new(),
-                new(),
-                new(),
-                new(),
+                new(267.27f, 2604.40f, 44.83f), // Route 68
+                new(12.80f, 3686.28f, 39.65f), // Stab City
+                new(-255.89f, 6248.51f, 31.49f), // Paleto Bay
+                new(3319.07f, 5175.83f, 18.42f), // Catfish View
             };
             Spawnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 100f);
