@@ -21,10 +21,10 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnBeforeCalloutDisplayed()
         {
-            spawnPoint = new();
-            heading = 188.71f;
-            suspectSpawnpoint = new();
-            suspectHeading = 159.69f;
+            spawnPoint = new(1668.33f, 4750.65f, 41.88f);
+            heading = 276.64f;
+            suspectSpawnpoint = new(1651.86f, 4744.29f, 42.02f);
+            suspectHeading = 208.55f;
             ShowCalloutAreaBlipBeforeAccepting(spawnPoint, 100f);
             LSPD_First_Response.Mod.API.Functions.PlayScannerAudioUsingPosition("JMCallouts_DomesticDisturbance_Grapeseed_Callout_Audio_1", spawnPoint);
             CalloutInterfaceAPI.Functions.SendMessage(this, "A neighbor's reporting a loud argument next door.");
@@ -139,7 +139,6 @@ namespace JMCalloutsRemastered.Callouts
                 }
             }
 
-            if (MainPlayer.IsDead) End();
             if (Game.IsKeyDown(Settings.EndCall)) End();
 
         }
