@@ -14,6 +14,7 @@
 - ini update
 - Minor bug fixes
 - Minor adjustments
+- Added 3 new locations for Homeless Person Callout
 
 5.0.4.2:
 
