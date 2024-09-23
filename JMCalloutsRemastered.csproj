@@ -110,8 +110,9 @@
     <Reference Include="ScriptHookVDotNet3">
       <HintPath>..\GTA Scripts\references\ScriptHookVDotNet3.dll</HintPath>
     </Reference>
-    <Reference Include="StopThePed">
-      <HintPath>..\Steam_Games\steamapps\common\Grand Theft Auto V\plugins\LSPDFR\StopThePed.dll</HintPath>
+    <Reference Include="StopThePed, Version=4.9.5.2, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\JMCalloutsRemasteredReferences\StopThePed.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -200,6 +201,8 @@
     <Content Include="Changelog.txt" />
     <Content Include="ReadMe.txt" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
