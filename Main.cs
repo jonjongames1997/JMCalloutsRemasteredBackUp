@@ -1,7 +1,6 @@
 ﻿using JMCalloutsRemastered.Callouts;
 using JMCalloutsRemastered.Engine;
 using LSPD_First_Response.Mod.Utils;
-using static JMCalloutsRemastered.Stuff.DependencyHelperManager;
 
 [assembly: Rage.Attributes.Plugin("JMCalloutsRemastered", Description = "LSPDFR Callout Pack", Author = "OfficerMorrison")]
 namespace JMCalloutsRemastered
@@ -24,7 +23,7 @@ namespace JMCalloutsRemastered
 
         static void Functions_OnOnDutyStateChanged(bool onDuty)
         {
-            if (onDuty && VerifyDependencies())
+            if (onDuty)
             GameFiber.StartNew(delegate
             {
                     RegisterCallouts();
