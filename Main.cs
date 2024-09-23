@@ -45,7 +45,6 @@ namespace JMCalloutsRemastered
 
 
                     Game.DisplayNotification("web_jonjongames", "web_jonjongames", "JM Callouts Remastered", "~g~v" + Assembly.GetExecutingAssembly().GetName().Version.ToString() + " ~r~by OfficerMorrison", "~b~successfully loaded!");
-                    Game.DisplayNotification("~y~JM Callouts Remastered WARNING Notice~w~: If this callout pack is found on other websites that are NOT authorized by the developer. A DMCA Takedown Notice will be sent to the unauthorized uploader for Copyright Infringement. Fuck Around and Find Out.");
 
 
                     if (Settings.HelpMessages)
@@ -60,10 +59,12 @@ namespace JMCalloutsRemastered
                     if (Settings.WarningMessages)
                     {
                        Game.DisplayHelp("You can disable the warning messages in JMCalloutsRemastered.ini at any time.");
+                       Game.DisplayNotification("~y~JM Callouts Remastered WARNING Notice~w~: If this callout pack is found on other websites that are NOT authorized by the developer. A DMCA Takedown Notice will be sent to the unauthorized uploader for Copyright Infringement. Fuck Around and Find Out.");
                     }
                     else
                     {
                        Settings.WarningMessages = false;
+                       Game.DisplayNotification("");
                     }
 
                 GameFiber.Wait(300);
