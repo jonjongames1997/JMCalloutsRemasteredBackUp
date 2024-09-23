@@ -44,9 +44,9 @@ namespace JMCalloutsRemastered.Callouts
                 new(-1120.70f, -1340.96f, 5.07f), // OCRP Postal 327
                 new(-838.83f, -610.09f, 29.03f), // Bean Machine in Downtown KoreaTown
                 new(-519.88f, -677.55f, 33.67f), // Pizza Parlor in West Koreatown
-                new(),
-                new(),
-                new(),
+                new(1167.31f, 2708.48f, 38.16f), // Route 68
+                new(1959.95f, 3743.31f, 32.34f), // Sandy Shores
+                new(1706.72f, 4928.24f, 42.06f), // GrapeSeed
             };
             Spawnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 100f);
