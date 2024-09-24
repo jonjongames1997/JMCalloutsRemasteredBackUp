@@ -15,6 +15,7 @@
 - Minor bug fixes
 - Minor adjustments
 - Added 3 new locations for Homeless Person Callout
+- Removed unwanted code
 
 5.0.4.2:
 
