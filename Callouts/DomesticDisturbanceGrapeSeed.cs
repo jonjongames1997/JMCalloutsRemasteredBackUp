@@ -50,14 +50,6 @@ namespace JMCalloutsRemastered.Callouts
             victim.Tasks.PlayAnimation(new AnimationDictionary("friends@frj@ig_1"), "wave_a", -1f, AnimationFlags.Loop);
             suspect.Tasks.PlayAnimation(new AnimationDictionary("random@shop_tattoo"), "_idle_a", -1f, AnimationFlags.UpperBodyOnly);
 
-            StopThePed.API.Functions.setPedUnderDrugsInfluence(suspect, true);
-            StopThePed.API.Functions.injectPedSearchItems(suspect);
-            StopThePed.API.Functions.isPedAlcoholOverLimit(suspect);
-
-            StopThePed.API.Functions.isPedUnderDrugsInfluence(victim);
-            StopThePed.API.Functions.injectPedSearchItems(victim);
-            StopThePed.API.Functions.isPedUnderDrugsInfluence(victim);
-
             suspect = new Ped(suspectSpawnpoint, heading);
             suspect.IsPersistent = true;
             suspect.BlockPermanentEvents = true;
