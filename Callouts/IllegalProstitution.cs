@@ -128,7 +128,7 @@ namespace JMCalloutsRemastered.Callouts
                     if (counter == 13)
                     {
                         Game.DisplaySubtitle("Conversation ended. Deal with the situation you may see fit.");
-                        Suspect.Tasks.Cower(500);
+                        Suspect.Tasks.Wander();
                     }
                 }
             }
