@@ -30,7 +30,7 @@ namespace JMCalloutsRemastered.Callouts
             suspectSpawnpoint = new(-623.54f, -230.25f, 38.06f); // Second Suspect will spawn at this location 
             suspectHeading = 131.09f;
             ShowCalloutAreaBlipBeforeAccepting(spawnPoint, 100f);
-            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_ALL_UNITS_02 WE_HAVE_01 CRIME_SUSPICIOUS_ACTIVITY UNITS_RESPOND_CODE_02_02");
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_Lost_Individual_Audio_1");
             CalloutInterfaceAPI.Functions.SendMessage(this, "Michael DeSanta reported his wife missing. Locate and help her get home safely, Officer.");
             CalloutMessage = "Reports of a missing person";
             CalloutPosition = spawnPoint;
@@ -43,6 +43,8 @@ namespace JMCalloutsRemastered.Callouts
             Game.LogTrivial("[JM Callouts Remastered Log]: Lost Individual callout accepted!");
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Lost Individual", "~b~Dispatch: ~w~Victim has been spotted. Respond ~r~Code 2.");
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
+
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_Lost_Individual_Audo_2");
 
             // Amanda is a decoy in this situation //
             victim = new Ped("IG_AMANDATOWNLEY", spawnPoint, heading);
@@ -129,7 +131,6 @@ namespace JMCalloutsRemastered.Callouts
                         Game.DisplaySubtitle("~r~Suspect~w~: You motherfucker, you! DIE!!!!!");
                         suspect.Tasks.FightAgainst(MainPlayer);
                         suspect.Inventory.GiveNewWeapon("WEAPON_GUSENBERG", 500, true);
-                        UltimateBackup.API.Functions.callPursuitBackup();
                     }
 
                 }
