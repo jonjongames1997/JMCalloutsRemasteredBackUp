@@ -3,7 +3,7 @@
 namespace JMCalloutsRemastered.Callouts
 {
 
-    [CalloutInterface("[JM Callouts] Illegal Campfire On Public Beach", CalloutProbability.Medium, "An individual started a campfire on Vespucci Beach.", "Code 2", "LSPD")]
+    [CalloutInterface("[JM Callouts] Illegal Campfire On Public Beach", CalloutProbability.Medium, "An individual started a campfire on Vespucci Beach.", "Code 2", "POLICE/SHERIFF")]
 
     public class IllegalCampfireOnPublicBeach : Callout
     {
