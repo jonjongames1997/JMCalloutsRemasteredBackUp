@@ -159,6 +159,7 @@ namespace JMCalloutsRemastered
             Game.Console.Print();
         }
 
+        // Credit to Rich for the code //
         private static Assembly OnAssemblyResolve(object sender, ResolveEventArgs args)
         {
             if (args.Name.StartsWith("SceneManager"))
@@ -168,25 +169,7 @@ namespace JMCalloutsRemastered
 
             return null;
         }
-        #region
-        private static void Cleanup(object sender, EventArgs e)
-        {
-            try
-            {
-                Game.DisplayNotification("web_jonjongames",
-                    "web_jonjongames",
-                    "JM Callouts Remastered",
-                    "~b~By OfficerMorrison",
-                    $"{UnloadPluginText.PickRandom()}");
 
-                Normal("Unloaded successfully");
-            }
-            catch (Exception ex)
-            {
-                Error(ex);
-            }
-        }
-        #endregion
         public override void Finally()
         {
 
