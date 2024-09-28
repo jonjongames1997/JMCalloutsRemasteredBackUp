@@ -40,7 +40,7 @@ namespace JMCalloutsRemastered.Callouts
             };
             Spawnnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(Spawnnpoint, 100f);
-            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_ALL_UNITS_02 WE_HAVE_01 CRIME_11_351_01 UNITS_RESPOND_CODE_02_01");
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_Intoxicated_Individual_Audio_1");
             CalloutInterfaceAPI.Functions.SendMessage(this, "A business owner reported an individual being drunk on business property.");
             CalloutMessage = "Suspect refused to leave property. Owner said that suspect is possibly be drunk or under the influence of narcotics. Approach with caustion.";
             CalloutPosition = Spawnnpoint;
@@ -53,6 +53,8 @@ namespace JMCalloutsRemastered.Callouts
             Game.LogTrivial("[JM Callouts Remastered Log]: Intoxicated Individual callout accepted!");
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Intoxicated Individual", "~b~Dispatch~w~: Suspect located. Respond ~r~Code 2~w~.");
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
+
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_Respond_Code_2_Audio");
 
             Suspect = new Ped(Spawnnpoint);
             Suspect.IsPersistent = true;
