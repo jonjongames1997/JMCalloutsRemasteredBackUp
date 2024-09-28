@@ -40,7 +40,7 @@ namespace JMCalloutsRemastered.Callouts
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Domestic Disturbance", "~b~Dispatch~w~: Suspect has been spotted. Respond ~r~Code 2~w~.");
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
 
-            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_DomesticDisturbance_Callout_Audio_2");
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_Respond_Code_2_Audio");
 
             victim = new Ped(spawnPoint, heading);
             victim.IsPersistent = true;
