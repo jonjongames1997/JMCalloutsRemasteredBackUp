@@ -3,7 +3,7 @@
 namespace JMCalloutsRemastered.Callouts
 {
 
-    [CalloutInterface("[JM Callouts] Movie Hopping", CalloutProbability.Medium, "Reports of a movie goer sneaking into the movies without a ticket", "CODE 2", "LSPD")]
+    [CalloutInterface("[JM Callouts] Movie Hopping", CalloutProbability.Medium, "Reports of a movie goer sneaking into the movies without a ticket", "Code 1", "LSPD")]
 
 
     public class MovieHopping : Callout
@@ -26,6 +26,7 @@ namespace JMCalloutsRemastered.Callouts
             };
             spawnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_Movie_Hopping_Audio_1");
             CalloutInterfaceAPI.Functions.SendMessage(this, "Reports of a movie goer without a movie ticket");
             CalloutMessage = "Movie goer failing to show a movie ticket";
             CalloutPosition = spawnpoint;
@@ -38,6 +39,8 @@ namespace JMCalloutsRemastered.Callouts
             Game.LogTrivial("[JM Callouts Remastered Log]: Movie Hopping callout accepted!");
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Movie Hopping", "~b~Dispatch~w~: Suspect located. Respond ~r~Code 1~w~.");
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
+
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_Code_1_Response_Audio");
 
             suspect = new Ped(spawnpoint);
             suspect.IsPersistent = true;
