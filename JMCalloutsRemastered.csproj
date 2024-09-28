@@ -199,8 +199,5 @@
     <Content Include="Changelog.txt" />
     <Content Include="ReadMe.txt" />
   </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Connected Services\" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
