@@ -46,6 +46,7 @@ namespace JMCalloutsRemastered
         internal static bool DomesticDisturbanceGrapeseed = true;
         internal static bool DomesticDistrubancePaletoBay = false;
         internal static bool HelpMessages = true;
+        internal static bool WarningMessages = true;
         internal static Keys EndCall = Keys.End;
         internal static Keys Dialog = Keys.E;
         internal static InitializationFile ini;
@@ -96,6 +97,7 @@ namespace JMCalloutsRemastered
             Settings.DomesticDisturbanceGrapeseed = ini.ReadBoolean("Callouts", "DomesticDisturbanceGrapeseed", true);
             Settings.DomesticDistrubancePaletoBay = ini.ReadBoolean("Callouts", "DomesticDistrubancePaletoBay", false);
             Settings.HelpMessages = ini.ReadBoolean("HelpMessages", "HelpMessages", true);
+            Settings.WarningMessages = ini.ReadBoolean("Misc", "WarningMessages", true);
             EndCall = ini.ReadEnum("Keys", "EndCall", Keys.End);
             Dialog = ini.ReadEnum("Keys", "Dialog", Keys.E);
         }
