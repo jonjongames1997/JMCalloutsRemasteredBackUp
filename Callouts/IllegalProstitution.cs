@@ -20,7 +20,7 @@ namespace JMCalloutsRemastered.Callouts
         {
             Spawnpoint = World.GetNextPositionOnStreet(MainPlayer.Position.Around(1000f));
             ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 100f);
-            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_ALL_UNITS_02 WE_HAVE_01 CRIME_CITIZENS_REQUESTING_REMOVAL_OF_PROSTITUTES UNITS_RESPOND_CODE_02_02");
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_Illegal_Prostitution_Audio_1");
             CalloutInterfaceAPI.Functions.SendMessage(this, "A female civillian is selling her body for money");
             CalloutMessage = "Citizens reporting a young female selling her body for money.";
             CalloutPosition = Spawnpoint;
@@ -33,6 +33,8 @@ namespace JMCalloutsRemastered.Callouts
             Game.LogTrivial("JM Callouts Remastered Log: Illegal Prostitution callout accepted!");
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Illegal Prostitution", "~b~Dispatch~w~: The suspect has been spotted! Respond ~r~Code 2~w~.");
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
+
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_Respond_Code_2_Audio");
 
             Suspect = new Ped(pedList[new Random().Next((int)pedList.Length)], Spawnpoint, 0f);
             Suspect.IsPersistent = true;
