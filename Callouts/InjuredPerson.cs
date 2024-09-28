@@ -31,7 +31,7 @@ namespace JMCalloutsRemastered.Callouts
             suspectHeading = 126.79f;
             vehicleSpawn = new(105.19f, -1345.49f, 29.31f);
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
-            LSPD_First_Response.Mod.API.Functions.PlayScannerAudioUsingPosition("ATTENTION_ALL_UNITS_01 WE_HAVE_01 CRIME_VEHICLE_CRASH UNITS_RESPOND_CODE_03_01", spawnpoint);
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudioUsingPosition("JMCallouts_Injured_Person_Audio_1", spawnpoint);
             CalloutInterfaceAPI.Functions.SendMessage(this, "A civilian injured by a attacker.");
             CalloutMessage = "Civilian injured requiring assistance";
             CalloutPosition = spawnpoint;
@@ -44,6 +44,8 @@ namespace JMCalloutsRemastered.Callouts
             Game.LogTrivial("JM Callouts Remastered [LOG]: Injured Person callout is accepted!");
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Injured Person", "~b~Dispatch~w~: Victim and Suspect has been spotted. Respond Code 2.");
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout.");
+
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_Injured_Person_Audio_2");
 
             victim = new Ped(spawnpoint, vicHeading);
             victim.IsPersistent = true;
