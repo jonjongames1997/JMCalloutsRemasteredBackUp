@@ -44,7 +44,7 @@ namespace JMCalloutsRemastered.Callouts
             };
             Spawnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 500f); // Blips the area of the callout //
-            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_ALL_UNITS_01 WE_HAVE_01 CRIME_PUBLIC_DISTURBANCE UNITS_RESPOND_CODE_02_01");
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_Illegal_Campfire_On_A_Public_Beach_Audio_1");
             CalloutInterfaceAPI.Functions.SendMessage(this, "Vespucci Beach Security reporting an individual starting a campfire on the beach. Suspect refused to put out the fire as requested by security.");
             CalloutMessage = "Individual started an illegal campfire on the beach!"; // Brief description of the call //
             CalloutPosition = Spawnpoint; // Gives the position of where the callout is located at //
@@ -57,6 +57,8 @@ namespace JMCalloutsRemastered.Callouts
             Game.LogTrivial("[JM Callouts Remastered Log]: Illegal Campfire On Public Beach callout accepted!");
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Illegal Campfire On Public Beach", "~b~Dispatch~w~: Suspect has been spotted. Respond ~r~Code 2~w~.");
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
+
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_Respond_Code_2_Audio");
 
             Suspect = new Ped(Spawnpoint);
             Suspect.IsPersistent = true;
