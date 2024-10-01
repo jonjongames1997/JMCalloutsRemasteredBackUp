@@ -166,6 +166,9 @@ namespace JMCalloutsRemastered
             if (Settings.BountyHunterRequiringAssistance) { Functions.RegisterCallout(typeof(BountyHunterRequiringAssistance)); }
             if (Settings.HomelessPerson) { Functions.RegisterCallout(typeof(HomelessPerson)); }
             if (Settings.DomesticDisturbanceGrapeseed) { Functions.RegisterCallout(typeof(DomesticDisturbanceGrapeSeed)); }
+            if (Settings.DomesticDistrubancePaletoBay) { Functions.RegisterCallout(typeof(DomesticDisturbancePaletoBay)); }
+            if (Settings.DomesticDisturbanceSandyShores) { Functions.RegisterCallout(typeof(DomesticDisturbanceSandyShores)); }
+            if (Settings.DomesticDisturbanceHarmony) { Functions.RegisterCallout(typeof(DomesticDisturbanceHarmony)); }
             Game.Console.Print("[LOG]: All callouts of the JMCalloutsRemastered.ini were loaded successfully.");
             Game.Console.Print();
             Game.Console.Print("================================================== JM Callouts Remastered ===================================================");
