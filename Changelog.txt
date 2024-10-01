@@ -14,7 +14,7 @@
 - ini update
 - Minor bug fixes
 - Minor adjustments
-- Added 3 new locations for Homeless Person Callout
+- Added 3 new locations for Homeless Person, Peeping Tom,  Callouts
 - Removed unwanted code
 
 5.0.4.2:
