@@ -48,8 +48,8 @@ namespace JMCalloutsRemastered.Callouts
             };
             Spawnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 100f);
-            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_ALL_UNITS_02 WE_HAVE_01 CRIME_CITIZENS_REQUESTING_REMOVAL_OF_PROSTITUTES UNITS_RESPOND_CODE_02_02");
-            CalloutInterfaceAPI.Functions.SendMessage(this, "A citizen reported a young female selling her body for money. Talk to her and see if the claim is true. Approach with caution.");
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_Possible_Prostitution_Audio_1");
+            CalloutInterfaceAPI.Functions.SendMessage(this, "A prostitute on the streets");
             CalloutMessage = "Citizens reporting a young female possibly selling her body for money.";
             CalloutPosition = Spawnpoint;
 
@@ -61,6 +61,8 @@ namespace JMCalloutsRemastered.Callouts
             Game.LogTrivial("[JM Callouts Remastered Log]: Possible Prostitution callout accepted!");
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Possible Prostitution", "~b~Dispatch:~w~ Suspect has been spotted. Respond ~r~Code 2.");
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
+
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudioUsingPosition("JMCallouts_Respond_Code_2_Audio", Spawnpoint);
 
             Suspect = new Ped(pedList[new Random().Next((int)pedList.Length)], Spawnpoint, 0f);
             Suspect.IsPersistent = true;
