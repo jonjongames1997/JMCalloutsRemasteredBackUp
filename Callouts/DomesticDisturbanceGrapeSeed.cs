@@ -47,16 +47,13 @@ namespace JMCalloutsRemastered.Callouts
             victim.BlockPermanentEvents = true;
             victim.IsValid();
 
-            victim.Tasks.PlayAnimation(new AnimationDictionary("friends@frj@ig_1"), "wave_a", -1f, AnimationFlags.Loop);
-            suspect.Tasks.PlayAnimation(new AnimationDictionary("random@shop_tattoo"), "_idle_a", -1f, AnimationFlags.UpperBodyOnly);
-
             suspect = new Ped(suspectSpawnpoint, heading);
             suspect.IsPersistent = true;
             suspect.BlockPermanentEvents = true;
             suspect.KeepTasks = true;
-            suspect.IsValid();
             susBlip = suspect.AttachBlip();
             susBlip.Color = System.Drawing.Color.Red;
+            suspect.IsValid();
 
             vicBlip = suspect.AttachBlip();
             vicBlip.Color = System.Drawing.Color.Yellow;
