@@ -6,7 +6,7 @@
 - Added 3 new locations for Code Karen callout for Blaine County
 - Temporarily removed version checker until November 30, 2024!
 - Updated LSPDFR API reference.
-- Added reworked callout audio.
+- Added reworked callout audio (Part 1)
 - Removed used dispatch audio.
 - Added Domestic Distrubance Callouts for GrapeSeed, Harmony, Paleto Bay, and Sandy Shores
 - Added an option to enable/disable warning messages in the ini.
