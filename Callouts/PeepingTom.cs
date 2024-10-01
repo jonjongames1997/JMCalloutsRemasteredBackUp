@@ -26,13 +26,13 @@ namespace JMCalloutsRemastered.Callouts
                 new(-1713.22f, 386.81f, 89.73f),
                 new(312.86f, 468.63f, 151.27f),
                 new(-162.05f, 889.77f, 233.47f),
-                new(),
-                new(),
-                new(),
+                new(-792.48f, 181.51f, 72.84f), // Michael's House
+                new(1975.41f, 3815.74f, 33.42f), // Trevor's Trailer
+                new(-401.75f, 6321.55f, 28.94f), // Paleto Bay
             };
             spawnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
-            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_ALL_UNITS_01 WE_HAVE_01 CRIME_PEEPING_TOM UNITS_RESPOND_CODE_03_01");
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_Peeping_Tom_Audio_1");
             CalloutMessage = "Reports of a peeping Tom. Suspect is armed";
             CalloutPosition = spawnpoint;
 
@@ -44,6 +44,8 @@ namespace JMCalloutsRemastered.Callouts
             Game.LogTrivial("JM Callouts Remastered Log: Peeping Tom callout accepted!");
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Peeping Tom", "~b~Dispatch~w~: The suspect has been spotted! Respond ~r~Code 2~w~.");
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
+
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudioUsingPosition("JMCallouts_Respond_Code_3_Audio", spawnpoint);
 
             suspect = new Ped(spawnpoint);
             suspect.IsPersistent = true;
