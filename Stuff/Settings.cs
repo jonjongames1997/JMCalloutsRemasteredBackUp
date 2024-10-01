@@ -44,7 +44,9 @@ namespace JMCalloutsRemastered
         internal static bool BountyHunterRequiringAssistance = false;
         internal static bool HomelessPerson = true;
         internal static bool DomesticDisturbanceGrapeseed = true;
-        internal static bool DomesticDistrubancePaletoBay = false;
+        internal static bool DomesticDistrubancePaletoBay = true;
+        internal static bool DomesticDisturbanceHarmony = true;
+        internal static bool DomesticDisturbanceSandyShores = true;
         internal static bool HelpMessages = true;
         internal static bool WarningMessages = true;
         internal static Keys EndCall = Keys.End;
@@ -95,7 +97,9 @@ namespace JMCalloutsRemastered
             Settings.BountyHunterRequiringAssistance = ini.ReadBoolean("Callouts", "BountyHunterRequiringAssistance", false);
             Settings.HomelessPerson = ini.ReadBoolean("Callouts", "HomelessPerson", true);
             Settings.DomesticDisturbanceGrapeseed = ini.ReadBoolean("Callouts", "DomesticDisturbanceGrapeseed", true);
-            Settings.DomesticDistrubancePaletoBay = ini.ReadBoolean("Callouts", "DomesticDistrubancePaletoBay", false);
+            Settings.DomesticDistrubancePaletoBay = ini.ReadBoolean("Callouts", "DomesticDistrubancePaletoBay", true);
+            Settings.DomesticDisturbanceHarmony = ini.ReadBoolean("Callouts", "DomesticDisturbanceHarmony", true);
+            Settings.DomesticDistrubancePaletoBay = ini.ReadBoolean("Callouts", "DomesticDistrubancePaletoBay", true);
             Settings.HelpMessages = ini.ReadBoolean("HelpMessages", "HelpMessages", true);
             Settings.WarningMessages = ini.ReadBoolean("Misc", "WarningMessages", true);
             EndCall = ini.ReadEnum("Keys", "EndCall", Keys.End);
