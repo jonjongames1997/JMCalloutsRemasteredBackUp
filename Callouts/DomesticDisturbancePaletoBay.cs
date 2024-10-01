@@ -3,7 +3,7 @@
 namespace JMCalloutsRemastered.Callouts
 {
 
-    [CalloutInterface("[JM Callouts] Domestic Disturbance", CalloutProbability.Medium, "A couple of people arguing", "Code 2", "PBPD")]
+    [CalloutInterface("[JM Callouts] Domestic Disturbance - Paleto Bay", CalloutProbability.Medium, "A couple of people arguing", "Code 2", "PBPD")]
 
     public class DomesticDisturbancePaletoBay : Callout
     {
@@ -20,10 +20,10 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnBeforeCalloutDisplayed()
         {
-            spawnPoint = new();
-            heading = 188.71f;
-            suspectSpawnpoint = new();
-            suspectHeading = 159.69f;
+            spawnPoint = new(-364.55f, 6340.62f, 29.84f);
+            heading = 37.34f;
+            suspectSpawnpoint = new(-366.09f, 6342.01f, 29.84f);
+            suspectHeading = 222.44f;
             ShowCalloutAreaBlipBeforeAccepting(spawnPoint, 100f);
             LSPD_First_Response.Mod.API.Functions.PlayScannerAudioUsingPosition("ATTENTION_ALL_UNITS_02 WE_HAVE_01 CRIME_DOMESTIC_DISTURBANCE UNITS_RESPOND_CODE_02_02", spawnPoint);
             CalloutInterfaceAPI.Functions.SendMessage(this, "A neighbor's reporting a loud argument next door.");
@@ -43,17 +43,6 @@ namespace JMCalloutsRemastered.Callouts
             victim.IsPersistent = true;
             victim.BlockPermanentEvents = true;
             victim.IsValid();
-
-            victim.Tasks.PlayAnimation(new AnimationDictionary("friends@frj@ig_1"), "wave_a", -1f, AnimationFlags.Loop);
-            suspect.Tasks.PlayAnimation(new AnimationDictionary("random@shop_tattoo"), "_idle_a", -1f, AnimationFlags.UpperBodyOnly);
-
-            StopThePed.API.Functions.setPedUnderDrugsInfluence(suspect, true);
-            StopThePed.API.Functions.injectPedSearchItems(suspect);
-            StopThePed.API.Functions.isPedAlcoholOverLimit(suspect);
-
-            StopThePed.API.Functions.isPedUnderDrugsInfluence(victim);
-            StopThePed.API.Functions.injectPedSearchItems(victim);
-            StopThePed.API.Functions.isPedUnderDrugsInfluence(victim);
 
             suspect = new Ped(suspectSpawnpoint, heading);
             suspect.IsPersistent = true;
@@ -108,25 +97,25 @@ namespace JMCalloutsRemastered.Callouts
                     if (counter == 2)
                     {
                         victim.Tasks.PlayAnimation(new AnimationDictionary("anim@amb@casino@hangout@ped_female@stand_withdrink@01a@idles_convo"), "idle_a", -1f, AnimationFlags.Loop);
-                        Game.DisplaySubtitle("~o~Victim~w~: Hello, Officer. I am doing fine.... well, kinda. We are having an argument over headphones and earbuds. My buddy claims that over the head headphones is different from headphones. I told my buddy is stil headphones. I do apologize for you being called out.");
+                        Game.DisplaySubtitle("~o~Victim~w~: Hello, Officer. I am doing fine.... well, kinda. I'm trying to kick my buddy out from my house cause he's refusing to pay his rent.");
                     }
                     if (counter == 3)
                     {
                         victim.Tasks.PlayAnimation(new AnimationDictionary("rcmjosh1"), "idle", 1f, AnimationFlags.Loop);
-                        Game.DisplaySubtitle("~b~You~w~: Is that why I was being called out here over headphones and earbuds?");
+                        Game.DisplaySubtitle("~b~You~w~: I see. How much does your buddy owe you?");
                     }
                     if (counter == 4)
                     {
-                        Game.DisplaySubtitle("~b~You~w~: I'll solve this argument right now. Headphones is headphones. The over the ear headphones is considered headphones. Earbuds is earbuds. I swear y'all Gen Z's are being idiotic.");
+                        Game.DisplaySubtitle("~o~Victim~w~: $2,500.89. That's what I charge every month cause I'm trying to pay my mortgage and other bills.");
                     }
                     if (counter == 5)
                     {
-                        Game.DisplaySubtitle("~b~You~w~: But I will talk to your buddy and tell them what I said.");
+                        Game.DisplaySubtitle("~b~You~w~: Ok, I'll see what I can do.");
                     }
                     if (counter == 6)
                     {
                         victim.Tasks.PlayAnimation(new AnimationDictionary("anim@amb@casino@hangout@ped_female@stand_withdrink@01a@idles_convo"), "idle_a", -1f, AnimationFlags.Loop);
-                        Game.DisplaySubtitle("~o~Victim~w~: I'm not a Gen Z, officer, my buddy is. But ok officer.");
+                        Game.DisplaySubtitle("~o~Victim~w~: Thank you, Officer.");
                     }
                     if (counter == 7)
                     {
