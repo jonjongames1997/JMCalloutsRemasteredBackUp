@@ -16,7 +16,7 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnBeforeCalloutDisplayed()
         {
-            spawnpoint = World.GetNextPositionOnStreet(MainPlayer.Position.Around(1000f));
+            spawnpoint = World.GetNextPositionOnStreet(MainPlayer.Position.Around(100f));
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
             LSPD_First_Response.Mod.API.Functions.PlayScannerAudioUsingPosition("ATTENTION_ALL_UNITS_01 WE_HAVE_01 CIV_ASSIST_01 UNITS_RESPOND_CODE_02_02", spawnpoint);
             CalloutInterfaceAPI.Functions.SendMessage(this, "A civilian called 9-1-1 to prank call dispatch.");
