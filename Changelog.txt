@@ -1,5 +1,10 @@
 ﻿Changelog:
 
+5.0.5.4:
+
+- Minor Adjustments to "Intoxicated Individual" callout
+- 
+
 5.0.5.3:
 
 - Added 4 new locations for 9-1-1 Hang Up callout for Blaine County
