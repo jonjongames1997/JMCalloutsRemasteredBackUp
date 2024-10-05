@@ -38,8 +38,6 @@ namespace JMCalloutsRemastered.Callouts
             suspect.IsPersistent = true;
             suspect.BlockPermanentEvents = true;
 
-            suspect.Tasks.Wander();
-
             blip = suspect.AttachBlip();
             blip.Color = System.Drawing.Color.DarkTurquoise;
             blip.IsRouteEnabled = true;
@@ -77,7 +75,7 @@ namespace JMCalloutsRemastered.Callouts
 
                     if (counter == 1)
                     {
-                        suspect.Face(MainPlayer);
+                        suspect.Tasks.PlayAnimation(new AnimationDictionary("wank"), "mp_wank", -1f, AnimationFlags.Loop);
                         Game.DisplaySubtitle("~b~Player~w~: Excuse me, " + malefemale + ". What's going on? You ok>");
                     }
                     if (counter == 2)
