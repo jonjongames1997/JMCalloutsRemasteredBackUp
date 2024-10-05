@@ -1,5 +1,7 @@
-﻿using JMCalloutsRemastered.Callouts;
+﻿
+using JMCalloutsRemastered.Callouts;
 using JMCalloutsRemastered.Engine;
+using JMCalloutsRemastered.VersionChecker;
 using LSPD_First_Response.Mod.Utils;
 
 [assembly: Rage.Attributes.Plugin("JMCalloutsRemastered", Description = "LSPDFR Callout Pack", Author = "OfficerMorrison")]
@@ -43,6 +45,7 @@ namespace JMCalloutsRemastered
                     Game.Console.Print("=============================================== JM Callouts Remastered by OfficerMorrison ================================================");
                     Game.Console.Print();
 
+                    PluginCheck.isUpdateAvailable();
 
                     Game.DisplayNotification("web_jonjongames", "web_jonjongames", "JM Callouts Remastered", "~g~v" + Assembly.GetExecutingAssembly().GetName().Version.ToString() + " ~r~by OfficerMorrison", "~b~successfully loaded!");
                     Game.DisplayHelp("~y~JM Callouts Remasterd Warning: If this callout pack is redistributed on any other sites that aren'tapproved by JM Modifications, You'll be sent a DMCA Takedown Notice.");
