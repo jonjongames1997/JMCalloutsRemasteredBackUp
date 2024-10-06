@@ -150,7 +150,7 @@ namespace JMCalloutsRemastered.Callouts
             if (vicBlip) vicBlip.Delete();
             SceneManager.API.Functions.DeleteLoadedPaths();
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Injured Person", "~b~you~w~: Dispatch, we are ~g~CODE 4~w~. Show me back 10-8.");
-            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_THIS_IS_DISPATCH_HIGH ALL_UNITS_CODE4 NO_FURHTER_UNITS_REQUIRED");
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_Code_4_Audio");
 
             base.End();
 
