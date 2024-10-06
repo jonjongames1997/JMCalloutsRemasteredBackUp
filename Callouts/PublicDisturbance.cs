@@ -46,7 +46,7 @@ namespace JMCalloutsRemastered.Callouts
             };
             spawnPoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(spawnPoint, 100f);
-            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_ALL_UNITS_02 WE_HAVE_01 CRIME_PUBLIC_DISTURBANCE UNITS_RESPOND_CODE_02_02");
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_Public_Disturbance_Callout_Audio_1");
             CalloutInterfaceAPI.Functions.SendMessage(this, "A citizen's reporting a public disturbance.");
             CalloutMessage = "A citizen's reporting a person threatening a victim's life with a deadly weapon.";
             CalloutPosition = spawnPoint;
@@ -61,9 +61,12 @@ namespace JMCalloutsRemastered.Callouts
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
             Game.DisplayNotification("~r~WARNING~w~: Some Players may find this callout controversial or disturbing. Player Discretion is Advised.");
 
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_Respond_Code_2_Audio");
+
             suspect = new Ped(spawnPoint);
             suspect.IsPersistent = true;
             suspect.BlockPermanentEvents = true;
+            suspect.Tasks.PlayAnimation(new AnimationDictionary("amb@world_human_prostitute@crackhooker@base"), "base", -1f, AnimationFlags.Loop);
 
             SuspectBlip = suspect.AttachBlip();
             SuspectBlip.Color = System.Drawing.Color.BurlyWood;
