@@ -33,7 +33,7 @@ namespace JMCalloutsRemastered.Callouts
             };
             Spawnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 100f);
-            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_ALL_UNITS_02 WE_HAVE_01 CRIME_DISTURBING_THE_PEACE_01 UNITS_RESPOND_CODE_02_01");
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_Refuse_To_Leave_Callout_Audio_1");
             CalloutInterfaceAPI.Functions.SendMessage(this, "Person refusing to leave");
             CalloutMessage = "Individual refusing to leave property by business owner/employee.";
             CalloutPosition = Spawnpoint;
@@ -47,11 +47,14 @@ namespace JMCalloutsRemastered.Callouts
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Refuse To Leave", "~b~Dispatch~w~: Suspect has been spotted. Respond ~r~Code 1~w~.");
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
 
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_Code_1_Response_Audio");
 
             Suspect = new Ped(Spawnpoint);
             Suspect.IsPersistent = true;
             Suspect.BlockPermanentEvents = true;
             Suspect.IsMeleeProof = true;
+
+            Suspect.Tasks.PlayAnimation(new AnimationDictionary("anim@amb@casino@brawl@fights@argue@"), "arguement_loop_mp_m_brawler_02", -1f, AnimationFlags.Loop);
 
             SuspectBlip = Suspect.AttachBlip();
             SuspectBlip.Color = System.Drawing.Color.BlueViolet;
@@ -90,31 +93,37 @@ namespace JMCalloutsRemastered.Callouts
 
                     if (counter == 1)
                     {
-                        Suspect.Face(MainPlayer);
+                        Suspect.Tasks.PlayAnimation(new AnimationDictionary("random@shop_tattoo"), "_idle_a", -1f, AnimationFlags.UpperBodyOnly);
                         Game.DisplaySubtitle("~b~Player~w~: Hello there " + malefemale + ", Can I talk to you for a second?");
                     }
                     if (counter == 2)
                     {
+                        Suspect.Tasks.PlayAnimation(new AnimationDictionary("anim@amb@casino@brawl@fights@argue@"), "arguement_loop_mp_m_brawler_02", -1f, AnimationFlags.Loop);
                         Game.DisplaySubtitle("~y~Suspect~w~: What now donut pigs?");
                     }
                     if (counter == 3)
                     {
+                        Suspect.Tasks.PlayAnimation(new AnimationDictionary("random@shop_tattoo"), "_idle_a", -1f, AnimationFlags.UpperBodyOnly);
                         Game.DisplaySubtitle("~b~Player~w~: Can you tell me what's going on?");
                     }
                     if (counter == 4)
                     {
+                        Suspect.Tasks.PlayAnimation(new AnimationDictionary("anim@amb@casino@brawl@fights@argue@"), "arguement_loop_mp_m_brawler_02", -1f, AnimationFlags.Loop);
                         Game.DisplaySubtitle("~y~Suspect~w~: That bitch over there told me I can't come in here.");
                     }
                     if (counter == 5)
                     {
+                        Suspect.Tasks.PlayAnimation(new AnimationDictionary("random@shop_tattoo"), "_idle_a", -1f, AnimationFlags.UpperBodyOnly);
                         Game.DisplaySubtitle("~b~Player~w~: Is there a reason why they can't let you come in here?");
                     }
                     if (counter == 6)
                     {
+                        Suspect.Tasks.PlayAnimation(new AnimationDictionary("anim@amb@casino@brawl@fights@argue@"), "arguement_loop_mp_m_brawler_02", -1f, AnimationFlags.Loop);
                         Game.DisplaySubtitle("~y~Suspect~w~: I was outside the door asking people for money. They called the cops and they told me that I was trespassed from the property.");
                     }
                     if (counter == 7)
                     {
+                        Suspect.Tasks.PlayAnimation(new AnimationDictionary("random@shop_tattoo"), "_idle_a", -1f, AnimationFlags.UpperBodyOnly);
                         Game.DisplayNotification("~y~Tip~w~: If the suspect was trespassed from the property before, that's an arrestable offense.");
                     }
                     if (counter == 8)
@@ -123,14 +132,17 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 9)
                     {
+                        Suspect.Tasks.PlayAnimation(new AnimationDictionary("anim@amb@casino@brawl@fights@argue@"), "arguement_loop_mp_m_brawler_02", -1f, AnimationFlags.Loop);
                         Game.DisplaySubtitle("~y~Suspect~w~: WHAT?! Are you f***ing with me?");
                     }
                     if (counter == 10)
                     {
+                        Suspect.Tasks.PlayAnimation(new AnimationDictionary("random@shop_tattoo"), "_idle_a", -1f, AnimationFlags.UpperBodyOnly);
                         Game.DisplaySubtitle("~b~Player~w~: No, I'm not. Don't try anything stupid, you'll make things worse on yourself.");
                     }
                     if (counter == 11)
                     {
+                        Suspect.Tasks.PlayAnimation(new AnimationDictionary("anim@amb@casino@brawl@fights@argue@"), "arguement_loop_mp_m_brawler_02", -1f, AnimationFlags.Loop);
                         Game.DisplaySubtitle("~y~Suspect~w~: F**k you and f**k them! I'm outta here, playa!");
                     }
                     if (counter == 12)
@@ -150,7 +162,7 @@ namespace JMCalloutsRemastered.Callouts
             if (Suspect) Suspect.Dismiss();
             if (SuspectBlip) SuspectBlip.Delete();
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Refuse To Leave", "~b~You~w~: Dispatch, we are ~g~Code 4~w~. Show me back 10-8.");
-            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ALL_UNITS_CODE4 NO_FURTHER_UNITS_REQUIRED");
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_Code_4_Audio");
 
             Game.LogTrivial("JM Callouts Remastered - Refuse to leave is Code 4!");
         }
