@@ -1,9 +1,11 @@
 ﻿Changelog:
 
-5.0.5.4:
+5.0.6 - Callout Audio Rework Update Part 2:
 
 - Minor Adjustments to "Intoxicated Individual" callout
-- 
+- Added the remaining callout audio rework for the remaining callouts.
+- Bug Fixes
+- Added more animations to the peds in callouts
 
 5.0.5.3:
 
