@@ -176,17 +176,6 @@ namespace JMCalloutsRemastered
             Game.Console.Print();
         }
 
-        // Credit to Rich for the code //
-        private static Assembly OnAssemblyResolve(object sender, ResolveEventArgs args)
-        {
-            if (args.Name.StartsWith("SceneManager"))
-            {
-                return Assembly.Load(File.ReadAllBytes(@"Plugins\SceneManager.dll"));
-            }
-
-            return null;
-        }
-
         public override void Finally()
         {
 
