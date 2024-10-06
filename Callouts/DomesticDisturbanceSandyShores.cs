@@ -27,7 +27,7 @@ namespace JMCalloutsRemastered.Callouts
             suspectSpawnpoint = new(1818.70f, 3908.09f, 33.76f);
             suspectHeading = 113.21f;
             ShowCalloutAreaBlipBeforeAccepting(spawnPoint, 100f);
-            LSPD_First_Response.Mod.API.Functions.PlayScannerAudioUsingPosition("ATTENTION_ALL_UNITS_02 WE_HAVE_01 CRIME_DOMESTIC_DISTURBANCE UNITS_RESPOND_CODE_02_02", spawnPoint);
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudioUsingPosition("JMCallouts_DomesticDisturbance_Sandy_Shores_Callout_Audio_1", spawnPoint);
             CalloutInterfaceAPI.Functions.SendMessage(this, "A neighbor's reporting a loud argument next door.");
             CalloutMessage = "Reports of a domestic disturbance";
             CalloutPosition = spawnPoint;
@@ -40,6 +40,8 @@ namespace JMCalloutsRemastered.Callouts
             Game.LogTrivial("[JM Callouts Remastered Log]: Domestic Disturbance - Sandy Shores callout accepted!");
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Domestic Disturbance - Grapeseed", "~b~Dispatch~w~: Suspect has been spotted. Respond ~r~Code 2~w~.");
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
+
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_Respond_Code_2_Audio");
 
             victim = new Ped(spawnPoint, heading);
             victim.IsPersistent = true;
