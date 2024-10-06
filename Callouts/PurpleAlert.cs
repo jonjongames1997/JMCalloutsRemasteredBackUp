@@ -20,9 +20,9 @@ namespace JMCalloutsRemastered.Callouts
         {
             spawnpoint = World.GetNextPositionOnStreet(MainPlayer.Position.Around(1000f));
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
-            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("AMBERALERT ATTENTION_ALL_UNITS_01 WE_HAVE_01 CITIZENS_REPORT_01 CRIME_2_42_01 UNITS_RESPOND_CODE_02_01");
-            CalloutInterfaceAPI.Functions.SendMessage(this, "A concerned family member reporting the loved one lost after not responfing to phone calls or texts.");
-            CalloutMessage = "An individual not responding to calls or texts, has a disability, has been last seen since Monday and never returned home.";
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("AMBERALERT JMCallouts_Purple_Alert_Callout_Audio_1");
+            CalloutInterfaceAPI.Functions.SendMessage(this, "A family member reported missing.");
+            CalloutMessage = "An individual not responding to calls or texts.";
             CalloutPosition = spawnpoint;
 
             return base.OnBeforeCalloutDisplayed();
@@ -34,9 +34,13 @@ namespace JMCalloutsRemastered.Callouts
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Purple Alert", "~b~Dispatch~w~: The suspect has been spotted! Respond ~r~Code 2~w~.");
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
 
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_Respond_Code_2_Audio");
+
             suspect = new Ped(spawnpoint);
             suspect.IsPersistent = true;
             suspect.BlockPermanentEvents = true;
+
+            suspect.Tasks.PlayAnimation(new AnimationDictionary("anim@amb@nightclub@lazlow@hi_dancefloor@"), "crowddance_hi_11_handup_laz", -1f, AnimationFlags.Loop);
 
             blip = suspect.AttachBlip();
             blip.Color = System.Drawing.Color.DarkTurquoise;
@@ -75,11 +79,11 @@ namespace JMCalloutsRemastered.Callouts
 
                     if (counter == 1)
                     {
-                        suspect.Tasks.PlayAnimation(new AnimationDictionary("wank"), "mp_wank", -1f, AnimationFlags.Loop);
                         Game.DisplaySubtitle("~b~Player~w~: Excuse me, " + malefemale + ". What's going on? You ok>");
                     }
                     if (counter == 2)
                     {
+                        suspect.Tasks.PlayAnimation(new AnimationDictionary("rcmjosh1"), "idle", -1f, AnimationFlags.Loop);
                         Game.DisplaySubtitle("~o~Suspect~w~: Yeah, I'm fine. What's going on?");
                     }
                     if (counter == 3)
@@ -113,7 +117,7 @@ namespace JMCalloutsRemastered.Callouts
             if (suspect) suspect.Dismiss();
             if (blip) blip.Delete();
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Purple Alert", "~b~You~w~: Dispatch, We are ~g~CODE 4~w~! Show me back 10-8!");
-            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_THIS_IS_DISPATCH_HIGH WE_ARE_CODE_4 NO_FURTHER_UNITS_REQUIRED");
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_Code_4_Audio");
             base.End();
 
             Game.LogTrivial("[LOG]: JM Callouts Remastered - Purple Alert is Code 4!");
