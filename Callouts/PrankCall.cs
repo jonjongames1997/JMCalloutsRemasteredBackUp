@@ -18,7 +18,7 @@ namespace JMCalloutsRemastered.Callouts
         {
             spawnpoint = World.GetNextPositionOnStreet(MainPlayer.Position.Around(100f));
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
-            LSPD_First_Response.Mod.API.Functions.PlayScannerAudioUsingPosition("ATTENTION_ALL_UNITS_01 WE_HAVE_01 CIV_ASSIST_01 UNITS_RESPOND_CODE_02_02", spawnpoint);
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudioUsingPosition("JMCallouts_Prank_Call_Audio_1", spawnpoint);
             CalloutInterfaceAPI.Functions.SendMessage(this, "A civilian called 9-1-1 to prank call dispatch.");
             CalloutMessage = "Suspect details is unknown. Respond Code 2.";
             CalloutPosition = spawnpoint;
@@ -32,9 +32,13 @@ namespace JMCalloutsRemastered.Callouts
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Prank Call", "~b~Dispatch~w~: Suspect spotted. Respond ~r~Code 2~w~.");
             Game.DisplayHelp("Press ~y~E~w~ at anytime to end the callout");
 
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_Respond_Code_2_Audio");
+
             suspect = new Ped(spawnpoint);
             suspect.IsPersistent = true;
             suspect.BlockPermanentEvents = true;
+
+            suspect.Tasks.PlayAnimation(new AnimationDictionary("special_ped@mountain_dancer@monologue_3@monologue_3a"), "mnt_dnc_buttwag", -1f, AnimationFlags.Loop);
 
             susBlip = suspect.AttachBlip();
             susBlip.Color = System.Drawing.Color.Red;
@@ -77,6 +81,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if(counter == 2)
                     {
+                        suspect.Tasks.PlayAnimation(new AnimationDictionary("friends@frt@ig_1"), "trevor_impatient_wait_2", -1f, AnimationFlags.Loop);
                         Game.DisplaySubtitle("~o~Suspect~w~: Oh, shit. I thought you guys weren't actually gonna respond.");
                     }
                     if(counter == 3)
@@ -93,6 +98,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if(counter == 6)
                     {
+                        suspect.Tasks.PlayAnimation(new AnimationDictionary("switch@trevor@floyd_crying"), "console_loop_floyd", -1f, AnimationFlags.Loop);
                         Game.DisplaySubtitle("~o~Suspect~w~: *Crying and begging* PLEASE! DON'T ARREST ME! I HAVE 2 KIDS AT HOME I NEED TO FEED. I can't afford to lose my job.");
                     }
                     if(counter == 7)
@@ -120,7 +126,7 @@ namespace JMCalloutsRemastered.Callouts
             if (suspect) suspect.Dismiss();
             if (susBlip) susBlip.Delete();
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Prank Call", "~b~You~w~: Dispatch, we are ~g~CODE 4~w~. Show me back 10-8.");
-            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_THIS_IS_DISPATCH_HIGH ALL_UNITS_CODE4 NO_FURTHER_UNITS_REQUIRED");
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_Code_4_Audio");
 
             base.End();
 
