@@ -145,7 +145,7 @@ namespace JMCalloutsRemastered.Callouts
             if (Suspect) Suspect.Dismiss();
             if (SuspectBlip) SuspectBlip.Delete();
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Illegal Prostitution", "~b~You~w~: Dispatch, We are ~g~CODE 4~w~! Show me back 10-8!");
-            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_THIS_IS_DISPATCH_HIGH ALL_UNITS_CODE4 NO_FURTHER_UNITS_REQUIRED");
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_Code_4_Audio");
 
 
             Game.LogTrivial("[LOG]: JM Callouts Remastered - Illegal Prostitution is Code 4!");
