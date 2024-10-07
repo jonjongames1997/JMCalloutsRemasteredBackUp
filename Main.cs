@@ -1,5 +1,4 @@
-﻿
-using JMCalloutsRemastered.Callouts;
+﻿using JMCalloutsRemastered.Callouts;
 using JMCalloutsRemastered.Engine;
 using JMCalloutsRemastered.VersionChecker;
 using LSPD_First_Response.Mod.Utils;
