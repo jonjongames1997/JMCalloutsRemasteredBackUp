@@ -6,6 +6,7 @@
 - Added the remaining callout audio rework for the remaining callouts.
 - Bug Fixes
 - Added more animations to the peds in callouts
+- Fixed an error where the Abandoned Vehicle On Railroad Tracks wouldn't clean up correctly.
 
 5.0.5.3:
 
