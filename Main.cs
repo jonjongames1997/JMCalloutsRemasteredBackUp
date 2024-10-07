@@ -20,7 +20,6 @@ namespace JMCalloutsRemastered
 
             Functions.OnOnDutyStateChanged += Functions_OnOnDutyStateChanged;
             Settings.LoadSettings();
-            Game.AddConsoleCommands([typeof(ConsoleCommands)]);
         }
 
         static void Functions_OnOnDutyStateChanged(bool onDuty)
