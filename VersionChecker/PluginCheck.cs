@@ -3,12 +3,12 @@
     public class PluginCheck
     {
 
-        public static bool isUpdateAvailable()
+        public static bool IsUpdateAvailable()
         {
             string curVersion = Settings.PluginVersion;
-            Uri latestVersionUri = new Uri("https://www.lcpdfr.com/applications/downloadsng/interface/api.php?do=checkForUpdates&fileId=43616&textOnly=1");
-            WebClient webClient = new WebClient();
-            string recieveData = string.Empty;
+            Uri latestVersionUri = new("https://www.lcpdfr.com/applications/downloadsng/interface/api.php?do=checkForUpdates&fileId=43616&textOnly=1");
+            WebClient webClient = new();
+            string recieveData;
             try
             {
                 recieveData = webClient.DownloadString(latestVersionUri).Trim();
