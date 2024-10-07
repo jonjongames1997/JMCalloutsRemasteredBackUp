@@ -23,12 +23,10 @@ global using static JMCalloutsRemastered.Stuff.Arrays;
 global using static JMCalloutsRemastered.Stuff.LocationChooser;
 global using static JMCalloutsRemastered.Stuff.StopThePedFunctions;
 global using static JMCalloutsRemastered.Stuff.UltimateBackupFunctions;
-global using static JMCalloutsRemastered.Engine.ConsoleCommand;
-global using static JMCalloutsRemastered.API.Logger;
 global using static JMCalloutsRemastered.Settings;
 global using static JMCalloutsRemastered.Stuff.Vector3Extension;
 global using static JMCalloutsRemastered.Engine.EnumExtensionManager;
 global using static JMCalloutsRemastered.IniFile;
 global using JMCalloutsRemastered.API;
-
+global using static JMCalloutsRemastered.API.Logger;
 #endregion
