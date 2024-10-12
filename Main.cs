@@ -1,5 +1,4 @@
 ﻿using JMCalloutsRemastered.Callouts;
-using JMCalloutsRemastered.Engine;
 using JMCalloutsRemastered.VersionChecker;
 using LSPD_First_Response.Mod.Utils;
 
@@ -69,18 +68,7 @@ namespace JMCalloutsRemastered
                 }
                 #endregion
 
-                GameFiber.Wait(300);
-                #region
-                /////////////////////////////
-                // Credit to AstroBurgers for his opensource code as a guide reference. github.com/AstroBurgers/RiskierTrafficStops/blob/master/RiskierTrafficStops/Main.cs
-
-                Game.DisplayNotification("web_jonjongames",
-                "web_jonjongames",
-                "JM Callouts Remastered",
-                "~r~by ~o~OfficerMorrison",
-                $"{PluginLoadText.PickRandom()}");
-                ////////////////////////////////////////
-                #endregion
+                GameFiber.Yield();
             });
         }
         private static void RegisterCallouts()
@@ -144,7 +132,6 @@ namespace JMCalloutsRemastered
             if (Settings.TrespassingOnRailRoadProperty) { Functions.RegisterCallout(typeof(TrespassingOnRailRoadProperty)); }
             if (Settings.TrespassingOnConstructionProperty) { Functions.RegisterCallout(typeof(TrespassingOnConstructionProperty)); }
             if (Settings.LostIndividual) { Functions.RegisterCallout(typeof(LostIndividual)); }
-            if (Settings.UnauthorizedAccessMovieStudio) { Functions.RegisterCallout(typeof(UnauthorizedAccessMovieStudio)); }
             if (Settings.DeadBody) { Functions.RegisterCallout(typeof(DeadBody)); }
             if (Settings.SolicitingDelPerroPier) { Functions.RegisterCallout(typeof(SolicitingDelPerroPier)); }
             if (Settings.StolenEmergencyVehicle) { Functions.RegisterCallout(typeof(StolenEmergencyVehicle)); }
