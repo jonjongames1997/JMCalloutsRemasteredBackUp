@@ -19,7 +19,7 @@ namespace JMCalloutsRemastered
         internal static bool CodeKaren = true;
         internal static bool TrespassingOnConstructionProperty = true;
         internal static bool LostIndividual = true;
-        internal static bool UnauthorizedAccessMovieStudio = true;
+        internal static bool UnauthorizedAccessMovieStudio = false;
         internal static bool DeadBody = true;
         internal static bool SolicitingDelPerroPier = true;
         internal static bool WrecklessDriving = true;
@@ -74,7 +74,7 @@ namespace JMCalloutsRemastered
             Settings._911HangUp = ini.ReadBoolean("Callouts", "_911HangUp", true);
             Settings.TrespassingOnConstructionProperty = ini.ReadBoolean("Callouts", "TrespassingOnConstructionProperty", true);
             Settings.LostIndividual = ini.ReadBoolean("Callouts", "LostIndividual", true);
-            Settings.UnauthorizedAccessMovieStudio = ini.ReadBoolean("Callouts", "UnauthorizedAccessMovieStudio", true);
+            Settings.UnauthorizedAccessMovieStudio = ini.ReadBoolean("Callouts", "UnauthorizedAccessMovieStudio", false);
             Settings.DeadBody = ini.ReadBoolean("Callouts", "DeadBody", true);
             Settings.SolicitingDelPerroPier = ini.ReadBoolean("Callouts", "SolicitingDelPerro", true);
             Settings.StolenEmergencyVehicle = ini.ReadBoolean("Callouts", "StolenEmergencyVehicle", true);
