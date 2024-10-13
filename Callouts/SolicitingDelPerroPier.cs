@@ -19,7 +19,7 @@ namespace JMCalloutsRemastered.Callouts
             spawnpoint = new(-1651.26f, -1007.90f, 13.02f); // Del Perro Pier
             heading = 214.98f;
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
-            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_ALL_UNITS_02 WE_HAVE_01 CRIME_CITIZEN_REQUESTING_REMOVAL_OF_BEGGARS UNITS_RESPOND_CODE_02_01");
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_Soliciting_Del_Perro_Callout_Audio_1");
             CalloutInterfaceAPI.Functions.SendMessage(this, "Reports of an individual asking people for money");
             CalloutMessage = "Reports of an individual asking people for money";
             CalloutPosition = spawnpoint;
@@ -33,6 +33,7 @@ namespace JMCalloutsRemastered.Callouts
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Soliciting - Del Perro", "~b~Dispatch~w~: The suspect has been spotted! Respond ~r~Code 2~w~.");
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
 
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_Respond_Code_2_Audio");
 
             suspect = new Ped(spawnpoint, heading);
             suspect.IsPersistent = true;
@@ -97,6 +98,7 @@ namespace JMCalloutsRemastered.Callouts
                         Game.DisplaySubtitle("~r~Suspect~w~: Die, you motherfucka!");
                         suspect.Tasks.FightAgainst(MainPlayer);
                         suspect.Inventory.GiveNewWeapon("WEAPON_PISTOL", 500, true);
+                        UltimateBackup.API.Functions.callPanicButtonBackup(true);
                     }
                 }
 
@@ -113,7 +115,7 @@ namespace JMCalloutsRemastered.Callouts
             if (suspect) suspect.Dismiss();
             if (blip) blip.Delete();
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Soliciting - Del Perro", "~b~You~w~: Dispatch, We are ~g~CODE 4~w~! Show me back 10-8!");
-            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_THIS_IS_DISPATCH_HIGH ALL_UNITS_CODE4 NO_FURTHER_UNITS_REQUIRED");
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_Code_4_Audio");
             base.End();
 
             Game.LogTrivial("[JM Callouts Remastered]: Solicitng Del Perro Pier is code 4!");
