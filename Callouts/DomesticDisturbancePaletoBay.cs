@@ -17,6 +17,7 @@ namespace JMCalloutsRemastered.Callouts
         private static float heading;
         private static int counter;
         private static string malefemale;
+        private static string malefemale2;
 
         public override bool OnBeforeCalloutDisplayed()
         {
@@ -63,6 +64,11 @@ namespace JMCalloutsRemastered.Callouts
             else
                 malefemale = "Ma'am";
 
+            if (victim.IsMale)
+                malefemale2 = "he";
+            else
+                malefemale2 = "she";
+
             counter = 0;
 
             return base.OnCalloutAccepted();
@@ -104,7 +110,7 @@ namespace JMCalloutsRemastered.Callouts
                     if (counter == 3)
                     {
                         victim.Tasks.PlayAnimation(new AnimationDictionary("rcmjosh1"), "idle", 1f, AnimationFlags.Loop);
-                        Game.DisplaySubtitle("~b~You~w~: I see. How much does your buddy owe you?");
+                        Game.DisplaySubtitle("~b~You~w~: I see. How much does" + malefemale2 + "owe you?");
                     }
                     if (counter == 4)
                     {
