@@ -3,7 +3,7 @@
 namespace JMCalloutsRemastered.Callouts
 {
 
-    [CalloutInterface("[JM Callouts] Soliciting", CalloutProbability.Medium, "An individual soliciting on private property", "Code 2", "LSPD")]
+    [CalloutInterface("[JM Callouts] Soliciting", CalloutProbability.Medium, "An individual soliciting", "Code 2", "LEO")]
 
     public class Soliciting : Callout
     {
@@ -31,7 +31,7 @@ namespace JMCalloutsRemastered.Callouts
             };
             Spawnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 100f);
-            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_ALL_UNITS_02 WE_HAVE_01 CRIME_CITIZEN_REQUESTING_REMOVAL_OF_BEGGARS UNITS_RESPOND_CODE_02_01");
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_Soliciting_Callout_Audio_1");
             CalloutInterfaceAPI.Functions.SendMessage(this, "An individual is asking people for money and harassing them.");
             CalloutMessage = "An Individual asking people for money.";
             CalloutPosition = Spawnpoint;
@@ -44,6 +44,8 @@ namespace JMCalloutsRemastered.Callouts
             Game.LogTrivial("[JM Callouts Remastered Log]: Soliciting Callout accaepted!");
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Soliciting", "~b~Dispatch~w~: Suspect has been spotted. Respond ~r~Code 2~w~.");
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
+
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_Respond_Code_2_Audio");
 
             Suspect = new Ped(Spawnpoint);
             Suspect.IsPersistent = true;
@@ -91,7 +93,7 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 2)
                     {
-                        Game.DisplaySubtitle("~y~Suspect:~w~ Oh, Shit. The one time!");
+                        Game.DisplaySubtitle("~y~Suspect:~w~ Oh, Shit!! The po po is here!");
                     }
                     if (counter == 3)
                     {
@@ -111,7 +113,7 @@ namespace JMCalloutsRemastered.Callouts
             if (Suspect) Suspect.Dismiss();
             if (SuspectBlip) SuspectBlip.Delete();
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Soliciting", "~b~You~w~: We are ~g~Code 4~w~! Show me back 10-8!");
-            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_THIS_IS_DISPATCH_HIGH ALL_UNITS_CODE4 NO_FURTHER_UNITS_REQUIRED");
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_Code_4_Audio");
 
             Game.LogTrivial("JM Callouts Remastered - Soliciting is Code 4!");
         }
