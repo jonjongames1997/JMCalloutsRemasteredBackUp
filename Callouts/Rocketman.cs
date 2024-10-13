@@ -20,7 +20,7 @@ namespace JMCalloutsRemastered.Callouts
         {
             spawnpoint = World.GetNextPositionOnStreet(MainPlayer.Position.Around(1000f));
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
-            LSPD_First_Response.Mod.API.Functions.PlayScannerAudioUsingPosition("ATTENTION_ALL_UNITS_01 WE_HAVE_01 CRIME_BRANDISHING_WEAPON_01 UNITS_RESPOND_CODE_03_01", spawnpoint);
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudioUsingPosition("JMCallouts_Rocketman_Callout_Audio_1", spawnpoint);
             CalloutInterfaceAPI.Functions.SendMessage(this, "Citizen's reporting a individual carrying an explosive weapon.");
             CalloutMessage = "An individual is threatening citizens with an explosive weapon.";
             CalloutPosition = spawnpoint;
@@ -34,7 +34,7 @@ namespace JMCalloutsRemastered.Callouts
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Rocketman", "~b~Dispatch~w~: The suspect has been spotted! Respond ~r~Code 3~w~.");
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
 
-            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("Here_Comes_Rocketman");
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_Respond_Code_3_Audio");
 
             suspect = new Ped(spawnpoint);
             suspect.IsPersistent = true;
@@ -122,6 +122,7 @@ namespace JMCalloutsRemastered.Callouts
                     {
                         Game.DisplaySubtitle("~r~Suspect~w~: Fuck you! Take your last breath of fresh air, motherfuckers!");
                         suspect.Tasks.FightAgainst(MainPlayer);
+                        LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("Here_Comes_Rocketman");
                         suspect.Inventory.GiveNewWeapon(wepList[new Random().Next((int)wepList.Length)], 500, true);
                         suspect.KeepTasks = true;
                         suspect.Armor = 500;
@@ -140,7 +141,7 @@ namespace JMCalloutsRemastered.Callouts
             if (suspect) suspect.Dismiss();
             if (susBlip) susBlip.Delete();
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Rocketman", "~b~You~w~: Dispatch, we are ~g~Code 4~w~. Show me back 10-8.");
-            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_THIS_IS_DISPATCH_HIGH ALL_UNITS_CODE4 NO_FURTHER_UNITS_REQUIRED");
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_Code_4_Audio");
 
             base.End();
 
