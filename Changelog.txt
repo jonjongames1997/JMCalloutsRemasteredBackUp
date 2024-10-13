@@ -7,6 +7,9 @@
 - Bug Fixes
 - Added more animations to the peds in callouts
 - Fixed an error where the Abandoned Vehicle On Railroad Tracks wouldn't clean up correctly.
+- Minor adjustments to "Public Disturbance - Paleto Bay" callout
+- Removed more unwanted code
+- Disabled "Unauthorized Access Movie Studio" callout for a revamp.
 
 5.0.5.3:
 
