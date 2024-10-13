@@ -30,7 +30,7 @@ namespace JMCalloutsRemastered.Callouts
             };
             Spawnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 100f);
-            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_ALL_UNITS_02 WE_HAVE_01 CRIME_SHOPLIFTING UNITS_RESPOND_CODE_02_01");
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_Refuse_To_Pay_Callout_Audio_1");
             CalloutInterfaceAPI.Functions.SendMessage(this, "An Individual is refusing to pay for their gas. The individual is being little aggressive. Approach with caution");
             CalloutMessage = "Individual Refusing to pay";
             CalloutPosition = Spawnpoint;
@@ -43,6 +43,8 @@ namespace JMCalloutsRemastered.Callouts
             Game.LogTrivial("[JM Callouts Remastered Log]: Refuse To Pay callout Accepted!");
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Refuse To Pay", "~b~Dispatch~w~: The suspect has been spotted! Respond ~r~Code 2~w~.");
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
+
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_Respond_Code_2_Audio");
 
             Suspect = new Ped(Spawnpoint);
             Suspect.IsPersistent = true;
@@ -141,6 +143,7 @@ namespace JMCalloutsRemastered.Callouts
                     {
                         Game.DisplaySubtitle("Conversation ended!");
                         Suspect.Tasks.ReactAndFlee(Suspect);
+                        Suspect.Inventory.GiveNewWeapon("WEAPON_COMBATPISTOL", 500, true);
                     }
                 }
             }
@@ -154,7 +157,7 @@ namespace JMCalloutsRemastered.Callouts
             if (Suspect) Suspect.Dismiss();
             if (SuspectBlip) SuspectBlip.Delete();
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Refuse To Pay", "~b~You~w~: We are ~g~Code-4~w~! Show me back 10-8.");
-            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_THIS_IS_DISPATCH_HIGH ALL_UNITS_CODE4 NO_FURTHER_UNITS_REQUIRED");
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_Code_4_Audio");
             Game.LogTrivial("JM Callouts Remastered - Refuse to pay is Code 4!");
         }
     }
