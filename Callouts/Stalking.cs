@@ -26,13 +26,11 @@ namespace JMCalloutsRemastered.Callouts
                 new(1193.34f, 2715.13f, 38.23f),
                 new(-43.31f, 6505.73f, 31.52f),
                 new(-294.99f, 6258.98f, 31.49f),
-                new(),
-                new(),
             };
             spawnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
             CalloutInterfaceAPI.Functions.SendMessage(this, "Reports of an unknown individual harassing another citizen");
-            LSPD_First_Response.Mod.API.Functions.PlayScannerAudioUsingPosition("ATTENTION_ALL_UNITS_02 CITIZENS_REPORT_01 CRIME_DISTURBING_THE_PEACE_01 UNITS_RESPOND_CODE_02_02", spawnpoint);
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudioUsingPosition("JMCallouts_Stalking_Callout_Audio_1", spawnpoint);
             CalloutMessage = "Reports of stalking.";
             CalloutPosition = spawnpoint;
 
@@ -45,6 +43,8 @@ namespace JMCalloutsRemastered.Callouts
             Game.LogTrivial("JM Callouts Remastered [LOG]: Stalking callout has been accepted!");
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Stalking", "~b~Dispatch~w~: The suspect has been spotted! Respond ~r~Code 2~w~.");
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout.");
+
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_Respond_Code_2_Audio");
 
             suspect = new Ped(spawnpoint);
             suspect.IsPersistent = true;
@@ -119,8 +119,15 @@ namespace JMCalloutsRemastered.Callouts
                 }
             }
 
-            if (MainPlayer.IsDead) End();
-            if (Game.IsKeyDown(System.Windows.Forms.Keys.End)) End();
+            if (MainPlayer.IsDead)
+            {
+                End();
+            }
+
+            if (Game.IsKeyDown(Settings.EndCall))
+            {
+                End();
+            }
         }
 
         public override void End()
@@ -129,7 +136,7 @@ namespace JMCalloutsRemastered.Callouts
             if (suspect) suspect.Dismiss();
             if (susBlip) susBlip.Delete();
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Stalking", "~b~You~w~: Dispatch, we are ~g~Code 4~w~. Show me back 10-8.");
-            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_THIS_IS_DISPATCH_HIGH ALL_UNITS_CODE4 NO_FURTHER_UNITS_REQUIRED");
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_Code_4_Audio");
             Game.LogTrivial("[LOG]: JM Callouts Remastered - Stalking is Code 4!");
         }
     }
