@@ -149,6 +149,7 @@ namespace JMCalloutsRemastered.Callouts
                     {
                         Game.DisplaySubtitle("Conversation ended!");
                         Suspect.Tasks.ReactAndFlee(Suspect);
+                        Suspect.Inventory.GiveNewWeapon("WEAPON_COMBATPISTOL", 500, true);
                     }
                 }
             }
