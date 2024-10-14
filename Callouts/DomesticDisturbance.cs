@@ -132,7 +132,6 @@ namespace JMCalloutsRemastered.Callouts
                         suspect.Inventory.GiveNewWeapon("WEAPON_CROWBAR", 500, true);
                         suspect.Armor = 500;
                         MainPlayer.Armor = 500;
-                        victim.Tasks.Cower(500);
                     }
                 }
             }
