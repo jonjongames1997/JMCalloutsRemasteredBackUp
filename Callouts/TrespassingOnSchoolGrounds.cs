@@ -7,7 +7,6 @@ namespace JMCalloutsRemastered.Callouts
 
     public class TrespassingOnSchoolGrounds : Callout
     {
-        private static readonly string[] pedList = new string[] { "PLAYER_TWO", "PLAYER_ZERO", "PLAYER_ONE", "IG_AMANDATOWNLEY", "S_F_Y_BARTENDER_01", "IG_BEVERLY", "U_F_Y_BIKERCHIC", "G_M_M_CHEMWORK_01", "MP_F_FREEMODE_01", "HC_HACKER", "A_F_Y_RURMETH_01", "MP_F_COCAINE_01" };
         private static readonly string[] wepList = new string[] { "WEAPON_PISTOL", "WEAPON_STUNGUN", "WEAPON_DAGGER", "WEAPON_KNIFE", "WEAPON_WRENCH", "WEAPON_RAYPISTOL", "WEAPON_AUTOSHOTGUN", "WEAPON_ASSAULTRIFLE", "WEAPON_CARBINERIFLE" };
         private static Vector3 spawnpoint;
         private static Blip blip;
@@ -25,7 +24,7 @@ namespace JMCalloutsRemastered.Callouts
             };
             spawnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
-            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_ALL_UNITS_02 WE_HAVE_01 CRIME_SUSPICIOUS_ACTIVITY UNITS_RESPOND_CODE_02_01");
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_Trespassing_On_School_Grounds_Callout_Audio_1");
             CalloutInterfaceAPI.Functions.SendMessage(this, "An unknown individual trespassing on school property");
             CalloutMessage = "Reports of an unknown person trespassing";
             CalloutPosition = spawnpoint;
@@ -39,9 +38,12 @@ namespace JMCalloutsRemastered.Callouts
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Trespassing On School Property", "~b~Dispatch~w~: Suspect has been spotted! Respond ~r~Code 2~w~.");
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
 
-            suspect = new Ped(pedList[new Random().Next((int)pedList.Length)], spawnpoint, 0f);
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_Respond_Code_2_Audio");
+
+            suspect = new Ped(spawnpoint);
             suspect.IsPersistent = true;
             suspect.BlockPermanentEvents = true;
+            suspect.IsValid();
 
             blip = suspect.AttachBlip();
             blip.Color = System.Drawing.Color.Orange;
@@ -105,8 +107,15 @@ namespace JMCalloutsRemastered.Callouts
                 }
             }
 
-            if (MainPlayer.IsDead) End();
-            if (Game.IsKeyDown(Settings.EndCall)) End();
+            if (MainPlayer.IsDead)
+            {
+                End();
+            }
+
+            if (Game.IsKeyDown(Settings.EndCall))
+            {
+                End();
+            }
 
             base.Process();
         }
@@ -117,7 +126,8 @@ namespace JMCalloutsRemastered.Callouts
             if (suspect) suspect.Dismiss();
             if (blip) blip.Delete();
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Trespassing On School Property", "~b~You~w~: Dispatch, we are ~g~CODE 4~w~. Show me back 10-8.");
-            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_THIS_IS_DISPATCH_HIGH ALL_UNITS_CODE4 NO_FURTHER_UNITS_REQUIRED");
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_Code_4_Audio");
+            
             Game.LogTrivial("[JM Callouts Remastered Log]: Trespassing on School Property is code 4!");
         }
     }
