@@ -17,7 +17,7 @@ namespace JMCalloutsRemastered.Callouts
         {
             spawnpoint = World.GetNextPositionOnStreet(MainPlayer.Position.Around(500f));
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
-            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_ALL_UNITS_02 WE_HAVE_01 CRIME_SUSPICIOUS_ACTIVITY UNITS_RESPOND_CODE_02_02");
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_Suspicious_Person_Callout_Audio_1");
             CalloutInterfaceAPI.Functions.SendMessage(this, "Multiple reports of a suspicous person in the area.");
             CalloutMessage = "Callers report the suspect may be armed.";
             CalloutPosition = spawnpoint;
@@ -30,6 +30,8 @@ namespace JMCalloutsRemastered.Callouts
             Game.LogTrivial("[LOG]: JM Callouts Remastered - Suspicious Person callout accepted!");
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remasterd", "~w~Suspicious Person", "~b~Dispatch~w~: The suspect has been spotted! Respond ~r~Code 2~w~.");
             Game.DisplayHelp("Press ~y~END~w~ to end the callout", false);
+
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_Respond_Code_2_Audio");
 
             suspect = new Ped(spawnpoint);
             suspect.IsPersistent = true;
@@ -128,8 +130,15 @@ namespace JMCalloutsRemastered.Callouts
                 }
             }
 
-            if (MainPlayer.IsDead) End();
-            if (Game.IsKeyDown(Settings.EndCall)) End();
+            if (MainPlayer.IsDead)
+            {
+                End();
+            }
+
+            if (Game.IsKeyDown(Settings.EndCall))
+            {
+                End();
+            }
         }
 
         public override void End()
@@ -137,7 +146,7 @@ namespace JMCalloutsRemastered.Callouts
             if (suspect) suspect.Dismiss();
             if (susBlip) susBlip.Delete();
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Suspicious Person", "~b~You~w~: Dispatch, We are ~g~CODE 4~w~! Show me back 10-8!");
-            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_THIS_IS_DISPATCH_HIGH ALL_UNITS_CODE4 NO_FURTHER_UNITS_REQUIRED");
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_Code_4_Audio");
             base.End();
 
             Game.LogTrivial("[LOG]: JM Callouts Remastered - Suspicious Person is Code 4!");
