@@ -70,7 +70,15 @@ namespace JMCalloutsRemastered.Callouts
                 Game.DisplayHelp("Inspect the vehicle then call a tow.");
             }
 
-            if (Game.IsKeyDown(Settings.EndCall)) End();
+            if (MainPlayer.IsDead)
+            {
+                End();
+            }
+
+            if (Game.IsKeyDown(Settings.EndCall))
+            {
+                End();
+            }
 
             base.Process();
         }
