@@ -33,7 +33,7 @@ namespace JMCalloutsRemastered.Callouts
             };
             Spawnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 1000f);
-            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_ALL_UNITS_02 WE_HAVE_01 CRIME_SUSPICIOUS_ACTIVITY");
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_Trespassing_On_Railroad_Property_Callout_Audio_1");
             CalloutInterfaceAPI.Functions.SendMessage(this, "A citizen reporting a suspicious person on the railroad tracks.");
             CalloutMessage = "A suspicious person on railroad tracks.";
             CalloutPosition = Spawnpoint;
@@ -46,6 +46,8 @@ namespace JMCalloutsRemastered.Callouts
             Game.LogTrivial("[JM Callouts Remastered Log]: Trespassing On Railroad Property callout accepted!");
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Trespassing On Railroad Property", "~b~Dispatch~w~: Suspect Spotted. Respond ~r~Code 2~w~.");
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
+
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_Code_1_Response_Audio");
 
             Suspect = new Ped(Spawnpoint);
             Suspect.IsPersistent = true;
@@ -137,8 +139,15 @@ namespace JMCalloutsRemastered.Callouts
                 }
             }
 
-            if (MainPlayer.IsDead) End();
-            if (Game.IsKeyDown(Settings.EndCall)) End();
+            if (MainPlayer.IsDead)
+            {
+                End();
+            }
+
+            if (Game.IsKeyDown(Settings.EndCall))
+            {
+                End();
+            }
         }
 
         public override void End()
@@ -147,7 +156,7 @@ namespace JMCalloutsRemastered.Callouts
             if (Suspect) Suspect.Dismiss();
             if (SuspectBlip) SuspectBlip.Delete();
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Trespassing On Railroad Property", "~b~You~w~: Dispatch, we are ~g~Code 4~w~. Show me back 10-8.");
-            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_THIS_IS_DISPATCH_HIGH ALL_UNITS_CODE4 NO_FURTHER_UNITS_REQUIRED");
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_Code_4_Audio");
             Game.LogTrivial("JM Callouts Remastered - Trespassing On Railroad Property is Code 4!");
         }
 
