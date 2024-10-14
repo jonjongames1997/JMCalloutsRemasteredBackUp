@@ -67,7 +67,15 @@ namespace JMCalloutsRemastered.Callouts
                 Game.DisplayNotification("Call EMS to attempt CPR or Call a Coroner to pick up the deceased body.");
             }
 
-            if (Game.IsKeyDown(Settings.EndCall)) End();
+            if (MainPlayer.IsDead)
+            {
+                End();
+            }
+
+            if (Game.IsKeyDown(Settings.EndCall))
+            {
+                End();
+            }
 
             base.Process();
         }
