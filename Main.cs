@@ -68,7 +68,7 @@ namespace JMCalloutsRemastered
                 }
                 #endregion
 
-                GameFiber.Yield();
+                GameFiber.Wait(300);
             });
         }
         private static void RegisterCallouts()
@@ -156,6 +156,7 @@ namespace JMCalloutsRemastered
             if (Settings.DomesticDistrubancePaletoBay) { Functions.RegisterCallout(typeof(DomesticDisturbancePaletoBay)); }
             if (Settings.DomesticDisturbanceSandyShores) { Functions.RegisterCallout(typeof(DomesticDisturbanceSandyShores)); }
             if (Settings.DomesticDisturbanceHarmony) { Functions.RegisterCallout(typeof(DomesticDisturbanceHarmony)); }
+            if (Settings.MovieHopping) { Functions.RegisterCallout(typeof(MovieHopping)); }
             Game.Console.Print("[LOG]: All callouts of the JMCalloutsRemastered.ini were loaded successfully.");
             Game.Console.Print();
             Game.Console.Print("================================================== JM Callouts Remastered ===================================================");
