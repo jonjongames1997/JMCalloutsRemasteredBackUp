@@ -53,8 +53,6 @@ namespace JMCalloutsRemastered.Callouts
 
             victim.Tasks.PlayAnimation(new AnimationDictionary("anim_heist@arcade@fortune@male@"), "reaction_confused", -1f, AnimationFlags.Loop);
 
-            suspect.Tasks.PlayAnimation(new AnimationDictionary("weapons@first_person@aim_rng@p_m_zero@shotgun@assault_shotgun@fidgets@c"), "fidget_med_loop", -1f, AnimationFlags.UpperBodyOnly);
-
             // Michael Spawns and equips a gun //
             suspect = new Ped("PLAYER_ZERO", suspectSpawnpoint, suspectHeading);
             suspect.IsPersistent = true;
@@ -130,6 +128,7 @@ namespace JMCalloutsRemastered.Callouts
                     {
                         Game.DisplaySubtitle("~r~Suspect~w~: You motherfucker, you! DIE!!!!!");
                         suspect.Tasks.FightAgainst(MainPlayer);
+                        suspect.Armor = 500;
                         suspect.Inventory.GiveNewWeapon("WEAPON_GUSENBERG", 500, true);
                     }
 
