@@ -15,7 +15,7 @@ namespace JMCalloutsRemastered.Callouts
 
         public override bool OnBeforeCalloutDisplayed()
         {
-            spawnpoint = World.GetNextPositionOnStreet(MainPlayer.Position.Around(500f));
+            spawnpoint = World.GetNextPositionOnStreet(MainPlayer.Position.Around(1000f));
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
             LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_Suspicious_Person_Callout_Audio_1");
             CalloutInterfaceAPI.Functions.SendMessage(this, "Multiple reports of a suspicous person in the area.");
@@ -38,8 +38,6 @@ namespace JMCalloutsRemastered.Callouts
             suspect.IsValid();
             suspect.BlockPermanentEvents = true;
             suspect.Inventory.GiveNewWeapon("WEAPON_UNARMED", 500, true);
-
-            suspect.Tasks.PlayAnimation(new AnimationDictionary("oddjobs@assassinate@vice@hooker"), "argue_a", -1f, AnimationFlags.Loop);
 
             susBlip = suspect.AttachBlip();
             susBlip.Color = System.Drawing.Color.CornflowerBlue;
