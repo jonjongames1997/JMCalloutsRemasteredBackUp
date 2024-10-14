@@ -1,5 +1,4 @@
 ﻿using CalloutInterfaceAPI;
-using System.Threading;
 
 namespace JMCalloutsRemastered.Callouts
 {
@@ -21,7 +20,7 @@ namespace JMCalloutsRemastered.Callouts
         {
             spawnpoint = World.GetNextPositionOnStreet(MainPlayer.Position.Around(1000f));
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
-            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_ALL_UNITS_02 WE_HAVE_01 CRIME_STOLEN_VEHICLE_SPOTTED UNITS_RESPOND_CODE_03_02");
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_Stolen_Construction_Equipment_Callout_Audio_1");
             CalloutInterfaceAPI.Functions.SendMessage(this, "Mulitple reports of a stolen construction equipment");
             CalloutMessage = "Reports of stolen construction equipment";
             CalloutPosition = spawnpoint;
@@ -34,6 +33,8 @@ namespace JMCalloutsRemastered.Callouts
             Game.LogTrivial("[JM Callouts Remastered Log]: Stolen Construction Equipment callout accepted!");
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Stolen Construction Equipment", "~b~Dispatch~w~: The suspect has been spotted! Respond ~r~Code 3~w~.");
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
+
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_Respond_Code_3_Audio");
 
             constructionVehicle = new Vehicle(constructionVehicles[new Random().Next((int)constructionVehicles.Length)], spawnpoint);
             constructionVehicle.IsPersistent = true;
@@ -80,7 +81,7 @@ namespace JMCalloutsRemastered.Callouts
             if (constructionVehicle) constructionVehicle.Dismiss();
             if (blip) blip.Delete();
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Stolen Construction Equipment", "~b~You~w~: Dispatch, we are ~g~CODE 4~w~. Show me back 10-8.");
-            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_THIS_IS_DISPATCH_HIGH ALL_UNITS_CODE4 NO_FURHTER_UNITS_REQUIRED");
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_Code_4_Audio");
             UltimateBackup.API.Functions.dismissAllBackupUnits();
             base.End();
 
