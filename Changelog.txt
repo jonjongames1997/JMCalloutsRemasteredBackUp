@@ -1,5 +1,12 @@
 ﻿Changelog:
 
+5.0.6.1:
+
+- Fixed an error in code where "Suspicious Person" and "Lost Individual" callouts will code 4 on accepting.
+- Bug fixes
+- Minor Adjustments
+- Forgot to register the Movie Hopping callout.
+
 5.0.6 - Callout Audio Rework Update Part 2:
 
 - Minor Adjustments to "Intoxicated Individual" callout
