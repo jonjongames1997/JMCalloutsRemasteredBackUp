@@ -47,8 +47,6 @@ namespace JMCalloutsRemastered.Callouts
             victim.IsValid();
             victim.BlockPermanentEvents = true;
 
-            suspect.Tasks.PlayAnimation(new AnimationDictionary("random@shop_tattoo"), "_idle_a", -1f, AnimationFlags.UpperBodyOnly);
-
             victim.Tasks.PlayAnimation(new AnimationDictionary("friends@frj@ig_1"), "wave_a", -1f, AnimationFlags.Loop);
 
             suspect = new Ped(suspectSpawnpoint, suspectHeading);
@@ -139,8 +137,15 @@ namespace JMCalloutsRemastered.Callouts
                 }
             }
 
-            if (MainPlayer.IsDead) End();
-            if (Game.IsKeyDown(Settings.EndCall)) End();
+            if (MainPlayer.IsDead)
+            {
+                End();
+            }
+
+            if (Game.IsKeyDown(Settings.EndCall))
+            {
+                End();
+            }
         }
 
         public override void End()
