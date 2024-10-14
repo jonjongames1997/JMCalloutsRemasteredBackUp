@@ -23,7 +23,7 @@ namespace JMCalloutsRemastered.Callouts
             };
             spawnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
-            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ATTENTION_ALL_UNITS_02 WE_HAVE_01 CRIME_PUBLIC_DISTURBANCE UNITS_RESPOND_CODE_02_02");
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_The_Taco_Dispute_Callout_Audio_1");
             CalloutInterfaceAPI.Functions.SendMessage(this, "An individual causing a scene at a local taco shop.");
             CalloutMessage = "Owner requesting them to be removed from property.";
             CalloutPosition = spawnpoint;
@@ -36,6 +36,8 @@ namespace JMCalloutsRemastered.Callouts
             Game.LogTrivial("[JM Callouts Remastered Log]: The Taco Dispute callout accepted!");
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~The Taco Dispute", "~b~Dispatch~w~: Suspect has been spotted. Respond ~r~Code 2~w~.");
             Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
+
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_Respond_Code_2_Audio");
 
             suspect = new Ped(spawnpoint);
             suspect.IsPersistent = true;
@@ -136,12 +138,20 @@ namespace JMCalloutsRemastered.Callouts
                 if(counter == 16)
                 {
                     Game.DisplaySubtitle("Conversation Ended!");
-                    suspect.Tasks.ReactAndFlee(suspect);
+                    suspect.Tasks.StandStill(500);
+                    suspect.KeepTasks = true;
                 }
             }
 
-            if (MainPlayer.IsDead) End();
-            if (Game.IsKeyDown(Settings.EndCall)) End();
+            if (MainPlayer.IsDead)
+            {
+                End();
+            }
+
+            if (Game.IsKeyDown(Settings.EndCall))
+            {
+                End();
+            }
         }
 
         public override void End()
@@ -149,7 +159,7 @@ namespace JMCalloutsRemastered.Callouts
             if (suspect) suspect.Dismiss();
             if (suspectBlip) suspectBlip.Delete();
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~The Taco Dispute", "~b~You~w~: Dispatch, we are ~g~Code 4~w~. Show me back 10-8.");
-            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("ALL_UNITS_CODE4 NO_FURTHER_UNITS_REQUIRED");
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_Code_4_Audio");
             base.End();
 
             Game.LogTrivial("JM Callouts Remastered - The Taco Dispute is Code 4!");
