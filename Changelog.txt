@@ -3,13 +3,14 @@
 5.0.6 - Callout Audio Rework Update Part 2:
 
 - Minor Adjustments to "Intoxicated Individual" callout
-- Added the remaining callout audio rework for the remaining callouts.
+- Added the audio rework for the remaining callouts.
 - Bug Fixes
 - Added more animations to the peds in callouts
 - Fixed an error where the Abandoned Vehicle On Railroad Tracks wouldn't clean up correctly.
 - Minor adjustments to "Public Disturbance - Paleto Bay" callout
 - Removed more unwanted code
 - Disabled "Unauthorized Access Movie Studio" callout for a revamp.
+- Removed the Vanilla Unicorn location from "Trespassing On Private Property" callout 
 
 5.0.5.3:
 
