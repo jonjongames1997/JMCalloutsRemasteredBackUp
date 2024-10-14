@@ -20,16 +20,5 @@ namespace JMCalloutsRemastered.Stuff
             "POCKET METH!",
             "POCKET SAND!",
         };
-
-        internal static readonly string[] UnloadPluginText =
-        {
-            "Error Code: Your plugins folder is corrupted! *JK*",
-            "Is that you Dale?",
-            "Is that you Venoxity? 0_0",
-            "Error Code: KaR3nMoD3. *JK*",
-            "Shocking that you didn't get shot at",
-            "Hope you enjoyed your shift, Officer",
-            "Let me guess, you fucked up didn't you?",
-        };
     }
 }
