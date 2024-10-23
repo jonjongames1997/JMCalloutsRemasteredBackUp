@@ -188,12 +188,16 @@
   </ItemGroup>
   <ItemGroup>
     <AdditionalFiles Include="JMCalloutsRemastered.ini" />
+    <None Include=".editorconfig" />
     <None Include="packages.config" />
     <None Include="SupportedLSPDFRVersions.md" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Changelog.txt" />
     <Content Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Events\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
