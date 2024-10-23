@@ -49,9 +49,10 @@ namespace JMCalloutsRemastered
         internal static bool DomesticDisturbanceSandyShores = true;
         internal static bool HelpMessages = true;
         internal static bool WarningMessages = true;
-        internal static bool Fighting = true;
         internal static Keys EndCall = Keys.End;
         internal static Keys Dialog = Keys.E;
+        internal static Keys MainInteractionKey = Keys.Y;
+        internal static bool LeaveCalloutRunning = true;
         internal static InitializationFile ini;
         internal static string inipath = "Plugins/LSPDFR/JMCalloutsRemastered.ini";
 
@@ -103,10 +104,11 @@ namespace JMCalloutsRemastered
             Settings.DomesticDistrubancePaletoBay = ini.ReadBoolean("Callouts", "DomesticDistrubancePaletoBay", true);
             Settings.HelpMessages = ini.ReadBoolean("HelpMessages", "HelpMessages", true);
             Settings.WarningMessages = ini.ReadBoolean("Misc", "WarningMessages", true);
-            Settings.Fighting = ini.ReadBoolean("Events", "Fighting", true);
+            Settings.LeaveCalloutRunning = ini.ReadBoolean("Misc", "LeaveCalloutsRunning", true);
 
-            EndCall = ini.ReadEnum("Keys", "EndCall", Keys.End);
-            Dialog = ini.ReadEnum("Keys", "Dialog", Keys.E);
+            EndCall = ini.ReadEnum<Keys>("Keys", "EndCall", Keys.End);
+            Dialog = ini.ReadEnum<Keys>("Keys", "Dialog", Keys.E);
+            MainInteractionKey = ini.ReadEnum<Keys>("Keys", "MainInteractionKey", Keys.Y);
         }
         public static readonly string PluginVersion = "5.0.6.1";
     }
