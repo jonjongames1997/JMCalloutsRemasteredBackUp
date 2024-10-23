@@ -73,7 +73,7 @@ namespace JMCalloutsRemastered.Callouts
         {
             base.Process();
 
-            if(MainPlayer.DistanceTo(suspect) <= 5f)
+            if (MainPlayer.DistanceTo(suspect) <= 10f)
             {
 
                 Game.DisplayHelp("Press ~y~E~w~ to interact with suspect.", false);
@@ -82,47 +82,47 @@ namespace JMCalloutsRemastered.Callouts
                 {
                     counter++;
 
-                    if(counter == 1)
+                    if (counter == 1)
                     {
                         Game.DisplaySubtitle("~b~Player~w~: Excuse me, " + malefemale + ". Come here and talk to me.");
                     }
-                    if(counter == 2)
+                    if (counter == 2)
                     {
                         Game.DisplaySubtitle("~y~Suspect~w~: I didn't do anything wrong, Officer. I wanted to see a movie so bad.");
                     }
-                    if(counter == 3)
+                    if (counter == 3)
                     {
                         Game.DisplaySubtitle("~b~Player~w~: Where is your movie ticket? May I see it please?");
                     }
-                    if(counter == 4)
+                    if (counter == 4)
                     {
                         Game.DisplaySubtitle("~y~Suspect~w~: I don't have one, I'm broke. Tickets are f***ing almost $15 per person.");
                     }
-                    if(counter == 5)
+                    if (counter == 5)
                     {
                         Game.DisplaySubtitle("~b~Player~w~: You know you can be charged with a misdemeanor, right?");
                     }
-                    if(counter == 6)
+                    if (counter == 6)
                     {
                         Game.DisplaySubtitle("~y~Suspect~w~: WHAT?!!!! HOW? That's bullsh*t! I'm not leaving until I see that film");
                     }
-                    if(counter == 7)
-                    { 
+                    if (counter == 7)
+                    {
                         Game.DisplaySubtitle("~b~Player~w~: " + malefemale + ". You either leave now or be put in cuffs. It's your choice.");
                     }
-                    if(counter == 8)
+                    if (counter == 8)
                     {
                         Game.DisplaySubtitle("~y~Suspect~w~: F**K YOU!");
                     }
-                    if(counter == 9)
+                    if (counter == 9)
                     {
                         Game.DisplaySubtitle("~b~Player~w~: You are under arrest. Put your hands behind your back.");
                     }
-                    if(counter == 10)
+                    if (counter == 10)
                     {
                         Game.DisplaySubtitle("~y~Suspect~w~: Nope, I'm not going to jail. I can't survive prison, they'll kill me. You'll never take me alive, copper.");
                     }
-                    if(counter == 11)
+                    if (counter == 11)
                     {
                         Game.DisplaySubtitle("Conversation Ended!");
                         suspect.Tasks.ReactAndFlee(suspect);
@@ -134,7 +134,7 @@ namespace JMCalloutsRemastered.Callouts
                 End();
             }
 
-            if (Game.IsKeyDown(Settings.EndCall))
+            if (!Game.IsKeyDown(Settings.EndCall))
             {
                 End();
             }
