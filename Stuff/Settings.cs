@@ -49,6 +49,7 @@ namespace JMCalloutsRemastered
         internal static bool DomesticDisturbanceSandyShores = true;
         internal static bool HelpMessages = true;
         internal static bool WarningMessages = true;
+        internal static bool Fighting = true;
         internal static Keys EndCall = Keys.End;
         internal static Keys Dialog = Keys.E;
         internal static InitializationFile ini;
@@ -102,6 +103,8 @@ namespace JMCalloutsRemastered
             Settings.DomesticDistrubancePaletoBay = ini.ReadBoolean("Callouts", "DomesticDistrubancePaletoBay", true);
             Settings.HelpMessages = ini.ReadBoolean("HelpMessages", "HelpMessages", true);
             Settings.WarningMessages = ini.ReadBoolean("Misc", "WarningMessages", true);
+            Settings.Fighting = ini.ReadBoolean("Events", "Fighting", true);
+
             EndCall = ini.ReadEnum("Keys", "EndCall", Keys.End);
             Dialog = ini.ReadEnum("Keys", "Dialog", Keys.E);
         }
