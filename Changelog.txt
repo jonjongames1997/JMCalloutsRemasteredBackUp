@@ -2,7 +2,8 @@
 
 5.0.7.1:
 
-- 
+- Added mod compatibility warning message on plugin startup
+- Added 
 
 5.0.6.1:
 
