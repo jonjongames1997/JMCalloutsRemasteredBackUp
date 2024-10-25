@@ -8,7 +8,7 @@ namespace JMCalloutsRemastered.Callouts
 
     public class PersonOnTheHighway : Callout
     {
-        private static readonly string[] wepList = new string[] { "WEAPON_KNIFE", "WEAPON_BAT", "WEAPON_DAGGER", "WEAPON_GOLFCLUB", "WEAPON_HAMMER", "WEAPON_HATCHET", "WEAPON_PISTOL", "WEAPON_COMBATPISTOL", "WEAPON_AUTOSHOTGUN", "WEAPON_SWITCHBLADE", "WEAPON_PROXMINE" };
+        private static readonly string[] wepList = new string[] { "WEAPON_KNIFE", "WEAPON_BAT", "WEAPON_DAGGER", "WEAPON_GOLFCLUB", "WEAPON_HAMMER", "WEAPON_HATCHET", "WEAPON_PISTOL", "WEAPON_COMBATPISTOL", "WEAPON_AUTOSHOTGUN", "WEAPON_SWITCHBLADE", "WEAPON_PROXMINE", "WEAPON_PISTOL", "WEAPON_DOUBLEACTION", "WEAPON_HEAVYSHOTGUN" };
         private static Blip blip;
         private static Ped suspect;
         private static Vector3 spawnpoint;
@@ -110,34 +110,42 @@ namespace JMCalloutsRemastered.Callouts
 
                     if(counter == 1)
                     {
+                        suspect.Tasks.PlayAnimation(new AnimationDictionary("anim@heists@heist_corona@single_team"), "single_team_loop_boss", -1f, AnimationFlags.Loop);
                         Game.DisplaySubtitle("~b~Officer (You)~w~: Hey there, " + malefemale + ". What goin' on? Come talk to me real quick.");
                     }
                     if(counter == 2)
                     {
+                        suspect.Tasks.PlayAnimation(new AnimationDictionary("anim@amb@casino@brawl@fights@argue@"), "arguement_loop_mp_m_brawler_01", -1f, AnimationFlags.Loop);
                         Game.DisplaySubtitle("~y~Suspect~w~: Hi, Officer, My Uber driver kicked me out his car for no reason.");
                     }
                     if(counter == 3)
                     {
+                        suspect.Tasks.PlayAnimation(new AnimationDictionary("anim@heists@heist_corona@single_team"), "single_team_loop_boss", -1f, AnimationFlags.Loop);
                         Game.DisplaySubtitle("~b~Officer (You)~w~: Why would your driver do that? What was the reason?");
                     }
                     if(counter == 4)
                     {
+                        suspect.Tasks.PlayAnimation(new AnimationDictionary("anim@amb@casino@brawl@fights@argue@"), "arguement_loop_mp_m_brawler_01", -1f, AnimationFlags.Loop);
                         Game.DisplaySubtitle("~y~Suspect~w~: The driver is very picky on who they pick up. I find that as discrimination.");
                     }
                     if(counter == 5)
                     {
+                        suspect.Tasks.PlayAnimation(new AnimationDictionary("anim@heists@heist_corona@single_team"), "single_team_loop_boss", -1f, AnimationFlags.Loop);
                         Game.DisplaySubtitle("~b~Officer (You)~w~: Ok, you didn't call a taxi? If you are being discriminated, you can contact Uber and file a complaint with them cause that's on the company. If the driver was threatening you or anything criminal, that's when we step in.");
                     }
                     if(counter == 6)
                     {
+                        suspect.Tasks.PlayAnimation(new AnimationDictionary("anim@amb@casino@brawl@fights@argue@"), "arguement_loop_mp_m_brawler_01", -1f, AnimationFlags.Loop);
                         Game.DisplaySubtitle("~y~Suspect~w~: No I didn't call a taxi. I prefer to walk. I know it's against the law to do that but nobody will stop and help me.");
                     }
                     if(counter == 7)
                     {
+                        suspect.Tasks.PlayAnimation(new AnimationDictionary("anim@heists@heist_corona@single_team"), "single_team_loop_boss", -1f, AnimationFlags.Loop);
                         Game.DisplaySubtitle("~b~Officer (You)~w~: I am more than happy to call you a taxi. I don't want to put you in cuffs. Let me call you a taxi and get you home safe. I am worried for your safety,");
                     }
                     if(counter == 8)
                     {
+                        suspect.Tasks.PlayAnimation(new AnimationDictionary("anim@amb@casino@brawl@fights@argue@"), "arguement_loop_mp_m_brawler_01", -1f, AnimationFlags.Loop);
                         Game.DisplaySubtitle("~y~Suspect~w~: Thank you, officer.");
                     }
                     if(counter == 9)
