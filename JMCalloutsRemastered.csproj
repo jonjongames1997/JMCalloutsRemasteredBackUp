@@ -176,7 +176,6 @@
     <Compile Include="Main.cs" />
     <Compile Include="Callouts\PersonCarryingAnExplosiveWeapon.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Stuff\EndCalloutManager.cs" />
     <Compile Include="Stuff\Settings.cs" />
     <Compile Include="Stuff\Arrays.cs" />
     <Compile Include="Stuff\Helper.cs" />
