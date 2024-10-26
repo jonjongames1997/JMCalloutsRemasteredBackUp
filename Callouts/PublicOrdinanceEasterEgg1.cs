@@ -25,7 +25,6 @@ namespace JMCalloutsRemastered.Callouts
             {
                 new(),
                 new(),
-
             };
             Spawnpoint = LocationChooser.ChooseNearestLocation(list);
             AddMinimumDistanceCheck(100f, Spawnpoint);
