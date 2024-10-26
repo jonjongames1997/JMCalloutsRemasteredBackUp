@@ -47,11 +47,11 @@ namespace JMCalloutsRemastered
         internal static bool DomesticDistrubancePaletoBay = true;
         internal static bool DomesticDisturbanceHarmony = true;
         internal static bool DomesticDisturbanceSandyShores = true;
+        internal static bool PublicOrdinanceEasterEgg1 = true;
         internal static bool HelpMessages = true;
         internal static bool WarningMessages = true;
         internal static Keys EndCall = Keys.End;
         internal static Keys Dialog = Keys.E;
-        internal static Keys MainInteractionKey = Keys.Y;
         internal static InitializationFile ini;
         internal static string inipath = "Plugins/LSPDFR/JMCalloutsRemastered.ini";
 
@@ -101,13 +101,13 @@ namespace JMCalloutsRemastered
             Settings.DomesticDistrubancePaletoBay = ini.ReadBoolean("Callouts", "DomesticDistrubancePaletoBay", true);
             Settings.DomesticDisturbanceHarmony = ini.ReadBoolean("Callouts", "DomesticDisturbanceHarmony", true);
             Settings.DomesticDistrubancePaletoBay = ini.ReadBoolean("Callouts", "DomesticDistrubancePaletoBay", true);
+            Settings.PublicOrdinanceEasterEgg1 = ini.ReadBoolean("Callouts", "PublicOrdinanceEasterEgg1", true);
             Settings.HelpMessages = ini.ReadBoolean("HelpMessages", "HelpMessages", true);
             Settings.WarningMessages = ini.ReadBoolean("Misc", "WarningMessages", true);
 
             EndCall = ini.ReadEnum<Keys>("Keys", "EndCall", Keys.End);
             Dialog = ini.ReadEnum<Keys>("Keys", "Dialog", Keys.E);
-            MainInteractionKey = ini.ReadEnum<Keys>("Keys", "MainInteractionKey", Keys.Y);
         }
-        public static readonly string PluginVersion = "5.0.6.1";
+        public static readonly string PluginVersion = "5.0.7.1";
     }
 }
