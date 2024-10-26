@@ -3,7 +3,12 @@
 5.0.7.1:
 
 - Added mod compatibility warning message on plugin startup
-- Added 
+- Added 5 new peds for "Illegal Prostitution" callout
+- Added 1 new callout ("Public Ordinance Easter Egg 1")
+- Ini update
+- Bug Fixes
+- Minor Adjustments
+- 
 
 5.0.6.1:
 
