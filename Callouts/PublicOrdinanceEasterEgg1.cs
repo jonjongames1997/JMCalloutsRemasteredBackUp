@@ -30,7 +30,7 @@ namespace JMCalloutsRemastered.Callouts
             AddMinimumDistanceCheck(100f, Spawnpoint);
             ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 100f);
             CalloutInterfaceAPI.Functions.SendMessage(this, "A person being very loud.");
-            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_PublicOrdinanceEasterEgg1_Callout_Audio");
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_Public_Ordinance_Easter_Egg_1_Audio_1");
             CalloutMessage = "A person being very loud, breaking controllers, and busting his house walls.";
             CalloutPosition = Spawnpoint;
 
