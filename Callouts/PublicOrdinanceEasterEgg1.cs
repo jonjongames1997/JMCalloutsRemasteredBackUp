@@ -13,8 +13,6 @@ namespace JMCalloutsRemastered.Callouts
         private static readonly string[] pedList = new string[] { "a_m_m_afriamer_01", "u_m_y_antonb", "g_m_y_ballaeast_01", "g_m_y_ballaorig_01", "ig_ballasog", "g_m_y_ballasout_01", "a_m_m_beach_01", "s_m_m_bouncer_01" };
         private static Ped Suspect;
         private static Blip SuspectBlip;
-        private static Ped _Caller;
-        private static Vector3 _CallerBlip;
         private static Vector3 Spawnpoint;
         private static string malefemale;
         private static int counter;
@@ -26,8 +24,10 @@ namespace JMCalloutsRemastered.Callouts
             {
                 new(),
                 new(),
+
             };
             Spawnpoint = LocationChooser.ChooseNearestLocation(list);
+            AddMinimumDistanceCheck(100f, Spawnpoint);
             ShowCalloutAreaBlipBeforeAccepting(Spawnpoint, 100f);
             CalloutInterfaceAPI.Functions.SendMessage(this, "A person being very loud.");
             LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_PublicOrdinanceEasterEgg1_Callout_Audio");
@@ -48,10 +48,51 @@ namespace JMCalloutsRemastered.Callouts
             Suspect = new Ped(pedList[new Random().Next((int)pedList.Length)], Spawnpoint, 0f);
             Suspect.IsPersistent = true;
             Suspect.BlockPermanentEvents = true;
+            Suspect.KeepTasks = true;
 
+            SuspectBlip = Suspect.AttachBlip();
+            SuspectBlip.Color = System.Drawing.Color.Red;
+            SuspectBlip.Alpha = 0.75f;
+            SuspectBlip.IsRouteEnabled = true;
+
+            if (Suspect.IsMale)
+                malefemale = "Sir";
+            else
+                malefemale = "Ma'am";
+
+            counter = 0;
 
 
             return base.OnCalloutAccepted();
+        }
+
+        public override void OnCalloutNotAccepted()
+        {
+            if(Suspect) Suspect.Delete();
+            if(SuspectBlip) SuspectBlip.Delete();
+
+            base.OnCalloutNotAccepted();
+        }
+
+        public override void Process()
+        {
+            base.Process();
+
+
+            if(MainPlayer.DistanceTo(Suspect) <= 10f)
+            {
+                Game.DisplayHelp("Press ~y~E~w~ to interact with suspect.", false);
+
+                if (Game.IsKeyDown(System.Windows.Forms.Keys.E))
+                {
+                    counter++;
+
+                    if(counter == 1)
+                    {
+
+                    }
+                }
+            }
         }
 
     }
