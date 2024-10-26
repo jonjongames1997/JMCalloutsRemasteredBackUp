@@ -15,6 +15,7 @@ namespace JMCalloutsRemastered.Callouts
         private static Blip SuspectBlip;
         private static Vector3 Spawnpoint;
         private static string malefemale;
+        private static string copgender;
         private static int counter;
 
 
@@ -48,7 +49,9 @@ namespace JMCalloutsRemastered.Callouts
             Suspect = new Ped(pedList[new Random().Next((int)pedList.Length)], Spawnpoint, 0f);
             Suspect.IsPersistent = true;
             Suspect.BlockPermanentEvents = true;
-            Suspect.KeepTasks = true;
+            Suspect.IsValid();
+
+            Suspect.Tasks.PlayAnimation(new AnimationDictionary("oddjobs@assassinate@vice@hooker"), "argue_a", -1f, AnimationFlags.Loop);
 
             SuspectBlip = Suspect.AttachBlip();
             SuspectBlip.Color = System.Drawing.Color.Red;
@@ -59,6 +62,11 @@ namespace JMCalloutsRemastered.Callouts
                 malefemale = "Sir";
             else
                 malefemale = "Ma'am";
+
+            if (MainPlayer.IsMale)
+                copgender = "Sir";
+            else
+                copgender = "Ma'am";
 
             counter = 0;
 
@@ -89,11 +97,56 @@ namespace JMCalloutsRemastered.Callouts
 
                     if(counter == 1)
                     {
-
+                        Suspect.Tasks.PlayAnimation(new AnimationDictionary("rcmjosh1"), "idle", -1f, AnimationFlags.Loop);
+                        Game.DisplaySubtitle("~b~You~w~: Police Department. What's going on, " + malefemale + "?. We've gotten a call from your neighbor that you were being too loud and you were breaking your game controllers.");
+                    }
+                    if(counter == 2)
+                    {
+                        Suspect.Tasks.PlayAnimation(new AnimationDictionary("anim@amb@casino@brawl@fights@argue@"), "arguement_loop_mp_m_brawler_01", -1f, AnimationFlags.Loop);
+                        Game.DisplaySubtitle("~r~Suspect~w~: Bro, I was only playing my video game on my Playbox Console online.");
+                    }
+                    if(counter == 3)
+                    {
+                        Suspect.Tasks.PlayAnimation(new AnimationDictionary("rcmjosh1"), "idle", -1f, AnimationFlags.Loop);
+                        Game.DisplaySubtitle("~b~You~w~: Ok. You just need to calm down. It's only a game. Wait a minute, Are you FlightReacts?");
+                    }
+                    if(counter == 4)
+                    {
+                        Suspect.Tasks.PlayAnimation(new AnimationDictionary("anim@amb@casino@brawl@fights@argue@"), "arguement_loop_mp_m_brawler_01", -1f, AnimationFlags.Loop);
+                        Game.DisplaySubtitle("~r~Suspect~w~: Yes, " + copgender + ". I'm also known as DemonReacts, LReacts, I scored 6 like a touchdown, bitch Reacts, IQReacts, etc. You know what I'm saying.");
+                    }
+                    if(counter == 5)
+                    {
+                        Suspect.Tasks.PlayAnimation(new AnimationDictionary("rcmjosh1"), "idle", -1f, AnimationFlags.Loop);
+                        Game.DisplaySubtitle("~b~You~w~: I need you to calm down and relax. Try not to piss off your neighbors, Ok.");
+                    }
+                    if(counter == 6)
+                    {
+                        Suspect.Tasks.PlayAnimation(new AnimationDictionary("anim@amb@casino@brawl@fights@argue@"), "arguement_loop_mp_m_brawler_01", -1f, AnimationFlags.Loop);
+                        Game.DisplaySubtitle("~r~Suspect~w~: Yes, " + copgender + ". I do apologize about this. Gamer rage gets the best of me.");
+                    }
+                    if(counter == 7)
+                    {
+                        Suspect.Tasks.PlayAnimation(new AnimationDictionary("rcmjosh1"), "idle", -1f, AnimationFlags.Loop);
+                        Game.DisplaySubtitle("Ended! Deal with the situation as you see fit.");
+                        Suspect.KeepTasks = true;
                     }
                 }
             }
+
+            if (Game.IsKeyDown(Settings.EndCall)) End();
         }
 
+        public override void End()
+        {
+            if (Suspect) Suspect.Dismiss();
+            if (SuspectBlip) SuspectBlip.Delete();
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Public Ordinance Easter Egg 1", "~b~You~w~: Dispatch, we are ~g~Code 4~w~! Show me back 10-8.");
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_Code_4_Audio");
+
+            base.End();
+
+            Game.LogTrivial("[JM Callouts Remastered Log]: Public Ordinance Easter Egg 1 is Code 4!");
+        }
     }
 }
