@@ -9,7 +9,7 @@ namespace JMCalloutsRemastered.Callouts
     {
 
         // General Variables //
-        private static readonly string[] pedList = new string[] { "IG_AMANDATOWNLEY", "CSB_ANITA", "S_F_Y_BARTENDER_01", "S_F_Y_BAYWATCH_01", "A_F_M_BEACH_01", "A_F_Y_BEACH01", "U_F_Y_BIKERCHIC", "S_F_Y_HOOKER_01", "S_F_Y_HOOKER_02", "S_F_Y_HOOKER_03", "IG_MOLLY", "A_F_Y_TOPLESS_01", "IG_TRACEYDISANTO", "MP_F_COCAINE_01" };
+        private static readonly string[] pedList = new string[] { "IG_AMANDATOWNLEY", "CSB_ANITA", "S_F_Y_BARTENDER_01", "S_F_Y_BAYWATCH_01", "A_F_M_BEACH_01", "A_F_Y_BEACH01", "U_F_Y_BIKERCHIC", "S_F_Y_HOOKER_01", "S_F_Y_HOOKER_02", "S_F_Y_HOOKER_03", "IG_MOLLY", "A_F_Y_TOPLESS_01", "IG_TRACEYDISANTO", "MP_F_COCAINE_01", "a_f_m_bodybuild_01", "cs_debra", "a_f_y_eastsa_03", "a_f_y_eastsa_02", "g_f_y_families_01" };
         private static Ped Suspect;
         private static Blip SuspectBlip;
         private static Vector3 Spawnpoint;
@@ -41,7 +41,6 @@ namespace JMCalloutsRemastered.Callouts
             Suspect.BlockPermanentEvents = true;
 
             Suspect.Tasks.PlayAnimation(new AnimationDictionary("switch@michael@prostitute"), "base_hooker", -1f, AnimationFlags.Loop);
-            StopThePed.API.Functions.injectPedSearchItems(Suspect);
 
             SuspectBlip = Suspect.AttachBlip();
             SuspectBlip.Color = System.Drawing.Color.DeepPink;
