@@ -23,8 +23,8 @@ namespace JMCalloutsRemastered.Callouts
         {
             List<Vector3> list = new()
             {
-                new(),
-                new(),
+                new(-1156.54f, -1517.99f, 10.63f), // Debra's Apartment
+                new(1977.52f, 3819.61f, 33.45f), // Trevor's Trailer
             };
             Spawnpoint = LocationChooser.ChooseNearestLocation(list);
             AddMinimumDistanceCheck(100f, Spawnpoint);
