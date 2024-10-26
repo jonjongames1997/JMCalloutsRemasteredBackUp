@@ -52,7 +52,6 @@ namespace JMCalloutsRemastered
         internal static Keys EndCall = Keys.End;
         internal static Keys Dialog = Keys.E;
         internal static Keys MainInteractionKey = Keys.Y;
-        internal static bool LeaveCalloutRunning = true;
         internal static InitializationFile ini;
         internal static string inipath = "Plugins/LSPDFR/JMCalloutsRemastered.ini";
 
@@ -104,7 +103,6 @@ namespace JMCalloutsRemastered
             Settings.DomesticDistrubancePaletoBay = ini.ReadBoolean("Callouts", "DomesticDistrubancePaletoBay", true);
             Settings.HelpMessages = ini.ReadBoolean("HelpMessages", "HelpMessages", true);
             Settings.WarningMessages = ini.ReadBoolean("Misc", "WarningMessages", true);
-            Settings.LeaveCalloutRunning = ini.ReadBoolean("Misc", "LeaveCalloutsRunning", true);
 
             EndCall = ini.ReadEnum<Keys>("Keys", "EndCall", Keys.End);
             Dialog = ini.ReadEnum<Keys>("Keys", "Dialog", Keys.E);
