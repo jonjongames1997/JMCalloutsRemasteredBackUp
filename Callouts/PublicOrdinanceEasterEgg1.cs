@@ -3,7 +3,7 @@
 namespace JMCalloutsRemastered.Callouts
 {
 
-    [CalloutInterface("Public Ordinance - Streamer Easter Egg 1", CalloutProbability.Medium, "Twitch streamer rage disturbance", "CODE 2", "LEO")]
+    [CalloutInterface("[JM Callouts] Public Ordinance - Streamer Easter Egg 1", CalloutProbability.Medium, "Twitch streamer rage disturbance", "CODE 2", "LEO")]
 
     public class PublicOrdinanceEasterEgg1 : Callout
     {
