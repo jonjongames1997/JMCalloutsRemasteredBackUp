@@ -165,6 +165,7 @@ namespace JMCalloutsRemastered
 
         public override void Finally()
         {
+            Game.LogTrivial("[JMCallouts LOG]: JM Callouts Remastered has successfully unloaded! Unregistering callouts.");
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "JM Callouts Remastered", "By ~o~OfficerMorrison", "Successfully unloaded. I'm shocked you made it alive.");
         }
     }
