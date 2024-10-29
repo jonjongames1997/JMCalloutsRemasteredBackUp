@@ -29,7 +29,7 @@ namespace JMCalloutsRemastered
         internal static bool StolenConstructionEquipment = true;
         internal static bool DomesticDisturbance = true;
         internal static bool StolenMilitaryEquipment = true;
-        internal static bool MovieHopping = true;
+        internal static bool MovieHopping = false;
         internal static bool AbandonedVehicleOnRailRoadTracks = true;
         internal static bool Stalking = true;
         internal static bool PurpleAlert = true;
@@ -84,7 +84,7 @@ namespace JMCalloutsRemastered
             Settings.StolenConstructionEquipment = ini.ReadBoolean("Callouts", "StolenConstructionEquipment", true);
             Settings.DomesticDisturbance = ini.ReadBoolean("Callouts", "DomesticDisturbance", true);
             Settings.StolenMilitaryEquipment = ini.ReadBoolean("Callouts", "StolenMilitaryEquipment", true);
-            Settings.MovieHopping = ini.ReadBoolean("Callouts", "MovieHopping", true);
+            Settings.MovieHopping = ini.ReadBoolean("Callouts", "MovieHopping", false);
             Settings.AbandonedVehicleOnRailRoadTracks = ini.ReadBoolean("Callouts", "AbandonedVehicleOnRailRoadTracks", true);
             Settings.Stalking = ini.ReadBoolean("Callouts", "Stalking", true);
             Settings.PurpleAlert = ini.ReadBoolean("Callouts", "PurpleAlert", true);
