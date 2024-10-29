@@ -50,6 +50,9 @@ namespace JMCalloutsRemastered.Callouts
             Suspect = new Ped(Spawnpoint);
             Suspect.IsPersistent = true;
             Suspect.BlockPermanentEvents = true;
+            Suspect.IsValid();
+
+            Suspect.Tasks.PlayAnimation(new AnimationDictionary("anim@amb@nightclub@peds@"), "rcmme_amanda1_stand_loop_cop", -1f, AnimationFlags.Loop);
 
             SuspectBlip = Suspect.AttachBlip();
             SuspectBlip.Color = System.Drawing.Color.Beige;
@@ -93,18 +96,22 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 2)
                     {
+                        Suspect.Tasks.PlayAnimation(new AnimationDictionary("josh_1_int-5"), "cs_josh_dual-5", -1f, AnimationFlags.Loop);
                         Game.DisplaySubtitle("~y~Suspect~w~: What do you want? I'm filming here.");
                     }
                     if (counter == 3)
                     {
+                        Suspect.Tasks.PlayAnimation(new AnimationDictionary("rcmjosh1"), "idle", -1f, AnimationFlags.Loop);
                         Game.DisplaySubtitle("~b~Player~w~: You can't be on constrcution property. It's against the law. Are you an employee of the construction company?");
                     }
                     if (counter == 4)
                     {
+                        Suspect.Tasks.PlayAnimation(new AnimationDictionary("josh_1_int-5"), "cs_josh_dual-5", -1f, AnimationFlags.Loop);
                         Game.DisplaySubtitle("~y~Suspect~w~: Yes. I'm surveying the site to write down important information for the mayor. Is that a problem?");
                     }
                     if (counter == 5)
                     {
+                        Suspect.Tasks.PlayAnimation(new AnimationDictionary("rcmjosh1"), "idle", -1f, AnimationFlags.Loop);
                         Game.DisplaySubtitle("~b~Player~w~: No. Just need to verify. Do you mind if I run your information real quick? It's a procedure I have to follow.");
                     }
                     if (counter == 6)
