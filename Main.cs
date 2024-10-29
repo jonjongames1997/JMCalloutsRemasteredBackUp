@@ -44,7 +44,7 @@ namespace JMCalloutsRemastered
 
                     Game.DisplayNotification("web_jonjongames", "web_jonjongames", "JM Callouts Remastered", "~g~v" + Assembly.GetExecutingAssembly().GetName().Version.ToString() + " ~r~by OfficerMorrison", "~b~successfully loaded!");
                     Game.DisplayHelp("~y~JM Callouts Remasterd Warning: If this callout pack is redistributed on any other sites that aren'tapproved by JM Modifications, You'll be sent a DMCA Takedown Notice.");
-                    Game.DisplayNotification("commonmenu", "mp_alerttriangle", "~w~JM Callouts Remastered Incompatibility Warning", "JM Callouts Remastered is Incompatible with the following mods: ~r~Callout Launcher~w~. JM Callouts Remastred is only Compatible with Callout Interface 1.4.1.", "No plans on compatibility for these mods in the future.");
+                    Game.DisplayNotification("commonmenu", "mp_alerttriangle", "~w~JM Callouts Remastered", "Incompatibility Warning", "JM Callouts Remastered is Incompatible with the following mods: ~r~Callout Launcher~w~. JM Callouts Remastred is only Compatible with Callout Interface.");
                 
                 #region Help Messages
                     if (Settings.HelpMessages)
@@ -156,7 +156,6 @@ namespace JMCalloutsRemastered
             if (Settings.DomesticDistrubancePaletoBay) { Functions.RegisterCallout(typeof(DomesticDisturbancePaletoBay)); }
             if (Settings.DomesticDisturbanceSandyShores) { Functions.RegisterCallout(typeof(DomesticDisturbanceSandyShores)); }
             if (Settings.DomesticDisturbanceHarmony) { Functions.RegisterCallout(typeof(DomesticDisturbanceHarmony)); }
-            if (Settings.MovieHopping) { Functions.RegisterCallout(typeof(MovieHopping)); }
             if (Settings.PublicOrdinanceEasterEgg1) { Functions.RegisterCallout(typeof(PublicOrdinanceEasterEgg1)); }
             Game.Console.Print("[LOG]: All callouts of the JMCalloutsRemastered.ini were loaded successfully.");
             Game.Console.Print();
@@ -166,7 +165,7 @@ namespace JMCalloutsRemastered
 
         public override void Finally()
         {
-
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "JM Callouts Remastered", "By ~o~OfficerMorrison", "Successfully unloaded. I'm shocked you made it alive.");
         }
     }
 
