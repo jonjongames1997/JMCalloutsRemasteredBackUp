@@ -54,6 +54,8 @@ namespace JMCalloutsRemastered.Callouts
             Suspect.BlockPermanentEvents = true;
             Suspect.IsValid();
 
+            Suspect.Tasks.PlayAnimation(new AnimationDictionary("rcmjosh1"), "idle", -1f, AnimationFlags.Loop);
+
             SuspectBlip = Suspect.AttachBlip();
             SuspectBlip.Color = System.Drawing.Color.Black;
             SuspectBlip.IsRouteEnabled = true;
@@ -97,30 +99,37 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 2)
                     {
+                        Suspect.Tasks.PlayAnimation(new AnimationDictionary("josh_1_int-5"), "cs_josh_dual-5", -1f, AnimationFlags.Loop);
                         Game.DisplaySubtitle("~y~Suspect~w~: What do you want now pigs?");
                     }
                     if (counter == 3)
                     {
+                        Suspect.Tasks.PlayAnimation(new AnimationDictionary("rcmjosh1"), "idle", -1f, AnimationFlags.Loop);
                         Game.DisplaySubtitle("~b~Player~w~: Can you tell me what's going on here? We gotten a call about you being on this property when you are trespassed.");
                     }
                     if (counter == 4)
                     {
+                        Suspect.Tasks.PlayAnimation(new AnimationDictionary("josh_1_int-5"), "cs_josh_dual-5", -1f, AnimationFlags.Loop);
                         Game.DisplaySubtitle("~y~Suspect~w~: Trying to work things out with my ex. Is that a problem?");
                     }
                     if (counter == 5)
                     {
+                        Suspect.Tasks.PlayAnimation(new AnimationDictionary("rcmjosh1"), "idle", -1f, AnimationFlags.Loop);
                         Game.DisplaySubtitle("~b~Player~w~: No but you're ex doesn't want you here. I need you to leave the property cause your ex is requesting a restraining order against you.");
                     }
                     if (counter == 6)
                     {
+                        Suspect.Tasks.PlayAnimation(new AnimationDictionary("josh_1_int-5"), "cs_josh_dual-5", -1f, AnimationFlags.Loop);
                         Game.DisplaySubtitle("~y~Suspect~w~: That mothafucka!");
                     }
                     if (counter == 7)
                     {
+                        Suspect.Tasks.PlayAnimation(new AnimationDictionary("rcmjosh1"), "idle", -1f, AnimationFlags.Loop);
                         Game.DisplaySubtitle("~b~Player~w~: Leave now, " + malefemale + "! Refusing to leave the property will have you in handcuffs. You will be charged with criminal mischief and disobeying a lawful order.");
                     }
                     if (counter == 8)
                     {
+                        Suspect.Tasks.PlayAnimation(new AnimationDictionary("josh_1_int-5"), "cs_josh_dual-5", -1f, AnimationFlags.Loop);
                         Game.DisplaySubtitle("~y~Suspect~w~: Fine! That dick tickler is making a big mistake.");
                     }
                     if (counter == 9)
