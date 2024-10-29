@@ -5,6 +5,7 @@
 - Minor Adjustments
 - More bug fixes
 - Added a plugin unload notification
+- Added 8 new peds for 'Possible Prostitution' callout
 - 
 
 5.0.7.1:
