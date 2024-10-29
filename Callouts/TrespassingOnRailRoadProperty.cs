@@ -52,6 +52,9 @@ namespace JMCalloutsRemastered.Callouts
             Suspect = new Ped(Spawnpoint);
             Suspect.IsPersistent = true;
             Suspect.BlockPermanentEvents = true;
+            Suspect.IsValid();
+
+            Suspect.Tasks.PlayAnimation(new AnimationDictionary("rcmjosh1"), "idle", -1f, AnimationFlags.Loop);
 
             SuspectBlip = Suspect.AttachBlip();
             SuspectBlip.Color = System.Drawing.Color.CadetBlue;
@@ -96,38 +99,47 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 2)
                     {
+                        Suspect.Tasks.PlayAnimation(new AnimationDictionary("josh_1_int-5"), "cs_josh_dual-5", -1f, AnimationFlags.Loop);
                         Game.DisplaySubtitle("~y~Suspect~w~: ALIENS! ALIENS! They're here! RUN FOR YOUR LIVES!");
                     }
                     if (counter == 3)
                     {
+                        Suspect.Tasks.PlayAnimation(new AnimationDictionary("rcmjosh1"), "idle", -1f, AnimationFlags.Loop);
                         Game.DisplaySubtitle("~b~Player~w~: " + malefemale + ", Calm down for me please.");
                     }
                     if (counter == 4)
                     {
+                        Suspect.Tasks.PlayAnimation(new AnimationDictionary("josh_1_int-5"), "cs_josh_dual-5", -1f, AnimationFlags.Loop);
                         Game.DisplaySubtitle("~y~Suspect~w~: Oh, I thought you were an alien. Sorry, Officer. What's up? Want to smoke some crack? Smoke some weed?");
                     }
                     if (counter == 5)
                     {
+                        Suspect.Tasks.PlayAnimation(new AnimationDictionary("rcmjosh1"), "idle", -1f, AnimationFlags.Loop);
                         Game.DisplaySubtitle("~b~Player~w~: Did you do any illegal drugs that I should know about? and why are you on railroad property?");
                     }
                     if (counter == 6)
                     {
+                        Suspect.Tasks.PlayAnimation(new AnimationDictionary("josh_1_int-5"), "cs_josh_dual-5", -1f, AnimationFlags.Loop);
                         Game.DisplaySubtitle("~y~Suspect~w~: Yeah, drugs are the 2nd best medicine cause laughter is the #1 best medicine. I'm trying to record some videos of the trains coming through. Why?");
                     }
                     if (counter == 7)
                     {
+                        Suspect.Tasks.PlayAnimation(new AnimationDictionary("rcmjosh1"), "idle", -1f, AnimationFlags.Loop);
                         Game.DisplaySubtitle("~b~Player~w~: Well " + malefemale + ", that's fine but you can't be on the tracks cause people have been comitting suicde by train almost every year. As long as you're on the other side of the crossing, that's fine. Can I see some identification from you if it's in your posession?");
                     }
                     if (counter == 8)
                     {
+                        Suspect.Tasks.PlayAnimation(new AnimationDictionary("josh_1_int-5"), "cs_josh_dual-5", -1f, AnimationFlags.Loop);
                         Game.DisplaySubtitle("~y~Suspect~w~: What's a indentification again?");
                     }
                     if (counter == 9)
                     {
+                        Suspect.Tasks.PlayAnimation(new AnimationDictionary("rcmjosh1"), "idle", -1f, AnimationFlags.Loop);
                         Game.DisplaySubtitle("~b~Player~w~: " + malefemale + ", you're under arrest.");
                     }
                     if (counter == 10)
                     {
+                        Suspect.Tasks.PlayAnimation(new AnimationDictionary("josh_1_int-5"), "cs_josh_dual-5", -1f, AnimationFlags.Loop);
                         Game.DisplaySubtitle("~y~Suspect~w~: I'm not going back to prison to drop the soap!");
                     }
                     if (counter == 11)
