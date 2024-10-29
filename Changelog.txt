@@ -4,6 +4,7 @@
 
 - Minor Adjustments
 - More bug fixes
+- Added a plugin unload notification
 - 
 
 5.0.7.1:
