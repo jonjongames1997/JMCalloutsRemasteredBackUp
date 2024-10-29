@@ -38,6 +38,9 @@ namespace JMCalloutsRemastered.Callouts
             suspect = new Ped(spawnpoint, heading);
             suspect.IsPersistent = true;
             suspect.BlockPermanentEvents = true;
+            suspect.IsValid();
+
+            suspect.Tasks.PlayAnimation(new AnimationDictionary("anim@heists@heist_corona@single_team"), "single_team_loop_boss", -1f, AnimationFlags.Loop);
 
             blip = suspect.AttachBlip();
             blip.Color = System.Drawing.Color.Aqua;
@@ -74,23 +77,26 @@ namespace JMCalloutsRemastered.Callouts
 
                     if (counter == 1)
                     {
-                        suspect.Face(MainPlayer);
                         Game.DisplaySubtitle("~b~You~w~: Excuse me, " + malefemale + ". Can you come talk to me real quick?");
                     }
                     if (counter == 2)
                     {
+                        suspect.Tasks.PlayAnimation(new AnimationDictionary("anim@amb@casino@brawl@fights@argue@"), "arguement_loop_mp_m_brawler_01", -1f, AnimationFlags.Loop);
                         Game.DisplaySubtitle("~r~Suspect~w~: What now, you motherfucker you, cops?");
                     }
                     if (counter == 3)
                     {
+                        suspect.Tasks.PlayAnimation(new AnimationDictionary("rcmjosh1"), "idle", -1f, AnimationFlags.Loop);
                         Game.DisplaySubtitle("~b~You~w~: Why are you asking people for money? Panhandling is ~r~ILLEGAL~w~ in the state.");
                     }
                     if (counter == 4)
                     {
+                        suspect.Tasks.PlayAnimation(new AnimationDictionary("anim@amb@casino@brawl@fights@argue@"), "arguement_loop_mp_m_brawler_01", -1f, AnimationFlags.Loop);
                         Game.DisplaySubtitle("~r~Suspect~w~: Fuck this, I'm outta here.");
                     }
                     if (counter == 5)
                     {
+                        suspect.Tasks.PlayAnimation(new AnimationDictionary("rcmjosh1"), "idle", -1f, AnimationFlags.Loop);
                         Game.DisplaySubtitle("Conversation Ended!");
                     }
                     if (counter == 6)
@@ -98,7 +104,6 @@ namespace JMCalloutsRemastered.Callouts
                         Game.DisplaySubtitle("~r~Suspect~w~: Die, you motherfucka!");
                         suspect.Tasks.FightAgainst(MainPlayer);
                         suspect.Inventory.GiveNewWeapon("WEAPON_PISTOL", 500, true);
-                        UltimateBackup.API.Functions.callPanicButtonBackup(true);
                     }
                 }
 
