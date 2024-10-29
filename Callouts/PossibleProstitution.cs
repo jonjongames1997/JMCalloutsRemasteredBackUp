@@ -9,7 +9,7 @@ namespace JMCalloutsRemastered.Callouts
     {
 
         // General Variables //
-        private static readonly string[] pedList = new string[] { "S_F_Y_HOOKER_01", "S_F_Y_HOOKER_02", "S_F_Y_HOOKER_03", "IG_ABIGAIL", "IG_AMANDATOWNLEY", "G_F_Y_BALLAS_01", "S_F_Y_BARTENDER_01", "A_F_M_BEACH_01", "IG_MARYANN", "IG_MOLLY", "A_F_Y_RURMETH_01", "A_F_Y_EASTSA_03", "MP_F_MISTY_01" };
+        private static readonly string[] pedList = new string[] { "S_F_Y_HOOKER_01", "S_F_Y_HOOKER_02", "S_F_Y_HOOKER_03", "IG_ABIGAIL", "IG_AMANDATOWNLEY", "G_F_Y_BALLAS_01", "S_F_Y_BARTENDER_01", "A_F_M_BEACH_01", "IG_MARYANN", "IG_MOLLY", "A_F_Y_RURMETH_01", "A_F_Y_EASTSA_03", "MP_F_MISTY_01", "s_f_y_baywatch_01", "a_f_y_beach_01", "a_f_m_bevhills_01", "a_f_y_bevhills_01", "a_f_y_bevhills_02", "a_f_y_bevhills_03", "a_f_y_bevhills_04", "a_f_y_genhot_01" };
         private static Ped Suspect;
         private static Blip SuspectBlip;
         private static Vector3 Spawnpoint;
