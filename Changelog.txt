@@ -1,5 +1,11 @@
 ﻿Changelog:
 
+5.0.8.1:
+
+- Minor Adjustments
+- More bug fixes
+- 
+
 5.0.7.1:
 
 - Added mod compatibility warning message on plugin startup
@@ -8,7 +14,7 @@
 - Ini update
 - Bug Fixes
 - Minor Adjustments
-- 
+- Disabled "Movie Hopping" callout for revamp.
 
 5.0.6.1:
 
