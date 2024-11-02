@@ -154,6 +154,7 @@
     <Compile Include="Callouts\PrankCall.cs" />
     <Compile Include="Callouts\PublicDisturbance.cs" />
     <Compile Include="Callouts\PublicOrdinanceEasterEgg1.cs" />
+    <Compile Include="Callouts\PublicOrdinanceEasterEgg2.cs" />
     <Compile Include="Callouts\PurpleAlert.cs" />
     <Compile Include="Callouts\RefuseToLeave.cs" />
     <Compile Include="Callouts\RefuseToPay.cs" />
