@@ -63,6 +63,7 @@ namespace JMCalloutsRemastered.Callouts
             Suspect = new Ped(Spawnpoint);
             Suspect.IsPersistent = true;
             Suspect.BlockPermanentEvents = true;
+            Suspect.IsValid();
 
             Suspect.Tasks.PlayAnimation(new AnimationDictionary("amb@world_human_strip_watch_stand@male_c@base"), "base", -1, AnimationFlags.Loop);
 
