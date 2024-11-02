@@ -39,6 +39,7 @@ namespace JMCalloutsRemastered.Callouts
             Suspect = new Ped(pedList[new Random().Next((int)pedList.Length)], Spawnpoint, 0f);
             Suspect.IsPersistent = true;
             Suspect.BlockPermanentEvents = true;
+            Suspect.IsValid();
 
             Suspect.Tasks.PlayAnimation(new AnimationDictionary("switch@michael@prostitute"), "base_hooker", -1f, AnimationFlags.Loop);
 
