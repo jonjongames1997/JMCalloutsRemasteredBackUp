@@ -48,6 +48,7 @@ namespace JMCalloutsRemastered
         internal static bool DomesticDisturbanceHarmony = true;
         internal static bool DomesticDisturbanceSandyShores = true;
         internal static bool PublicOrdinanceEasterEgg1 = true;
+        internal static bool PublicOrdinanceEasterEgg2 = true;
         internal static bool HelpMessages = true;
         internal static bool WarningMessages = true;
         internal static Keys EndCall = Keys.End;
@@ -102,6 +103,7 @@ namespace JMCalloutsRemastered
             Settings.DomesticDisturbanceHarmony = ini.ReadBoolean("Callouts", "DomesticDisturbanceHarmony", true);
             Settings.DomesticDistrubancePaletoBay = ini.ReadBoolean("Callouts", "DomesticDistrubancePaletoBay", true);
             Settings.PublicOrdinanceEasterEgg1 = ini.ReadBoolean("Callouts", "PublicOrdinanceEasterEgg1", true);
+            Settings.PublicOrdinanceEasterEgg2 = ini.ReadBoolean("Callouts", "PublicOrdinanceEasterEgg2", true);
             Settings.HelpMessages = ini.ReadBoolean("HelpMessages", "HelpMessages", true);
             Settings.WarningMessages = ini.ReadBoolean("Misc", "WarningMessages", true);
 
