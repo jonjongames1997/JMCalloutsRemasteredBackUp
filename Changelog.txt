@@ -6,7 +6,7 @@
 - More bug fixes
 - Added a plugin unload notification
 - Added 8 new peds for 'Possible Prostitution' callout
-- 
+- Fixed a bug in "Illegal Campfire On Public Beach" callout that caused LSPDFR to crash
 
 5.0.7.1:
 
