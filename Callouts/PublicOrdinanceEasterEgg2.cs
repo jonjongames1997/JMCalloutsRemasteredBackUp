@@ -25,7 +25,7 @@ namespace JMCalloutsRemastered.Callouts
             };
             spawnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
-            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_Public_Ordinance_Easter_Egg_2_Callout_Audio_1");
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_Public_Ordinance_Easter_Egg_2_Audio_1");
             CalloutInterfaceAPI.Functions.SendMessage(this, "Twitch streamer being loud as fuck");
             CalloutMessage = "A loud twitch streamer yelling and screaming.";
             CalloutPosition = spawnpoint;
@@ -116,12 +116,12 @@ namespace JMCalloutsRemastered.Callouts
                     if(counter == 6)
                     {
                         suspect.Tasks.PlayAnimation(new AnimationDictionary("anim@amb@casino@brawl@fights@argue@"), "arguement_loop_mp_m_brawler_01", -1f, AnimationFlags.Loop);
-                        Game.DisplaySubtitle("~o~Suspect~w~: yeah, YOU'RE BANNED BUDDY...... FROM MY PREOPERTY!!!!!!");
+                        Game.DisplaySubtitle("~o~Suspect~w~: yeah, YOU'RE BANNED BUDDY...... FROM MY PROPERTY!!!!!!");
                     }
                     if(counter == 7)
                     {
                         suspect.Tasks.PlayAnimation(new AnimationDictionary("rcmjosh1"), "idle", -1f, AnimationFlags.Loop);
-                        Game.DisplaySubtitle("~b~You~w~: Calm down, " + malefemale + ". I'm only joking. Let me see your identification and we'll go from here alright. I just want to have soem fun with you.");
+                        Game.DisplaySubtitle("~b~You~w~: Calm down, " + malefemale + ". I'm only joking. Let me see your identification and we'll go from here alright. I just want to have some fun with you.");
                     }
                     if(counter == 8)
                     {
