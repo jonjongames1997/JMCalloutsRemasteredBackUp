@@ -8,6 +8,7 @@
 - Added 8 new peds for 'Possible Prostitution' callout
 - Fixed a bug in "Illegal Campfire On Public Beach" callout that caused LSPDFR to crash
 - Added 1 new callout
+- Ini Update
 
 5.0.7.1:
 
