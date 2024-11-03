@@ -21,7 +21,7 @@ namespace JMCalloutsRemastered.Callouts
             List<Vector3> list = new()
             {
                 new(-802.29f, 172.75f, 72.84f), // Michael's House
-                new(1.84f, 527.09f, 174.63f), // Franklin's House in Vinewood
+                new(-7.00f, 515.00f, 174.64f), // Franklin's House in Vinewood
             };
             spawnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
