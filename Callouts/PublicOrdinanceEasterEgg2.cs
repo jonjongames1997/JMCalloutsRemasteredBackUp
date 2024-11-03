@@ -44,8 +44,8 @@ namespace JMCalloutsRemastered.Callouts
 
             suspect = new Ped(pedList[new Random().Next((int)pedList.Length)], spawnpoint, 0f);
             suspect.IsPersistent = true;
-            suspect.IsValid();
             suspect.BlockPermanentEvents = true;
+            suspect.IsValid();
 
             suspect.Tasks.PlayAnimation(new AnimationDictionary("anim@amb@nightclub@lazlow@hi_dancefloor@"), "dancecrowd_li_11_hu_shimmy_laz", -1f, AnimationFlags.Loop);
 
@@ -127,8 +127,6 @@ namespace JMCalloutsRemastered.Callouts
                     {
                         Game.DisplaySubtitle("Conversation Ended. CaseOh went to the fridge to get some food.");
                         suspect.Tasks.ReactAndFlee(suspect);
-                        suspect.Inventory.GiveNewWeapon("WEAPON_COMBATPISTOL", 500, true);
-                        suspect.Tasks.FightAgainst(MainPlayer, 500);
                     }
                 }
 
