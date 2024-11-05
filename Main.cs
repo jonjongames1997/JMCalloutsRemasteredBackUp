@@ -158,7 +158,6 @@ namespace JMCalloutsRemastered
             if (Settings.DomesticDisturbanceHarmony) { Functions.RegisterCallout(typeof(DomesticDisturbanceHarmony)); }
             if (Settings.PublicOrdinanceEasterEgg1) { Functions.RegisterCallout(typeof(PublicOrdinanceEasterEgg1)); }
             if (Settings.PublicOrdinanceEasterEgg2) { Functions.RegisterCallout(typeof(PublicOrdinanceEasterEgg2)); }
-            if (Settings.PrivateTimeComplaint) { Functions.RegisterCallout(typeof(PrivateTimeComplaint)); }
             Game.Console.Print("[LOG]: All callouts of the JMCalloutsRemastered.ini were loaded successfully.");
             Game.Console.Print();
             Game.Console.Print("================================================== JM Callouts Remastered ===================================================");
