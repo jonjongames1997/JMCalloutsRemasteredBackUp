@@ -30,7 +30,16 @@ namespace JMCalloutsRemastered.Callouts
         {
             Game.LogTrivial("JM Callouts Remastered [LOG]: Prank Call callout has been accepted!");
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Prank Call", "~b~Dispatch~w~: Suspect spotted. Respond ~r~Code 2~w~.");
-            Game.DisplayHelp("Press ~y~E~w~ at anytime to end the callout");
+
+            if (Settings.HelpMessages)
+            {
+                Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
+            }
+            else
+            {
+                Settings.HelpMessages = false;
+            }
+
 
             LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_Respond_Code_2_Audio");
 
