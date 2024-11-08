@@ -38,6 +38,8 @@ namespace JMCalloutsRemastered.Callouts
 
             emergencyVehicle = new Vehicle(emergencyVehicles[new Random().Next((int)emergencyVehicles.Length)], spawnpoint);
             emergencyVehicle.IsSirenOn = true;
+            emergencyVehicle.IsPersistent = true;
+            emergencyVehicle.IsStolen = true;
 
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Dispatch", "Loading ~g~Information~w~ of the ~o~LSPD Database~w~...");
             LSPD_First_Response.Mod.API.Functions.DisplayVehicleRecord(emergencyVehicle, true);
