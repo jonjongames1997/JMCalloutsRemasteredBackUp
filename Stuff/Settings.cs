@@ -174,9 +174,9 @@ namespace JMCalloutsRemastered
                 Settings.WarningMessages = true;
                 Settings.HelpMessages = true;
                 Game.LogTrivial(ex.ToString());
-                Game.LogTrivial("Could not load settings. Default values set.");
+                Game.LogTrivial("[JMCallouts LOG]: Could not load settings. Default values set.");
             }
         }
-        public static readonly string PluginVersion = "5.0.8.1";
+        public static readonly string PluginVersion = "5.0.9.2";
     }
 }
