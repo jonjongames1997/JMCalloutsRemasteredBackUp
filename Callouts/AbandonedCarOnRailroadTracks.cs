@@ -40,7 +40,15 @@ namespace JMCalloutsRemastered.Callouts
         {
             Game.LogTrivial("[JM Callouts Remastered Log]: Trespassing On Railroad Property callout accepted!");
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "Abandoned Vehicle On Railroad Tracks", "~b~Dispatch~w~: Vehicle Spotted. Respond ~r~Code 2~w~.");
-            Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
+
+            if (Settings.HelpMessages)
+            {
+                Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
+            }
+            else
+            {
+                Settings.HelpMessages = false;
+            }
 
             LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_AbandonedVehicleOnRailroadTracks_Callout_Audio_2");
 
