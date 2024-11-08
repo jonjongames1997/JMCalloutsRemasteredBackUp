@@ -43,24 +43,23 @@ namespace JMCalloutsRemastered
                     Game.Console.Print();
 
                     Game.DisplayNotification("web_jonjongames", "web_jonjongames", "JM Callouts Remastered", "~g~v" + Assembly.GetExecutingAssembly().GetName().Version.ToString() + " ~r~by OfficerMorrison", "~b~successfully loaded!");
-                    Game.DisplayHelp("~y~JM Callouts Remasterd Warning: If this callout pack is redistributed on any other sites that aren'tapproved by JM Modifications, You'll be sent a DMCA Takedown Notice.");
                     Game.DisplayNotification("commonmenu", "mp_alerttriangle", "~w~JM Callouts Remastered", "Incompatibility Warning", "JM Callouts Remastered is Incompatible with the following mods: ~r~Callout Launcher~w~. JM Callouts Remastred is only Compatible with Callout Interface.");
                 
                 #region Help Messages
-                    if (Settings.HelpMessages)
-                    {
-                        Game.DisplayHelp("You can disable the help messages in JMCalloutsRemastered.ini at any time.");
-                    }
-                    else
-                    {
-                        Settings.HelpMessages = false;
-                    }
+                if (Settings.HelpMessages)
+                {
+                    Game.DisplayHelp("You can disable the help messages in JMCalloutsRemastered.ini at any time.");
+                }
+                else
+                {
+                    Settings.HelpMessages = false;
+                }
                 #endregion
 
                 #region Warning Messages
                 if (Settings.WarningMessages)
                 {
-                    Game.DisplayHelp("You can Disable the Warning Messages in the JMCalloutsRemastered.ini at anytime.");
+                    Game.DisplayNotification("~y~JM Callouts Remasterd Warning: If this callout pack is redistributed on any other sites that aren'tapproved by JM Modifications, You'll be sent a DMCA Takedown Notice.");
                 }
                 else
                 {
@@ -139,7 +138,7 @@ namespace JMCalloutsRemastered
             if (Settings.PersonOnTheHighway) { Functions.RegisterCallout(typeof(PersonOnTheHighway)); }
             if (Settings.StolenConstructionEquipment) { Functions.RegisterCallout(typeof(StolenConstructionEquipment)); }
             if (Settings.DomesticDisturbance) { Functions.RegisterCallout(typeof(DomesticDisturbance)); }
-            if (Settings.AbandonedVehicleOnRailRoadTracks) { Functions.RegisterCallout(typeof(AbandonedCarOnRailroadTracks)); }
+            if (Settings.AbandonedCarOnRailroadTracks) { Functions.RegisterCallout(typeof(AbandonedCarOnRailroadTracks)); }
             if (Settings.Stalking) { Functions.RegisterCallout(typeof(Stalking)); }
             if (Settings.PurpleAlert) { Functions.RegisterCallout(typeof(PurpleAlert)); }
             if (Settings.PeepingTom) { Functions.RegisterCallout(typeof(PeepingTom)); }
@@ -152,8 +151,8 @@ namespace JMCalloutsRemastered
             if (Settings.PersonCarryingAnExplosiveWeapon) { Functions.RegisterCallout(typeof(PersonCarryingAnExplosiveWeapon)); }
             if (Settings.BountyHunterRequiringAssistance) { Functions.RegisterCallout(typeof(BountyHunterRequiringAssistance)); }
             if (Settings.HomelessPerson) { Functions.RegisterCallout(typeof(HomelessPerson)); }
-            if (Settings.DomesticDisturbanceGrapeseed) { Functions.RegisterCallout(typeof(DomesticDisturbanceGrapeSeed)); }
-            if (Settings.DomesticDistrubancePaletoBay) { Functions.RegisterCallout(typeof(DomesticDisturbancePaletoBay)); }
+            if (Settings.DomesticDisturbanceGrapeSeed) { Functions.RegisterCallout(typeof(DomesticDisturbanceGrapeSeed)); }
+            if (Settings.DomesticDisturbancePaletoBay) { Functions.RegisterCallout(typeof(DomesticDisturbancePaletoBay)); }
             if (Settings.DomesticDisturbanceSandyShores) { Functions.RegisterCallout(typeof(DomesticDisturbanceSandyShores)); }
             if (Settings.DomesticDisturbanceHarmony) { Functions.RegisterCallout(typeof(DomesticDisturbanceHarmony)); }
             if (Settings.PublicOrdinanceEasterEgg1) { Functions.RegisterCallout(typeof(PublicOrdinanceEasterEgg1)); }
