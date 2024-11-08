@@ -130,6 +130,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Callouts\BicycleBlockingRoadway.cs" />
     <Compile Include="Callouts\_911HangUp.cs" />
     <Compile Include="Callouts\AbandonedCarOnRailroadTracks.cs" />
     <Compile Include="Callouts\BountyHunterRequiringAssistance.cs" />
