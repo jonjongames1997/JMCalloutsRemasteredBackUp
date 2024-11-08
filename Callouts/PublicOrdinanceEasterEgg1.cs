@@ -41,7 +41,16 @@ namespace JMCalloutsRemastered.Callouts
         {
             Game.LogTrivial("[JM Callouts Remastered Log]: Public Ordinance Easter Egg 1 callout accepted!");
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Public Ordinance Easter Egg 1", "~b~Dispatch~w~: Suspect has been spotted. Respond ~r~Code 2~w~.");
-            Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
+
+            if (Settings.HelpMessages)
+            {
+                Game.DisplayHelp("Press ~y~END~w~ at anytime to end the callout", false);
+            }
+            else
+            {
+                Settings.HelpMessages = false;
+            }
+
 
             LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_Respond_Code_2_Audio");
 
