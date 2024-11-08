@@ -1,5 +1,4 @@
 ﻿using CalloutInterfaceAPI;
-using System.Security.Cryptography.X509Certificates;
 
 namespace JMCalloutsRemastered.Callouts
 {
