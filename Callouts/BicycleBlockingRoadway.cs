@@ -7,7 +7,7 @@ namespace JMCalloutsRemastered.Callouts
 
     public class BicycleBlockingRoadway : Callout
     {
-        private static readonly string[] bikeList = new string[] { "bmx", "scorcher" };
+        private static readonly string[] bikeList = new string[] { "bmx", "scorcher", "cruiser", "fixter", "tribike", "tribike2", "tribike3" };
         private static Vehicle thebike;
         private static Blip blip;
         private static Vector3 spawnpoint;
@@ -23,6 +23,7 @@ namespace JMCalloutsRemastered.Callouts
             };
             spawnpoint = LocationChooser.ChooseNearestLocation(list);
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_Bicycle_Blocking_Roadway_Callout_Audio_1");
             CalloutInterfaceAPI.Functions.SendMessage(this, "Bicycle left on the street.");
             CalloutMessage = "Reports of a bicycle blocking the road.";
             CalloutPosition = spawnpoint;
@@ -43,6 +44,8 @@ namespace JMCalloutsRemastered.Callouts
             {
                 Settings.HelpMessages = false;
             }
+
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_Code_1_Response_Audio");
 
             thebike = new Vehicle(bikeList[new Random().Next((int)bikeList.Length)], spawnpoint, 0f);
             thebike.IsValid();
