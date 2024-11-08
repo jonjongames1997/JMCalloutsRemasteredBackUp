@@ -58,6 +58,7 @@ namespace JMCalloutsRemastered
         public static bool TrespassingOnRailRoadProperty = true;
         public static bool TrespassingOnSchoolGrounds = true;
         public static bool UnauthorizedAccessMovieStudio = true;
+        public static bool BicycleBlockingRoadway = true;
         public static bool WarningMessages = true;
         public static bool HelpMessages = true;
 
@@ -121,6 +122,7 @@ namespace JMCalloutsRemastered
                 Settings.TrespassingOnRailRoadProperty = Settings.initialiseFile().ReadBoolean("Callouts", "TrespassingOnRailRoadProperty", true);
                 Settings.TrespassingOnSchoolGrounds = Settings.initialiseFile().ReadBoolean("Callouts", "TrespassingOnSchoolGrounds", true);
                 Settings.UnauthorizedAccessMovieStudio = Settings.initialiseFile().ReadBoolean("Callouts", "UnauthorizedAccessMovieStudio", false);
+                Settings.BicycleBlockingRoadway = Settings.initialiseFile().ReadBoolean("Callouts", "BicycleBlockingRoadway", false);
                 Settings.WarningMessages = Settings.initialiseFile().ReadBoolean("Misc", "WarningMessages", true);
                 Settings.HelpMessages = Settings.initialiseFile().ReadBoolean("Help Messages", "HelpMessages", true);
             }
@@ -171,6 +173,7 @@ namespace JMCalloutsRemastered
                 Settings.TrespassingOnRailRoadProperty = true;
                 Settings.TrespassingOnSchoolGrounds = true;
                 Settings.UnauthorizedAccessMovieStudio = false;
+                Settings.BicycleBlockingRoadway = true;
                 Settings.WarningMessages = true;
                 Settings.HelpMessages = true;
                 Game.LogTrivial(ex.ToString());
