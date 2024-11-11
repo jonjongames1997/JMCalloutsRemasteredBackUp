@@ -79,6 +79,7 @@ namespace JMCalloutsRemastered.Callouts
                 End();
             }
 
+
             base.Process();
         }
 
@@ -87,6 +88,7 @@ namespace JMCalloutsRemastered.Callouts
             if (suspect) suspect.Dismiss();
             if (constructionVehicle) constructionVehicle.Dismiss();
             if (blip) blip.Delete();
+            UltimateBackup.API.Functions.dismissAllBackupUnits();
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Stolen Construction Equipment", "~b~You~w~: Dispatch, we are ~g~CODE 4~w~. Show me back 10-8.");
             LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_Code_4_Audio");
             UltimateBackup.API.Functions.dismissAllBackupUnits();
