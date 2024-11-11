@@ -105,6 +105,7 @@ namespace JMCalloutsRemastered.Callouts
 
                     if(counter == 1)
                     {
+                        Suspect.Face(MainPlayer);
                         Suspect.Tasks.PlayAnimation(new AnimationDictionary("rcmjosh1"), "idle", -1f, AnimationFlags.Loop);
                         Game.DisplaySubtitle("~b~You~w~: Police Department. What's going on, " + malefemale + "?. We've gotten a call from your neighbor that you were being too loud and you were breaking your game controllers.");
                     }
