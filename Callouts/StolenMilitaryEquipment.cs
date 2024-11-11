@@ -54,7 +54,6 @@ namespace JMCalloutsRemastered.Callouts
             LSPD_First_Response.Mod.API.Functions.AddPedToPursuit(pursuit, suspect);
             LSPD_First_Response.Mod.API.Functions.SetPursuitIsActiveForPlayer(pursuit, true);
             pursuitCreated = true;
-            UltimateBackup.API.Functions.callPursuitBackup();
 
             return base.OnCalloutAccepted();
         }
