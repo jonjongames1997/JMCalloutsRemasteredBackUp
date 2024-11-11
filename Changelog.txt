@@ -5,6 +5,8 @@ v5.0.9.2:
 - Added "LETHALFORCEISAUTHORIZED" audio file as an optional audio file for Soundboard mod by Rhoit. 
 - Minor Adjustments
 - Added 1 new callout ('Bicycle Blocking Roadway')
+- Back up will be dimissed when callout ends (Pursuit Callouts only)
+- Minor Adjustments
 
 5.0.8.1:
 
