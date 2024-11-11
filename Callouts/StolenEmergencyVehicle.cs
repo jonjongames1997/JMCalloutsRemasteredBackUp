@@ -1,5 +1,4 @@
 ﻿using CalloutInterfaceAPI;
-using System.Threading;
 
 namespace JMCalloutsRemastered.Callouts
 {
@@ -55,6 +54,7 @@ namespace JMCalloutsRemastered.Callouts
             LSPD_First_Response.Mod.API.Functions.AddPedToPursuit(pursuit, suspect);
             LSPD_First_Response.Mod.API.Functions.SetPursuitIsActiveForPlayer(pursuit, true);
             pursuitCreated = true;
+            UltimateBackup.API.Functions.callPursuitBackup();
 
             return base.OnCalloutAccepted();
         }
@@ -88,6 +88,7 @@ namespace JMCalloutsRemastered.Callouts
             if (suspect) suspect.Dismiss();
             if (emergencyVehicle) emergencyVehicle.Dismiss();
             if (blip) blip.Delete();
+            UltimateBackup.API.Functions.dismissAllBackupUnits();
             Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Stolen Emergency Vehicle", "~b~You~w~: Dispatch, we are ~g~CODE 4~w~. Show me back 10-8.");
             LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_Code_4_Audio");
             UltimateBackup.API.Functions.dismissAllBackupUnits();
