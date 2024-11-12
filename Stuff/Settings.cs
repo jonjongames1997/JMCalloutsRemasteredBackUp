@@ -37,7 +37,7 @@ namespace JMCalloutsRemastered
         public static bool PersonOnTheHighway = true;
         public static bool PossibleProstitution = true;
         public static bool PrankCall = true;
-        public static bool PrivateTimeComplaint = false;
+        public static bool PrivateTimeComplaint = true;
         public static bool PublicDisturbance = true;
         public static bool PublicOrdinanceEasterEgg1 = true;
         public static bool PublicOrdinanceEasterEgg2 = true;
@@ -66,7 +66,7 @@ namespace JMCalloutsRemastered
 
         public static InitializationFile initialiseFile()
         {
-            InitializationFile initializationFile = new InitializationFile("Plugins/LSPDFR/JMCalloutsRemastered.ini");
+            InitializationFile initializationFile = new InitializationFile(@"Plugins/LSPDFR/JMCalloutsRemastered.ini");
             initializationFile.Create();
             return initializationFile;
         }
@@ -122,7 +122,8 @@ namespace JMCalloutsRemastered
                 Settings.TrespassingOnRailRoadProperty = Settings.initialiseFile().ReadBoolean("Callouts", "TrespassingOnRailRoadProperty", true);
                 Settings.TrespassingOnSchoolGrounds = Settings.initialiseFile().ReadBoolean("Callouts", "TrespassingOnSchoolGrounds", true);
                 Settings.UnauthorizedAccessMovieStudio = Settings.initialiseFile().ReadBoolean("Callouts", "UnauthorizedAccessMovieStudio", false);
-                Settings.BicycleBlockingRoadway = Settings.initialiseFile().ReadBoolean("Callouts", "BicycleBlockingRoadway", false);
+                Settings.BicycleBlockingRoadway = Settings.initialiseFile().ReadBoolean("Callouts", "BicycleBlockingRoadway", true);
+                Settings.PrivateTimeComplaint = Settings.initialiseFile().ReadBoolean("Callouts", "PrivateTimeComplaint", true);
                 Settings.WarningMessages = Settings.initialiseFile().ReadBoolean("Misc", "WarningMessages", true);
                 Settings.HelpMessages = Settings.initialiseFile().ReadBoolean("Help Messages", "HelpMessages", true);
             }
@@ -174,6 +175,7 @@ namespace JMCalloutsRemastered
                 Settings.TrespassingOnSchoolGrounds = true;
                 Settings.UnauthorizedAccessMovieStudio = false;
                 Settings.BicycleBlockingRoadway = true;
+                Settings.PrivateTimeComplaint = true;
                 Settings.WarningMessages = true;
                 Settings.HelpMessages = true;
                 Game.LogTrivial(ex.ToString());
