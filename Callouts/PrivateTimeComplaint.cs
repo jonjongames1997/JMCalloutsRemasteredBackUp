@@ -9,7 +9,7 @@ namespace JMCalloutsRemastered
     internal class PrivateTimeComplaint : Callout
     {
         private static readonly string[] femalePedList = new string[] { "ig_abigail", "ig_amandatownley", "csb_anita", "s_f_y_bartender_01", "a_f_m_beach_01", "a_f_y_beach_01", "ig_janet" };
-        private static readonly string[] malePedList = new string[] { "a_m_y_jetski_01", "ig_jimmydisanto", "u_m_y_justin", "ig_lestercrest" };
+        private static readonly string[] malePedList = new string[] { "a_m_y_jetski_01", "ig_jimmydisanto", "ig_lestercrest" };
         private static Ped suspect1;
         private static Ped suspect2;
         private static Blip susBlip1;
@@ -25,10 +25,10 @@ namespace JMCalloutsRemastered
 
         public override bool OnBeforeCalloutDisplayed()
         {
-            spawnpoint = new(-6.68f, 508.37f, 174.63f);
-            heading = 141.04f;
-            femalespawnpoint = new(-7.44f, 507.38f, 174.63f);
-            femaleheading = 143.07f;
+            spawnpoint = new(-29.52f, 301.01f, 112.69f);
+            heading = 109.11f;
+            femalespawnpoint = new(-30.72f, 300.52f, 112.69f);
+            femaleheading = 116.10f;
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
             LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_Private_Time_Complaint_Callout_Audio_1");
             CalloutInterfaceAPI.Functions.SendMessage(this, "Neighbors reporting their neighbors having sex in their backyard.");
