@@ -8,8 +8,8 @@ namespace JMCalloutsRemastered
 
     internal class PrivateTimeComplaint : Callout
     {
-        private static readonly string[] femalePedList = new string[] { "ig_abigail", "ig_amandatownley", "csb_anita", "s_f_y_bartender_01", "a_f_m_beach_01", "a_f_y_beach_01", "ig_janet" };
-        private static readonly string[] malePedList = new string[] { "a_m_y_jetski_01", "ig_jimmydisanto", "ig_lestercrest" };
+        private static readonly string[] femalePedList = new string[] { "ig_abigail", "ig_amandatownley", "csb_anita", "s_f_y_bartender_01", "a_f_m_beach_01", "a_f_y_beach_01", "ig_janet", "ig_tracydisanto" };
+        private static readonly string[] malePedList = new string[] { "ig_jimmydisanto", "player_two" };
         private static Ped suspect1;
         private static Ped suspect2;
         private static Blip susBlip1;
@@ -25,10 +25,10 @@ namespace JMCalloutsRemastered
 
         public override bool OnBeforeCalloutDisplayed()
         {
-            spawnpoint = new(-29.52f, 301.01f, 112.69f);
-            heading = 109.11f;
-            femalespawnpoint = new(-30.72f, 300.52f, 112.69f);
-            femaleheading = 116.10f;
+            spawnpoint = new(-33.97f, 298.98f, 112.64f);
+            heading = 300.75f;
+            femalespawnpoint = new(-32.33f, 300.18f, 112.67f);
+            femaleheading = 304.19f;
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
             LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_Private_Time_Complaint_Callout_Audio_1");
             CalloutInterfaceAPI.Functions.SendMessage(this, "Neighbors reporting their neighbors having sex in their backyard.");
@@ -50,6 +50,8 @@ namespace JMCalloutsRemastered
             suspect2.IsPersistent = true;
             suspect2.BlockPermanentEvents = true;
             suspect2.IsValid();
+            suspect2.RandomizeVariation();
+            suspect2.IsCollisionEnabled = false;
 
             suspect2.Tasks.PlayAnimation(new AnimationDictionary("rcmpaparazzo_2"), "shag_loop_poppy", -1f, AnimationFlags.Loop);
 
@@ -57,6 +59,7 @@ namespace JMCalloutsRemastered
             suspect1.IsPersistent = true;
             suspect1.BlockPermanentEvents = true;
             suspect1.IsValid();
+            suspect1.IsCollisionEnabled = false;
 
             suspect1.Tasks.PlayAnimation(new AnimationDictionary("rcmpaparazzo_2"), "shag_action_a", -1f, AnimationFlags.Loop);
 
@@ -102,6 +105,8 @@ namespace JMCalloutsRemastered
                 if (Game.IsKeyDown(System.Windows.Forms.Keys.E))
                 {
                     counter++;
+
+                    suspect2.PlayAmbientSpeech("S_F_Y_HOOKER_01_WHITE_FULL_01", "GENERIC_SHOCKED_MED", 1, SpeechModifier.AllowRepeat);
 
                     if(counter == 1)
                     {
