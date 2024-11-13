@@ -4,12 +4,12 @@ using LSPD_First_Response.Engine;
 namespace JMCalloutsRemastered
 {
 
-    [CalloutInterface("[JM Callouts] Private Time Complaint", CalloutProbability.Medium, "Reports of a couple having sexy time in their backyard", "CODE 2", "LEO")]
+    [CalloutInterface("[JM Callouts] Private Time Complaint", CalloutProbability.Medium, "Reports of a couple having sexy time in public", "CODE 2", "LEO")]
 
     internal class PrivateTimeComplaint : Callout
     {
-        private static readonly string[] femalePedList = new string[] { "ig_abigail", "ig_amandatownley", "csb_anita", "s_f_y_bartender_01", "a_f_m_beach_01", "a_f_y_beach_01", "ig_janet", "ig_tracydisanto" };
-        private static readonly string[] malePedList = new string[] { "ig_jimmydisanto", "player_two" };
+        private static readonly string[] femalePedList = new string[] { "ig_amandatownley", "ig_tracydisanto" };
+        private static readonly string[] malePedList = new string[] { "ig_jimmydisanto" };
         private static Ped suspect1;
         private static Ped suspect2;
         private static Blip susBlip1;
@@ -25,14 +25,13 @@ namespace JMCalloutsRemastered
 
         public override bool OnBeforeCalloutDisplayed()
         {
-            spawnpoint = new(-33.97f, 298.98f, 112.64f);
-            heading = 300.75f;
-            femalespawnpoint = new(-32.33f, 300.18f, 112.67f);
-            femaleheading = 304.19f;
+            spawnpoint = new(-477.8965f, -450.5123f, 34.2013f);
+            heading = 162;
+            femalespawnpoint = new(-478.0538f, -447.9926f, 33.2013f);
+            femaleheading = 2;
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
-            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_Private_Time_Complaint_Callout_Audio_1");
-            CalloutInterfaceAPI.Functions.SendMessage(this, "Neighbors reporting their neighbors having sex in their backyard.");
-            CalloutMessage = "Reports of a couple having sexy time in their backyard.";
+            CalloutInterfaceAPI.Functions.SendMessage(this, "Neighbors reporting their neighbors having sex in public.");
+            CalloutMessage = "Reports of a couple having sexy time in public.";
             CalloutPosition = spawnpoint;
 
             return base.OnBeforeCalloutDisplayed();
@@ -50,8 +49,6 @@ namespace JMCalloutsRemastered
             suspect2.IsPersistent = true;
             suspect2.BlockPermanentEvents = true;
             suspect2.IsValid();
-            suspect2.RandomizeVariation();
-            suspect2.IsCollisionEnabled = false;
 
             suspect2.Tasks.PlayAnimation(new AnimationDictionary("rcmpaparazzo_2"), "shag_loop_poppy", -1f, AnimationFlags.Loop);
 
@@ -59,7 +56,6 @@ namespace JMCalloutsRemastered
             suspect1.IsPersistent = true;
             suspect1.BlockPermanentEvents = true;
             suspect1.IsValid();
-            suspect1.IsCollisionEnabled = false;
 
             suspect1.Tasks.PlayAnimation(new AnimationDictionary("rcmpaparazzo_2"), "shag_action_a", -1f, AnimationFlags.Loop);
 
@@ -105,8 +101,6 @@ namespace JMCalloutsRemastered
                 if (Game.IsKeyDown(System.Windows.Forms.Keys.E))
                 {
                     counter++;
-
-                    suspect2.PlayAmbientSpeech("S_F_Y_HOOKER_01_WHITE_FULL_01", "GENERIC_SHOCKED_MED", 1, SpeechModifier.AllowRepeat);
 
                     if(counter == 1)
                     {
