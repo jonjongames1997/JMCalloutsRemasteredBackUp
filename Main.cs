@@ -151,8 +151,8 @@ namespace JMCalloutsRemastered
             if (Settings.PersonCarryingAnExplosiveWeapon) { Functions.RegisterCallout(typeof(PersonCarryingAnExplosiveWeapon)); }
             if (Settings.BountyHunterRequiringAssistance) { Functions.RegisterCallout(typeof(BountyHunterRequiringAssistance)); }
             if (Settings.HomelessPerson) { Functions.RegisterCallout(typeof(HomelessPerson)); }
-            if (Settings.DomesticDisturbanceGrapeSeed) { Functions.RegisterCallout(typeof(DomesticDisturbanceGrapeSeed)); }
-            if (Settings.DomesticDisturbancePaletoBay) { Functions.RegisterCallout(typeof(DomesticDisturbancePaletoBay)); }
+            if (Settings.DomesticDisturbanceGrapeseed) { Functions.RegisterCallout(typeof(DomesticDisturbanceGrapeSeed)); }
+            if (Settings.DomesticDistrubancePaletoBay) { Functions.RegisterCallout(typeof(DomesticDisturbancePaletoBay)); }
             if (Settings.DomesticDisturbanceSandyShores) { Functions.RegisterCallout(typeof(DomesticDisturbanceSandyShores)); }
             if (Settings.DomesticDisturbanceHarmony) { Functions.RegisterCallout(typeof(DomesticDisturbanceHarmony)); }
             if (Settings.PublicOrdinanceEasterEgg1) { Functions.RegisterCallout(typeof(PublicOrdinanceEasterEgg1)); }
