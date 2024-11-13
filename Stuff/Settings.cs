@@ -66,7 +66,7 @@ namespace JMCalloutsRemastered
 
         public static InitializationFile initialiseFile()
         {
-            InitializationFile initializationFile = new InitializationFile(@"Plugins/LSPDFR/JMCalloutsRemastered.ini");
+            InitializationFile initializationFile = new InitializationFile("Plugins/LSPDFR/JMCalloutsRemastered.ini");
             initializationFile.Create();
             return initializationFile;
         }
