@@ -142,20 +142,17 @@ namespace JMCalloutsRemastered.Callouts
                     }
                 }
             }
-
-            bool flag = Game.IsKeyDown(Settings.EndCall);
-            if (flag)
-            {
-                this.End();
-            }
         }
 
         public override void End()
         {
-            if (Suspect) Suspect.Dismiss();
-            if (SuspectBlip) SuspectBlip.Delete();
-            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Public Ordinance Easter Egg 1", "~b~You~w~: Dispatch, we are ~g~Code 4~w~! Show me back 10-8.");
-            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_Code_4_Audio");
+            if (Game.IsKeyDown(Settings.EndCall))
+            {
+                if (Suspect) Suspect.Dismiss();
+                if (SuspectBlip) SuspectBlip.Delete();
+                Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Public Ordinance Easter Egg 1", "~b~You~w~: Dispatch, we are ~g~Code 4~w~! Show me back 10-8.");
+                LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_Code_4_Audio");
+            }
 
             base.End();
 
