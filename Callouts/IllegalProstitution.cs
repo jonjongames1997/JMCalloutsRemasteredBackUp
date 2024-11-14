@@ -135,14 +135,10 @@ namespace JMCalloutsRemastered.Callouts
                 }
             }
 
-            if (MainPlayer.IsDead)
+            bool flag = Game.IsKeyDown(Settings.EndCall);
+            if (flag)
             {
-                End();
-            }
-
-            if (Game.IsKeyDown(Settings.EndCall))
-            {
-                End();
+                this.End();
             }
         }
 
