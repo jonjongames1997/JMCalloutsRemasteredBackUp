@@ -32,7 +32,7 @@
                 Game.Console.Print();
                 Game.Console.Print("===================================================== JM Callouts Remastered ===========================================");
                 Game.Console.Print();
-                Game.Console.Print("[WARNING!]: A new version of JM Callouts Remastered is NOW AVAILABLE to download! Update to latest build! v4.6.1 or lower is ~r~NOT SUPPORTED~w~ due to LSPDFR API Changes.");
+                Game.Console.Print("[WARNING!]: A new version of JM Callouts Remastered is NOW AVAILABLE to download! Update to latest build! v4.9 or lower is ~r~NOT SUPPORTED~w~ due to LSPDFR API Changes.");
                 Game.Console.Print("[LOG]: Current Version:" + curVersion);
                 Game.Console.Print("[LOG]: New Version:" + recieveData);
                 Game.Console.Print();
