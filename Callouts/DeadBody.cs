@@ -41,6 +41,9 @@ namespace JMCalloutsRemastered.Callouts
 
             LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallotus_DeadBody_Callout_Audio_2");
 
+            LSPD_First_Response.Mod.API.Functions.RequestBackup(spawnpoint, LSPD_First_Response.EBackupResponseType.Code3, LSPD_First_Response.EBackupUnitType.LocalUnit);
+            LSPD_First_Response.Mod.API.Functions.RequestBackup(spawnpoint, LSPD_First_Response.EBackupResponseType.Code3, LSPD_First_Response.EBackupUnitType.LocalUnit);
+
             deadBlip = new Blip(deadBody)
             {
                 Color = Color.Red,
@@ -72,9 +75,10 @@ namespace JMCalloutsRemastered.Callouts
                 End();
             }
 
-            if (Game.IsKeyDown(Settings.EndCall))
+            bool flag = Game.IsKeyDown(Settings.EndCall);
+            if (flag)
             {
-                End();
+                this.End();
             }
 
             base.Process();
