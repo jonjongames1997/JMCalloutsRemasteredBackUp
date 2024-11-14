@@ -1,5 +1,6 @@
 ﻿using System.Windows.Forms;
 using System.Xml;
+using Rage;
 
 namespace JMCalloutsRemastered
 {
@@ -54,6 +55,7 @@ namespace JMCalloutsRemastered
         internal static bool BicycleBlockingRoadway = true;
         internal static bool HelpMessages = true;
         internal static bool WarningMessages = true;
+        internal static bool LeaveCalloutsRunning = true;
         internal static Keys EndCall = Keys.End;
         internal static Keys Dialog = Keys.E;
         internal static InitializationFile ini;
@@ -62,9 +64,8 @@ namespace JMCalloutsRemastered
         internal static void LoadSettings()
         {
             Game.Console.Print("[LOG]: Loading config file from JM Callouts Remastered.");
-            var path = "Plugins/LSPDFR/JMCalloutsRemastered.ini";
-            var ini = new InitializationFile(path);
-            ini.Create();
+            Settings.ini = new InitializationFile(Settings.inipath);
+            Settings.ini.Create();
             Game.LogTrivial("Initializing Config for JMCalloutsRemastered....");
             Settings.CodeKaren = ini.ReadBoolean("Callouts", "CodeKaren", true);
             Settings.IllegalCampfireOnPublicBeach = ini.ReadBoolean("Callouts", "IllegalCampfireOnPublicBeach", true);
@@ -109,11 +110,11 @@ namespace JMCalloutsRemastered
             Settings.PrivateTimeComplaint = ini.ReadBoolean("Callouts", "PrivateTimeComplaint", true);
             Settings.AbandonedCarOnRailroadTracks = ini.ReadBoolean("Callouts", "AbandonedCarOnRailroadTracks", true);
             Settings.BicycleBlockingRoadway = ini.ReadBoolean("Callouts", "BicycleBlockingRoadway", true);
-            Settings.HelpMessages = ini.ReadBoolean("HelpMessages", "HelpMessages", true);
+            Settings.HelpMessages = ini.ReadBoolean("Help Messages", "HelpMessages", true);
             Settings.WarningMessages = ini.ReadBoolean("Misc", "WarningMessages", true);
-
-            EndCall = ini.ReadEnum<Keys>("Keys", "EndCall", Keys.End);
-            Dialog = ini.ReadEnum<Keys>("Keys", "Dialog", Keys.E);
+            Settings.LeaveCalloutsRunning = ini.ReadBoolean("Misc", "LeaveCalloutsRunning", true);
+            Settings.EndCall = ini.ReadEnum<Keys>("Keys", "EndCall", Keys.End);
+            Settings.Dialog = ini.ReadEnum<Keys>("Keys", "Dialog", Keys.E);
         }
         public static readonly string PluginVersion = "5.0.9.2";
     }
