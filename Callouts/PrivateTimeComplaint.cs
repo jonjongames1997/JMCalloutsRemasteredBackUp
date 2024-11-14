@@ -1,5 +1,6 @@
 ﻿using CalloutInterfaceAPI;
-using LSPD_First_Response.Engine;
+using LSPD_First_Response.Mod.Callouts;
+using Rage.Native;
 
 namespace JMCalloutsRemastered
 {
@@ -21,6 +22,7 @@ namespace JMCalloutsRemastered
         private static float heading;
         private static float femaleheading;
         private static string copGender;
+        private bool CalloutRunning;
 
 
         public override bool OnBeforeCalloutDisplayed()
@@ -93,6 +95,7 @@ namespace JMCalloutsRemastered
 
         public override void Process()
         {
+            CalloutRunning = true;
 
             if(MainPlayer.DistanceTo(suspect1) <= 10f)
             {
@@ -104,8 +107,6 @@ namespace JMCalloutsRemastered
 
                     if(counter == 1)
                     {
-                        suspect1.Face(MainPlayer);
-                        suspect2.Face(MainPlayer);
                         Game.DisplaySubtitle("~b~You~w~: Excuse me, May I talk to you for a minute?");
                     }
                     if(counter == 2)
@@ -119,23 +120,26 @@ namespace JMCalloutsRemastered
                         suspect2.Tasks.ReactAndFlee(suspect2);
                     }
                 }
-
-                if (MainPlayer.IsDead) End();
-                if (Game.IsKeyDown(Settings.EndCall)) End();
             }
+
+            while (!Game.IsKeyDown(System.Windows.Forms.Keys.End)) GameFiber.Wait(0);
 
             base.Process();
         }
 
         public override void End()
         {
+            if (CalloutRunning)
+            {
+                Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Private Time Complaint", "~b~You~w~: Dispatch, we are ~g~Code 4~w~. Show me back 10-8.");
+                LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_Code_4_Audio");
+                Game.LogTrivial("[LOG]: JM Callouts Remastered - Private Time Complaint is Code 4!");
+            }
+            CalloutRunning = false;
             if (suspect1) suspect1.Dismiss();
             if (suspect2) suspect2.Dismiss();
             if (susBlip1) susBlip1.Delete();
             if (susBlip2) susBlip2.Delete();
-            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Private Time Complaint", "~b~You~w~: Dispatch, we are ~g~Code 4~w~. Show me back 10-8.");
-            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_Code_4_Audio");
-            Game.LogTrivial("[LOG]: JM Callouts Remastered - Private Time Complaint is Code 4!");
 
             base.End();
         }
