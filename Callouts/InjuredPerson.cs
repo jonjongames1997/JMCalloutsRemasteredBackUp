@@ -62,7 +62,8 @@ namespace JMCalloutsRemastered.Callouts
             suspect.BlockPermanentEvents = true;
             suspect.IsValid();
 
-            victim.Tasks.PlayAnimation(new AnimationDictionary("misschinese2_crystalmaze"), "2int_loop_a_taocheng", -1f, AnimationFlags.Loop);
+            NativeFunction.Natives.IS_PED_INJURED(victim, true);
+            NativeFunction.Natives.IS_PED_HURT(victim, true);
 
             suspect.Tasks.PlayAnimation(new AnimationDictionary("random@drunk_driver_1"), "drunk_driver_stand_loop_dd2", -1f, AnimationFlags.Loop);
             StopThePed.API.Functions.setPedAlcoholOverLimit(suspect, true);
