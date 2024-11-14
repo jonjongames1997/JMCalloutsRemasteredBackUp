@@ -95,7 +95,6 @@ namespace JMCalloutsRemastered
 
         public override void Process()
         {
-            CalloutRunning = true;
 
             if(MainPlayer.DistanceTo(suspect1) <= 10f)
             {
@@ -122,26 +121,25 @@ namespace JMCalloutsRemastered
                 }
             }
 
-            while (!Game.IsKeyDown(System.Windows.Forms.Keys.End)) GameFiber.Wait(0);
-
             base.Process();
         }
 
         public override void End()
         {
-            if (CalloutRunning)
+
+            if (Game.IsKeyDown(Settings.EndCall))
             {
+                if (suspect1) suspect1.Dismiss();
+                if (suspect2) suspect2.Dismiss();
+                if (susBlip1) susBlip1.Delete();
+                if (susBlip2) susBlip2.Delete();
                 Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Private Time Complaint", "~b~You~w~: Dispatch, we are ~g~Code 4~w~. Show me back 10-8.");
                 LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_Code_4_Audio");
-                Game.LogTrivial("[LOG]: JM Callouts Remastered - Private Time Complaint is Code 4!");
             }
-            CalloutRunning = false;
-            if (suspect1) suspect1.Dismiss();
-            if (suspect2) suspect2.Dismiss();
-            if (susBlip1) susBlip1.Delete();
-            if (susBlip2) susBlip2.Delete();
 
             base.End();
+
+            Game.LogTrivial("[LOG]: JM Callouts Remastered - Private Time Complaint is Code 4!");
         }
     }
 }
