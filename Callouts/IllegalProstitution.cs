@@ -135,11 +135,7 @@ namespace JMCalloutsRemastered.Callouts
                 }
             }
 
-            bool flag = Game.IsKeyDown(Settings.EndCall);
-            if (flag)
-            {
-                this.End();
-            }
+            if (Game.IsKeyDown(Settings.EndCall)) End();
         }
 
         public override void End()
