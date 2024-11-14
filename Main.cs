@@ -56,16 +56,15 @@ namespace JMCalloutsRemastered
                 }
                 #endregion
 
-                #region Warning Messages
                 if (Settings.WarningMessages)
                 {
-                    Game.DisplayNotification("~y~JM Callouts Remasterd Warning: If this callout pack is redistributed on any other sites that aren'tapproved by JM Modifications, You'll be sent a DMCA Takedown Notice.");
+                    Game.DisplayHelp("~y~JM Callouts Remasterd Warning: If this callout pack is redistributed on any other sites that aren'tapproved by JM Modifications, You'll be sent a DMCA Takedown Notice.");
                 }
                 else
                 {
                     Settings.WarningMessages = false;
                 }
-                #endregion
+   
 
                 GameFiber.Wait(300);
             });
