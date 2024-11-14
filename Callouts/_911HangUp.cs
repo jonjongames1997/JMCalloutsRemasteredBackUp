@@ -159,7 +159,7 @@ namespace JMCalloutsRemastered.Callouts
 
             if (Game.IsKeyDown(Settings.EndCall))
             {
-                End();
+                this.End();
             }
         }
 
