@@ -137,21 +137,17 @@ namespace JMCalloutsRemastered.Callouts
                 }
             }
 
-            if (MainPlayer.IsDead)
-            {
-                End();
-            }
+            if (MainPlayer.IsDead) this.End();
+            if(Game.IsKeyDown(Settings.EndCall)) this.End();
         }
 
         public override void End()
         {
-            if (Game.IsKeyDown(Settings.EndCall))
-            {
-                if (suspect) suspect.Dismiss();
-                if (susBlip) susBlip.Delete();
-                Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Suspicious Person", "~b~You~w~: Dispatch, We are ~g~CODE 4~w~! Show me back 10-8!");
-                LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_Code_4_Audio");
-            }
+            if (suspect) suspect.Dismiss();
+            if (susBlip) susBlip.Delete();
+            Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "~w~Suspicious Person", "~b~You~w~: Dispatch, We are ~g~CODE 4~w~! Show me back 10-8!");
+            LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_Code_4_Audio");
+
             base.End();
 
             Game.LogTrivial("[LOG]: JM Callouts Remastered - Suspicious Person is Code 4!");
