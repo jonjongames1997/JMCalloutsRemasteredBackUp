@@ -50,7 +50,6 @@ namespace JMCalloutsRemastered
         internal static bool DomesticDisturbanceSandyShores = true;
         internal static bool PublicOrdinanceEasterEgg1 = true;
         internal static bool PublicOrdinanceEasterEgg2 = true;
-        internal static bool PrivateTimeComplaint = true;
         internal static bool AbandonedCarOnRailroadTracks = true;
         internal static bool BicycleBlockingRoadway = true;
         internal static bool HelpMessages = true;
@@ -107,7 +106,6 @@ namespace JMCalloutsRemastered
             Settings.DomesticDistrubancePaletoBay = ini.ReadBoolean("Callouts", "DomesticDistrubancePaletoBay", true);
             Settings.PublicOrdinanceEasterEgg1 = ini.ReadBoolean("Callouts", "PublicOrdinanceEasterEgg1", true);
             Settings.PublicOrdinanceEasterEgg2 = ini.ReadBoolean("Callouts", "PublicOrdinanceEasterEgg2", true);
-            Settings.PrivateTimeComplaint = ini.ReadBoolean("Callouts", "PrivateTimeComplaint", true);
             Settings.AbandonedCarOnRailroadTracks = ini.ReadBoolean("Callouts", "AbandonedCarOnRailroadTracks", true);
             Settings.BicycleBlockingRoadway = ini.ReadBoolean("Callouts", "BicycleBlockingRoadway", true);
             Settings.HelpMessages = ini.ReadBoolean("Help Messages", "HelpMessages", true);
