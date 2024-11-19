@@ -1,5 +1,11 @@
 ﻿Changelog:
 
+v5.0.9.3 (small update):
+
+JM Callouts Remastered is now available again on LSPDFR.com after a 8 month Hiatus.
+
+- Readded Version Checker
+
 v5.0.9.2:
 
 - Added "LETHALFORCEISAUTHORIZED" audio file as an optional audio file for Soundboard mod by Rhoit. 
