@@ -65,7 +65,7 @@ namespace JMCalloutsRemastered
                     Settings.WarningMessages = false;
                 }
 
-                PluginCheck.IsUpdateAvailable();
+                VersionChecker.PluginCheck.IsUpdateAvailable();
 
                 GameFiber.Wait(300);
             });
