@@ -102,17 +102,6 @@ namespace JMCalloutsRemastered
                 Game.LogTrivial("User does not have Ultimate Backup by Bejoijo Plugins installed. Stopping integration....");
                 UltimateBackup = false;
             }
-            if(Functions.GetAllUserPlugins().ToList().Any(a => a != null && a.FullName.Contains("SceneManager")) == true)
-            {
-                Game.LogTrivial("User has Scene Manager by Rich installed. Starting integration.....");
-                SceneManager = true;
-            }
-            else
-            {
-                Game.LogTrivial("User does not have Scene Manager by Rich installed. Stopping integration.....");
-                Game.LogTrivial("Injured Person callout relies on Scene Manager to redirect traffic.... Callout will crash.");
-                SceneManager = false;
-            }
             Game.Console.Print();
             Game.Console.Print();
             Game.Console.Print("================================================== JM Callouts Remastered ===================================================");
