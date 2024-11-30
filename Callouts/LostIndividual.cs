@@ -101,9 +101,9 @@ namespace JMCalloutsRemastered.Callouts
             if (MainPlayer.DistanceTo(victim) <= 10f)
             {
 
-                Game.DisplayHelp("Press ~y~E~w~ to interact with the ~r~victim~w~.", false);
+                Game.DisplayHelp("Press ~y~" + Settings.Dialog + "~w~ to interact with the ~r~victim~w~.", false);
 
-                if (Game.IsKeyDown(System.Windows.Forms.Keys.E))
+                if (Game.IsKeyDown(Settings.Dialog))
                 {
                     counter++;
 
@@ -135,10 +135,8 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if (counter == 6)
                     {
-                        Game.DisplaySubtitle("~r~Suspect~w~: You motherfucker, you! DIE!!!!!");
-                        suspect.Tasks.FightAgainst(MainPlayer);
-                        suspect.Armor = 500;
-                        suspect.Inventory.GiveNewWeapon("WEAPON_GUSENBERG", 500, true);
+                        suspect.KeepTasks = true;
+                        suspect.Tasks.PlayAnimation(new AnimationDictionary("rcmjosh1"), "idle", -1f, AnimationFlags.Loop);
                     }
 
                 }
@@ -147,12 +145,12 @@ namespace JMCalloutsRemastered.Callouts
 
             if (MainPlayer.IsDead)
             {
-                End();
+                this.End();
             }
 
             if (Game.IsKeyDown(Settings.EndCall))
             {
-                End();
+                this.End();
             }
 
             base.Process();
