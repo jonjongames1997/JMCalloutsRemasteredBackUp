@@ -104,7 +104,7 @@ namespace JMCalloutsRemastered.Callouts
 
                 Game.DisplayHelp("Press ~y~E~w~ to interact with the ~r~suspect~w~. Approach with ~y~CAUTION~w~.", false);
 
-                if (Game.IsKeyDown(System.Windows.Forms.Keys.E))
+                if (Game.IsKeyDown(Settings.Dialog))
                 {
                     counter++;
 
@@ -150,22 +150,19 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if(counter == 9)
                     {
-                        Game.DisplaySubtitle("~y~Suspect~w~: Death to Los Santos, Motherfucka!");
-                        suspect.Tasks.FightAgainst(MainPlayer);
-                        suspect.KeepTasks = true;
-                        suspect.Inventory.GiveNewWeapon(wepList[new Random().Next((int)wepList.Length)], 500, true);
-                        suspect.Armor = 500;
+                        Game.DisplaySubtitle("~y~Suspect~w~: You got to catch me first.");
+                        suspect.Tasks.ReactAndFlee(suspect);
                     }
                 }
 
                 if (MainPlayer.IsDead)
                 {
-                    End();
+                    this.End();
                 }
 
                 if (Game.IsKeyDown(Settings.EndCall))
                 {
-                    End();
+                    this.End();
                 }
             }
         }
