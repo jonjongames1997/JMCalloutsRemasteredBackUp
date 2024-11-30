@@ -18,13 +18,15 @@ namespace JMCalloutsRemastered.Callouts
         private static int counter;
         private static string malefemale;
         private static string pronoun;
+        private static string pronoun2;
+        private static string copGender;
 
         public override bool OnBeforeCalloutDisplayed()
         {
             spawnPoint = new(-364.55f, 6340.62f, 29.84f);
             heading = 37.34f;
-            suspectSpawnpoint = new(-366.09f, 6342.01f, 29.84f);
-            suspectHeading = 222.44f;
+            suspectSpawnpoint = new(-357.98f, 6347.29f, 29.75f);
+            suspectHeading = 290.51f;
             ShowCalloutAreaBlipBeforeAccepting(spawnPoint, 100f);
             LSPD_First_Response.Mod.API.Functions.PlayScannerAudioUsingPosition("JMCallouts_DomesticDisturbance_Paleto_Bay_Callout_Audio_1", spawnPoint);
             CalloutInterfaceAPI.Functions.SendMessage(this, "A neighbor's reporting a loud argument next door.");
@@ -74,6 +76,16 @@ namespace JMCalloutsRemastered.Callouts
             else
                 malefemale = "Ma'am";
 
+            if (MainPlayer.IsMale)
+                copGender = "Sir";
+            else
+                copGender = "Ma'am";
+
+            if (victim.IsMale)
+                pronoun2 = "He";
+            else
+                pronoun2 = "She";
+
             counter = 0;
 
             return base.OnCalloutAccepted();
@@ -96,9 +108,9 @@ namespace JMCalloutsRemastered.Callouts
 
             if (MainPlayer.DistanceTo(victim) <= 10f)
             {
-                Game.DisplayHelp("Press ~y~E~w~ to interact with the ~r~Victim~w~.", false);
+                Game.DisplayHelp("Press ~y~" + Settings.Dialog + "~w~ to interact with the ~r~Victim~w~.", false);
 
-                if (Game.IsKeyDown(System.Windows.Forms.Keys.E))
+                if (Game.IsKeyDown(Settings.Dialog))
                 {
                     counter++;
 
@@ -133,24 +145,67 @@ namespace JMCalloutsRemastered.Callouts
                     if (counter == 7)
                     {
                         victim.Tasks.PlayAnimation(new AnimationDictionary("rcmjosh1"), "idle", 1f, AnimationFlags.Loop);
-                        Game.DisplaySubtitle("Conversation Ended. Talk to the ~r~Suspect~w~. Roleplay it out.");
+                        Game.DisplaySubtitle("Conversation Ended. Talk to the ~r~Suspect~w~.");
                     }
                 }
             }
 
             if(MainPlayer.DistanceTo(suspect) <= 10f)
             {
+                if (Game.IsKeyDown(Settings.Dialog))
+                {
+                    counter++;
+
+                    if(counter == 1)
+                    {
+                        suspect.Face(MainPlayer);
+                        Game.DisplaySubtitle("~b~You~w~: Hello, " + malefemale + ". Can you tell me what's going on?");
+                    }
+                    if(counter == 2)
+                    {
+                        Game.DisplaySubtitle("~r~Suspect~w~: My landlord is way overcahrging me than what rent is worth.");
+                    }
+                    if(counter == 3)
+                    {
+                        Game.DisplaySubtitle("~b~You~w~: That's why you're refusing to pay rent?");
+                    }
+                    if(counter == 4)
+                    {
+                        Game.DisplaySubtitle("~r~Suspect~w~: Yes, " + copGender + ". I'm not made out of money. " + pronoun2 + " knew about my financial situation.");
+                    }
+                    if(counter == 5)
+                    {
+                        Game.DisplaySubtitle("~b~You~w~: Well, I can tell you that if you feel like they are doing to you is illegal, you can file a civil lawsuit and settle it in court. Nothing much I can do on my side.");
+                    }
+                    if(counter == 6)
+                    {
+                        Game.DisplaySubtitle("~r~Suspect~w~: Oh, hell no. You can't doing anything to that prick? What he's doing is illegal.");
+                    }
+                    if(counter == 7)
+                    {
+                        Game.DisplaySubtitle("~b~You~w~: Sorry, there's so much I can do. The law is the law.");
+                    }
+                    if(counter == 8)
+                    {
+                        Game.DisplaySubtitle("~r~Suspect~w~: Fine. Whatever.");
+                    }
+                    if(counter == 9)
+                    {
+                        suspect.Tasks.StandStill(5000);
+                        Game.DisplaySubtitle("Convo ended. Deal with the situation you may see fit.");
+                    }
+                }
 
             }
 
             if (MainPlayer.IsDead)
             {
-                End();
+                this.End();
             }
 
             if (Game.IsKeyDown(Settings.EndCall))
             {
-                End();
+                this.End();
             }
 
         }
