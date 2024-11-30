@@ -62,8 +62,8 @@ namespace JMCalloutsRemastered
         internal static void LoadSettings()
         {
             Game.Console.Print("[LOG]: Loading config file from JM Callouts Remastered.");
-            Settings.ini = new InitializationFile(Settings.inipath);
-            Settings.ini.Create();
+            InitializationFile ini = new InitializationFile(inipath);
+            ini.Create();
             Game.LogTrivial("Initializing Config for JMCalloutsRemastered....");
             Settings.CodeKaren = ini.ReadBoolean("Callouts", "CodeKaren", true);
             Settings.IllegalCampfireOnPublicBeach = ini.ReadBoolean("Callouts", "IllegalCampfireOnPublicBeach", true);
@@ -112,6 +112,6 @@ namespace JMCalloutsRemastered
             Settings.EndCall = ini.ReadEnum<Keys>("Keys", "EndCall", Keys.End);
             Settings.Dialog = ini.ReadEnum<Keys>("Keys", "Dialog", Keys.E);
         }
-        public static readonly string PluginVersion = "5.0.9.3";
+        public static readonly string PluginVersion = "5.0.10.4";
     }
 }
