@@ -12,6 +12,7 @@ namespace JMCalloutsRemastered.Callouts
         private static int counter;
         private static string malefemale;
         private static Blip susBlip;
+        private static string copGender;
 
         public override bool OnBeforeCalloutDisplayed()
         {
@@ -57,6 +58,11 @@ namespace JMCalloutsRemastered.Callouts
             else
                 malefemale = "ma'am";
 
+            if (MainPlayer.IsMale)
+                copGender = "Sir";
+            else
+                copGender = "Ma'am";
+
             counter = 0;
 
             return base.OnCalloutAccepted();
@@ -99,7 +105,7 @@ namespace JMCalloutsRemastered.Callouts
                     if(counter == 4)
                     {
                         suspect.Tasks.PlayAnimation(new AnimationDictionary("oddjobs@assassinate@vice@hooker"), "argue_b", -1f, AnimationFlags.Loop);
-                        Game.DisplaySubtitle("~y~Suspect~w~: Fucking your mother, what does it look like I'm doing?");
+                        Game.DisplaySubtitle("~y~Suspect~w~: Suspicious Activity? Nothing suspicious here, " + copGender + ".");
                     }
                     if(counter == 5)
                     {
@@ -117,7 +123,7 @@ namespace JMCalloutsRemastered.Callouts
                     if(counter == 8)
                     {
                         suspect.Tasks.PlayAnimation(new AnimationDictionary("anim@mp_player_intupperfinger"), "idle_a_fp", -1f, AnimationFlags.Loop);
-                        Game.DisplaySubtitle("~y~Suspect~w~: KISS MY MIGHTY BUNGHOLE!");
+                        Game.DisplaySubtitle("~y~Suspect~w~: I'm outta here, playa!");
                     }
                     if(counter == 9)
                     {
