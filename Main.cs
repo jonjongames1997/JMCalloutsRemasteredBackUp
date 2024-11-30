@@ -41,8 +41,7 @@ namespace JMCalloutsRemastered
                     Game.Console.Print("=============================================== JM Callouts Remastered by OfficerMorrison ================================================");
                     Game.Console.Print();
 
-                    Game.DisplayNotification("web_jonjongames", "web_jonjongames", "JM Callouts Remastered", "~g~v" + Assembly.GetExecutingAssembly().GetName().Version.ToString() + " ~r~by OfficerMorrison", "~b~successfully loaded!");
-                    Game.DisplayNotification("commonmenu", "mp_alerttriangle", "~w~JM Callouts Remastered", "Incompatibility Warning", "JM Callouts Remastered is Incompatible with the following mods: ~r~Callout Launcher~w~. JM Callouts Remastred is only Compatible with Callout Interface.");
+                    Game.DisplayNotification("web_jonjongames", "web_jonjongames", "JM Callouts Remastered", "~g~v" + Assembly.GetExecutingAssembly().GetName().Version.ToString() + " ~r~by ~o~OfficerMorrison", "~b~successfully loaded!");
                 
                 #region Help Messages
                 if (Settings.HelpMessages)
