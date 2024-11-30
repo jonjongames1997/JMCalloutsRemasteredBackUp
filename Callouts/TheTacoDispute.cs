@@ -69,9 +69,9 @@ namespace JMCalloutsRemastered.Callouts
         {
             base.Process();
 
-            Game.DisplayHelp("Press ~y~E~w~ to interact with ~r~suspect~w~. ~y~Approach with caution~w~.", false);
+            Game.DisplayHelp("Press ~y~" + Settings.Dialog + "~w~ to interact with ~r~suspect~w~. ~y~Approach with caution~w~.", false);
 
-            if (Game.IsKeyDown(System.Windows.Forms.Keys.E))
+            if (Game.IsKeyDown(Settings.Dialog))
             {
                 counter++;
 
