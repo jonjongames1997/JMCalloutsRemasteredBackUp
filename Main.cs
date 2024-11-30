@@ -11,7 +11,6 @@ namespace JMCalloutsRemastered
         public static bool CalloutInterface;
         public static bool StopThePed;
         public static bool UltimateBackup;
-        public static bool SceneManager;
 
         public override void Initialize()
         {
