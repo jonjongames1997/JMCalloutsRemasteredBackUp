@@ -1,5 +1,19 @@
 ﻿Changelog:
 
+v5.0.10.4:
+
+- Minor Adjustments
+- Dialog improvements
+- Removed unnecessary dialog
+- Removed unused code
+- Updated Documentation
+- Fixed the Optional Audio file name to match the install readme.
+- Fixed Domestic Disturbamce Paleto Bay callout
+- Ini adjustments
+- Plugin check adjustments
+
+Make sure to update the web_jonjongames.ytd file, the new ytd file has the new icon for JM Callouts Remastered
+
 v5.0.9.3 (small update):
 
 JM Callouts Remastered is now available again on LSPDFR.com after a 8 month Hiatus.
