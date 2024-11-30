@@ -112,9 +112,7 @@ namespace JMCalloutsRemastered.Callouts
                     if(counter == 7)
                     {
                         Game.DisplaySubtitle("Convo ended.");
-                        suspect.Tasks.FightAgainst(MainPlayer);
-                        suspect.Inventory.GiveNewWeapon("WEAPON_PISTOL", 500, true);
-                        suspect.Armor = 500;
+                        suspect.Tasks.ReactAndFlee(suspect);
                     }
                 }
             }
