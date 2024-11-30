@@ -28,11 +28,11 @@
             }
             if(recieveData != Settings.PluginVersion)
             {
-                Game.DisplayNotification("commonmenu", "mp_alerttriangle", "~w~JM Callouts Remastered Warning", "~y~A new update is available!", "Current Version: ~r~" + curVersion + "~w~<br>New Version: ~y~" + recieveData + "<br>~r~Please Update to the latest build for new callouts and improvments! :-)");
+                Game.DisplayNotification("commonmenu", "mp_alerttriangle", "~w~JM Callouts Remastered Warning", "~y~A new update is available!", "Current Version: ~r~" + curVersion + "~w~<br>New Version: ~y~" + recieveData + "<br>~y~Please Update to the latest build for new ~p~callouts and ~g~improvments~w~!:-)");
                 Game.Console.Print();
                 Game.Console.Print("===================================================== JM Callouts Remastered ===========================================");
                 Game.Console.Print();
-                Game.Console.Print("[WARNING!]: A new version of JM Callouts Remastered is NOW AVAILABLE to download! Update to latest build! v4.9 or lower is ~r~NOT SUPPORTED~w~ due to LSPDFR API Changes.");
+                Game.Console.Print("[WARNING!]: A new version of JM Callouts Remastered is NOW AVAILABLE to download! Update to latest build! v4.6.1 or lower is ~r~NOT SUPPORTED~w~ due to LSPDFR API Changes.");
                 Game.Console.Print("[LOG]: Current Version:" + curVersion);
                 Game.Console.Print("[LOG]: New Version:" + recieveData);
                 Game.Console.Print();
@@ -42,7 +42,7 @@
             }
             else
             {
-                Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "", "Detected the ~g~latest~w~ build of ~o~JM Callouts Remastered! Thank you for downloading! :-)");
+                Game.DisplayNotification("web_jonjongames", "web_jonjongames", "~w~JM Callouts Remastered", "", "Detected the ~g~latest~w~ build of ~o~JM Callouts Remastered! ~w~Thank you for downloading! :-)");
                 return false;
             }
         }
