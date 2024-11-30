@@ -111,7 +111,7 @@ namespace JMCalloutsRemastered.Callouts
 
                 Game.DisplayHelp("Press ~y~E~w~ to interact with ~r~suspect~w~.", false);
 
-                if (Game.IsKeyDown(System.Windows.Forms.Keys.E))
+                if (Game.IsKeyDown(Settings.Dialog))
                 {
                     counter++;
 
