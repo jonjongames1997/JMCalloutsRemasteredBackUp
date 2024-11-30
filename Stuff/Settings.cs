@@ -54,7 +54,6 @@ namespace JMCalloutsRemastered
         internal static bool BicycleBlockingRoadway = true;
         internal static bool HelpMessages = true;
         internal static bool WarningMessages = true;
-        internal static bool LeaveCalloutsRunning = true;
         internal static Keys EndCall = Keys.End;
         internal static Keys Dialog = Keys.E;
         internal static InitializationFile ini;
@@ -110,7 +109,6 @@ namespace JMCalloutsRemastered
             Settings.BicycleBlockingRoadway = ini.ReadBoolean("Callouts", "BicycleBlockingRoadway", true);
             Settings.HelpMessages = ini.ReadBoolean("Help Messages", "HelpMessages", true);
             Settings.WarningMessages = ini.ReadBoolean("Misc", "WarningMessages", true);
-            Settings.LeaveCalloutsRunning = ini.ReadBoolean("Misc", "LeaveCalloutsRunning", true);
             Settings.EndCall = ini.ReadEnum<Keys>("Keys", "EndCall", Keys.End);
             Settings.Dialog = ini.ReadEnum<Keys>("Keys", "Dialog", Keys.E);
         }
