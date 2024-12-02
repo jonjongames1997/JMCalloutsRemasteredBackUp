@@ -11,6 +11,7 @@ v5.0.10.4:
 - Fixed Domestic Disturbamce Paleto Bay callout
 - Ini adjustments
 - Plugin check adjustments
+- Changed dialog key to Y
 
 Make sure to update the web_jonjongames.ytd file, the new ytd file has the new icon for JM Callouts Remastered
 
