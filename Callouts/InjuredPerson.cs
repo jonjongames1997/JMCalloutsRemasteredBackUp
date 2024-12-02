@@ -62,9 +62,6 @@ namespace JMCalloutsRemastered.Callouts
             suspect.BlockPermanentEvents = true;
             suspect.IsValid();
 
-            NativeFunction.Natives.IS_PED_INJURED(victim, true);
-            NativeFunction.Natives.IS_PED_HURT(victim, true);
-
             suspect.Tasks.PlayAnimation(new AnimationDictionary("random@drunk_driver_1"), "drunk_driver_stand_loop_dd2", -1f, AnimationFlags.Loop);
             StopThePed.API.Functions.setPedAlcoholOverLimit(suspect, true);
 
@@ -137,7 +134,7 @@ namespace JMCalloutsRemastered.Callouts
 
                 if (Game.IsKeyDown(Settings.EndCall))
                 {
-                    End();
+                    this.End();
                 }
             }
         }
