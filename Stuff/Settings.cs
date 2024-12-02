@@ -55,7 +55,7 @@ namespace JMCalloutsRemastered
         internal static bool HelpMessages = true;
         internal static bool WarningMessages = true;
         internal static Keys EndCall = Keys.End;
-        internal static Keys Dialog = Keys.E;
+        internal static Keys Dialog = Keys.Y;
         internal static InitializationFile ini;
         internal static string inipath = "Plugins/LSPDFR/JMCalloutsRemastered.ini";
 
@@ -110,7 +110,7 @@ namespace JMCalloutsRemastered
             Settings.HelpMessages = ini.ReadBoolean("Help Messages", "HelpMessages", true);
             Settings.WarningMessages = ini.ReadBoolean("Misc", "WarningMessages", true);
             Settings.EndCall = ini.ReadEnum<Keys>("Keys", "EndCall", Keys.End);
-            Settings.Dialog = ini.ReadEnum<Keys>("Keys", "Dialog", Keys.E);
+            Settings.Dialog = ini.ReadEnum<Keys>("Keys", "Dialog", Keys.Y);
         }
         public static readonly string PluginVersion = "5.0.10.4";
     }
