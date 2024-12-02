@@ -3,7 +3,7 @@
 namespace JMCalloutsRemastered.Callouts
 {
 
-    [CalloutInterface("[JM Callouts] Public Ordinance Easter Egg 2", CalloutProbability.Medium, "A Twitch streamer yelling and screaming 'You're Banned'", "CODE 2", "LSPD")]
+    [CalloutInterface("[JM Callouts] Public Ordinance - Streamer Easter Egg 2", CalloutProbability.Medium, "A Twitch streamer yelling and screaming 'You're Banned'", "CODE 2", "LSPD")]
 
     internal class PublicOrdinanceEasterEgg2 : Callout
     {
