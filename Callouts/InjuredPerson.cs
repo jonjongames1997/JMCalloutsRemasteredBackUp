@@ -133,11 +133,11 @@ namespace JMCalloutsRemastered.Callouts
                         Game.DisplaySubtitle("Conversation Ended. Talk to the victim *RP it out*");
                     }
                 }
+            }
 
-                if (Game.IsKeyDown(Settings.EndCall))
-                {
-                    this.End();
-                }
+            if (Game.IsKeyDown(Settings.EndCall))
+            {
+                this.End();
             }
         }
 
