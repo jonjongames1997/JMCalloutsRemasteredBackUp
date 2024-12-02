@@ -87,9 +87,9 @@ namespace JMCalloutsRemastered.Callouts
 
             if (MainPlayer.DistanceTo(victim) <= 10f)
             {
-                Game.DisplayHelp("Press ~y~E~w~ to interact with the ~r~Victim~w~.", false);
+                Game.DisplayHelp("Press ~y~" + Settings.Dialog + "~w~ to interact with the ~r~Victim~w~.", false);
 
-                if (Game.IsKeyDown(System.Windows.Forms.Keys.E))
+                if (Game.IsKeyDown(Settings.Dialog))
                 {
                     counter++;
 
@@ -115,38 +115,47 @@ namespace JMCalloutsRemastered.Callouts
                     }
                     if(counter == 5)
                     {
+                        victim.Tasks.PlayAnimation(new AnimationDictionary("rcmjosh1"), "idle", 1f, AnimationFlags.Loop);
                         Game.DisplaySubtitle("~b~You~w~: Did you threatened anybody?");
                     }
                     if(counter == 6)
                     {
+                        victim.Tasks.PlayAnimation(new AnimationDictionary("anim@amb@casino@hangout@ped_female@stand_withdrink@01a@idles_convo"), "idle_a", -1f, AnimationFlags.Loop);
                         Game.DisplaySubtitle("~o~Victim~w~: No. Why would ask such a thing?");
                     }
                     if(counter == 7)
                     {
+                        victim.Tasks.PlayAnimation(new AnimationDictionary("rcmjosh1"), "idle", 1f, AnimationFlags.Loop);
                         Game.DisplaySubtitle("~b~You~w~: I have gotten a tip that you and your buddy might have a weapon on your person.");
                     }
                     if(counter == 8)
                     {
+                        victim.Tasks.PlayAnimation(new AnimationDictionary("anim@amb@casino@hangout@ped_female@stand_withdrink@01a@idles_convo"), "idle_a", -1f, AnimationFlags.Loop);
                         Game.DisplaySubtitle("~o~Victim~w~: The fuck? Who called and said that?");
                     }
                     if(counter == 9)
                     {
+                        victim.Tasks.PlayAnimation(new AnimationDictionary("rcmjosh1"), "idle", 1f, AnimationFlags.Loop);
                         Game.DisplaySubtitle("~b~You~w~: I don't know, " + malefemale + ". All I know is a couple of people arguing and threatening each other with weapons.");
                     }
                     if(counter == 10)
                     {
+                        victim.Tasks.PlayAnimation(new AnimationDictionary("anim@amb@casino@hangout@ped_female@stand_withdrink@01a@idles_convo"), "idle_a", -1f, AnimationFlags.Loop);
                         Game.DisplaySubtitle("~o~Victim~w~: I bet it was my fucking Karen ass neighbor again. I told that motherfucker to stop eavesdropping on my business.");
                     }
                     if(counter == 11)
                     {
+                        victim.Tasks.PlayAnimation(new AnimationDictionary("rcmjosh1"), "idle", 1f, AnimationFlags.Loop);
                         Game.DisplaySubtitle("~b~You~w~: " + malefemale + ", calm down. We'll take care of it. I need you to calm down.");
                     }
                     if(counter == 12)
                     {
+                        victim.Tasks.PlayAnimation(new AnimationDictionary("anim@amb@casino@hangout@ped_female@stand_withdrink@01a@idles_convo"), "idle_a", -1f, AnimationFlags.Loop);
                         Game.DisplaySubtitle("~o~Victim~w~: I'm done talking to you.");
                     }
                     if(counter == 13)
                     {
+                        victim.Tasks.PlayAnimation(new AnimationDictionary("rcmjosh1"), "idle", 1f, AnimationFlags.Loop);
                         Game.DisplaySubtitle("Conversation ended!");
                         suspect.Tasks.FightAgainst(victim);
                         suspect.Inventory.GiveNewWeapon("WEAPON_PISTOL", 500, true);
