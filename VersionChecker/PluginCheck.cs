@@ -28,7 +28,7 @@
             }
             if(recieveData != Settings.PluginVersion)
             {
-                Game.DisplayNotification("commonmenu", "mp_alerttriangle", "~w~JM Callouts Remastered Warning", "~y~A new update is available!", "Current Version: ~r~" + curVersion + "~w~<br>New Version: ~y~" + recieveData + "<br>~y~Please Update to the latest build for new ~p~callouts and ~g~improvments~w~!:-)");
+                Game.DisplayNotification("commonmenu", "mp_alerttriangle", "~w~JM Callouts Remastered Warning", "~y~A new update is available!", "Current Version: ~r~" + curVersion + "~w~<br>New Version: ~y~" + recieveData + "<br>~y~Please Update to the latest build for new ~p~callouts~w~ and ~g~improvments~w~!:-)");
                 Game.Console.Print();
                 Game.Console.Print("===================================================== JM Callouts Remastered ===========================================");
                 Game.Console.Print();
