@@ -102,7 +102,7 @@ namespace JMCalloutsRemastered.Callouts
             if(MainPlayer.DistanceTo(suspect) <= 10f)
             {
 
-                Game.DisplayHelp("Press ~y~E~w~ to interact with the ~r~suspect~w~. Approach with ~y~CAUTION~w~.", false);
+                Game.DisplayHelp("Press ~y~" + Settings.Dialog + "~w~ to interact with the ~r~suspect~w~. Approach with ~y~CAUTION~w~.", false);
 
                 if (Game.IsKeyDown(Settings.Dialog))
                 {
