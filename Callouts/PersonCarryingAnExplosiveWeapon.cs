@@ -71,9 +71,9 @@ namespace JMCalloutsRemastered
 
             if(MainPlayer.DistanceTo(suspect) <= 10f)
             {
-                Game.DisplayHelp("Press ~y~E~w~ to interact with the suspect.", false);
+                Game.DisplayHelp("Press ~y~" + Settings.Dialog + "~w~ to interact with the suspect.", false);
 
-                if (Game.IsKeyDown(System.Windows.Forms.Keys.E))
+                if (Game.IsKeyDown(Settings.Dialog))
                 {
                     counter++;
 
