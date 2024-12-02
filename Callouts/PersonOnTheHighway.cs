@@ -8,7 +8,6 @@ namespace JMCalloutsRemastered.Callouts
 
     public class PersonOnTheHighway : Callout
     {
-        private static readonly string[] wepList = new string[] { "WEAPON_KNIFE", "WEAPON_BAT", "WEAPON_DAGGER", "WEAPON_GOLFCLUB", "WEAPON_HAMMER", "WEAPON_HATCHET", "WEAPON_PISTOL", "WEAPON_COMBATPISTOL", "WEAPON_AUTOSHOTGUN", "WEAPON_SWITCHBLADE", "WEAPON_PROXMINE", "WEAPON_PISTOL", "WEAPON_DOUBLEACTION", "WEAPON_HEAVYSHOTGUN" };
         private static Blip blip;
         private static Ped suspect;
         private static Vector3 spawnpoint;
