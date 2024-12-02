@@ -62,8 +62,10 @@ namespace JMCalloutsRemastered.Callouts
             suspect.BlockPermanentEvents = true;
             suspect.IsValid();
 
-            suspect.Tasks.PlayAnimation(new AnimationDictionary("random@drunk_driver_1"), "drunk_driver_stand_loop_dd2", -1f, AnimationFlags.Loop);
-            StopThePed.API.Functions.setPedAlcoholOverLimit(suspect, true);
+            victim.Tasks.PlayAnimation(new AnimationDictionary("anim@scripted@ulp_missions@injured_agent@"), "idle", -1f, AnimationFlags.Loop);
+
+            suspect.KeepTasks = true;
+            suspect.Tasks.PlayAnimation(new AnimationDictionary("missarmenian2"), "standing_idle_loop_drunk", -1f, AnimationFlags.Loop);
 
             suspectBlip = new Blip(suspect);
             suspect.AttachBlip();
@@ -100,9 +102,9 @@ namespace JMCalloutsRemastered.Callouts
             if(MainPlayer.DistanceTo(suspect) <= 10f)
             {
 
-                Game.DisplayHelp("Press ~y~E~w~ to interact with the ~r~suspect~w~.", false);
+                Game.DisplayHelp("Press ~y~" + Settings.Dialog + "~w~ to interact with the ~r~suspect~w~.", false);
 
-                if (Game.IsKeyDown(System.Windows.Forms.Keys.E))
+                if (Game.IsKeyDown(Settings.Dialog))
                 {
                     counter++;
 
