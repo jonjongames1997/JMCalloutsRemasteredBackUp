@@ -19,7 +19,7 @@ namespace JMCalloutsRemastered
 
         public override bool OnBeforeCalloutDisplayed()
         {
-            spawnpoint = World.GetNextPositionOnStreet(MainPlayer.Position.Around(1000f));
+            spawnpoint = World.GetNextPositionOnStreet(MainPlayer.Position.Around(500f));
             ShowCalloutAreaBlipBeforeAccepting(spawnpoint, 100f);
             LSPD_First_Response.Mod.API.Functions.PlayScannerAudioUsingPosition("JMCallouts_Person_Carrying_An_Explosive_Weapon_Audio_1", spawnpoint);
             CalloutInterfaceAPI.Functions.SendMessage(this, "Multiple reports of an explosive device");
@@ -44,7 +44,7 @@ namespace JMCalloutsRemastered
             suspect.Inventory.GiveNewWeapon(wepList[new Random().Next((int)wepList.Length)], 500, true);
 
             suspect.AttachBlip();
-            suspectBlip.Color = System.Drawing.Color.Red;
+            suspectBlip.Color = Color.Red;
             suspectBlip.IsRouteEnabled = true;
 
             if (suspect.IsMale)
@@ -71,7 +71,7 @@ namespace JMCalloutsRemastered
 
             if(MainPlayer.DistanceTo(suspect) <= 10f)
             {
-                Game.DisplayHelp("Press ~y~" + Settings.Dialog + "~w~ to interact with the suspect.", false);
+                Game.DisplayHelp("Press ~y~ " + Settings.Dialog + " ~w~ to interact with the suspect.", false);
 
                 if (Game.IsKeyDown(Settings.Dialog))
                 {
