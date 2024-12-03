@@ -1,5 +1,4 @@
 ﻿using CalloutInterfaceAPI;
-using SceneManager.API;
 
 namespace JMCalloutsRemastered.Callouts
 {
@@ -62,7 +61,7 @@ namespace JMCalloutsRemastered.Callouts
             suspect.BlockPermanentEvents = true;
             suspect.IsValid();
 
-            victim.Tasks.PlayAnimation(new AnimationDictionary("anim@scripted@ulp_missions@injured_agent@"), "idle", -1f, AnimationFlags.Loop);
+            NativeFunction.Natives.APPLY_PED_DAMAGE_PACK(victim, "HitByVehicle", 1f, 1f);
 
             suspect.KeepTasks = true;
             suspect.Tasks.PlayAnimation(new AnimationDictionary("missarmenian2"), "standing_idle_loop_drunk", -1f, AnimationFlags.Loop);
@@ -102,7 +101,7 @@ namespace JMCalloutsRemastered.Callouts
             if(MainPlayer.DistanceTo(suspect) <= 10f)
             {
 
-                Game.DisplayHelp("Press ~y~" + Settings.Dialog + "~w~ to interact with the ~r~suspect~w~.", false);
+                Game.DisplayHelp("Press ~y~ " + Settings.Dialog + " ~w~ to interact with the ~r~suspect~w~.", false);
 
                 if (Game.IsKeyDown(Settings.Dialog))
                 {
@@ -137,7 +136,7 @@ namespace JMCalloutsRemastered.Callouts
 
             if (Game.IsKeyDown(Settings.EndCall))
             {
-                this.End();
+                End();
             }
         }
 
