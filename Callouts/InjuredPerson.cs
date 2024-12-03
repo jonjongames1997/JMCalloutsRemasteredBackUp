@@ -63,6 +63,9 @@ namespace JMCalloutsRemastered.Callouts
 
             NativeFunction.Natives.APPLY_PED_DAMAGE_PACK(victim, "HitByVehicle", 1f, 1f);
 
+            LSPD_First_Response.Mod.API.Functions.RequestBackup(spawnpoint, LSPD_First_Response.EBackupResponseType.Code3, LSPD_First_Response.EBackupUnitType.LocalUnit);
+            LSPD_First_Response.Mod.API.Functions.RequestBackup(spawnpoint, LSPD_First_Response.EBackupResponseType.Code3, LSPD_First_Response.EBackupUnitType.LocalUnit);
+
             suspect.KeepTasks = true;
             suspect.Tasks.PlayAnimation(new AnimationDictionary("missarmenian2"), "standing_idle_loop_drunk", -1f, AnimationFlags.Loop);
 
