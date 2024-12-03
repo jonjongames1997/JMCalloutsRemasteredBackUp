@@ -18,6 +18,8 @@ namespace JMCalloutsRemastered.Callouts
         private static float securityHeading;
         private static int counter;
         private static string malefemale;
+        private static string pronoun;
+        private static string pronoun2;
 
         public override bool OnBeforeCalloutDisplayed()
         {
@@ -63,6 +65,16 @@ namespace JMCalloutsRemastered.Callouts
             else
                 malefemale = "Ma'am";
 
+            if (suspect.IsMale)
+                pronoun = "he";
+            else
+                pronoun = "she";
+
+            if (suspect.IsMale)
+                pronoun2 = "him";
+            else
+                pronoun2 = "her";
+
             counter = 0;
 
             return base.OnCalloutAccepted();
@@ -84,8 +96,14 @@ namespace JMCalloutsRemastered.Callouts
 
             if(MainPlayer.DistanceTo(suspect) <= 10f)
             {
-
-                Game.DisplayHelp("Press ~y~" + Settings.Dialog + "~w~to talk to Suspect. ~y~Approach with caution.", false);
+                if (Settings.HelpMessages)
+                {
+                    Game.DisplayHelp("Press ~y~" + Settings.Dialog + "~w~to talk to Suspect. ~y~Approach with caution.", false);
+                }
+                else
+                {
+                    Settings.HelpMessages = false;
+                }
 
                 if (Game.IsKeyDown(Settings.Dialog))
                 {
@@ -145,6 +163,64 @@ namespace JMCalloutsRemastered.Callouts
                         suspect.Inventory.GiveNewWeapon("WEAPON_PISTOL", 500, true);
                         suspect.Tasks.FightAgainst(MainPlayer);
                         Game.DisplaySubtitle("Conversation Ended! Arrest the suspect, Officer.");
+                    }
+                }
+            }
+
+            if(MainPlayer.DistanceTo(securityOfficer) <= 10f)
+            {
+                if (Game.IsKeyDown(Settings.Dialog))
+                {
+                    counter++;
+
+                    if(counter == 1)
+                    {
+                        Game.DisplaySubtitle("~b~You~w~: Hello, what seemd to be the issue here, " + malefemale + ".");
+                    }
+                    if(counter == 2)
+                    {
+                        securityOfficer.Tasks.PlayAnimation(new AnimationDictionary("anim@amb@casino@brawl@fights@argue@"), "arguement_loop_mp_m_brawler_01", -1f, AnimationFlags.Loop);
+                        Game.DisplaySubtitle("~o~Security~w~: Hello, Officer, The person you were talking to came in and started filming with their electronic device. (1/6)");
+                    }
+                    if (counter == 3)
+                    {
+                        securityOfficer.Tasks.PlayAnimation(new AnimationDictionary("anim@amb@casino@brawl@fights@argue@"), "arguement_loop_mp_m_brawler_01", -1f, AnimationFlags.Loop);
+                        Game.DisplaySubtitle("~o~Security~w~: I told " + pronoun + " that this is a federal government building and " + pronoun +  " is not allowed to film. (2/6)");
+                    }
+                    if (counter == 4)
+                    {
+                        securityOfficer.Tasks.PlayAnimation(new AnimationDictionary("anim@amb@casino@brawl@fights@argue@"), "arguement_loop_mp_m_brawler_01", -1f, AnimationFlags.Loop);
+                        Game.DisplaySubtitle("~o~Security~w~: Then " + pronoun + " proceeds to mention something about 'Freedom Of The Press'. I asked for some sort of identification (3/6)");
+                    }
+                    if (counter == 5)
+                    {
+                        securityOfficer.Tasks.PlayAnimation(new AnimationDictionary("anim@amb@casino@brawl@fights@argue@"), "arguement_loop_mp_m_brawler_01", -1f, AnimationFlags.Loop);
+                        Game.DisplaySubtitle("~o~Security~w~: or paperwork to identofy that their are from the press. " + pronoun + " said they don't need one. (4/6)");
+                    }
+                    if (counter == 6)
+                    {
+                        securityOfficer.Tasks.PlayAnimation(new AnimationDictionary("anim@amb@casino@brawl@fights@argue@"), "arguement_loop_mp_m_brawler_01", -1f, AnimationFlags.Loop);
+                        Game.DisplaySubtitle("~o~Security~w~: and I said, 'Yes, you do.'. " + pronoun + " continued to argue about it. Then I asked " + pronoun2 + " to leave the premises. (5/6)");
+                    }
+                    if (counter == 7)
+                    {
+                        securityOfficer.Tasks.PlayAnimation(new AnimationDictionary("anim@amb@casino@brawl@fights@argue@"), "arguement_loop_mp_m_brawler_01", -1f, AnimationFlags.Loop);
+                        Game.DisplaySubtitle("~o~Security~w~: " + pronoun2 + " refused to leave, so I called you guys down here for assistance. We want them removed from the property and trespassed as possible, officer.(6/6)");
+                    }
+                    if(counter == 8)
+                    {
+                        securityOfficer.Tasks.PlayAnimation(new AnimationDictionary("rcmjosh1"), "idle", -1f, AnimationFlags.Loop);
+                        Game.DisplaySubtitle("~b~You~w~: Ok, I will talk to them. Thank you for your cooperation and we'll take it from here.");
+                    }
+                    if(counter == 9)
+                    {
+                        securityOfficer.Tasks.PlayAnimation(new AnimationDictionary("anim@amb@casino@brawl@fights@argue@"), "arguement_loop_mp_m_brawler_01", -1f, AnimationFlags.Loop);
+                        Game.DisplaySubtitle("~o~Security~w~: Thank you, Officer. Stay safe out there. Enjoy your day.");
+                    }
+                    if(counter == 10)
+                    {
+                        securityOfficer.Tasks.Wander();
+                        Game.DisplaySubtitle("Convo ended. Finish talking to the auditor and deal with the situation.");
                     }
                 }
             }
