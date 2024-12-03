@@ -41,7 +41,7 @@ namespace JMCalloutsRemastered
         internal static bool Rocketman = true;
         internal static bool PrankCall = true;
         internal static bool InjuredPerson = true;
-        internal static bool PersonCarryingAnExplosiveWeapon = true;
+        internal static bool PersonCarryingAnExplosiveWeapon = false;
         internal static bool BountyHunterRequiringAssistance = false;
         internal static bool HomelessPerson = true;
         internal static bool DomesticDisturbanceGrapeseed = true;
@@ -96,7 +96,7 @@ namespace JMCalloutsRemastered
             Settings.Rocketman = ini.ReadBoolean("Callouts", "Rocketman", true);;
             Settings.PrankCall = ini.ReadBoolean("Callouts", "PrankCall", true);
             Settings.InjuredPerson = ini.ReadBoolean("Callouts", "InjuredPerson", true);
-            Settings.PersonCarryingAnExplosiveWeapon = ini.ReadBoolean("Callouts", "PersonCarryingAnExplosiveWeapon", true);
+            Settings.PersonCarryingAnExplosiveWeapon = ini.ReadBoolean("Callouts", "PersonCarryingAnExplosiveWeapon", false);
             Settings.BountyHunterRequiringAssistance = ini.ReadBoolean("Callouts", "BountyHunterRequiringAssistance", false);
             Settings.HomelessPerson = ini.ReadBoolean("Callouts", "HomelessPerson", true);
             Settings.DomesticDisturbanceGrapeseed = ini.ReadBoolean("Callouts", "DomesticDisturbanceGrapeseed", true);
