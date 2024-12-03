@@ -2,6 +2,10 @@
 
 v5.0.10.5:
 
+- Added animation to the security officer in 'First Amendment Auditor' callout
+- Bug fixes
+- Minor adjustments to Injured Person callout
+- [Testing] Injured Person and Suspicious Person callout will now have units respond to the scene first before the player. Will expand to more callouts soon.
 - 
 
 v5.0.10.4:
