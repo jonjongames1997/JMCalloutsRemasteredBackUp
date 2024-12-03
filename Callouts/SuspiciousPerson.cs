@@ -42,6 +42,9 @@ namespace JMCalloutsRemastered.Callouts
 
 
             LSPD_First_Response.Mod.API.Functions.PlayScannerAudio("JMCallouts_Respond_Code_2_Audio");
+            // Testing out back up units to be on scene first before player // 
+            LSPD_First_Response.Mod.API.Functions.RequestBackup(spawnpoint, LSPD_First_Response.EBackupResponseType.Code2, LSPD_First_Response.EBackupUnitType.LocalUnit);
+            LSPD_First_Response.Mod.API.Functions.RequestBackup(spawnpoint, LSPD_First_Response.EBackupResponseType.Code2, LSPD_First_Response.EBackupUnitType.LocalUnit);
 
             suspect = new Ped(spawnpoint);
             suspect.IsPersistent = true;
