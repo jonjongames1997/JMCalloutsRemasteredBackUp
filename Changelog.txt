@@ -6,7 +6,7 @@ v5.0.10.5:
 - Bug fixes
 - Minor adjustments to Injured Person callout
 - [Testing] Injured Person and Suspicious Person callout will now have units respond to the scene first before the player. Will expand to more callouts soon.
-- 
+- Disabled 'Person Carrying An Explosive Weapon' until a fix is made
 
 v5.0.10.4:
 
